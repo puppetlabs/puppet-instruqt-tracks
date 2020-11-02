@@ -1,0 +1,6 @@
+version: "2"
+virtualmachines:
+- name: puppet
+  image: instruqt/puppet-demo
+  shell: /bin/bash
+  machine_type: n1-standard-2

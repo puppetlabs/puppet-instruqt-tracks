@@ -1,0 +1,65 @@
+slug: getting-started-with-bolt
+id: diticbtrwatq
+type: track
+title: Getting started with Bolt
+teaser: Learn the basics of Bolt!
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: puppet
+developers:
+- tara.swenson@puppet.com
+private: false
+published: false
+challenges:
+- slug: introduction-to-bolt
+  id: eqmodrpl9ij4
+  type: challenge
+  title: Introduction to Bolt
+  teaser: Learn what Bolt is and how it works, then try it for yourself!
+  assignment: |-
+    The assignment the participant needs to complete in order to proceed.
+
+    You can use any GitHub flavoured markdown.
+  notes:
+  - type: text
+    contents: "# Welcome to Getting started with Bolt. \U0001F44B\r\n\r\nClick the
+      *arrow* at the right to learn about Bolt and how it works. <i class=\"fas fa-chevron-right\"></i>\r\n\r\nOnce
+      your environment has been created, click *Start* at the bottom right of the
+      screen to dive in and try Bolt out for yourself.\r\n\r\nFrom within the course
+      you can return to these notes at any time by clicking the *Notes* icon in the
+      upper right-hand corner of the screen. "
+  - type: text
+    contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
+      the manual work it takes to maintain your infrastructure. Use Bolt to automate
+      tasks that you perform on an as-needed basis or as part of a greater orchestration
+      workflow.\r\n\r\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Ka1ycP5Y73Y\"
+      frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media;
+      gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+  - type: text
+    contents: "Bolt can be installed on your local workstation and connects directly
+      to remote targets with SSH or WinRM, so you are not required to install any
+      agent software.\r\n\r\nUse Bolt to:  \r\n\r\n- Patch and update systems\r\n-
+      Troubleshoot servers\r\n- Deploy applications\r\n- Stop and restart services\r\n\r\n"
+  - type: text
+    contents: "# What is the difference between tasks and plans?\r\n\r\nA *task* ✔️
+      is a single action that you execute on target machines. With tasks, you can
+      troubleshoot and deploy changes to individual or multiple systems in your infrastructure.\r\n\r\nA
+      *plan* \U0001F4C3 is a bundle of tasks that can be combined with other logic.
+      They allow you to do complex task operations, like running multiple tasks with
+      one command or running certain tasks based on the output of another task."
+  - type: text
+    contents: "You can run tasks and plans from your tool of choice: the console,
+      the orchestrator command line interface (CLI), or the orchestrator API /command/task
+      and /command/plan_run endpoints.\r\n\r\n# Click *Start* to begin trying Bolt
+      for yourself. "
+  tabs:
+  - title: Puppet
+    type: terminal
+    hostname: puppet
+  difficulty: basic
+  timelimit: 900
+checksum: "11278692816744972139"

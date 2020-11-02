@@ -1,0 +1,16 @@
+slug: this-is-my-third-track
+type: track
+title: this is my third track
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: puppet
+developers:
+- tara.swenson@puppet.com
+private: false
+published: false
+challenges: []

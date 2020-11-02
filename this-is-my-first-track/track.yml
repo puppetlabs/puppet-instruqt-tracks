@@ -1,0 +1,34 @@
+slug: this-is-my-first-track
+id: tdyyxpzpstze
+version: 0.0.1
+type: track
+title: This is my first track
+teaser: A small teaser
+description: This is the description of the track.
+icon: ""
+tags: []
+owner: puppet
+developers:
+- niels@instruqt.com
+- greg.larkin@puppet.com
+- nikki.mcdonald@puppet.com
+- tara.swenson@puppet.com
+private: true
+published: false
+challenges:
+- slug: this-is-the-first-challenge
+  id: 2sdppcn3ohpy
+  type: challenge
+  title: This is the first challenge
+  teaser: This is the teaser of the first challenge
+  assignment: "# Heading\r\nThis is the actual **assignment**."
+  notes:
+  - type: text
+    contents: This is the first note
+  tabs:
+  - title: Terminal
+    type: terminal
+    hostname: alpine
+  difficulty: basic
+  timelimit: 500
+checksum: "8548162707876433947"

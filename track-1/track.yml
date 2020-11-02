@@ -1,0 +1,15 @@
+slug: track-1
+type: track
+title: Track 1
+teaser: A short description of the track.
+description: |-
+  A long description of the track.
+
+  You can use any GitHub flavoured markdown.
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+developers:
+- tara.swenson@puppet.com
+private: false
+published: false
+challenges: []
