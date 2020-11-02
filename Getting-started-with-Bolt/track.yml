@@ -12,6 +12,7 @@ tags: []
 owner: puppet
 developers:
 - tara.swenson@puppet.com
+- greg.larkin@puppet.com
 private: false
 published: false
 challenges:
@@ -52,14 +53,14 @@ challenges:
       They allow you to do complex task operations, like running multiple tasks with
       one command or running certain tasks based on the output of another task."
   - type: text
-    contents: "You can run tasks and plans from your tool of choice: the console,
-      the orchestrator command line interface (CLI), or the orchestrator API /command/task
-      and /command/plan_run endpoints.\r\n\r\n# Click *Start* to begin trying Bolt
-      for yourself. "
+    contents: "You can run tasks and plans from your tool of choice:\r\n\r\n- The
+      console\r\n- The orchestrator command line interface (CLI)\r\n- The orchestrator
+      API /command/task and /command/plan_run endpoints\r\n\r\n# Click *Start* to
+      begin trying Bolt for yourself. "
   tabs:
   - title: Puppet
     type: terminal
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "11278692816744972139"
+checksum: "368821974263541322"
