@@ -1,14 +1,12 @@
-slug: getting-started-with-bolt
+slug: getting-started-with-bolt-on-linux
 id: diticbtrwatq
 type: track
-title: Getting started with Bolt
-teaser: Learn the basics of Bolt!
-description: |-
-  A long description of the track.
-
-  You can use any GitHub flavoured markdown.
+title: Getting started with Bolt on Linux
+teaser: Learn how to get started with Bolt!
+description: Learn the basics of Bolt on Linux.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - tara.swenson@puppet.com
@@ -16,15 +14,15 @@ developers:
 private: false
 published: false
 challenges:
-- slug: getting-started-with-bolt-on-linux
+- slug: install-bolt-on-linux
   id: eqmodrpl9ij4
   type: challenge
-  title: Getting Started With Bolt On Linux
+  title: Install Bolt on Linux
   teaser: Learn what Bolt is and how it works, then try it for yourself!
   assignment: "First, you must configure the Bolt yum repository. \n\nThis is required
     because standard Linux installations are not configured with the Bolt repository.\n\nTo
-    configure the repository, run the following command: `rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm`\n\nNow
-    install Bolt by running this command: `yum install -y puppet-bolt`"
+    configure the repository, run the following command: \n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\n\nNow
+    install Bolt by running this command: \n```\nyum install -y puppet-bolt\n```"
   notes:
   - type: text
     contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
@@ -39,4 +37,20 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "14363211924266796774"
+- slug: verify-your-bolt-installation-linux
+  id: wvghomls1zpw
+  type: challenge
+  title: Verify Your Bolt Installation
+  teaser: Make sure that your Bolt installation works as expected.
+  assignment: "Now that you've installed Bolt, verify that its working.\r\n\r\nRun
+    `bolt --version` to display the Bolt version number.\r\n\r\nThen, run `bolt --help`
+    to display the Bolt help message.\r\n\r\nBolt has help for each individual subcommand.
+    To check it out, run: `bolt command --help`\r\n"
+  notes:
+  - type: text
+    contents: "Make sure that your Bolt installation worked as expected. \r\n\r\nFor
+      more ways to install Bolt, visit the <a href=\"https://puppet.com/docs/bolt/latest/bolt_installing.html\">Bolt
+      documentation</a>."
+  difficulty: basic
+  timelimit: 500
+checksum: "10937249013779794572"
