@@ -51,6 +51,10 @@ challenges:
     contents: "Make sure that your Bolt installation worked as expected. \r\n\r\nFor
       more ways to install Bolt, visit the <a href=\"https://puppet.com/docs/bolt/latest/bolt_installing.html\">Bolt
       documentation</a>."
+  tabs:
+  - title: Puppet
+    type: terminal
+    hostname: puppet
   difficulty: basic
   timelimit: 500
-checksum: "10937249013779794572"
+checksum: "11288663074132315836"
