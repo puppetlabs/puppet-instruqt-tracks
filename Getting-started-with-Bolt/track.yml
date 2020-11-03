@@ -3,10 +3,15 @@ id: diticbtrwatq
 type: track
 title: Getting started with Bolt on Linux
 teaser: Learn how to get started with Bolt!
-description: Learn the basics of Bolt on Linux.
+description: "Learn the basics of Bolt on Linux!\r\n\r\n- First, you will learn what
+  Bolt is and why its useful.\r\n- Then, you will learn how to install Bolt and verify
+  that your installation works as expected.\r\n- Finally, you'll take a quick knowledge
+  check to make sure you've got it down."
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
 tags:
-- ""
+- Puppet
+- ' Bolt'
 owner: puppet
 developers:
 - tara.swenson@puppet.com
@@ -18,43 +23,97 @@ challenges:
   id: eqmodrpl9ij4
   type: challenge
   title: Install Bolt on Linux
-  teaser: Learn what Bolt is and how it works, then try it for yourself!
-  assignment: "First, you must configure the Bolt yum repository. \n\nThis is required
-    because standard Linux installations are not configured with the Bolt repository.\n\nTo
-    configure the repository, run the following command: \n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\n\nNow
+  teaser: Learn what Bolt is, and then install it to try it out for yourself!
+  assignment: "# What is Bolt?\nBolt is an open source orchestration tool that automates
+    the manual work it takes to maintain your infrastructure. You can use Bolt to
+    automate tasks that you perform on an as-needed basis or as part of a greater
+    orchestration workflow.\n\nBolt can be installed on your local workstation and
+    connects directly to remote targets with SSH or WinRM, so you are not required
+    to install any agent software.\nUse Bolt to:\n- Patch and update systems\n- Troubleshoot
+    servers\n- Deploy applications\n- Stop and restart services\n\n# Install Bolt\nThe
+    best way to learn how Bolt works is try it out for yourself.\n\nFirst, you'll
+    need to install it. In order to do this, you must configure the Bolt yum repository.
+    (This is required because standard Linux installations are not configured with
+    the Bolt repository.)\n\nTo configure the repository, run the following command:
+    \n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\n\nNow
     install Bolt by running this command: \n```\nyum install -y puppet-bolt\n```"
   notes:
   - type: text
-    contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
-      the manual work it takes to maintain your infrastructure. Use Bolt to automate
-      tasks that you perform on an as-needed basis or as part of a greater orchestration
-      workflow.\r\n\r\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Ka1ycP5Y73Y\"
-      frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media;
-      gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    contents: <iframe width="560" height="315" src="https://www.youtube.com/embed/Ka1ycP5Y73Y"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+      gyroscope; picture-in-picture" allowfullscreen></iframe>
+    url: https://www.youtube.com/watch?v=wN0SQ1K8Rxk&t
   tabs:
   - title: Puppet
     type: terminal
     hostname: puppet
   difficulty: basic
-  timelimit: 900
+  timelimit: 300
 - slug: verify-your-bolt-installation-linux
   id: wvghomls1zpw
   type: challenge
   title: Verify Your Bolt Installation
   teaser: Make sure that your Bolt installation works as expected.
-  assignment: "Now that you've installed Bolt, verify that its working.\r\n\r\nRun
-    `bolt --version` to display the Bolt version number.\r\n\r\nThen, run `bolt --help`
-    to display the Bolt help message.\r\n\r\nBolt has help for each individual subcommand.
-    To check it out, run: `bolt command --help`\r\n"
+  assignment: "Now that you've installed Bolt, verify that its working. A simple way
+    to do this is to run some basic Bolt commands. \r\n\r\nFirst, display the Bolt
+    version number by running this command:\r\n```\r\nbolt --version\r\n```\r\n\r\nThen,
+    display the Bolt help message by running this command:\r\n```\r\nbolt --help\r\n```\r\n\r\nBolt
+    has help for each individual subcommand. To check it out, run:\r\n```\r\nbolt
+    command --help\r\n```\r\n"
   notes:
   - type: text
-    contents: "Make sure that your Bolt installation worked as expected. \r\n\r\nFor
-      more ways to install Bolt, visit the <a href=\"https://puppet.com/docs/bolt/latest/bolt_installing.html\">Bolt
-      documentation</a>."
+    contents: "Now, make sure that your Bolt installation works as expected. \r\n\r\nClick
+      Start to begin the next challenge."
   tabs:
   - title: Puppet
     type: terminal
     hostname: puppet
   difficulty: basic
-  timelimit: 500
-checksum: "11288663074132315836"
+  timelimit: 300
+- slug: bolt-installation-linux-knowledge-check
+  id: mki61z91rrlu
+  type: quiz
+  title: 'Knowledge Check #1'
+  teaser: 'Knowledge Check #1'
+  assignment: "# What can you do with Bolt? \r\n\r\nSelect all that apply, then click
+    *Check* to see if you got it right."
+  answers:
+  - Run tasks
+  - Connect to remote targets
+  - Change a flat tire
+  solution:
+  - 0
+  - 1
+  difficulty: basic
+  timelimit: 120
+- slug: knowledge-check-2
+  id: mc2ktnzrnyfi
+  type: quiz
+  title: 'Knowledge Check #2'
+  teaser: 'Knowledge Check #2'
+  assignment: "# True or False: Bolt is an automated task runner. \r\n\r\nSelect an
+    option, then click *Check* to see if you got it right!"
+  answers:
+  - "True"
+  - "False"
+  solution:
+  - 0
+  difficulty: basic
+  timelimit: 120
+- slug: knowledge-check-3
+  id: yfg7oeidrrkp
+  type: quiz
+  title: 'Knowledge Check #3'
+  teaser: 'Knowledge Check #3'
+  assignment: "# What command can you run if you get stuck and need help?\r\n\r\nSelect
+    an option, then click *Check* to see if you got it right!"
+  answers:
+  - bolt --version
+  - bolt --help
+  - bolt --debug
+  - bolt --log-level
+  solution:
+  - 1
+  difficulty: basic
+  timelimit: 120
+checksum: "99946438608988545"
