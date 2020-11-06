@@ -2,7 +2,7 @@
 
 # Inject some additional JSON key/value pairs
 json -I -f /tmp/instruqt.json \
-    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Verify Your Bolt Installation"' \
+    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Knowledge Check"' \
     -e 'this.Env.INSTRUQT_CHALLENGE_STATE="start"'
 
 # Post the JSON data to the Workato endpoint

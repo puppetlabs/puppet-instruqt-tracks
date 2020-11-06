@@ -90,7 +90,7 @@ challenges:
   - bolt --version
   - bolt --help
   - bolt --debug
-  - bolt --log
+  - bolt --log-level
   solution:
   - 1
   difficulty: basic
@@ -123,4 +123,4 @@ challenges:
     url: https://puppet.com/docs/bolt/
   difficulty: basic
   timelimit: 500
-checksum: "5576185959239327395"
+checksum: "8060787043008107530"
