@@ -1,0 +1,4 @@
+#!/bin/bash
+
+history > /tmp/history.txt
+exit 0

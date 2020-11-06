@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Install some JSON manipulation tools
+yum install -y jq nodejs
+npm install -g json
+
+printenv | grep ^INSTR | jq -sR '
+    { "Env": [split("\n")[:-1][] | rtrimstr("\\r")
+        | split("=") | {(.[0]): .[1]}]  | add }' > /tmp/instruqt.json
+
+# Inject some additional JSON key/value pairs
+json -I -f /tmp/instruqt.json \
+    -e 'this.Env.INSTRUQT_TRACK_NAME="Getting Started with Bolt on Linux"' \
+    -e 'this.Env.INSTRUCT_CHALLENGE_NAME="Install Bolt on Linux"' \
+    -e 'this.Env.INSTRUCT_CHALLENGE_STATE="start"'

@@ -7,17 +7,17 @@ description: "Learn the basics of Bolt on Linux!\r\n\r\n- First, you will learn 
   Bolt is and why its useful.\r\n- Then, you will learn how to install Bolt and verify
   that your installation works as expected.\r\n- Finally, you'll take a quick knowledge
   check to make sure you've got it down."
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 level: beginner
 tags:
 - Puppet
 - ' Bolt'
 owner: puppet
 developers:
-- tara.swenson@puppet.com
 - greg.larkin@puppet.com
+- tara.swenson@puppet.com
 private: true
-published: false
+published: true
 challenges:
 - slug: install-bolt-on-linux
   id: eqmodrpl9ij4
@@ -34,11 +34,11 @@ challenges:
     with SSH or WinRM, so you are not required to install any agent software.\nUse
     Bolt to:\n- Patch and update systems\n- Troubleshoot servers\n- Deploy applications\n-
     Stop and restart services\n\n# Install Bolt\nThe best way to learn how Bolt works
-    is try it out for yourself.\n\nFirst, you'll need to install it. In order to do
-    this, you must configure the Bolt yum repository. (This is required because standard
-    Linux installations are not configured with the Bolt repository.)\n\nTo configure
-    the repository, run the following command: \n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\n\nNow
-    install Bolt by running this command: \n```\nyum install -y puppet-bolt\n```\n\nAfter
+    is try it out for yourself.\n\n**Step 1**\nBegin by installing Bolt. In order
+    to do this, you must configure the Bolt yum repository. (This is required because
+    standard Linux installations are not configured with the Bolt repository.)\n\nTo
+    configure the repository, run the following command: \n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\n\n**Step
+    2**\nNow install Bolt by running this command: \n```\nyum install -y puppet-bolt\n```\n\nAfter
     you have finished running these commands, click **Check** to make sure everything
     worked correctly.\n"
   notes:
@@ -68,88 +68,68 @@ challenges:
     to continue. "
   notes:
   - type: text
-    contents: "<div align=\"center\">Now that you've installed Bolt, make sure it
-      works as expected. \r\n\r\nClick *Start* to begin the next challenge.</div>"
+    contents: "Now that you've installed Bolt, make sure it works as expected. \r\n\r\nClick
+      **Start** to begin the next challenge."
   tabs:
   - title: Puppet
     type: terminal
     hostname: puppet
   difficulty: basic
   timelimit: 300
-- slug: bolt-installation-linux-knowledge-check
-  id: mki61z91rrlu
+- slug: knowledge-check
+  id: qhdb3cpdzkci
   type: quiz
-  title: 'Knowledge Check #1'
-  teaser: 'Knowledge Check #1'
-  assignment: "# What can you do with Bolt? \r\n\r\nSelect all that apply, then click
-    **Check** to see if you got it right."
+  title: Knowledge Check
+  teaser: Test your knowledge to make sure you've got it down.
+  assignment: What Bolt command should you run if you get stuck and need guidance?
   notes:
   - type: text
-    contents: <div align="center">Nice work! Next you'll test your Bolt knowledge
-      to make sure you've got it down.</div>
-  answers:
-  - Run tasks
-  - Connect to remote targets
-  - Change a flat tire
-  solution:
-  - 0
-  - 1
-  difficulty: basic
-  timelimit: 120
-- slug: knowledge-check-2
-  id: mc2ktnzrnyfi
-  type: quiz
-  title: 'Knowledge Check #2'
-  teaser: 'Knowledge Check #2'
-  assignment: "# True or False: Bolt is an automated task runner. \r\n\r\nSelect an
-    option, then click **Check** to see if you got it right!"
-  notes:
-  - type: text
-    contents: "<div align=\"center\"> Great job! \r\n\r\nClick *Start* to continue
-      to the next knowledge challenge.</div>"
-  answers:
-  - "True"
-  - "False"
-  solution:
-  - 0
-  difficulty: basic
-  timelimit: 120
-- slug: knowledge-check-3
-  id: yfg7oeidrrkp
-  type: quiz
-  title: 'Knowledge Check #3'
-  teaser: 'Knowledge Check #3'
-  assignment: "# What command can you run if you get stuck and need help?\r\n\r\nSelect
-    an option, then click **Check** to see if you got it right!"
+    contents: "Nice work!\r\n\r\nNext you will test your knowledge to make sure you've
+      got it down. \r\n\r\nClick **Start** when you're ready."
   answers:
   - bolt --version
   - bolt --help
   - bolt --debug
-  - bolt --log-level
+  - bolt --log
   solution:
   - 1
   difficulty: basic
   timelimit: 120
 - slug: wrapup-and-resources
-  id: cygwk6omheyz
+  id: cbx9km3mmtn8
   type: challenge
-  title: Wrap-up and Resources
-  teaser: Review what you learned and learn where you can find more information.
-  assignment: "Nice job! \r\n\r\n[Insert GIF here]\r\n\r\nIn this course you learned
+  title: Wrapup & Resources
+  teaser: Recap what you learned and find out where to learn more.
+  assignment: "Nice job! You completed the course! \r\n\r\nIn this course you learned
     what Bolt is, how to install it, and how to verify your installation.\r\nThen
     you tested your knowledge to make sure you've got it down. \r\n\r\nWant to learn
-    more about Bolt or Puppet? Check out these resources:\r\n- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)\r\n-
-    [Intro to Bolt Learning Kit](https://puppet.com/learning-training/kits/intro-to-bolt/)\r\n-
-    [Puppet Compass](https://learn.puppet.com)\r\n- [Puppet Community Slack](https://slack.puppet.com/)\r\n\r\nWe
-    would love to hear your feedback to learn how we can make our instructional content
-    even better.\r\n\r\nPlease fill out [this survey](https://forms.gle/XNKQ5rmDZDB4Nvd6A),
-    or email us directly at <education@puppet.com>. \r\n\r\nClick **Check** to close
-    out the course."
+    more about Bolt or Puppet? Check out these resources in the webpage shown here.\r\n\r\nClick
+    **Check** when you're ready to close out the course."
   notes:
   - type: text
-    contents: "<div align=\"center\">Great job! You completed the course!\r\n\r\n[Insert
-      GIF here]\r\n\r\nClick **Start** to review what you learned and check out some
-      resources for learning more. </div>"
+    contents: "Excellent! You completed the track! \r\n\r\nClick Start to review what
+      you learned and find out where you can learn more."
+  tabs:
+  - title: Puppet Compass
+    type: website
+    hostname: puppet
+    url: https://learn.puppet.com
+  - title: Puppet.com
+    type: website
+    hostname: puppet
+    url: https://puppet.com/
+  - title: Bolt Docs
+    type: website
+    hostname: puppet
+    url: https://puppet.com/docs/bolt/
+  - title: LearnDot Resources Page
+    type: website
+    hostname: puppet
+    url: https://learn.puppet.com/wrapup-and-resources?_http_return_to_url=https%3A%2F%2Finternal-puppetlabs.trainingrocket.com%2Fadmin%2Fpage%2Fview%2F128.html
+  - title: LearnDot Resources Page 2
+    type: website
+    hostname: puppet
+    url: https://learn.puppet.com/wrapup-and-resources
   difficulty: basic
   timelimit: 300
-checksum: "8385579485685088629"
+checksum: "841994942922211587"

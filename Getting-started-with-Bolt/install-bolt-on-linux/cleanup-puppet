@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Inject some additional JSON key/value pairs
+json -I -f /tmp/instruqt.json \
+    -e 'this.Env.INSTRUCT_CHALLENGE_STATE="stop"'
