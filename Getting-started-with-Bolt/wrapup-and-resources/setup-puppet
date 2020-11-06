@@ -6,7 +6,7 @@ json -I -f /tmp/instruqt.json \
     -e 'this.Env.INSTRUQT_CHALLENGE_STATE="start"'
 
 # Post the JSON data to the Workato endpoint
-curl -s -X POST \
+curl --max-time 10 -s -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: huds78HUIFMV8497x78bve" \
     -d @/tmp/instruqt.json \
