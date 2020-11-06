@@ -69,7 +69,7 @@ challenges:
   notes:
   - type: text
     contents: "Now that you've installed Bolt, make sure it works as expected. \r\n\r\nClick
-      **Start** to begin the next challenge."
+      Start to begin the next challenge."
   tabs:
   - title: Puppet
     type: terminal
@@ -85,7 +85,7 @@ challenges:
   notes:
   - type: text
     contents: "Nice work!\r\n\r\nNext you will test your knowledge to make sure you've
-      got it down. \r\n\r\nClick **Start** when you're ready."
+      got it down. \r\n\r\nClick Start when you're ready."
   answers:
   - bolt --version
   - bolt --help
@@ -117,26 +117,10 @@ challenges:
     contents: "Excellent! You completed the track! \r\n\r\nClick Start to review what
       you learned and find out where you can learn more."
   tabs:
-  - title: Puppet Compass
-    type: website
-    hostname: puppet
-    url: https://learn.puppet.com
-  - title: Puppet.com
-    type: website
-    hostname: puppet
-    url: https://puppet.com/
   - title: Bolt Docs
     type: website
     hostname: puppet
     url: https://puppet.com/docs/bolt/
-  - title: LearnDot Resources Page
-    type: website
-    hostname: puppet
-    url: https://learn.puppet.com/wrapup-and-resources?_http_return_to_url=https%3A%2F%2Finternal-puppetlabs.trainingrocket.com%2Fadmin%2Fpage%2Fview%2F128.html
-  - title: LearnDot Resources Page 2
-    type: website
-    hostname: puppet
-    url: https://learn.puppet.com/wrapup-and-resources
   difficulty: basic
   timelimit: 500
-checksum: "18410938253866579485"
+checksum: "5576185959239327395"
