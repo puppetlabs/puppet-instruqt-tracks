@@ -94,17 +94,24 @@ challenges:
   solution:
   - 1
   difficulty: basic
-  timelimit: 120
+  timelimit: 60
 - slug: wrapup-and-resources
   id: cbx9km3mmtn8
   type: challenge
   title: "Wrapup & Resources \U0001F600"
   teaser: Recap what you learned and find out where to learn more.
-  assignment: "Nice job! You completed the course! \r\n\r\nIn this course you learned
-    what Bolt is, how to install it, and how to verify your installation.\r\nThen
-    you tested your knowledge to make sure you've got it down. \r\n\r\nWant to learn
-    more about Bolt or Puppet? Check out these resources in the webpage shown here.\r\n\r\nClick
-    **Check** when you're ready to close out the course."
+  assignment: "Congratulations on completing Getting Started with Bolt on Linux!\r\n\r\nIn
+    this course you learned what Bolt is, how to install it, and how to make sure
+    your installation works as expected. You got to practice running some Bolt commands
+    in a simulated environment. Then you tested your knowledge to make sure you've
+    got it down.\r\n\r\nWant to learn more about Bolt or Puppet? Check out these resources:\r\n\r\n[Bolt
+    Docs](https://puppet.com/docs/bolt/latest/bolt.html)\r\n\r\n[Intro to Bolt Learning
+    Kit](https://puppet.com/learning-training/kits/intro-to-bolt/)\r\n\r\n[Puppet
+    Compass](https://learn.puppet.com)\r\n\r\n[Puppet Community Slack](https://slack.puppet.com/)\r\n\r\nClick
+    **Check** when you're ready to close out the course.\r\n\r\nWe would love to hear
+    your feedback to learn how we can make our instructional content even better.\r\n\r\nPlease
+    fill out [this survey](https://forms.gle/XNKQ5rmDZDB4Nvd6A), or email us directly
+    at [education@puppet.com](mailto:education@puppet.com)."
   notes:
   - type: text
     contents: "Excellent! You completed the track! \r\n\r\nClick Start to review what
@@ -131,5 +138,5 @@ challenges:
     hostname: puppet
     url: https://learn.puppet.com/wrapup-and-resources
   difficulty: basic
-  timelimit: 300
-checksum: "15263558334711216805"
+  timelimit: 500
+checksum: "18410938253866579485"
