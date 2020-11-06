@@ -2,4 +2,4 @@
 
 # Inject some additional JSON key/value pairs
 json -I -f /tmp/instruqt.json \
-    -e 'this.Env.INSTRUCT_CHALLENGE_STATE="stop"'
+    -e 'this.Env.INSTRUQT_CHALLENGE_STATE="stop"'

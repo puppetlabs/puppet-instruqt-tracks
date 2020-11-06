@@ -22,7 +22,7 @@ challenges:
 - slug: install-bolt-on-linux
   id: eqmodrpl9ij4
   type: challenge
-  title: Install Bolt on Linux
+  title: "Install Bolt on Linux \U0001F4BB"
   teaser: Learn what Bolt is, and then install it to try it out for yourself!
   assignment: "<iframe width=\"400\" height=\"225\" src=\"https://www.youtube.com/embed/wN0SQ1K8Rxk\"
     frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media;
@@ -56,7 +56,7 @@ challenges:
 - slug: verify-your-bolt-installation-linux
   id: wvghomls1zpw
   type: challenge
-  title: Verify Your Bolt Installation
+  title: Verify Your Bolt Installation ✔️
   teaser: Make sure that your Bolt installation works as expected.
   assignment: "![image](https://puppet.com/docs/bolt/latest/bolt-logo-dark.png)\r\n\r\nNow
     that you've installed Bolt, verify that its working. A simple way to do this is
@@ -79,7 +79,7 @@ challenges:
 - slug: knowledge-check
   id: qhdb3cpdzkci
   type: quiz
-  title: Knowledge Check
+  title: "Knowledge Check \U0001F4A1"
   teaser: Test your knowledge to make sure you've got it down.
   assignment: What Bolt command should you run if you get stuck and need guidance?
   notes:
@@ -98,7 +98,7 @@ challenges:
 - slug: wrapup-and-resources
   id: cbx9km3mmtn8
   type: challenge
-  title: Wrapup & Resources
+  title: "Wrapup & Resources \U0001F600"
   teaser: Recap what you learned and find out where to learn more.
   assignment: "Nice job! You completed the course! \r\n\r\nIn this course you learned
     what Bolt is, how to install it, and how to verify your installation.\r\nThen
@@ -132,4 +132,4 @@ challenges:
     url: https://learn.puppet.com/wrapup-and-resources
   difficulty: basic
   timelimit: 300
-checksum: "841994942922211587"
+checksum: "15263558334711216805"
