@@ -1,0 +1,2 @@
+rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
+yum install -y puppet-bolt-3.1.0

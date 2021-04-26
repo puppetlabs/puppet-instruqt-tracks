@@ -1,0 +1,15 @@
+#!/bin/bash
+
+HISTORY_FILE=~/.bash_history
+EXIT_STATUS=0
+
+grep -q 'bolt --version' ${HISTORY_FILE} || EXIT_STATUS=$?
+grep -q 'bolt --help' ${HISTORY_FILE} || EXIT_STATUS=$?
+grep -q 'bolt command --help' ${HISTORY_FILE} || EXIT_STATUS=$?
+
+if [ ${EXIT_STATUS} -ne 0 ]; then
+  fail-message "Try running all of the commands shown in the challenge"
+  exit 1
+fi
+
+exit 0
