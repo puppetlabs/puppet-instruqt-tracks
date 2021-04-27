@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Inject some additional JSON key/value pairs
+json -I -f /tmp/instruqt.json \
+    -e 'this.Env.INSTRUQT_CHALLENGE_STATE="stop"'
+
+# Post the JSON data to the Workato endpoint
+curl --max-time 10 -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: huds78HUIFMV8497x78bve" \
+    -d @/tmp/instruqt.json \
+    https://www.workato.com/webhooks/rest/15945364-35cf-4532-8fec-37447dad29d6/instruqt-lifecycle-script

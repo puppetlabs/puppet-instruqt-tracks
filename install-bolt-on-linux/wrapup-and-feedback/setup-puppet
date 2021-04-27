@@ -12,7 +12,7 @@ printenv | grep ^INSTR | jq -sR '
 # Inject some additional JSON key/value pairs
 json -I -f /tmp/instruqt.json \
     -e 'this.Env.INSTRUQT_TRACK_NAME="Install Bolt on Linux"' \
-    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Knowledge Check"' \
+    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Wrap-up & Feedback"' \
     -e 'this.Env.INSTRUQT_CHALLENGE_STATE="start"'
 
 # Post the JSON data to the Workato endpoint
