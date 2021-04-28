@@ -4,17 +4,20 @@ type: track
 title: Install Bolt on Linux
 teaser: Get started with Bolt on the Linux platform!
 description: "Bolt is an ad hoc orchestration tool that is especially useful for remotely
-  executing tasks on a large number of nodes.\r\n\r\nIn this track, you will learn:\r\n-
-  What Bolt is and why it's useful.\r\n- How to install Bolt and verify that your
-  installation works as expected.\r\n- How to run a simple Bolt command on a remote
-  target node. \r\n  \r\n \r\n\r\n**Why complete this track?**  \r\nIf you’re brand
-  new to using Bolt, this is your starting point. Whether your goal is to quickly
+  executing tasks on a large number of nodes. For example, you can use Bolt to patch
+  and update systems, troubleshoot servers, deploy applications, or stop and restart
+  services.\r\n\r\nIn this track, you will:  \r\n\r\n **Learn:**\r\n  - What Bolt
+  is and why it's useful\r\n  - How to install Bolt\r\n  - How to verify that your
+  installation works as expected.  \r\n\r\n    \r\n**Try it out for yourself:** \r\n
+  \ - Use Bolt to update the NTP service on your servers in order to keep their clocks
+  in sync.  \r\n  \r\n\r\n  \r\n\r\n  \r\n**Why complete this track?**  \r\nIf you’re
+  brand new to using Bolt, this is your starting point. Whether your goal is to quickly
   and easily troubleshoot ad hoc issues, ensure your systems are compliant, or deploy
-  apps across your infrastructure, this is the first step needed to get there. \r\n\r\n\r\n**Before
-  you get started**  \r\nKeep an eye on the clock! You will have 30 minutes to complete
-  this track. At the end of 30 minutes your learning environment will automatically
-  expire and your work will not be saved. If you have not completed the track, you
-  can Restart the track and skip to any challenge."
+  apps across your infrastructure, this is the first step needed to get there. \r\n
+  \r\n**Before you get started**  \r\nKeep an eye on the clock! You will have 30 minutes
+  to complete this track. At the end of 30 minutes your learning environment will
+  automatically expire and your work will not be saved. If you have not completed
+  the track, you can Restart the track and skip to any challenge.\r\n"
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 level: beginner
 tags:
@@ -36,24 +39,28 @@ challenges:
   teaser: 'Install Bolt in minutes and start using it right away! '
   assignment: "# Install Bolt\nThe best way to learn about Bolt is to try it out for
     yourself. Begin by installing Bolt. To do this, you must configure the Bolt yum
-    repository because standard Linux installations are not configured with the Bolt
-    repository. \n\n# Step 1\nTo configure the Puppet package repository, run the
-    following command:\n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\nThe
+    repository because standard Linux installations are not configured with it by
+    default. \n\n# Step 1: Configure The Puppet Package Repository\nTo configure the
+    Puppet package repository, run the following command:\n```\nrpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm\n```\nThe
     `rpm -Uvh` command installs the package that configures the Bolt yum repository
-    on the system. The `-Uvh` flags indicate update the system with this package (-U),
-    enable verbose logging ( -v), and show a progress bar.\n\n# Step 2\n\nNow, install
-    Bolt by running this command:\n```\nyum install -y puppet-bolt-3.1.0\n``` \n\nThe
-    `yum` command is the Linux package manager that locates the specified package
-    in any of the configured package repositories (in this case, puppet-bolt-3.1.0,)
-    and installs it on the system. It also installs any package dependencies.\n\nThe
-    `-y` option is merely for convenience - it means that the user will not be further
-    prompted to install the specified package after the command is issued.\n\nNotice
-    that a specific version of Bolt is installed in the previous command (3.1.0).
-    The commands used in the rest of this track are designed to work with this Bolt
-    version.\n\n✏️**Note:** \nThere are lots of ways to install Bolt. If you’d like
-    to learn about those other methods, visit the [Bolt installation docs](https://puppet.com/docs/bolt/latest/bolt_installing.html).\n\nAfter
-    you have finished running these commands, click **Check** to make sure everything
-    worked correctly.\n"
+    on the system. The `-Uvh` portion specifically tells Bolt to update the system
+    with this package (-U), enable verbose logging ( -v), and show a progress bar.
+    \ \n\n# Step 2: Install Bolt\n\nNow, install Bolt by running this command:\n```\nyum
+    install -y puppet-bolt-3.7.1\n``` \n\nThe `yum` command is the Linux package manager
+    that locates the specified package in any of the configured package repositories
+    (in this case, puppet-bolt-3.7.1,) and installs it on the system. It also installs
+    any package dependencies.\n\nThe `-y` option is merely for convenience - it means
+    that the user will not be further prompted to install the specified package after
+    the command is issued.\n\nNotice that a specific version of Bolt is installed
+    in the previous command (3.7.1). The commands used in the rest of this track are
+    designed to work with this Bolt version. When installing Bolt in your environment,
+    leave off the version number and run yum install -y puppet-bolt to install the
+    latest version. \n\n✏️ **Note:** \nThere are lots of ways to install Bolt. If
+    you’d like to learn about those other methods, visit the [Bolt installation docs](https://puppet.com/docs/bolt/latest/bolt_installing.html).\n\n✔️
+    **Result:** After you have finished running these commands, the Transaction Summary
+    will appear in the command line. If Bolt was installed correctly, you will see
+    the word “Complete!” at the end of the summary. \n\nClick **Check** to move on
+    to the next challenge.\n"
   notes:
   - type: text
     contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
@@ -63,7 +70,7 @@ challenges:
       and connects directly to remote targets with SSH or WinRM, so you are not required
       to install any agent software.\r\nUse Bolt to:\r\n- Patch and update systems\r\n-
       Troubleshoot servers\r\n- Deploy applications\r\n- Stop and restart services\r\n\r\nClick
-      **Start** at the bottom of this track to begin this challenge"
+      **Start** at the bottom of this track to begin this challenge."
   tabs:
   - title: Bolt
     type: terminal
@@ -80,8 +87,10 @@ challenges:
     by running this command:\r\n```\r\nbolt --version\r\n```\r\n\r\nThen, display
     the Bolt help message by running this command:\r\n```\r\nbolt --help\r\n```\r\n\r\nBolt
     provides help for each individual subcommand as well. To check out help for a
-    specific Bolt command, run:\r\n```\r\nbolt command --help\r\n```\r\n\r\nAfter
-    running each of these commands, click **Check** to continue."
+    specific Bolt command, run:\r\n```\r\nbolt command --help\r\n```\r\n\r\n✔️ **Result:**
+    If Bolt was installed correctly, then after running each of these commands the
+    relevant output from Bolt will appear in the command line. \r\n\r\nClick **Check**
+    to continue."
   notes:
   - type: text
     contents: "Now that you've installed Bolt, make sure it works as expected.\r\n\r\nClick
@@ -92,37 +101,51 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 360
-- slug: run-a-command-on-docker-target
+- slug: use-bolt-to-update-the-ntp-service-on-remote-nodes
   id: xpxk4boeqvir
   type: challenge
-  title: "Run A Simple Command On The Docker Target \U0001F469‍\U0001F4BB"
-  teaser: 'Run your first Bolt command on a remote target! '
-  assignment: "The Network Time Protocol (NTP) service keeps all of the servers' clocks
-    in sync. It’s important to configure this service to start automatically on servers
-    that you add to your infrastructure. Accurate timekeeping ensures proper secure
-    communications between remote clients and networked servers that host databases,
-    web servers, and other applications. \n\n# Step 1\nFirst, check the status of
-    the NTP service on two remote nodes, target1 and target2. Run this Bolt command:\n```\nbolt
-    command run '/bin/systemctl status ntpd.service' --no-host-key-check --targets
-    target1,target2\n```\n\nThis Bolt command logs in remotely to the target nodes
-    and returns their NTP service status. \n\nThe`--nohost-key-check` portion of the
-    command is optional and included here to: \n- suppress a warning that would be
-    shown if the target has never been remotely accessed before. \n- prevent you from
-    having to confirm the SSH fingerprint of the remote machine.\n \n# Step 2\nThe
-    NTP service does not start by default. Run the following command to remotely log
-    in again and start the service on each node:\n```\nbolt command run '/bin/systemctl
-    start ntpd.service' --no-host-key-check --targets target1,target2\n```\n\nAfter
-    you run this command, the NTP service starts on both target nodes.\n\n# Step 3\nRun
-    the first Bolt command again to confirm that the NTP service has been started
-    on both servers. \n\nYou can now add the servers to an existing infrastructure
-    with additional configuration for their specific purposes.\n\nClick **Check**
-    to continue. "
+  title: "Use Bolt To Update The NTP Service On Remote Nodes \U0001F469‍\U0001F4BB"
+  teaser: 'Run your first Bolt commands on remote targets! '
+  assignment: "Now that you have successfully installed Bolt and verified your installation,
+    get some hands-on practice using Bolt by managing the Network Time Protocol (NTP)
+    service on two target nodes.\n\nThe Network Time Protocol (NTP) service keeps
+    all of the servers' clocks in sync. It’s important to configure this service to
+    start automatically on servers that you add to your infrastructure. Accurate timekeeping
+    ensures proper secure communications between remote clients and networked servers
+    that host databases, web servers, and other applications. \n\nIn this challenge
+    you will start by checking the status of the NTP service on two remote nodes.
+    Then, you will remotely log in and start the service on each node. Finally, you
+    will confirm that the NTP service has been started on both servers.\n\n# Step
+    1: Check The Status Of NTP\nRun the following command to check the status of the
+    NTP service on two remote nodes, target1 and target2:\n```\nbolt command run '/bin/systemctl
+    status ntpd.service' --no-host-key-check --targets target1,target2\n```\n\nThis
+    Bolt command logs in remotely to the target nodes and returns their NTP service
+    status.  \n\nThe`--no-host-key-check` portion of the command is optional and included
+    here to: \n- suppress a warning that would be shown if the target has never been
+    remotely accessed before. \n- prevent you from having to confirm the SSH fingerprint
+    of the remote machine.\n\n✔️ **Result:**\nAfter running this command you will
+    see a ‘fail’ message for Targets 1 and 2 in the command line, showing that each
+    target is inactive. Don’t worry! This is expected. To start the NTP service on
+    the nodes, continue to step 2.  \n\n\n# Step 2: Start The NTP Service\nThe NTP
+    service does not start by default. Run the following command to remotely log in
+    again and start the service on each node:\n```\nbolt command run '/bin/systemctl
+    start ntpd.service' --no-host-key-check --targets target1,target2\n```\n\n✔️ **Result:**
+    In the command line, you will see the output “Successful on 2 targets: target1,
+    target2”. This means that you started the NTP service on both target nodes. Nice
+    job!\n\n# Step 3: Confirm That The NTP Serivce Is Running\nRun the first Bolt
+    command again to confirm that the NTP service has been started on both servers.
+    \ \n\n✔️ **Result:** You ran the same command as the first time, but now that
+    you have started the NTP service on the targets, your output will be different.
+    This time, you will see detailed information about each of the targets, as well
+    as the message “Successful on 2 targets: target1, target2”.\n\nYou can now add
+    the servers to an existing infrastructure with additional configuration for their
+    specific purposes.\n\nClick **Check** to continue. "
   notes:
   - type: text
     contents: "Bolt runs remote commands on nodes and orchestrates ad hoc tasks across
       your server infrastructure. In this challenge, you will test Bolt functionality
-      by invoking simple remote commands.\r\n\r\nClick **Start** when you’re ready
-      to continue."
+      by running commands to check, start and verify the NTP service on your servers.\r\n\r\nClick
+      **Start** when you’re ready to continue."
   tabs:
   - title: Bolt
     type: terminal
@@ -164,17 +187,14 @@ challenges:
     environment by checking the status of and starting the NTP service on two Docker
     nodes. Then, you tested your knowledge to make sure you've got it down. \r\n\r\nWant
     to learn more about Bolt or Puppet? Check out these resources:\r\n- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)\r\n-
-    [Puppet Compass](https://learn.puppet.com/)\r\n- [Puppet Community Slack](https://slack.puppet.com/)\r\n\r\nClick
+    [Puppet Compass](https://learn.puppet.com/)\r\n- [Puppet Community Slack](https://slack.puppet.com/)
+    \ \r\n\r\nTo access the commands used throughout this lab, visit the companion
+    [Lab Aid](https://puppet-kmo.gitbook.io/not-tutorials/-MZKPjwKRKKFuXxxy7ge/).\r\n\r\nClick
     **Check** to close out this track. "
   notes:
   - type: text
     contents: "Excellent! You’re nearly done!\r\n\r\nClick **Start** to review what
       you learned and let us know what you thought of this track."
-  tabs:
-  - title: Feedback Survey
-    type: website
-    hostname: target1c
-    url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "616196831687997875"
+checksum: "10433018471883787841"

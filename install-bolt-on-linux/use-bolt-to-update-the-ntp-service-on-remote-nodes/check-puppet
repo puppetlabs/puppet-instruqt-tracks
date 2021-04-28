@@ -1,0 +1,8 @@
+bolt command run '/bin/systemctl status ntpd.service' --no-host-key-check --targets target1,target2 --no-verbose
+
+if [ $? -ne 0 ]; then
+  fail-message "The NTP service has not been started on the targets"
+  exit 1
+fi
+
+exit 0

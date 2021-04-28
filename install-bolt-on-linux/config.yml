@@ -1,19 +1,4 @@
 version: "2"
-containers:
-- name: target1c
-  image: rastasheep/ubuntu-sshd
-  shell: /bin/bash
-  ports:
-  - 80
-  - 443
-  memory: 128
-- name: target2c
-  image: rastasheep/ubuntu-sshd
-  shell: /bin/bash
-  ports:
-  - 80
-  - 443
-  memory: 128
 virtualmachines:
 - name: puppet
   image: centos-7-v20201014
@@ -27,11 +12,3 @@ virtualmachines:
   image: centos-7-v20201014
   shell: /bin/bash
   machine_type: n1-standard-2
-- name: target3
-  image: centos-7-v20201014
-  shell: /bin/bash
-  machine_type: n1-standard-1
-- name: target4
-  image: centos-7-v20201014
-  shell: /bin/bash
-  machine_type: n1-standard-1
