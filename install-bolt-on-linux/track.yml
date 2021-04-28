@@ -1,22 +1,22 @@
-slug: install-bolt-on-linux
+slug: bolt-basics-on-linux
 id: diticbtrwatq
 type: track
-title: Install Bolt on Linux
-teaser: Get started with Bolt on the Linux platform!
+title: Bolt Basics On Linux
+teaser: Install Bolt and manage your first remote targets!
 description: "Bolt is an ad hoc orchestration tool that is especially useful for remotely
-  executing tasks on a large number of nodes. For example, you can use Bolt to patch
+  executing tasks on a large number of targets. For example, you can use Bolt to patch
   and update systems, troubleshoot servers, deploy applications, or stop and restart
   services.\r\n\r\nIn this track, you will:  \r\n\r\n **Learn:**\r\n  - What Bolt
   is and why it's useful\r\n  - How to install Bolt\r\n  - How to verify that your
   installation works as expected.  \r\n\r\n    \r\n**Try it out for yourself:** \r\n
-  \ - Use Bolt to update the NTP service on your servers in order to keep their clocks
-  in sync.  \r\n  \r\n\r\n  \r\n\r\n  \r\n**Why complete this track?**  \r\nIf you’re
-  brand new to using Bolt, this is your starting point. Whether your goal is to quickly
-  and easily troubleshoot ad hoc issues, ensure your systems are compliant, or deploy
-  apps across your infrastructure, this is the first step needed to get there. \r\n
-  \r\n**Before you get started**  \r\nKeep an eye on the clock! You will have 30 minutes
-  to complete this track. At the end of 30 minutes your learning environment will
-  automatically expire and your work will not be saved. If you have not completed
+  \ - Use Bolt to update the NTP service on your target nodes in order to keep their
+  clocks in sync.  \r\n  \r\n\r\n  \r\n\r\n  \r\n**Why complete this track?**  \r\nIf
+  you’re brand new to using Bolt, this is your starting point. Whether your goal is
+  to quickly and easily troubleshoot ad hoc issues, ensure your systems are compliant,
+  or deploy apps across your infrastructure, this is the first step needed to get
+  there. \r\n \r\n**Before you get started**  \r\nKeep an eye on the clock! You will
+  have 30 minutes to complete this track. At the end of 30 minutes your learning environment
+  will automatically expire and your work will not be saved. If you have not completed
   the track, you can Restart the track and skip to any challenge.\r\n"
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 level: beginner
@@ -30,7 +30,6 @@ developers:
 - tara.swenson@puppet.com
 private: true
 published: false
-skipping_enabled: true
 challenges:
 - slug: install-bolt-on-linux
   id: eqmodrpl9ij4
@@ -101,10 +100,10 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 360
-- slug: use-bolt-to-update-the-ntp-service-on-remote-nodes
+- slug: run-bolt-commands-on-remote-targets
   id: xpxk4boeqvir
   type: challenge
-  title: "Use Bolt To Update The NTP Service On Remote Nodes \U0001F469‍\U0001F4BB"
+  title: "Run Bolt Commands On Remote Targets \U0001F469‍\U0001F4BB"
   teaser: 'Run your first Bolt commands on remote targets! '
   assignment: "Now that you have successfully installed Bolt and verified your installation,
     get some hands-on practice using Bolt by managing the Network Time Protocol (NTP)
@@ -197,4 +196,4 @@ challenges:
       you learned and let us know what you thought of this track."
   difficulty: basic
   timelimit: 360
-checksum: "10433018471883787841"
+checksum: "5389729222966122387"
