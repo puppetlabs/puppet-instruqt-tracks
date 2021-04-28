@@ -107,17 +107,19 @@ challenges:
   teaser: 'Run your first Bolt commands on remote targets! '
   assignment: "Now that you have successfully installed Bolt and verified your installation,
     get some hands-on practice using Bolt by managing the Network Time Protocol (NTP)
-    service on two target nodes.\n\nThe Network Time Protocol (NTP) service keeps
+    service on two target nodes.\n\n**What is a target?**  \nA target is anything
+    Bolt can connect to including servers (nodes), Docker containers, network devices,
+    and more.\n\n**What is NTP?**  \nThe Network Time Protocol (NTP) service keeps
     all of the servers' clocks in sync. It’s important to configure this service to
     start automatically on servers that you add to your infrastructure. Accurate timekeeping
     ensures proper secure communications between remote clients and networked servers
     that host databases, web servers, and other applications. \n\nIn this challenge
-    you will start by checking the status of the NTP service on two remote nodes.
-    Then, you will remotely log in and start the service on each node. Finally, you
-    will confirm that the NTP service has been started on both servers.\n\n# Step
+    you will start by checking the status of the NTP service on two remote target
+    nodes. Then, you will remotely log in and start the service on each target. Finally,
+    you will confirm that the NTP service has been started on both targets.\n\n# Step
     1: Check The Status Of NTP\nRun the following command to check the status of the
-    NTP service on two remote nodes, target1 and target2:\n```\nbolt command run '/bin/systemctl
-    status ntpd.service' --no-host-key-check --targets target1,target2\n```\n\nThis
+    NTP service on two remote target nodes, target1 and target2:\n```\nbolt command
+    run '/bin/systemctl status ntpd.service' --no-host-key-check --targets target1,target2\n```\n\nThis
     Bolt command logs in remotely to the target nodes and returns their NTP service
     status.  \n\nThe`--no-host-key-check` portion of the command is optional and included
     here to: \n- suppress a warning that would be shown if the target has never been
@@ -125,26 +127,26 @@ challenges:
     of the remote machine.\n\n✔️ **Result:**\nAfter running this command you will
     see a ‘fail’ message for Targets 1 and 2 in the command line, showing that each
     target is inactive. Don’t worry! This is expected. To start the NTP service on
-    the nodes, continue to step 2.  \n\n\n# Step 2: Start The NTP Service\nThe NTP
-    service does not start by default. Run the following command to remotely log in
-    again and start the service on each node:\n```\nbolt command run '/bin/systemctl
+    the target nodes, continue to step 2.  \n\n\n# Step 2: Start The NTP Service\nThe
+    NTP service does not start by default. Run the following command to remotely log
+    in again and start the service on each target node:\n```\nbolt command run '/bin/systemctl
     start ntpd.service' --no-host-key-check --targets target1,target2\n```\n\n✔️ **Result:**
     In the command line, you will see the output “Successful on 2 targets: target1,
     target2”. This means that you started the NTP service on both target nodes. Nice
     job!\n\n# Step 3: Confirm That The NTP Serivce Is Running\nRun the first Bolt
-    command again to confirm that the NTP service has been started on both servers.
+    command again to confirm that the NTP service has been started on both targets.
     \ \n\n✔️ **Result:** You ran the same command as the first time, but now that
     you have started the NTP service on the targets, your output will be different.
     This time, you will see detailed information about each of the targets, as well
     as the message “Successful on 2 targets: target1, target2”.\n\nYou can now add
-    the servers to an existing infrastructure with additional configuration for their
+    the targets to an existing infrastructure with additional configuration for their
     specific purposes.\n\nClick **Check** to continue. "
   notes:
   - type: text
-    contents: "Bolt runs remote commands on nodes and orchestrates ad hoc tasks across
-      your server infrastructure. In this challenge, you will test Bolt functionality
-      by running commands to check, start and verify the NTP service on your servers.\r\n\r\nClick
-      **Start** when you’re ready to continue."
+    contents: "Bolt runs remote commands on target nodes and orchestrates ad hoc tasks
+      across your server infrastructure. In this challenge, you will test Bolt functionality
+      by running commands to check, start and verify the NTP service on your target
+      nodes.\r\n\r\nClick **Start** when you’re ready to continue."
   tabs:
   - title: Bolt
     type: terminal
@@ -183,8 +185,8 @@ challenges:
   teaser: 'Recap what you learned and tell us what you think. '
   assignment: "In this lab, you learned what Bolt is, how to install it, and how to
     make sure your installation works as expected. You ran Bolt commands in a simulated
-    environment by checking the status of and starting the NTP service on two Docker
-    nodes. Then, you tested your knowledge to make sure you've got it down. \r\n\r\nWant
+    environment by checking the status of and starting the NTP service on two targets.
+    Then, you tested your knowledge to make sure you've got it down. \r\n\r\nWant
     to learn more about Bolt or Puppet? Check out these resources:\r\n- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)\r\n-
     [Puppet Compass](https://learn.puppet.com/)\r\n- [Puppet Community Slack](https://slack.puppet.com/)
     \ \r\n\r\nTo access the commands used throughout this lab, visit the companion
@@ -196,4 +198,4 @@ challenges:
       you learned and let us know what you thought of this track."
   difficulty: basic
   timelimit: 360
-checksum: "5389729222966122387"
+checksum: "6193171695896670733"
