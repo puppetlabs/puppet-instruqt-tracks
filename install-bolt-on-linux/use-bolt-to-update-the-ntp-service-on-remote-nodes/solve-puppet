@@ -1,2 +1,0 @@
-bolt command run '/bin/systemctl start ntpd.service' --no-host-key-check --targets target1,target2 --no-verbose
-exit 0
