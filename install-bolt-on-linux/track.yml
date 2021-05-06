@@ -28,8 +28,8 @@ owner: puppet
 developers:
 - greg.larkin@puppet.com
 - tara.swenson@puppet.com
-private: false
-published: true
+private: true
+published: false
 skipping_enabled: true
 challenges:
 - slug: install-bolt-on-linux
@@ -131,7 +131,7 @@ challenges:
     start ntpd.service' --no-host-key-check --targets target1,target2\n```\n\n✔️ **Result:**
     Notice the “Successful on 2 targets: target1, target2” message. This means that
     you started the NTP service on both target nodes. Nice job.\n\n# Step 3: Confirm
-    that the NTP serivce is running\nRun the command from step 1 again to confirm
+    that the NTP service is running\nRun the command from step 1 again to confirm
     that the NTP service has been started on both targets.  \n\n✔️ **Result:** Now
     that you have started the NTP service on the targets, notice the detailed information
     and the message “Successful on 2 targets: target1, target2”.\n\nYou can now add
@@ -185,8 +185,9 @@ challenges:
     Bolt or Puppet? Check out these resources:\r\n- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)\r\n-
     [Puppet Compass](https://learn.puppet.com/)\r\n- [Puppet Community Slack](https://slack.puppet.com/)
     \ \r\n\r\nTo access the commands used throughout this lab, visit the companion
-    [Lab Aid](https://puppet-kmo.gitbook.io/not-tutorials/-MZKPjwKRKKFuXxxy7ge/).\r\n\r\nTo
-    close this track, click **Check**. "
+    [Lab Aid](https://puppet-kmo.gitbook.io/not-tutorials/-MZKPjwKRKKFuXxxy7ge/).\r\n\r\nHave
+    ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/install-bolt-on-linux).
+    \r\n\r\nTo close this track, click **Check**. "
   notes:
   - type: text
     contents: "# Excellent! You’re nearly done!\r\n\r\nClick **Start** to review what
@@ -198,4 +199,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "2864656007564095798"
+checksum: "7223195224603694681"
