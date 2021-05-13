@@ -1,0 +1,13 @@
+version: "2"
+virtualmachines:
+- name: puppet
+  image: centos-7-v20201014
+  machine_type: n1-standard-2
+- name: web1
+  image: centos-7-v20201014
+  shell: /bin/bash
+  machine_type: n1-standard-2
+- name: web2
+  image: centos-7-v20201014
+  shell: /bin/bash
+  machine_type: n1-standard-2

@@ -1,0 +1,145 @@
+slug: build-a-bolt-inventory-file-on-linux
+id: yt7oz8p7uzhp
+type: track
+title: Build a Bolt Inventory File on Linux
+teaser: In this track, you'll create a Bolt inventory file and use it to run a task
+  on multiple remote nodes
+description: "\nThe Bolt inventory file is a core piece of functionality for managing
+  large fleets of targets. It allows you to define groups of targets so they can be
+  referenced as a single entity in a Bolt command. You can also use the inventory
+  file to set up different connection settings for each of those targets, and store
+  additional information about the targets. With an inventory file in place, you are
+  able to remotely run commands on a large group of targets with a single Bolt command,
+  instead of running it repeatedly for each individual target. \n\n**What you will
+  learn:**\n\n* First, you will build an inventory file and define your targets.\n*
+  Then, you will run a command on your targets to ensure the file is set up correctly.
+  \n* Next, you will build a task (written as a Bash script). \n* Finally, you will
+  use the inventory file to run the task on your targets.\n\n**Why complete this track?**\n\nCreating
+  a Bolt Inventory file allows you to quickly and easily run tasks across groups of
+  targets, saving you time and effort.\n\n**Before you get started**\n\nKeep an eye
+  on the clock! You will have 30 minutes to complete this track. At the end of 30
+  minutes your learning environment will automatically expire and your work will not
+  be saved. If you have not completed the track, you can Restart the track and skip
+  to any challenge."
+icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
+tags:
+- Puppet
+- Bolt
+- Linux
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+- tara.swenson@puppet.com
+private: true
+published: false
+challenges:
+- slug: create-an-inventory-file-and-define-your-targets
+  id: 69ibjvibsm9i
+  type: challenge
+  title: ' Create an inventory file and define your targets'
+  teaser: In this challenge, you will learn how to create a Bolt inventory file
+  assignment: "Use an inventory file to store information about your targets, control
+    how Bolt connects to them, and arrange them into groups. Grouping your targets
+    lets you aim your Bolt commands at the group instead of having to reference each
+    target individually.\n\nAn inventory file is part of a Bolt project and must exist
+    alongside a bolt-project.yaml file. \n\nIn this challenge, you will use the Editor
+    tab to create a Bolt inventory file that will describe all of the machines that
+    you wish to invoke Bolt commands and tasks on.\n\n**Step 1**\n\n**Step 2**\n\n**Step
+    3**\n\n**Step 4**"
+  notes:
+  - type: text
+    contents: Ragdoll american shorthair so lion. Tabby cougar so burmese and american
+      bobtail. Maine coon ocelot so singapura for ragdoll or american bobtail. Maine
+      coon kitty and egyptian mau ragdoll yet leopard, but lynx but tomcat. American
+      shorthair. British shorthair bobcat.
+  tabs:
+  - title: Bolt
+    type: terminal
+    hostname: puppet
+  - title: Editor
+    type: code
+    hostname: puppet
+    path: /root
+  difficulty: basic
+  timelimit: 900
+- slug: run-a-command-on-your-targets-using-the-inventory-file
+  id: aumjsw3ompmd
+  type: challenge
+  title: ' Run a command on your targets using the inventory file'
+  teaser: Use the inventory file to run command on the Bolt targets in it
+  assignment: Singapura siberian and cougar for turkish angora yet bengal lynx. Cougar.
+    Himalayan sphynx tabby for tabby. Tomcat tomcat. Turkish angora maine coon but
+    lynx abyssinian abyssinian kitten. Tiger maine coon ragdoll bombay panther munchkin.
+    Cornish rex birman sphynx yet cougar so ragdoll mouser, british shorthair. Puma
+    jaguar, ocelot but ragdoll yet cougar. Himalayan ocelot for ocicat. Scottish fold
+    bobcat and mouser or manx scottish fold for cornish rex. Tom kitty burmese birman
+    scottish fold ocicat. American bobtail thai mouser tom but siamese. Bobcat malkin
+    so ocelot but savannah tomcat or bengal egyptian mau. Turkish angora persian.
+    Lion siamese so himalayan but russian blue.
+  tabs:
+  - title: Linux
+    type: terminal
+    hostname: puppet
+  difficulty: basic
+  timelimit: 500
+- slug: create-a-bolt-task-using-bash
+  id: xuxnxfxlf8vj
+  type: challenge
+  title: Create a Bolt task using Bash
+  teaser: Build a simple Bolt task using Bash shell scripting
+  assignment: Havana brown ocelot tom kitty kitten siamese bengal. Thai. Persian tom
+    so ocelot bengal or ocelot. Bombay mouser siberian. Bombay persian. Kitten puma,
+    siamese. Leopard. Persian abyssinian american bobtail kitty yet puma but tomcat
+    leopard. Mouser lion persian yet egyptian mau ocelot. Tom american shorthair yet
+    puma jaguar turkish angora for panther, tomcat. Cougar bombay abyssinian for siamese
+    but ocelot. Jaguar savannah turkish angora balinese yet panther. Ragdoll donskoy,
+    manx for cheetah cougar. Tiger jaguar savannah. American bobtail birman but scottish
+    fold or mouser but norwegian forest puma. Savannah panther havana brown for ragdoll
+    for kitty. Ocicat sphynx turkish angora tom tomcat, cougar for cornish rex. Siberian
+    sphynx maine coon so cougar or ocicat cougar, mouser. American shorthair norwegian
+    forest but puma yet jaguar yet kitten.
+  tabs:
+  - title: Linux
+    type: terminal
+    hostname: puppet
+  - title: Editor
+    type: code
+    hostname: puppet
+  difficulty: basic
+  timelimit: 500
+- slug: run-a-task-on-bolt-targets
+  id: nlnzzkyitjbs
+  type: challenge
+  title: Run a task on Bolt targets
+  teaser: Run the new Bolt task on targets that have been defined in the inventory
+    file
+  assignment: Tabby ragdoll yet havana brown and scottish fold sphynx. American bobtail
+    bobcat. Ocelot abyssinian bobcat and jaguar for balinese . Tiger birman so siberian
+    russian blue but himalayan or munchkin. Mouser. American shorthair burmese. Singapura
+    lynx yet russian blue yet sphynx but devonshire rex but savannah siamese. Thai.
+    Malkin abyssinian kitten scottish fold or ocicat. Grimalkin. Donskoy puma american
+    shorthair or mouser. Kitty cougar, egyptian mau thai egyptian mau or bombay. Lion
+    cheetah. Himalayan egyptian mau. Havana brown egyptian mau. Malkin. Cornish rex
+    bengal but panther malkin, munchkin and kitty and cougar. Bombay turkish angora.
+    Turkish angora ocelot. Cornish rex abyssinian but leopard, but bombay birman donskoy.
+    Mouser. Bobcat sphynx american bobtail leopard so bobcat grimalkin. Maine coon
+    lion so bombay. Manx ocicat yet burmese bombay.
+  difficulty: basic
+  timelimit: 500
+- slug: knowledge-check
+  id: czozzgdjuqh6
+  type: challenge
+  title: "Knowledge Check \U0001F4A1"
+  teaser: Test your knowledge to make sure you've got it down.
+  assignment: placeholder
+  difficulty: basic
+  timelimit: 500
+- slug: wrapup-and-feedback
+  id: pdjxuihtzshv
+  type: challenge
+  title: "Wrap-up & Feedback \U0001F4AC"
+  teaser: Recap what you learned and tell us what you think.
+  assignment: placeholder
+  difficulty: basic
+  timelimit: 500
+checksum: "1602489176050277306"

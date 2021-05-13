@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Preinstall Bolt here for now
+rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
+yum install -y puppet-bolt-3.7.1
+
+# Wait until the bootstrap has completed
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
