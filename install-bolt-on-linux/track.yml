@@ -19,7 +19,6 @@ description: "Bolt is an open source orchestration tool that automates the manua
   not be saved. If you haven't completed the track, you can simply restart it and
   skip to any challenge.\r\n"
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
-level: beginner
 tags:
 - Puppet
 - Bolt
@@ -199,4 +198,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "7223195224603694681"
+checksum: "11936308037507842677"
