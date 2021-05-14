@@ -4,6 +4,28 @@
 rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
 yum install -y puppet-bolt-3.7.1
 
+# Create the Bolt script file for the user
+cat > /root/configure-ntp.sh <<EOF
+#!/bin/bash
+
+# First, perform a one-time sync of the system clock if the NTP
+# service is not already running
+systemctl status ntpd.service >/dev/null || ntpdate -b time.apple.com
+
+# Next, conditionally add NTP pool servers to the ntp.conf file
+if ! grep -qP '^server \d+\.pool\.ntp\.org' /etc/ntp.conf; then
+  echo 'server 0.pool.ntp.org' >> /etc/ntp.conf
+  echo 'server 1.pool.ntp.org' >> /etc/ntp.conf
+  echo 'server 2.pool.ntp.org' >> /etc/ntp.conf
+  echo 'server 3.pool.ntp.org' >> /etc/ntp.conf
+fi
+
+# Finally, start or reload the NTP service
+systemctl restart ntpd.service
+EOF
+
+chmod 755 /root/configure-ntp.sh
+
 # Wait until the bootstrap has completed
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
