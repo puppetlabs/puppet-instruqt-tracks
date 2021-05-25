@@ -4,8 +4,9 @@
 rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
 yum install -y puppet-bolt-3.7.1
 
-# Create the Bolt script file for the user
-cat > /root/configure-ntp.sh <<EOF
+# Create the Bolt solution script file for the user
+mkdir -p /root/.instruqt
+cat > /root/.instruqt/configure-ntp.sh <<EOF
 #!/bin/bash
 
 # First, perform a one-time sync of the system clock if the NTP
@@ -22,8 +23,13 @@ fi
 
 # Finally, start or reload the NTP service
 systemctl restart ntpd.service
+
 EOF
 
+chmod 755 /root/.instruqt/configure-ntp.sh
+
+# Create the Bolt script file for the user to complete
+grep -P '(^#|^[[:blank:]]*$)' /root/.instruqt/configure-ntp.sh > /root/configure-ntp.sh
 chmod 755 /root/configure-ntp.sh
 
 # Wait until the bootstrap has completed

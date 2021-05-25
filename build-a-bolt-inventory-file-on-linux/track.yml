@@ -38,6 +38,12 @@ challenges:
   type: challenge
   title: ' Create an inventory file and define your targets'
   teaser: In this challenge, you will learn how to create a Bolt inventory file
+  notes:
+  - type: text
+    contents: Ragdoll american shorthair so lion. Tabby cougar so burmese and american
+      bobtail. Maine coon ocelot so singapura for ragdoll or american bobtail. Maine
+      coon kitty and egyptian mau ragdoll yet leopard, but lynx but tomcat. American
+      shorthair. British shorthair bobcat.
   assignment: "Use an inventory file to store information about your targets, control
     how Bolt connects to them, and arrange them into groups. Grouping your targets
     lets you aim your Bolt commands at the group instead of having to reference each
@@ -46,12 +52,6 @@ challenges:
     tab to create a Bolt inventory file that will describe all of the machines that
     you wish to invoke Bolt commands and tasks on.\n\n**Step 1**\n\n**Step 2**\n\n**Step
     3**\n\n**Step 4**"
-  notes:
-  - type: text
-    contents: Ragdoll american shorthair so lion. Tabby cougar so burmese and american
-      bobtail. Maine coon ocelot so singapura for ragdoll or american bobtail. Maine
-      coon kitty and egyptian mau ragdoll yet leopard, but lynx but tomcat. American
-      shorthair. British shorthair bobcat.
   tabs:
   - title: Bolt
     type: terminal
@@ -142,4 +142,4 @@ challenges:
   assignment: placeholder
   difficulty: basic
   timelimit: 500
-checksum: "5383631237184650433"
+checksum: "2931697662337681140"
