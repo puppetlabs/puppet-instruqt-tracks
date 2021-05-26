@@ -14,10 +14,12 @@ description: "Bolt is an open source orchestration tool that automates the manua
   \ \r\n\r\n  \r\n**Why complete this track?**  \r\nIf you're new to Bolt, start here.
   Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy
   apps across your infrastructure, this is the first step to take to get there. \r\n
-  \r\n**Before you start**  \r\nKeep an eye on the clock. You have 30 minutes to complete
-  this track. After 30 minutes, your learning environment expires and your work will
-  not be saved. If you haven't completed the track, you can simply restart it and
-  skip to any challenge.\r\n"
+  \r\n**Prerequisites:** \r\n - Linux command line experience is helpful but not required.\r\n
+  - NTP service familiarity is helpful but not required. \r\n \r\n\r\n\r\n**Before
+  you start**  \r\nKeep an eye on the clock. You have 30 minutes to complete this
+  track. After 30 minutes, your learning environment expires and your work will not
+  be saved. If you haven't completed the track, you can simply restart it and skip
+  to any challenge.\r\n"
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 tags:
 - Puppet
@@ -28,7 +30,7 @@ developers:
 - greg.larkin@puppet.com
 - tara.swenson@puppet.com
 private: true
-published: false
+published: true
 skipping_enabled: true
 challenges:
 - slug: install-bolt-on-linux
@@ -36,6 +38,16 @@ challenges:
   type: challenge
   title: "Install Bolt \U0001F4BB"
   teaser: Install Bolt in minutes and start using it right away.
+  notes:
+  - type: text
+    contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
+      the manual work it takes to maintain your infrastructure. You can use Bolt to
+      automate tasks that you perform on an as-needed basis or as part of a greater
+      orchestration workflow.\r\n\r\nBolt can be installed on your local workstation
+      and connects directly to remote targets with SSH or WinRM, so you are not required
+      to install any agent software.\r\nUse Bolt to:\r\n- Patch and update systems\r\n-
+      Troubleshoot servers\r\n- Deploy applications\r\n- Stop and restart services\r\n\r\nClick
+      **Start** at the bottom of this track to begin this challenge."
   assignment: "# Install Bolt\nThe best way to learn about Bolt is to try it out for
     yourself. Start by configuring the Bolt yum repository, also known as the Puppet
     package repository — by default, this isn't configured on standard Linux installations.
@@ -58,16 +70,6 @@ challenges:
     Notice the Transaction Summary section in the output. If Bolt installed successfully,
     you'll see “Complete!” at the end of the summary. \n\nTo go to the next challenge,
     click **Check**.\n"
-  notes:
-  - type: text
-    contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
-      the manual work it takes to maintain your infrastructure. You can use Bolt to
-      automate tasks that you perform on an as-needed basis or as part of a greater
-      orchestration workflow.\r\n\r\nBolt can be installed on your local workstation
-      and connects directly to remote targets with SSH or WinRM, so you are not required
-      to install any agent software.\r\nUse Bolt to:\r\n- Patch and update systems\r\n-
-      Troubleshoot servers\r\n- Deploy applications\r\n- Stop and restart services\r\n\r\nClick
-      **Start** at the bottom of this track to begin this challenge."
   tabs:
   - title: Bolt
     type: terminal
@@ -79,6 +81,10 @@ challenges:
   type: challenge
   title: Verify Your Bolt Installation ✔️
   teaser: Make sure your Bolt installation works as expected.
+  notes:
+  - type: text
+    contents: "Now that you've installed Bolt, make sure it works as expected.\r\n\r\nTo
+      begin the next challenge, click **Start**.\r\n"
   assignment: "You can quickly confirm Bolt is installed correctly by running some
     basic Bolt commands.\r\n\r\nFirst, show the Bolt version by running this command:\r\n```\r\nbolt
     --version\r\n```\r\n\r\nThen, show the Bolt help message:\r\n```\r\nbolt --help\r\n```\r\n\r\nTo
@@ -87,10 +93,6 @@ challenges:
     command, run:\r\n```\r\nbolt script --help\r\n```\r\n\r\n✔️ **Result:** If Bolt
     is installed correctly, you'll see the output on the command line. \r\n\r\nTo
     continue, click **Check**."
-  notes:
-  - type: text
-    contents: "Now that you've installed Bolt, make sure it works as expected.\r\n\r\nTo
-      begin the next challenge, click **Start**.\r\n"
   tabs:
   - title: Bolt
     type: terminal
@@ -102,6 +104,12 @@ challenges:
   type: challenge
   title: "Run Bolt Commands on Remote Targets \U0001F469‍\U0001F4BB"
   teaser: 'Run your first Bolt commands on remote targets. '
+  notes:
+  - type: text
+    contents: "Bolt runs commands on remote target nodes and orchestrates ad hoc tasks
+      across your server infrastructure. \r\n\r\nIn this challenge, you will run Bolt
+      commands to check, start, and verify the Network Time Protocol (NTP) service
+      on two target nodes.\r\n\r\nWhen you’re ready to continue, click **Start**."
   assignment: "Now that you've verified your Bolt installation, it's time to get some
     hands-on practice with Bolt by managing the Network Time Protocol (NTP) service
     on two target nodes.\n\n**What is a target?**  \nA target is anything that Bolt
@@ -136,12 +144,6 @@ challenges:
     and the message “Successful on 2 targets: target1, target2”.\n\nYou can now add
     the targets to an existing infrastructure with additional configuration for their
     specific purposes.\n\nTo continue, click **Check**. "
-  notes:
-  - type: text
-    contents: "Bolt runs commands on remote target nodes and orchestrates ad hoc tasks
-      across your server infrastructure. \r\n\r\nIn this challenge, you will run Bolt
-      commands to check, start, and verify the Network Time Protocol (NTP) service
-      on two target nodes.\r\n\r\nWhen you’re ready to continue, click **Start**."
   tabs:
   - title: Bolt
     type: terminal
@@ -159,12 +161,12 @@ challenges:
   type: challenge
   title: "Knowledge Check \U0001F4A1"
   teaser: Test your knowledge to make sure you've got it down.
-  assignment: "Answer the questions and then click **CHECK YOUR ANSWERS** to see how
-    you did.\r\n\r\nWhen you finish the knowledge check, click **Check** to continue."
   notes:
   - type: text
     contents: "# Great job! \r\n\r\nNext, check your knowledge to make sure you've
       got it down.\r\n\r\nWhen you're ready, click **Start**."
+  assignment: "Answer the questions and then click **CHECK YOUR ANSWERS** to see how
+    you did.\r\n\r\nWhen you finish the knowledge check, click **Check** to continue."
   tabs:
   - title: Knowledge Check
     type: website
@@ -177,6 +179,10 @@ challenges:
   type: challenge
   title: "Wrap-up & Feedback \U0001F4AC"
   teaser: 'Recap what you learned and tell us what you think. '
+  notes:
+  - type: text
+    contents: "# Excellent! You’re nearly done!\r\n\r\nClick **Start** to review what
+      you learned and let us know what you thought of this track."
   assignment: "In this lab, you learned what Bolt is, how to install it, and how to
     verify your installation. In a simulated environment, you ran Bolt commands to
     check the status of the NTP service and start it on two targets. Then, you tested
@@ -187,10 +193,6 @@ challenges:
     [Lab Aid](https://puppet-kmo.gitbook.io/not-tutorials/-MZKPjwKRKKFuXxxy7ge/).\r\n\r\nHave
     ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/install-bolt-on-linux).
     \r\n\r\nTo close this track, click **Check**. "
-  notes:
-  - type: text
-    contents: "# Excellent! You’re nearly done!\r\n\r\nClick **Start** to review what
-      you learned and let us know what you thought of this track."
   tabs:
   - title: Feedback Survey
     type: website
@@ -198,4 +200,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "11936308037507842677"
+checksum: "7118520373695986183"
