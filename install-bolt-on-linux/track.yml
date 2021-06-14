@@ -40,14 +40,17 @@ challenges:
   teaser: Install Bolt in minutes and start using it right away.
   notes:
   - type: text
-    contents: "# What is Bolt?\r\nBolt is an open source orchestration tool that automates
-      the manual work it takes to maintain your infrastructure. You can use Bolt to
-      automate tasks that you perform on an as-needed basis or as part of a greater
-      orchestration workflow.\r\n\r\nBolt can be installed on your local workstation
-      and connects directly to remote targets with SSH or WinRM, so you are not required
-      to install any agent software.\r\nUse Bolt to:\r\n- Patch and update systems\r\n-
-      Troubleshoot servers\r\n- Deploy applications\r\n- Stop and restart services\r\n\r\nClick
-      **Start** at the bottom of this track to begin this challenge."
+    contents: |-
+      # What is Bolt?
+      Bolt is an open source automation tool that automates manual infrastructure maintenance tasks, including both ad hoc tasks and tasks that are part of a bigger workflow.
+
+      Use Bolt to:
+      - Patch and update systems
+      - Troubleshoot servers
+      - Deploy applications
+      - Stop and restart services
+
+      When your environment has finished spinning up, you'll see a green **Start** button at the bottom of the screen (this should take about 1 minute). Click it when you're ready to begin the track.
   assignment: "# Install Bolt\nThe best way to learn about Bolt is to try it out for
     yourself. Start by configuring the Bolt yum repository, also known as the Puppet
     package repository — by default, this isn't configured on standard Linux installations.
@@ -200,4 +203,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "7118520373695986183"
+checksum: "10766263526298417760"
