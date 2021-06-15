@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Change the working directory to where the user was in the previous challenge,
-# assuming that it exists. This will persist to the 3rd challenge as well.
-if [ -d /root/myproject ]; then
-  set-workdir /root/myproject
-fi
-
 # Install some JSON manipulation tools
 yum install -y jq nodejs
 npm install -g json
@@ -18,7 +12,7 @@ printenv | grep ^INSTR | jq -sR '
 # Inject some additional JSON key/value pairs
 json -I -f /tmp/instruqt.json \
     -e 'this.Env.INSTRUQT_TRACK_NAME="Build a Bolt Inventory File on Linux"' \
-    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Run a command on your targets"' \
+    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Knowledge Check"' \
     -e 'this.Env.INSTRUQT_CHALLENGE_STATE="start"'
 
 # Post the JSON data to the Workato endpoint
@@ -27,5 +21,3 @@ curl --max-time 10 -s -X POST \
     -H "Authorization: huds78HUIFMV8497x78bve" \
     -d @/tmp/instruqt.json \
     https://www.workato.com/webhooks/rest/15945364-35cf-4532-8fec-37447dad29d6/instruqt-lifecycle-script
-
-exit 0

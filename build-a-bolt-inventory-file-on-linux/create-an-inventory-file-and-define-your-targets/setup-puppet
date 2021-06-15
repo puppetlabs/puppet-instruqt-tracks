@@ -35,6 +35,28 @@ chmod 755 /root/.instruqt/configure-ntp.sh
 grep -P '(^#|^[[:blank:]]*$)' /root/.instruqt/configure-ntp.sh > /root/configure-ntp.sh
 chmod 755 /root/configure-ntp.sh
 
+# Install some JSON manipulation tools
+yum install -y jq nodejs
+npm install -g json
+
+# Get the environment variables injected by Instruqt
+printenv | grep ^INSTR | jq -sR '
+    { "Env": [split("\n")[:-1][] | rtrimstr("\\r")
+        | split("=") | {(.[0]): .[1]}]  | add }' > /tmp/instruqt.json
+
+# Inject some additional JSON key/value pairs
+json -I -f /tmp/instruqt.json \
+    -e 'this.Env.INSTRUQT_TRACK_NAME="Build a Bolt Inventory File on Linux"' \
+    -e 'this.Env.INSTRUQT_CHALLENGE_NAME="Create an inventory file and define your targets"' \
+    -e 'this.Env.INSTRUQT_CHALLENGE_STATE="start"'
+
+# Post the JSON data to the Workato endpoint
+curl --max-time 10 -s -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: huds78HUIFMV8497x78bve" \
+    -d @/tmp/instruqt.json \
+    https://www.workato.com/webhooks/rest/15945364-35cf-4532-8fec-37447dad29d6/instruqt-lifecycle-script
+
 # Wait until the bootstrap has completed
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
