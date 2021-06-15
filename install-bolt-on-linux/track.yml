@@ -3,23 +3,34 @@ id: diticbtrwatq
 type: track
 title: Bolt Basics on Linux
 teaser: Install Bolt and manage your first remote targets.
-description: "Bolt is an open source orchestration tool that automates the manual
-  work it takes to maintain your infrastructure, helping you to complete ad hoc tasks
-  remotely on a large number of targets. For example, you can use Bolt to patch and
-  update systems, troubleshoot servers, deploy applications, and stop and restart
-  services.\r\n\r\n\r\n **You'll learn:**\r\n  - What Bolt is and when to use it\r\n
-  \ - How to install Bolt\r\n  - How to verify that your installation works as expected
-  \ \r\n\r\n    \r\n**Try it out for yourself:** \r\n  - Run Bolt commands to update
-  the NTP service on target nodes to keep their clocks synchronized.  \r\n  \r\n\r\n
-  \ \r\n\r\n  \r\n**Why complete this track?**  \r\nIf you're new to Bolt, start here.
-  Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy
-  apps across your infrastructure, this is the first step to take to get there. \r\n
-  \r\n**Prerequisites:** \r\n - Linux command line experience is helpful but not required.\r\n
-  - NTP service familiarity is helpful but not required. \r\n \r\n\r\n\r\n**Before
-  you start**  \r\nKeep an eye on the clock. You have 30 minutes to complete this
-  track. After 30 minutes, your learning environment expires and your work will not
-  be saved. If you haven't completed the track, you can simply restart it and skip
-  to any challenge.\r\n"
+description: |
+  Bolt is an open source orchestration tool that automates the manual work it takes to maintain your infrastructure, helping you to complete ad hoc tasks remotely on a large number of targets. For example, you can use Bolt to patch and update systems, troubleshoot servers, deploy applications, and stop and restart services.
+
+
+   **You'll learn:**
+    - What Bolt is and when to use it
+    - How to install Bolt
+    - How to verify that your installation works as expected
+
+
+  **Try it out for yourself:**
+    - Run Bolt commands to update the NTP service on target nodes to keep their clocks synchronized.
+
+
+
+
+
+  **Why complete this track?**
+  If you're new to Bolt, start here. Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy apps across your infrastructure, this is the first step to take to get there.
+
+  **Prerequisites:**
+   - Linux command line experience is helpful but not required.
+   - NTP service familiarity is helpful but not required.
+
+
+
+  **Before you start**
+  Keep an eye on the clock. You have 30 minutes to complete this track. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the track, you can simply restart it and skip to any challenge.
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 tags:
 - Puppet
@@ -50,6 +61,7 @@ challenges:
       - Deploy applications
       - Stop and restart services
 
+      ## **Start this track**
       When your environment has finished spinning up, you'll see a green **Start** button at the bottom of the screen (this should take about 1 minute). Click it when you're ready to begin the track.
   assignment: "# Install Bolt\nThe best way to learn about Bolt is to try it out for
     yourself. Start by configuring the Bolt yum repository, also known as the Puppet
@@ -86,8 +98,10 @@ challenges:
   teaser: Make sure your Bolt installation works as expected.
   notes:
   - type: text
-    contents: "Now that you've installed Bolt, make sure it works as expected.\r\n\r\nTo
-      begin the next challenge, click **Start**.\r\n"
+    contents: |
+      Now that you've installed Bolt, make sure it works as expected.
+
+      To begin the next challenge, click **Start**.
   assignment: "You can quickly confirm Bolt is installed correctly by running some
     basic Bolt commands.\r\n\r\nFirst, show the Bolt version by running this command:\r\n```\r\nbolt
     --version\r\n```\r\n\r\nThen, show the Bolt help message:\r\n```\r\nbolt --help\r\n```\r\n\r\nTo
@@ -203,4 +217,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "10766263526298417760"
+checksum: "7777917906262565650"
