@@ -5,13 +5,13 @@ mkdir /root/myproject && cd /root/myproject
 bolt project init
 cat<<EOF >/root/myproject/inventory.yaml
 groups:
-      - name: webservers
-        targets:
-          - web1
-          - web2
-        config:
-          transport: ssh
+  - name: webservers
+    targets:
+      - web1
+      - web2
     config:
-      ssh:
-        host-key-check: false
+      transport: ssh
+config:
+  ssh:
+    host-key-check: false
 EOF
