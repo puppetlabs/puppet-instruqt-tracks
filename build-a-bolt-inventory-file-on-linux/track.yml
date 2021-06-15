@@ -211,10 +211,15 @@ challenges:
   teaser: Invoke a script with Bolt to complete a multistep NTP configuration.
   notes:
   - type: text
-    contents: "In this challenge, you will build and run an NTP configuration script.
-      \ \r\n\r\nThis script:  \r\n - Synchronizes the system time on all your targets.
-      \ \r\n - Appends more NTP servers to the end of the `ntp.conf` files.  \r\n
-      - Starts the NTP service.  \r\n\r\nClick **Start** when you’re ready to begin."
+    contents: |-
+      In this challenge, you will build and run an NTP configuration script.
+
+      This script:
+       - Synchronizes the system time on all your targets.
+       - Appends more NTP servers to the end of the `ntp.conf` files.
+       - Starts the NTP service.
+
+      Click **Start** when you’re ready to begin.
   assignment: |-
     ✏️ **Note:**  This example uses a Bash script, but you can use a script written in any programming language that the targets support.
 
@@ -268,8 +273,10 @@ challenges:
   teaser: Test your knowledge to make sure you've got it down.
   notes:
   - type: text
-    contents: "You’re doing great! Now, make sure you’ve got it all down.   \r\n\r\nClick
-      **Start** when you’re ready to begin."
+    contents: |-
+      You’re doing great! Now, make sure you’ve got it all down.
+
+      Click **Start** when you’re ready to begin.
   assignment: |-
     Answer the questions, and then click **CHECK YOUR ANSWERS** to see how you did.
 
@@ -288,8 +295,10 @@ challenges:
   teaser: Recap what you learned and tell us what you think.
   notes:
   - type: text
-    contents: "Excellent! You’re nearly done!  \r\n\r\nClick **Start** to review what
-      you learned and let us know what you thought of this track."
+    contents: |-
+      Excellent! You’re nearly done!
+
+      Click **Start** to review what you learned and let us know what you thought of this track.
   assignment: |
     In this lab, you:
      - Discovered how to create inventory files and assign targets to a group in an inventory file.
@@ -316,4 +325,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 500
-checksum: "13208373074812919369"
+checksum: "13570833290845521985"
