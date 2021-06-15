@@ -3,34 +3,39 @@ id: yt7oz8p7uzhp
 type: track
 title: Build a Bolt Inventory File on Linux
 teaser: Save time by running tasks across groups of targets.
-description: "The Bolt inventory file (inventory.yaml) enables you to simplify how
-  you manage a large number of target nodes, or *targets*. You can define groups of
-  targets in this file and then reference the group — instead of a list of individual
-  targets — in a Bolt command. You can also define connection settings and store information
-  about the targets. \n\nFor example, suppose that you discover that the Network Time
-  Protocol (NTP) service is out of sync across the Linux targets in your environment.
-  In the `inventory.yaml` file, you can define a group named **linux**, and then run
-  a command against that group to update all the targets at once instead of manually
-  syncing those targets one at a time or providing all the target names as part of
-  the command. \n\n**What you will learn in this track:**  \n - First, you will build
-  an inventory file and define your targets by grouping them so that you can run commands
-  and scripts against that group.\n - Then, you'll run the ntpdate command to synchronize
-  the date on the targets defined in the group.\n - Finally, you will build a script
-  that performs an initial sync of the system clock and starts the NTP service on
-  the targets in the group that you create. \n\n**Why complete this track?**  \nYou
-  can use Bolt out of the box to make ad hoc changes to targets by including the target
-  name each time you run a command. While this might be easy for managing a handful
-  of targets, imagine if you have to make changes to 50, 500, or even 5000 targets!
-  By defining groups of targets (and other information such as connection parameters)
-  in the inventory.yaml file, you no longer have to specify individual targets when
-  you run a command. \n\n**Before you get started**  \nKeep an eye on the clock! You
-  will have 30 minutes to complete this track. At the end of 30 minutes, your learning
-  environment will automatically expire and your work will not be saved. If you have
-  not completed the track, you can restart the track and skip to any challenge.  \n\n**Prerequisites**
-  \ \n - Basic familiarity with [Bolt](https://puppet.com/open-source/bolt/). \n   -
-  If you are brand new to Bolt, start with the [Bolt Basics on Linux](https://play.instruqt.com/puppet/invite/jpbxwmbt8hdx)
-  track.\n - Familiarity with [shell scripting](https://en.wikipedia.org/wiki/Shell_script).\n
-  - Familiarity with [YAML](https://en.wikipedia.org/wiki/YAML)."
+description: |-
+  The Bolt inventory file (inventory.yaml) enables you to simplify how you manage a large number of target nodes, or *targets*. You can define groups of targets in this file and then reference the group — instead of a list of individual targets — in Bolt commands. You can also define connection settings and store information about the targets.
+
+  For example, suppose you need to run a Network Time Protocol (NTP) configuration script on the Linux targets in your environment. In the `inventory.yaml` file, you can define a group named **linux**, and then run the script against that group to update all the targets at once instead of syncing them one at a time or providing all the target names in the Bolt command that invokes the script.
+
+
+  **What you will learn in this track**
+   - First, you'll build an inventory file and assign targets to a group that you can run commands and scripts against.
+   - Then, you'll run the `ntpdate` command to synchronize the date and time on the targets defined in the group.
+   - Finally, you'll build a script that synchronizes the system clock and starts the NTP service on the targets in the group.
+
+
+
+   **Why complete this track?**
+
+  You can use Bolt to make ad hoc changes to targets by including target names when you run commands. This might be easy for managing a handful of targets, but imagine if you have to change 50, 500, or even 5000 targets!
+
+
+  By defining groups of targets (and other information such as connection parameters) in the `inventory.yaml` file, you can simplify your Bolt commands and ensure that commands are run against the correct targets each time.
+
+
+  **Before you get started**
+
+  Keep an eye on the clock! You have 30 minutes to complete this track. At the end of 30 minutes, your learning environment expires and your work will not be saved. If you have not completed the track, you can restart the track and skip to any challenge.
+
+  **Prerequisites**
+   - Basic familiarity with [Bolt](https://puppet.com/open-source/bolt/)
+     - If you are brand new to Bolt, start with the [Bolt Basics on Linux](https://play.instruqt.com/puppet/invite/jpbxwmbt8hdx) track.
+   - Familiarity with [shell scripting](https://en.wikipedia.org/wiki/Shell_script)
+   - Familiarity with [YAML](https://en.wikipedia.org/wiki/YAML)
+
+
+   If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
 tags:
 - Puppet
@@ -41,7 +46,8 @@ developers:
 - greg.larkin@puppet.com
 - tara.swenson@puppet.com
 private: true
-published: false
+published: true
+skipping_enabled: true
 challenges:
 - slug: create-an-inventory-file-and-define-your-targets
   id: 69ibjvibsm9i
@@ -51,43 +57,86 @@ challenges:
     orchestration tasks.
   notes:
   - type: text
-    contents: "In this challenge, you will create and populate an inventory file so
-      that you can manage targets by group.  \r\n\r\nThe `inventory.yaml` contains
-      groups targets and manages how Bolt connects to them. By defining groups, you
-      can run Bolt commands against a group of targets instead of against one target
-      at a time.  \r\n\r\nClick **Start** when you're ready to begin."
-  assignment: "When you create a Bolt project by running the `bolt project init` command,
-    Bolt creates an inventory file with placeholder content in the project directory.
-    The project directory also contains configuration files, plans, and tasks. \n\n#
-    Step 1: Create and navigate to your project directory  \n `mkdir myproject &&
-    cd myproject`\n\n# Step 2: Create the Bolt project   \n `bolt project init`\n\n✏️
-    **Note:** For this basic example, you can omit the project name, which would follow
-    `init`. Project names must begin with a lowercase letter and can contain only
-    lowercase letters, numbers, and underscores.\n\n# Step 3: View the inventory.yaml
-    file  \nOn the **Editor** tab, expand **myproject** and double-click `inventory.yaml`.
-    \ \n<img src=\"https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/myproject-2.png\">\n
-    Notice that the file contains only placeholder content.\n<img src=\"https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/commented-out.png\">\n#
-    Step 4: Update the inventory file content  \nReplace the placeholder content with
-    the code below, which defines the **webservers** group made up of targets web1
-    and web2. \n\n✏️ **Note:**  For this example, Bolt connects to the **webservers**
-    targets by SSH and directs the SSH connection not to check the host key. \n   -
-    In a self-contained, isolated environment (such as this lab) you can skip checking
-    the host key. \n   - In a typical production environment, make sure to have SSH
-    server host key policies for distributing and validating keys during SSH client
-    connections. \n\n    ---\n    groups:\n      - name: webservers\n        targets:\n
-    \         - web1\n          - web2\n        config:\n          transport: ssh\n
-    \   config:\n      ssh:\n        host-key-check: false\n\n# Step 5: Save your
-    changes by clicking the disk icon <img src=\"https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/save-icon.png\">
-    \ \n\n# Step 6: Verify your targets are correct  \nReturn to the **Bolt** tab.
-    Now, check that the targets are specified correctly. Run the following command
-    to show the list of targets that an action would run against:\n`bolt inventory
-    show --targets all`  \n\n✔️ **Result:** If your inventory file is set up correctly,
-    you'll see the following output, which includes the number of targets in the group
-    and their names:  \n\n    Targets  \n      web1  \n      web2  \n    Inventory
-    source  \n      /root/myproject/inventory.yaml  \n    Target count  \n      2
-    total, 2 from inventory, 0 adhoc  \n    Additional information  \n      Use the
-    '--detail' option to view target configuration and data  \n\n\nIf your file isn't
-    correct, go back to step 4 and try again.\n"
+    contents: |+
+      In this challenge, you will create a Bolt project, and then populate its inventory file so that you can manage targets by group name. A Bolt project is a directory that contains the project files, configuration files, and data to run a workflow. The project's `inventory.yaml` file is where you define groups of targets and connection information.
+
+      Grouping your targets enables you to run Bolt commands against the group instead of having to reference each target individually.
+
+      When your environment has finished spinning up, you'll see a green **Start** button at the bottom of the screen (this takes about 1 minute). Click it when you're ready to begin the track.
+
+  assignment: |
+    When you create a Bolt project by running the ```bolt project init``` command, Bolt creates an inventory file with placeholder content in the project directory. The project directory also contains configuration files, plans, and tasks.
+
+    # Step 1: Create and navigate to your project directory
+    At the command prompt on the Bolt tab to the left, type the following command (you can also copy it and paste it at the command prompt).
+
+     ```
+     mkdir myproject && cd myproject
+     ```
+
+    # Step 2: Create the Bolt project
+    Then, run:
+
+     ```
+     bolt project init
+     ```
+
+    ✏️ **Note:** For this simple example, you can omit the project name, which would follow `init`. Project names must begin with a lowercase letter and can contain only lowercase letters, numbers, and underscores.
+
+    You might create multiple Bolt projects, each with its own purpose, such as managing database servers, patching Windows machines, or completing greenfield deployment tasks.
+
+    If multiple projects run against the same inventory, they can share an inventory file so you don't need to maintain your inventory in each project. For details, search for "inventory files" in the [Bolt documentation](https://puppet.com/docs/bolt/latest/bolt.html).
+
+    # Step 3: View the inventory.yaml file
+    On the **Editor** tab, expand **myproject** and double-click `inventory.yaml`.
+    <img src="https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/myproject-2.png">
+     Notice that the file contains only placeholder content.
+
+    # Step 4: Update the inventory file content
+    The following code defines a group named **webservers**, made up of targets web1 and web2. Copy the code into the inventory file, replacing the placeholder content.
+
+    ✏️ **Note:**  For this example, Bolt connects to the **webservers** targets over SSH and skips the host key validation.
+       - In a self-contained, isolated environment (such as this lab) you can skip checking the host key.
+       - In a typical production environment, make sure to have SSH server host key policies for distributing and validating keys during SSH client connections.
+
+        ---
+        groups:
+          - name: webservers
+            targets:
+              - web1
+              - web2
+            config:
+              transport: ssh
+        config:
+          ssh:
+            host-key-check: false
+
+    # Step 5: Save your changes
+
+    Click the disk icon: <img src="https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/save-icon.png">
+
+    # Step 6: Verify that your targets are correct
+    Return to the **Bolt** tab. Now, check that the targets are specified correctly. Run the following command to show the list of targets that Bolt commands run against:
+    ```
+    bolt inventory show --targets all
+    ```
+
+    ✔️ **Result:** If your inventory file is set up correctly, you'll see the following output, which includes the number of targets in the group and their names:
+
+        Targets
+          web1
+          web2
+        Inventory source
+          /root/myproject/inventory.yaml
+        Target count
+          2 total, 2 from inventory, 0 adhoc
+        Additional information
+          Use the '--detail' option to view target configuration and data
+
+
+    If your file isn't correct, go back to step 4 and try again.
+
+    Click **Check** to continue.
   tabs:
   - title: Bolt
     type: terminal
@@ -102,76 +151,106 @@ challenges:
   id: aumjsw3ompmd
   type: challenge
   title: ' Run a command on your targets ✔️'
-  teaser: Run the `ntpdate` command to synchronize the date on the targets defined
-    in the **webservers** group.
+  teaser: Run the `ntpdate` command to synchronize the system time on the targets
+    defined in the **webservers** group.
   notes:
   - type: text
-    contents: "In this challenge, you'll run the ntpdate command against the **webservers**
-      group that you defined in the `inventory.yaml` file to synchronize the system
-      clock of the targets web1 and web2.  \r\n\r\nAssigning targets to groups and
-      running commands against the group name has these benefits:   \r\n- Commands
-      run from scripts don't contain hard-coded target names (parameterization).  \r\n-
-      You can easily move targets among groups. Targets in an inventory can belong
-      to more than one group.  \r\n- Assuming that the groups are defined correctly,
-      you won't run commands against the wrong target.  \r\n\r\nClick **Start** when
-      you’re ready to begin. "
-  assignment: "To run a Bolt command without an inventory file, you need a comma-separated
-    list of targets to run the command against, which looks like this:  \r\n`bolt
-    command run <command> --targets web1,web2`  \r\n\r\nUsing an inventory file, you
-    can instead run the command against the webservers group that you defined in the
-    previous challenge:   \r\n`bolt command run <command> --targets webservers`  \r\n\r\n#
-    Step 1: Run the ntpdate command  \r\nRun the following `ntpdate` command to synchronize
-    the date on the targets defined in the **webservers** group:   \r\n`bolt command
-    run 'ntpdate -b time.apple.com' --targets webservers`  \r\n\r\nNotice that the
-    output tells you that the time was successfully adjusted on the targets:   \r\n
-    \   Started on web2…\r\n    Started on web1…\r\n    Finished on web2:\r\n      14
-    May 16:32:35 ntpdate[1605]: adjust time server 50.205.57.38 offset -0.000023 sec\r\n
-    \   Finished on web1:\r\n        14 May 16:32:35 ntpdate[1599]: adjust time server
-    45.87.76.3 offset 0.000690 sec\r\n    Successful on 2 targets: web1,web2\r\n    Ran
-    on 2 targets in 7.55 sec  \r\n\r\nTo recap, running commands against defined groups
-    instead of against individual targets enables you to:  \r\n - Eliminate hard-coded
-    target names from commands and scripts.\r\n - Easily move targets among groups
-    as system needs change.\r\n - Ensure the correct commands run against the correct
-    targets.  \r\n\r\n Click **Check** to continue.\r\n\r\n\r\n"
+    contents: |-
+      In this challenge, you'll run the `ntpdate` command to synchronize the system time of the targets in the **webservers** group that you defined in the `inventory.yaml` file.
+
+      Assigning targets to groups and running commands against the group enables you to:
+      - Eliminate hard-coded target names from commands and scripts.
+      - Easily move targets among groups as system needs change.
+      - Ensure that commands run against the correct targets.
+
+      Click **Start** when you’re ready to begin.
+  assignment: |+
+    To run a Bolt command against multiple targets *without* an inventory file, you need a comma-separated list of targets to run the command against, which looks like this:
+    `bolt command run <command> --targets web1,web2`
+
+    But because you defined the webservers group in `inventory.yaml` in the previous challenge, you can simplify the command by specifying the group name:
+    `bolt command run <command> --targets webservers`
+
+    # Step 1: Run the `ntpdate` command
+    Run the following `ntpdate` command to synchronize the system time on the targets defined in the **webservers** group:
+
+    ```
+    bolt command run 'ntpdate -b time.apple.com' --targets webservers
+    ```
+
+    Notice that the output tells you that the time was adjusted on the targets:
+    ```
+        Started on web2…
+        Started on web1…
+        Finished on web2:
+          14 May 16:32:35 ntpdate[1605]: adjust time server 50.205.57.38 offset -0.000023 sec
+        Finished on web1:
+            14 May 16:32:35 ntpdate[1599]: adjust time server 45.87.76.3 offset 0.000690 sec
+        Successful on 2 targets: web1,web2
+        Ran on 2 targets in 7.55 sec
+    ```
+
+    To recap, running commands against defined groups instead of against individual targets enables you to:
+     - Eliminate hard-coded target names from commands and scripts.
+     - Easily move targets among groups as system needs change.
+     - Ensure the correct commands run against the correct targets.
+
+     Click **Check** to continue.
+
+
   tabs:
-  - title: Linux
+  - title: Bolt
     type: terminal
     hostname: puppet
   difficulty: basic
   timelimit: 500
-- slug: create-a-bolt-task-using-bash
+- slug: build-a-bash-script-and-run-it-on-your-targets
   id: xuxnxfxlf8vj
   type: challenge
   title: "Build a Bash script and run it on your targets \U0001F4DC"
-  teaser: 'Invoke a script with Bolt to complete a multistep NTP configuration. '
+  teaser: Invoke a script with Bolt to complete a multistep NTP configuration.
   notes:
   - type: text
     contents: "In this challenge, you will build and run an NTP configuration script.
       \ \r\n\r\nThis script:  \r\n - Synchronizes the system time on all your targets.
       \ \r\n - Appends more NTP servers to the end of the `ntp.conf` files.  \r\n
       - Starts the NTP service.  \r\n\r\nClick **Start** when you’re ready to begin."
-  assignment: "✏️ **Note:**  This example uses a Bash script, but you can use a script
-    written in any programming language that the targets support.  \r\n\r\nFor this
-    challenge, you will write an NTP configuration script and run it on your targets.
-    In the same way that you ran a command using the inventory file, you will run
-    a script using the inventory file, only this time you will replace the command
-    name with the path to the script you created:  \r\n`bolt script run <filepath.sh>
-    --targets webservers`\r\n\r\n# Step 1: Open the script  \r\nOn the **Editor**
-    tab, open the `/root/configure-ntp.sh` script.  \r\n\r\n# Step 2: Build the script\r\nUse
-    the comments in the file and your knowledge of NTP configuration to build a working
-    script.  \r\n\r\n✏️ **Note:**  If you get stuck, click the **Editor** tab and
-    copy the solution from the `/root/.instruqt directory`.  \r\n\r\n# Step 3: Test
-    the script  \r\nGo back to the **Bolt** tab and run the following command:  \r\n`bolt
-    script run /root/configure-ntp.sh --targets webservers`  \r\n  \r\nIf you build
-    the script correctly, you'll see output similar to this:   \r\n    Started on
-    web1...  \r\n    Started on web2...  \r\n    Finished on web1:  \r\n      14 May
-    22:32:51 ntpdate[1465]: step time server 17.253.52.253 offset -0.000310 sec  \r\n
-    \   Finished on web2:  \r\n        14 May 22:32:51 ntpdate[1471]: step time server
-    17.253.52.253 offset -0.000089 sec  \r\n    Successful on 2 targets: web1,web2
-    \ \r\n    Ran on 2 targets in 7.85 sec  \r\n\r\nThis output shows the one-time
-    synchronization of the NTP server with the system time on web1 and web2.   \r\n\r\nIf
-    the output doesn’t match the output shown above, click the **Editor** tab and
-    review the sample solution in the `/root/.instruqt directory`.   "
+  assignment: |-
+    ✏️ **Note:**  This example uses a Bash script, but you can use a script written in any programming language that the targets support.
+
+    In this challenge, you'll write an NTP configuration script and run it on your targets. In the same way that you ran a *command* on a group of targets, you'll run a *script* against the same group, replacing the command name with the path to the script:
+
+    `bolt script run <filepath.sh> --targets webservers`
+
+    # Step 1: Open the script
+    On the **Editor** tab, open the `/root/configure-ntp.sh` script.
+
+    # Step 2: Build the script
+    Use the comments in the file and your knowledge of NTP configuration to build a script.
+
+    ✏️ **Note:**  If you get stuck, click the **Editor** tab and copy the solution from the `/root/.instruqt` directory.
+
+    # Step 3: Test the script
+    Go back to the **Bolt** tab and run the following command:
+    ```
+    bolt script run /root/configure-ntp.sh --targets webservers
+    ```
+
+    If you built the script correctly, you'll see output similar to this:
+    ```
+        Started on web1...
+        Started on web2...
+        Finished on web1:
+          14 May 22:32:51 ntpdate[1465]: step time server 17.253.52.253 offset -0.000310 sec
+        Finished on web2:
+            14 May 22:32:51 ntpdate[1471]: step time server 17.253.52.253 offset -0.000089 sec
+        Successful on 2 targets: web1,web2
+        Ran on 2 targets in 7.85 sec
+    ```
+
+    This output shows the one-time synchronization of the NTP server with the system time on web1 and web2.
+
+    If the output doesn’t match the output shown above, go to the **Editor** tab and review the sample solution in the `/root/.instruqt` directory.
   tabs:
   - title: Linux
     type: terminal
@@ -179,6 +258,7 @@ challenges:
   - title: Editor
     type: code
     hostname: puppet
+    path: /root
   difficulty: basic
   timelimit: 500
 - slug: knowledge-check
@@ -190,40 +270,45 @@ challenges:
   - type: text
     contents: "You’re doing great! Now, make sure you’ve got it all down.   \r\n\r\nClick
       **Start** when you’re ready to begin."
-  assignment: "# Answer the questions shown here, and then click Submit.  \r\n\r\nWhen
-    you're done with the knowledge check, click **Check** to continue."
+  assignment: |-
+    Answer the questions, and then click **CHECK YOUR ANSWERS** to see how you did.
+
+    When you finish the knowledge check, click **Check** to continue.
   tabs:
   - title: "Knowledge Check \U0001F4A1"
     type: website
     hostname: puppet
-    url: https://survey.alchemer.com/s3/6363391/Puppet-Practice-Labs-Build-a-Bolt-Inventory-File-on-Linux-Knowledge-Check
+    url: https://survey.alchemer.com/s3/6383534/Build-a-Bolt-Inventory-File-on-Linux-Knowledge-Check
   difficulty: basic
   timelimit: 500
 - slug: wrapup-and-feedback
   id: pdjxuihtzshv
   type: challenge
-  title: "Wrap-up & Feedback \U0001F4AC"
+  title: "Wrap-Up & Feedback \U0001F4AC"
   teaser: Recap what you learned and tell us what you think.
   notes:
   - type: text
     contents: "Excellent! You’re nearly done!  \r\n\r\nClick **Start** to review what
       you learned and let us know what you thought of this track."
-  assignment: "In this lab, you learned how to create inventory files and why they
-    are useful, then you used the inventory file to run a command, ensuring the inventory
-    file was set up correctly. Next, you created a script to configure NTP on a server,
-    then you used the inventory file to run the script on your targets. Finally, you
-    tested your knowledge to make sure you've got it down.   \r\n\r\nIn this lab,
-    you:   \r\n - Discovered how to create inventory files and why they are useful.
-    \ \r\n - Ran a command to list the targets in the inventory file to ensure the
-    file was set up correctly.  \r\n - Created a script to configure NTP on a server.
-    \ \r\n - Ran the script against a group of targets defined in the inventory file.
-    \ \r\n - Tested your knowledge to make sure you've got it down.  \r\n\r\nWant
-    to learn more about Bolt or Puppet? Check out these resources:  \r\n- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)
-    \ \r\n- [Puppet Compass](https://learn.puppet.com/)  \r\n- [Puppet Community Slack](https://slack.puppet.com/)
-    \ \r\n\r\nTo access the commands used throughout this lab, check out the companion
-    [Lab Aid](www.puppet.com).<- needs link  \r\n\r\nHave ideas for improvement? Submit
-    a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/build-a-bolt-inventory-file-on-linux).
-    \  \r\n\r\nTo close this track, click **Check**. \r\n"
+  assignment: |
+    In this lab, you:
+     - Discovered how to create inventory files and assign targets to a group in an inventory file.
+     - Learned why using groups saves time and simplifies commands.
+     - Ran a command to list the targets in the inventory file to ensure the file was set up correctly.
+     - Created a script to configure NTP on a server.
+     - Ran the script against a group of targets defined in the inventory file.
+     - Tested your knowledge to make sure you've got it down.
+
+    Want to learn more about Bolt or Puppet? Check out these resources:
+    - [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)
+    - [Puppet Compass](https://learn.puppet.com/)
+    - [Puppet Community Slack channel](https://slack.puppet.com/)
+
+    To access the commands used throughout this lab, check out the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
+
+    Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/build-a-bolt-inventory-file-on-linux).
+
+    To close this track, click **Check**.
   tabs:
   - title: Feedback
     type: website
@@ -231,4 +316,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 500
-checksum: "6668723908906525261"
+checksum: "4239744085183892633"

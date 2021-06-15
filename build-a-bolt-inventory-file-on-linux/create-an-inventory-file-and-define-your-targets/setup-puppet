@@ -4,6 +4,9 @@
 rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
 yum install -y puppet-bolt-3.7.1
 
+# Needed for check script
+yum install -y jq
+
 # Create the Bolt solution script file for the user
 mkdir -p /root/.instruqt
 cat > /root/.instruqt/configure-ntp.sh <<EOF

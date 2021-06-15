@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BOLT_PROJECT_DIR=/root/myproject
+
+# Check if the project directory exists
+if [ ! -d ${BOLT_PROJECT_DIR} ]; then
+  fail-message "The Bolt project directory does not exist"
+  exit 1
+fi
+
+# Check if the project file exist
+if [ ! -f ${BOLT_PROJECT_DIR}/bolt-project.yaml -o ! -f ${BOLT_PROJECT_DIR}/inventory.yaml ]; then
+  fail-message "One or more Bolt project files do not exist"
+  exit 1
+fi
+
+# Check if the inventory targets are correct
+cd ${BOLT_PROJECT_DIR}
+bolt inventory show --targets all --format json | jq '.inventory.targets | join(",")' | diff -q - <(echo '"web1,web2"')
+if [ $? -ne 0 ]; then
+  fail-message "Your Bolt targets do not appear to be correct"
+  exit 1
+fi
+
+exit 0

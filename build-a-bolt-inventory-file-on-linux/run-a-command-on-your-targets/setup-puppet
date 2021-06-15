@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Change the working directory to where the user was in the previous challenge,
+# assuming that it exists. This will persist to the 3rd challenge as well.
+if [ -d /root/myproject ]; then
+  set-workdir /root/myproject
+fi
+
+exit 0

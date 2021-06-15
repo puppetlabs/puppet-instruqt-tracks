@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Execute the commands that the user would in order to enable skipping
+echo 'server 0.us.pool.ntp.org' >> /etc/ntp.conf
+echo 'server 1.us.pool.ntp.org' >> /etc/ntp.conf
+echo 'server 2.us.pool.ntp.org' >> /etc/ntp.conf
+echo 'server 3.us.pool.ntp.org' >> /etc/ntp.conf
+systemctl start ntpd.service
+
+exit 0
