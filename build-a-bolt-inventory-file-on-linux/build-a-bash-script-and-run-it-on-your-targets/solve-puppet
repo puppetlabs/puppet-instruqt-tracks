@@ -6,5 +6,3 @@ echo 'server 1.us.pool.ntp.org' >> /etc/ntp.conf
 echo 'server 2.us.pool.ntp.org' >> /etc/ntp.conf
 echo 'server 3.us.pool.ntp.org' >> /etc/ntp.conf
 systemctl start ntpd.service
-
-exit 0

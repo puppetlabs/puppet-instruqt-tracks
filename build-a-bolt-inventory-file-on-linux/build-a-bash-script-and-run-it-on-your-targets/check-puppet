@@ -3,12 +3,14 @@
 # Check if the system has been updated by the learner's script. It's difficult to check
 # the script directly due to how it was implemented by the learner, but we can check some
 # settings and services.
-if ! grep -qP '^server \d+\.pool\.ntp\.org' /etc/ntp.conf; then
+cd /root/myproject
+
+if ! bolt command run "grep -qP '^server \d+\.pool\.ntp\.org' /etc/ntp.conf" --targets webservers; then
   fail-message "The NTP server settings have not been updated"
   exit 1
 fi
 
-if ! systemctl status ntpd.service; then
+if ! bolt command run "systemctl status ntpd.service" --targets webservers; then
   fail-message "The NTP service has not been started"
   exit 1
 fi
