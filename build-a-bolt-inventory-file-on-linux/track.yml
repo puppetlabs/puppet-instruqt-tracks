@@ -111,6 +111,10 @@ challenges:
     type: code
     hostname: puppet
     path: /root
+  - title: Platform Help
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
 - slug: run-a-command-on-your-targets
@@ -168,6 +172,10 @@ challenges:
   - title: Bolt
     type: terminal
     hostname: puppet
+  - title: Platform Help
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
 - slug: build-a-bash-script-and-run-it-on-your-targets
@@ -230,6 +238,10 @@ challenges:
     type: code
     hostname: puppet
     path: /root
+  - title: Platform Help
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
 - slug: knowledge-check
@@ -252,6 +264,10 @@ challenges:
     type: website
     hostname: puppet
     url: https://survey.alchemer.com/s3/6383534/Build-a-Bolt-Inventory-File-on-Linux-Knowledge-Check
+  - title: Platform Help
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
 - slug: wrapup-and-feedback
@@ -281,7 +297,7 @@ challenges:
 
     To access the commands used throughout this lab, check out the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
 
-    Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/build-a-bolt-inventory-file-on-linux).
+    Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/build-a-bolt-inventory-file-on-linux) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 
     To close this track, click **Check**.
   tabs:
@@ -289,6 +305,10 @@ challenges:
     type: website
     hostname: puppet
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
+  - title: Platform Help
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "13274815132288751093"
+checksum: "10974495318218180804"
