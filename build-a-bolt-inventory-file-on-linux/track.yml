@@ -97,12 +97,12 @@ challenges:
     tab, check that the targets are specified correctly. Run the following command
     to show the list of targets that Bolt commands run against:\n```\nbolt inventory
     show --targets all\n```\n\n✔️ **Result:** If your inventory file is set up correctly,
-    you'll see output similar to the following, which includes the number of targets
-    in the group and their names:\n\n    Targets\n      web1\n      web2\n    Inventory
-    source\n      /root/myproject/inventory.yaml\n    Target count\n      2 total,
-    2 from inventory, 0 adhoc\n    Additional information\n      Use the '--detail'
-    option to view target configuration and data\n\n\nIf your file isn't correct,
-    go back to step 4 and try again.\n\nClick **Check** to continue.\n"
+    you'll see the following output, which includes the number of targets in the group
+    and their names:\n\n    Targets\n      web1\n      web2\n    Inventory source\n
+    \     /root/myproject/inventory.yaml\n    Target count\n      2 total, 2 from
+    inventory, 0 adhoc\n    Additional information\n      Use the '--detail' option
+    to view target configuration and data\n\n\nIf your file isn't correct, go back
+    to step 4 and try again.\n\nClick **Check** to continue.\n"
   tabs:
   - title: Bolt
     type: terminal
@@ -144,7 +144,7 @@ challenges:
     bolt command run 'ntpdate -b time.apple.com' --targets webservers
     ```
 
-    Notice that the output tells you that the time was adjusted on the targets:
+    Notice that the time was adjusted on the targets (your run date and time will differ):
     ```
         Started on web2…
         Started on web1…
@@ -291,4 +291,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "18292570178021085174"
+checksum: "13274815132288751093"
