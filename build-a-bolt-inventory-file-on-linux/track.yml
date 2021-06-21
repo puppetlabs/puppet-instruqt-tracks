@@ -52,7 +52,7 @@ challenges:
 - slug: create-an-inventory-file-and-define-your-targets
   id: 69ibjvibsm9i
   type: challenge
-  title: " Create an inventory file and define your targets \U0001F4C4"
+  title: " Create an Inventory File and Define Your Targets \U0001F4C4"
   teaser: Group targets by a common operating system or functional role to streamline
     orchestration tasks.
   notes:
@@ -120,7 +120,7 @@ challenges:
 - slug: run-a-command-on-your-targets
   id: aumjsw3ompmd
   type: challenge
-  title: ' Run a command on your targets ✔️'
+  title: ' Run a Command on Your Targets ✔️'
   teaser: Run the `ntpdate` command to synchronize the system time on the targets
     defined in the **webservers** group.
   notes:
@@ -181,7 +181,7 @@ challenges:
 - slug: build-a-bash-script-and-run-it-on-your-targets
   id: xuxnxfxlf8vj
   type: challenge
-  title: "Build a Bash script and run it on your targets \U0001F4DC"
+  title: "Build a Bash Script and Run It on Your Targets \U0001F4DC"
   teaser: Invoke a script with Bolt to complete a multistep NTP configuration.
   notes:
   - type: text
@@ -311,4 +311,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "10974495318218180804"
+checksum: "14754893827624119844"
