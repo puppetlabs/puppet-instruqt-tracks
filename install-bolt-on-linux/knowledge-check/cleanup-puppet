@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit if the privacy policy has been declined by the user
+[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 1
+
 # Inject some additional JSON key/value pairs
 json -I -f /tmp/instruqt.json \
     -e 'this.Env.INSTRUQT_CHALLENGE_STATE="stop"'

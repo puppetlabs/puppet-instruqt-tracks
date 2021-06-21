@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit if the privacy policy has been declined by the user
+[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 1
+
 # Install some JSON manipulation tools
 yum install -y jq nodejs
 npm install -g json
