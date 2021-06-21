@@ -210,7 +210,7 @@ challenges:
 - slug: wrapup-and-feedback
   id: vor7wnab2oje
   type: challenge
-  title: "Wrap-up & Feedback \U0001F4AC"
+  title: "Wrap-Up & Feedback \U0001F4AC"
   teaser: Recap what you learned and tell us what you think.
   notes:
   - type: text
@@ -240,4 +240,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "10753624950365508623"
+checksum: "15167640105515421801"
