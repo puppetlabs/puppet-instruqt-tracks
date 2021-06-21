@@ -36,7 +36,7 @@ grep -P '(^#|^[[:blank:]]*$)' /root/.instruqt/configure-ntp.sh > /root/configure
 chmod 755 /root/configure-ntp.sh
 
 # Exit if the privacy policy has been declined by the user
-[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 1
+[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 0
 
 # Install some JSON manipulation tools
 yum install -y jq nodejs
