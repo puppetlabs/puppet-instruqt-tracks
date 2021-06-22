@@ -27,6 +27,7 @@ developers:
 - bart.kliebert@puppet.com
 private: true
 published: true
+show_timer: true
 skipping_enabled: true
 challenges:
 - slug: install-the-puppet-agent-on-a-node
@@ -412,4 +413,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 100
-checksum: "9016711274852139920"
+checksum: "15992491576257518905"
