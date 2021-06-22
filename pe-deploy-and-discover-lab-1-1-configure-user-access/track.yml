@@ -1,0 +1,67 @@
+slug: pe-deploy-and-discover-lab-1-1-configure-user-access
+id: uzggwuspuomz
+version: 0.0.1
+type: sandbox
+title: 'PE Deploy and Discover - Lab 1.1: Configure user access'
+teaser: Configure users in PE
+description: In this lab you will configure PE to grant read-only access to a team
+  of users so that they can login to the PE console and inspect information about
+  the systems.
+icon: ""
+tags:
+- ""
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- greg.larkin@puppet.com
+private: true
+published: false
+challenges:
+- slug: configure-user-access
+  id: hu8et40y7pvb
+  type: challenge
+  title: Configure user access
+  teaser: Configure users in PE
+  notes:
+  - type: text
+    contents: Please wait while the lab environment is launched...
+  assignment: |-
+    1. Switch to the Console tab and log in with username `admin` and password `puppetlabs`.
+
+    1. Once logged in, navigate to the Admin->Access Control page in the PE console.
+
+    2. Enter a new user name in the `Full name` text box and login name in the `Login` text box at the top of the table and click `Add local user`.
+
+    ![test](https://education-downloads.s3.us-west-2.amazonaws.com/instruqt-assets/pe-deploy-discover-lab-1-1/image+(1).png)
+
+    3. Click on the new user's name and navigate to the User details page.
+
+    ![test](https://education-downloads.s3.us-west-2.amazonaws.com/instruqt-assets/pe-deploy-discover-lab-1-1/image+(2).png)
+
+    4. Next, click on the `Generate password reset` link. Copy the link in the dialog box, open a new browser window or tab on your desktop and paste the link there. Enter a new password for the user and click the `Reset password` button.
+
+    ![test](https://education-downloads.s3.us-west-2.amazonaws.com/instruqt-assets/pe-deploy-discover-lab-1-1/image+(3).png)
+
+    5. Switch back to the Console tab and click Admin->Access Control->User roles.
+
+    ![test](https://education-downloads.s3.us-west-2.amazonaws.com/instruqt-assets/pe-deploy-discover-lab-1-1/image+(4).png)
+
+    6. Click on the Viewers user role, select your new user from the dropdown list and click the Add user button to add the user to the role.
+
+    ![test](https://education-downloads.s3.us-west-2.amazonaws.com/instruqt-assets/pe-deploy-discover-lab-1-1/image+(5).png)
+
+    7. Finally, log in as the new user.
+
+    This user has been restricted to certain operations within the Puppet Enterprise console. Role-based access control (RBAC) is a powerful way to configure user access within the console and create users with only the privileges they need.
+  tabs:
+  - title: Puppet server
+    type: terminal
+    hostname: puppet
+  - title: Console
+    type: service
+    hostname: puppet
+    port: 443
+    url: https://puppet-8443-INSTRUQT_PARTICIPANT_ID.env.play.instruqt.com
+  difficulty: basic
+  timelimit: 900
+checksum: "3805931505774603477"
