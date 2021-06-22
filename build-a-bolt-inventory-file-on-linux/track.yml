@@ -47,6 +47,7 @@ developers:
 - tara.swenson@puppet.com
 private: true
 published: true
+show_timer: true
 skipping_enabled: true
 challenges:
 - slug: create-an-inventory-file-and-define-your-targets
@@ -311,4 +312,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "12760880038186139401"
+checksum: "1280910922137133472"
