@@ -42,6 +42,7 @@ developers:
 - tara.swenson@puppet.com
 private: true
 published: true
+show_timer: true
 skipping_enabled: true
 challenges:
 - slug: install-bolt-on-linux
@@ -285,4 +286,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "16399198421372469668"
+checksum: "4847242543284248333"
