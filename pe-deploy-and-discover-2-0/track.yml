@@ -1,0 +1,84 @@
+slug: pe-deploy-and-discover-2-0
+id: rzm1rnl0at70
+type: sandbox
+title: 'PE Deploy and Discover - Lab 2.0: Install PE Agents'
+teaser: PE Deploy and Discover - 2.0 Install PE Agents
+description: |-
+  In this lab you will:
+
+  1. Use the remote installation method via the PE console to install an agent on a target server.
+  2. Sign the new agent certificate via the console.
+  3. Use the local installation method via the frictionless installer script to install an agent on a target server.
+icon: ""
+tags:
+- deploy-and-discover
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+private: false
+published: false
+challenges:
+- slug: install-pe-agents
+  id: yn5tswpkuyaq
+  type: challenge
+  title: Install PE Agents
+  teaser: Install the PE Agent on Two Separate Nodes
+  assignment: |-
+    # Install PE Agents
+
+    In this lab you will:
+
+    * Use the remote installation method via the PE console to install an agent on a target server.
+    * Sign the new agent certificate via the console.
+    * Use the local installation method via the frictionless installer script to install an agent on a target server.
+
+    ## Install an agent locally via the frictionless install script on the command line
+
+    1. Switch to the Console tab and log in with username `admin` and password `puppetlabs`.
+    2. Once logged in, navigate to the Inventory > Nodes page in the PE console.
+    3. Select Add Nodes in the upper right corner of the console.
+    4. Next, select Install Agents.
+    5. After the box on the right opens up, copy the curl command in the *nix box:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discovery-install-screen.png)
+
+    6. Switch over to the tab labelled Linux1.
+    7. Paste in the command and hit Enter:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-discover-and-deploy-curl-command.png)
+
+    8. After installation is complete, switch back to the Console tab and click the internal refresh button:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discover-refresh.png)
+    9. Navigate to Admin > Certificates. Select the Unsigned Certificates tab:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0-pe-deploy-and-discover-unsigned-cert.png)
+
+    10. Click Accept on the `linux1` node listed there.
+    11. Back in the Linux1 tab, trigger a puppet run with the following code:
+    ````
+    puppet agent -t
+    ````
+    12. In the Console tab, navigate to Inventory > Nodes. You will see two nodes listed: the Puppet Server and the linux1 node. Click on the linux1 node.
+    13. Inspect the facts about the linux1 node under the Fact tab:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discover-node-facts.png)
+
+    12. TODO: Add install from the console option.
+  tabs:
+  - title: Console
+    type: service
+    hostname: puppet
+    port: 443
+  - title: Puppet
+    type: terminal
+    hostname: puppet
+  - title: linux1
+    type: terminal
+    hostname: linux1
+  - title: linux2
+    type: terminal
+    hostname: linux2
+  difficulty: basic
+  timelimit: 96000
+checksum: "10213038216484561114"

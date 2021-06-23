@@ -1,0 +1,86 @@
+slug: pe-deploy-and-discover-1-0
+id: mxxouyyo8i2z
+type: sandbox
+title: 'PE Deploy and Discover - Lab 1.0: Install the PE Server'
+teaser: PE Deploy and Discover - 1.1 Install the PE Server
+description: |-
+  Demonstration of a proposed lab environment for the ILT course revamp
+
+  This track shows 4 machines to be used in a typical complex lab:
+
+  * Windows development node desktop
+  * Puppet server command line
+  * Windows agent node desktop
+  * Linux agent node desktop
+icon: ""
+tags:
+- deploy-and-discover
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+private: true
+published: false
+challenges:
+- slug: sandbox
+  id: o7pfcncfzcua
+  type: challenge
+  title: Install PE Server
+  teaser: Access an ILT course lab environment directly in your browser
+  notes:
+  - type: text
+    contents: Please wait while your lab environment is launched...
+  assignment: |-
+    # Lab 1.0: Install PE server
+
+    ## Objective recap
+
+    Your objective is to enable continuous audit and compliance over all systems in your environment:
+    Ensure visibility of all currently installed packages and versions.
+    Identify each server's role in your environment.
+
+    In this lab you will learn how to install and configure the PE server.
+
+    1. In the Puppet Server tab, download the tarball:
+    ```
+    curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=latest'
+    ```
+
+    2. Unpack the installation tarball:
+    ```
+    tar -xf puppet-enterprise-2021.1.0-el-7-x86_64.tar.gz
+    ```
+    3. From the installer directory, run the installer..
+    ```
+    ./puppet-enterprise-2021.1.0-el-7-x86_64/puppet-enterprise-installer
+    ```
+    4. Set the password for the console:
+    ```
+    puppet infrastructure console_password --password=puppetlabs
+    ```
+    5. Run the following command twice to complete the puppet server installation:
+    ```
+    puppet agent -t
+    ```
+    6. Check the status of the puppet services from the command line:
+    ```puppet infrastructure status```
+
+    ## The PE Console
+
+    7. In the Instruq browser window, switch to the tab named Console.
+
+    8. Log in with `admin` and password `puppetlabs` (the password you set in Step 4).
+
+    9. On the Status page, click "Puppet Services status." You should see something similar to the following:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)
+  tabs:
+  - title: Puppet server
+    type: terminal
+    hostname: puppetserver
+  - title: Console
+    type: service
+    hostname: puppetserver
+    port: 443
+  difficulty: basic
+  timelimit: 7200
+checksum: "4468062677764581324"
