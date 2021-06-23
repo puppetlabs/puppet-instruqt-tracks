@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Check if the commands were executed properly
+echo "Checking the solution of the challenge"
+
+if [ ! -f /tmp/test ]; then
+  fail-message "Make sure to create the /tmp/test file with the puppet resource command"
+  exit 1
+fi
+
+exit 0
