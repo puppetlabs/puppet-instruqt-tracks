@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Check if the yum commands were executed properly
+echo "Checking the solution of the challenge"
+
+rpm -qa | grep -q puppet7-release
+if [ $? -ne 0 ]; then
+  fail-message "The Puppet package repository has not been configured"
+  exit 1
+fi
+
+rpm -qa | grep -q puppet-agent
+if [ $? -ne 0 ]; then
+  fail-message "The Puppet agent has not been installed"
+  exit 1
+fi
+
+exit 0
