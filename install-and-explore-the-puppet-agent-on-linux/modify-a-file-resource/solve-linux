@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Execute the commands for the user
+puppet resource file /tmp/test content='Hello Puppet!'

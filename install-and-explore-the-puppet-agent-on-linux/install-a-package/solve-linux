@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Execute the commands for the user
+puppet resource package httpd ensure=2.4.6-97.el7.centos
