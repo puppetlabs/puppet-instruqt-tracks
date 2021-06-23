@@ -18,4 +18,9 @@ if ! grep PATH ~/.bashrc | grep -q /opt/puppetlabs/bin; then
   exit 1
 fi
 
+if ! check-history 'source ~/.bashrc'; then
+  fail-message "The ~/.bashrc file must be sourced"
+  exit 1
+fi
+
 exit 0
