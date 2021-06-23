@@ -25,6 +25,7 @@ developers:
 - tara.swenson@puppet.com
 - thomas.chisholm@puppet.com
 - bart.kliebert@puppet.com
+- greg.larkin@puppet.com
 private: true
 published: true
 show_timer: true
@@ -370,8 +371,12 @@ challenges:
   teaser: Test your knowledge to make sure you've got it down.
   notes:
   - type: text
-    contents: "# Great job! \r\n\r\nNext, check your knowledge to make sure you've
-      got it down.\r\n\r\nClick **Start** when you're ready."
+    contents: |-
+      # Great job!
+
+      Next, check your knowledge to make sure you've got it down.
+
+      Click **Start** when you're ready.
   assignment: |-
     Answer the questions, and then click **CHECK YOUR ANSWERS** to see how you did.
 
@@ -392,8 +397,10 @@ challenges:
   teaser: Recap what you learned and tell us what you think.
   notes:
   - type: text
-    contents: "# Excellent! You’re nearly done!\r\n\r\nClick **Start** to review what
-      you learned and let us know what you thought of this track."
+    contents: |-
+      # Excellent! You’re nearly done!
+
+      Click **Start** to review what you learned and let us know what you thought of this track.
   assignment: |-
     In this lab, you used Puppet’s command-line tools to interact directly with a node in the same way the agent would.
     You learned about the agent's role in the broader Puppet architecture and how the agent checks and modifies the state of a node that it’s installed on.
@@ -413,4 +420,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 100
-checksum: "15992491576257518905"
+checksum: "16806080505385616629"
