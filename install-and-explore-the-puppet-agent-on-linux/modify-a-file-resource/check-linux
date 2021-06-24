@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "`md5sum /tmp/test | awk '{ print $1 }`" != "6fa6ce40c758db2a5b07537feb98f8e1" ]; then
+if [ "`md5sum /tmp/test | awk '{ print $1 }'`" != "6fa6ce40c758db2a5b07537feb98f8e1" ]; then
   fail-message "The /tmp/test file doesn't have the correct contents"
   exit 1
 fi
