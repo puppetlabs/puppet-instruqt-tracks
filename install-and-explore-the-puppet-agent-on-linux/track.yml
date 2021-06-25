@@ -188,7 +188,7 @@ challenges:
     ✔️ **Result:** The output includes the file owner, when it was created, and when it was last modified.
 
     ## The content hash
-    The content parameter value might not be what you expected for an empty file. When the resource tool interprets a file, it converts the content into an MD5 hash. Puppet uses this hash to compare the content of the file to what it expects.
+    The content parameter value might not be what you expected for an empty file. When the resource tool interprets a file, it converts the content into an SHA256 hash. Puppet uses this hash to compare the content of the file to what it expects.
 
     To go to the next challenge, click **Check**.
   tabs:
@@ -412,6 +412,8 @@ challenges:
 
     To get the list of commands that you used in this lab, download the [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/install-and-explore-the-puppet-agent-on-linux).
 
+    Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/install-and-explore-the-puppet-agent-on-linux) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
+
     Click **Check** to close this track.
   tabs:
   - title: Feedback
@@ -420,4 +422,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 100
-checksum: "2816865108544317571"
+checksum: "10465374908924815776"
