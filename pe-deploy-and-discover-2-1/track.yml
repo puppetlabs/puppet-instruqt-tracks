@@ -16,6 +16,7 @@ developers:
 - greg.larkin@puppet.com
 private: true
 published: false
+show_timer: true
 challenges:
 - slug: configure-autosigning
   id: jfhy7qsxgss1
@@ -131,4 +132,4 @@ challenges:
     port: 8080
   difficulty: basic
   timelimit: 1200
-checksum: "13861914592473721717"
+checksum: "13487904979976381010"
