@@ -1,0 +1,20 @@
+version: "2"
+containers:
+- name: guac
+  image: gcr.io/instruqt/guacamole
+  shell: /bin/bash
+  ports:
+  - 8080
+  memory: 512
+virtualmachines:
+- name: puppet
+  image: kmo-instruqt/puppet
+  shell: /bin/bash
+  machine_type: n1-highcpu-16
+- name: linux1
+  image: kmo-instruqt/linux-node-no-agent
+  shell: /bin/bash
+  machine_type: n1-standard-8
+- name: windows
+  image: kmo-instruqt/puppet-windows
+  machine_type: n1-standard-2
