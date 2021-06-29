@@ -1,0 +1,46 @@
+#!/bin/bash
+
+AUTOSIGN_SCRIPT=/etc/puppetlabs/puppet/autosign.rb
+PSK_FILE=/etc/puppetlabs/puppet/psk
+
+if [ ! -f $AUTOSIGN_SCRIPT ]; then
+  fail-message "The autosign.rb file does not exist"
+  exit 1
+fi
+
+if [ ! -x $AUTOSIGN_SCRIPT ]; then
+  fail-message "The autosign.rb file is not executable"
+  exit 1
+fi
+
+if [ `stat -c '%U' $AUTOSIGN_SCRIPT` != 'pe-puppet' ]; then
+  fail-message "The autosign.rb file does not have the correct owner"
+  exit 1
+fi
+
+if [ `stat -c '%G' $AUTOSIGN_SCRIPT` != 'pe-puppet' ]; then
+  fail-message "The autosign.rb file does not have the correct group"
+  exit 1
+fi
+
+if [ ! -f $PSK_FILE ]; then
+  fail-message "The pre-shared key file does not exist"
+  exit 1
+fi
+
+if [ `stat -c '%U' $PSK_FILE != 'pe-puppet' ]; then
+  fail-message "The pre-shared key file does not have the correct owner"
+  exit 1
+fi
+
+if [ `stat -c '%G' $PSK_FILE` != 'pe-puppet' ]; then
+  fail-message "The pre-shared key file does not have the correct group"
+  exit 1
+fi
+
+if [ `puppet config print autosign` != $AUTOSIGN_SCRIPT ]; then
+  fail-message "Puppet Enterprise has not been correctly configured for autosigning"
+  exit 1
+fi
+
+exit 0

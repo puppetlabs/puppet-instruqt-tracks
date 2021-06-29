@@ -73,7 +73,13 @@ challenges:
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    3. Create the PSK file at `/etc/puppetlabs/puppet/psk` with the following content:
+    3. Create the PSK file at:
+
+    ```
+    /etc/puppetlabs/puppet/psk
+    ```
+
+    with the following content:
 
     ```
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
@@ -125,4 +131,4 @@ challenges:
     port: 8080
   difficulty: basic
   timelimit: 1200
-checksum: "14138913040251735314"
+checksum: "13861914592473721717"
