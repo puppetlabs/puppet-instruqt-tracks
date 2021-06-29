@@ -28,7 +28,7 @@ if [ ! -f $PSK_FILE ]; then
   exit 1
 fi
 
-if [ `stat -c '%U' $PSK_FILE != 'pe-puppet' ]; then
+if [ `stat -c '%U' $PSK_FILE` != 'pe-puppet' ]; then
   fail-message "The pre-shared key file does not have the correct owner"
   exit 1
 fi
