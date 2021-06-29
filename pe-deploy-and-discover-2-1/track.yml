@@ -28,7 +28,7 @@ challenges:
     * Configure autosigning to allow nodes to be automatically added to the primary server.
     * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
 
-    1. Create the autosign script at /etc/puppetlabs/puppet/autosign.rb with the following content:
+    1. Create the autosign script at `/etc/puppetlabs/puppet/autosign.rb` with the following content:
 
     ```
     #!/opt/puppetlabs/puppet/bin/ruby
@@ -97,7 +97,7 @@ challenges:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
-    curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
+    curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
     8. After installation is complete, switch to the Console tab and log in with username `admin` and password `puppetlabs`.
@@ -125,4 +125,4 @@ challenges:
     port: 8080
   difficulty: basic
   timelimit: 1200
-checksum: "2475464927277935892"
+checksum: "14138913040251735314"
