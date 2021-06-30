@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cat <<'EOF' > /config/guacamole/user-mapping.xml
+<user-mapping>
+    <authorize
+        username="instruqt"
+        password="Passw0rd!">
+        <connection name="windows">
+            <protocol>rdp</protocol>
+            <param name="hostname">windows</param>
+            <param name="port">3389</param>
+            <param name="username">instruqt</param>
+            <param name="password">Passw0rd!</param>
+            <param name="ignore-cert">true</param>
+        </connection>
+    </authorize>
+</user-mapping>
+EOF
+
+# Wait until RDP is available
+while ! nc -z windows 3389; do
+  echo "Waiting for RDP to be available"
+  sleep 1
+done

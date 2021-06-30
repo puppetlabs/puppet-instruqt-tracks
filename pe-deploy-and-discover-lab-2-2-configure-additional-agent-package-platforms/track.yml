@@ -1,0 +1,148 @@
+slug: pe-deploy-and-discover-lab-2-2-configure-additional-agent-package-platforms
+id: yvrywfvwitpx
+type: sandbox
+title: 'PE Deploy and Discover - Lab 2.2: Configure Additional Agent Package Platforms'
+teaser: PE Deploy and Discover - 2.1 Configure Autosigning
+description: |-
+  In this lab you will:
+
+  1. Configure autosigning to allow nodes to be automatically added to the primary server.
+  2. Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+icon: ""
+tags:
+- deploy-and-discover
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+private: true
+published: false
+show_timer: true
+challenges:
+- slug: configure-autosigning
+  id: znr1665vsmzt
+  type: challenge
+  title: Configure autosigning
+  teaser: Install the PE agent with autosigning enabled
+  assignment: |-
+    In this lab you will:
+
+    * Configure autosigning to allow nodes to be automatically added to the primary server.
+    * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+
+    1. Create the autosign script at:
+
+    ```
+    /etc/puppetlabs/puppet/autosign.rb
+    ```
+
+    with the following content:
+
+    ```
+    #!/opt/puppetlabs/puppet/bin/ruby
+    #
+    # A note on logging:
+    #   This script's stderr and stdout are only shown at the DEBUG level
+    #   of the server's logs. This means you won't see the error messages
+    #   in puppetserver.log by default. All you'll see is the exit code.
+    #
+    #   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api
+    #
+    # Exit Codes:
+    #   0 - A matching challengePassword was found.
+    #   1 - No challengePassword was found.
+    #   2 - The wrong challengePassword was found.
+    #
+    require 'puppet/ssl'
+
+    csr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
+    psk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip
+
+    if pass = csr.custom_attributes.find do |attribute|
+         ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']
+       end
+    else
+      puts 'No challengePassword found. Rejecting certificate request.'
+      exit 1
+    end
+
+    if pass['value'] == psk
+      exit 0
+    else
+      puts "challengePassword does not match: #{pass['value']}"
+      exit 2
+    end
+    ```
+
+    2. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
+
+    ```
+    chmod +x /etc/puppetlabs/puppet/autosign.rb
+    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
+    ```
+
+    3. Create the PSK file at:
+
+    ```
+    /etc/puppetlabs/puppet/psk
+    ```
+
+    with the following content:
+
+    ```
+    PASSWORD_FOR_AUTOSIGNER_SCRIPT
+    ```
+
+    4. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`:
+
+    ```
+    chmod 600 /etc/puppetlabs/puppet/psk
+    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
+    ```
+
+    5. Configure the primary server to enable autosigning with `autosign.rb`:
+
+    ```
+    puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
+    ```
+
+    6. Restart the primary server:
+
+    ```
+    sudo service pe-puppetserver restart
+    ```
+
+    7. Switch over to the tab labelled `linux1`.
+
+    8. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+
+    ```
+    uri='https://puppet:8140/packages/current/install.bash'
+    curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
+    ```
+
+    8. After installation is complete, switch to the Console tab and log in with username `admin` and password `puppetlabs`.
+
+    9. Navigate to Inventory > Nodes and validate that the `linux1` node is now being managed by Puppet Enterprise.
+
+    10. Click on the `linux1` node, and inspect its facts under the Facts tab:
+
+    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discover-node-facts.png)
+  tabs:
+  - title: Puppet
+    type: terminal
+    hostname: puppet
+  - title: Console
+    type: service
+    hostname: puppet
+    port: 443
+  - title: linux1
+    type: terminal
+    hostname: linux1
+  - title: windows
+    type: service
+    hostname: guac
+    path: /#/client/c/windows?username=instruqt&password=Passw0rd!
+    port: 8080
+  difficulty: basic
+  timelimit: 1200
+checksum: "14730369775624166994"
