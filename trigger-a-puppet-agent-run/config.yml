@@ -3,8 +3,8 @@ virtualmachines:
 - name: puppet
   image: kmo-instruqt/puppet
   shell: /bin/bash
-  machine_type: n1-standard-16
+  machine_type: n1-standard-2
 - name: linux-node
   image: kmo-instruqt/linux-node
   shell: /bin/bash
-  machine_type: n1-standard-16
+  machine_type: n1-standard-1

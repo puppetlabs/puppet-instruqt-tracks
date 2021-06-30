@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! puppetserver ca list | grep -q linux-node; then
+  fail-message "The certificate for linux-node.classroom.puppet.com has not been signed"
+  exit 1
+fi
+
+exit 0

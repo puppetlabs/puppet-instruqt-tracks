@@ -29,6 +29,7 @@ tags:
 owner: puppet
 developers:
 - bart.kliebert@puppet.com
+- greg.larkin@puppet.com
 private: true
 published: false
 challenges:
@@ -248,8 +249,12 @@ challenges:
   teaser: Test your knowledge to make sure you’ve got it down.
   notes:
   - type: text
-    contents: "# Great job! \r\n\r\nNext, check your knowledge to make sure you've
-      got it down.\r\n\r\nClick **Start** when you're ready.\r\n"
+    contents: |
+      # Great job!
+
+      Next, check your knowledge to make sure you've got it down.
+
+      Click **Start** when you're ready.
   assignment: |-
     Answer the questions and then click **CHECK YOUR ANSWERS** to see how you did.
 
@@ -295,4 +300,4 @@ challenges:
     url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
   difficulty: basic
   timelimit: 360
-checksum: "5886195687405667263"
+checksum: "15843788319498108341"
