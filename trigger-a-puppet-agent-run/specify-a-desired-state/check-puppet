@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Check if the Puppet code compiles
+if ! puppet parser validate /etc/puppetlabs/code/environments/production/manifests/site.pp; then
+  fail-message "Check the contents of site.pp to make sure they compile"
+  exit 1
+fi
+
+exit 0
