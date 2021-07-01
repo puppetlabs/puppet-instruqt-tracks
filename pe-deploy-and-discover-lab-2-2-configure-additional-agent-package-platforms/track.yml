@@ -1,13 +1,14 @@
-slug: pe-deploy-and-discover-lab-2-2-configure-additional-agent-package-platforms
+slug: pe-deploy-and-discover-lab-2-2
 id: yvrywfvwitpx
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.2: Configure Additional Agent Package Platforms'
-teaser: PE Deploy and Discover - 2.1 Configure Autosigning
+teaser: PE Deploy and Discover - 2.2 Configure Additional Agent Package Platforms
 description: |-
   In this lab you will:
 
-  1. Configure autosigning to allow nodes to be automatically added to the primary server.
-  2. Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+  1. Attempt an agent installation on an operating system platform that is different from the primary server.
+  2. Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
+  3. Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
 icon: ""
 tags:
 - deploy-and-discover
@@ -18,115 +19,53 @@ private: true
 published: false
 show_timer: true
 challenges:
-- slug: configure-autosigning
+- slug: configure-additional-agent-package-platforms
   id: znr1665vsmzt
   type: challenge
-  title: Configure autosigning
-  teaser: Install the PE agent with autosigning enabled
+  title: Configure additional agent package platforms
+  teaser: Configure additional agent package platforms
   assignment: |-
     In this lab you will:
 
-    * Configure autosigning to allow nodes to be automatically added to the primary server.
-    * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+    * Attempt an agent installation on an operating system platform that is different from the primary server.
+    * Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
+    * Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
 
-    1. Create the autosign script at:
-
-    ```
-    /etc/puppetlabs/puppet/autosign.rb
-    ```
-
-    with the following content:
-
-    ```
-    #!/opt/puppetlabs/puppet/bin/ruby
-    #
-    # A note on logging:
-    #   This script's stderr and stdout are only shown at the DEBUG level
-    #   of the server's logs. This means you won't see the error messages
-    #   in puppetserver.log by default. All you'll see is the exit code.
-    #
-    #   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api
-    #
-    # Exit Codes:
-    #   0 - A matching challengePassword was found.
-    #   1 - No challengePassword was found.
-    #   2 - The wrong challengePassword was found.
-    #
-    require 'puppet/ssl'
-
-    csr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
-    psk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip
-
-    if pass = csr.custom_attributes.find do |attribute|
-         ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']
-       end
-    else
-      puts 'No challengePassword found. Rejecting certificate request.'
-      exit 1
-    end
-
-    if pass['value'] == psk
-      exit 0
-    else
-      puts "challengePassword does not match: #{pass['value']}"
-      exit 2
-    end
-    ```
-
-    2. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
-
-    ```
-    chmod +x /etc/puppetlabs/puppet/autosign.rb
-    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
-    ```
-
-    3. Create the PSK file at:
-
-    ```
-    /etc/puppetlabs/puppet/psk
-    ```
-
-    with the following content:
-
-    ```
-    PASSWORD_FOR_AUTOSIGNER_SCRIPT
-    ```
-
-    4. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`:
-
-    ```
-    chmod 600 /etc/puppetlabs/puppet/psk
-    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
-    ```
-
-    5. Configure the primary server to enable autosigning with `autosign.rb`:
-
-    ```
-    puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
-    ```
-
-    6. Restart the primary server:
-
-    ```
-    sudo service pe-puppetserver restart
-    ```
-
-    7. Switch over to the tab labelled `linux1`.
-
-    8. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+    1. Install an agent on a target by using the installation script with the
+    `custom_attributes:challengePassword` parameter:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    8. After installation is complete, switch to the Console tab and log in with username `admin` and password `puppetlabs`.
+    2. In the installation log output, notice the failure:
 
-    9. Navigate to Inventory > Nodes and validate that the `linux1` node is now being managed by Puppet Enterprise.
+    ```
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100 20122  100 20122    0     0   122k      0 --:--:-- --:--:-- --:--:--  123k
+    curl failed to get https://puppet:8140/packages/2019.8.6/el-8-x86_64.bash
+    The agent packages needed to support el-8-x86_64 are not present on your master.
+    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node and then run Puppet.
+    The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.
+    #
+    ```
 
-    10. Click on the `linux1` node, and inspect its facts under the Facts tab:
+    3. The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_rep::platform` class.
 
-    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discover-node-facts.png)
+    4. In the console, click *Node groups*, and in the *PE Infrastructure* group, select the *PE Master* group.
+
+    5. On the *Classes* tab, enter `pe_repo` and select the repo class from the list of classes. Note that the repo classes are listed as `pe_repo::platform::<AGENT_OS_VERSION_ARCHITECTURE>`.
+
+    6. Execute a puppet run on the primary server.
+
+    7. Install an agent on a target by using the installation script with the `custom_attributes:challengePassword parameter`:
+
+    ```
+    uri='https://puppet:8140/packages/current/install.bash'
+    curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
+    ```
   tabs:
   - title: Puppet
     type: terminal
@@ -145,4 +84,4 @@ challenges:
     port: 8080
   difficulty: basic
   timelimit: 1200
-checksum: "14730369775624166994"
+checksum: "14285194659163542864"

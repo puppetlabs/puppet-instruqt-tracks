@@ -12,9 +12,9 @@ virtualmachines:
   shell: /bin/bash
   machine_type: n1-highcpu-16
 - name: linux1
-  image: kmo-instruqt/linux-node-no-agent
+  image: centos-8-v20210701
   shell: /bin/bash
-  machine_type: n1-standard-8
+  machine_type: n1-standard-2
 - name: windows
   image: kmo-instruqt/puppet-windows
   machine_type: n1-standard-2
