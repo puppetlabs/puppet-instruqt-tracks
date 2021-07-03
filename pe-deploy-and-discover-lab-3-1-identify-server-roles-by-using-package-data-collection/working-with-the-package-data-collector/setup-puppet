@@ -68,5 +68,4 @@ puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
 service pe-puppetserver restart
 
 /usr/local/bin/puppet agent -t
-
-
+/usr/local/bin/puppet agent -t
