@@ -1,0 +1,100 @@
+slug: pe-deploy-and-discover-lab-3-0
+id: trd6dwmkdt6s
+type: sandbox
+title: 'PE Deploy and Discover - Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts'
+teaser: PE Deploy and Discover - Lab 3.0 Identify Information About Your Nodes By Using facter_task & External Facts
+description: |-
+  Your team lead finds a document that contains details (including the location) about servers in a couple of networks. You will use this new information to extend Facter by creating external facts.
+
+  In this lab, you will use the console to run facter_task against the nodes in your environment to discover which data center each node is located in, and then create an external fact to mark each node with their corresponding data center.
+
+  1. In the console, run `facter_task` to discover each node's network. For each node in your environment, run `facter_task` to return the network subnet.
+
+  2. Create an external fact.
+
+  Now that you have the network subnet, you can identify in which data center each node is located:
+
+  | Network         | Data Center |
+  | --------------- | ----------- |
+  | 10.10.100.0/24  | nyc         |
+  | 10.10.200.0/24  | pdx         |
+icon: ""
+tags:
+- deploy-and-discover
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+private: true
+published: false
+show_timer: true
+challenges:
+- slug: use-facter-with-an-external-script
+  id: br8duqywypho
+  type: challenge
+  title: Use Facter with an external script
+  teaser: Use Facter with an external script
+  assignment: |-
+    Facter gathers built-in (core) facts that are packaged with itself. It can also use scripts written by you or a third party to gather custom or external facts.
+
+    In this exercise, you will install an external fact script that creates a datacenter fact. You will then verify that Facter can retrieve that fact with the script.
+
+    1. First, check that the datacenter fact does not already exist. This command should produce no value:
+
+    ```
+    facter datacenter
+    ```
+
+    Next, move the provided external fact script into place:
+
+    2. Navigate to your home directory:
+
+    ```
+    cd ~/
+    ```
+
+    3. Create the Facter location directory and external fact script:
+
+    ```
+    sudo mkdir -p /etc/puppetlabs/facter/facts.d
+    sudo touch /etc/puppetlabs/facter/facts.d/datacenter.sh
+    ```
+
+    4. Add the following contents to the script, making sure to include the corresponding data center using the table above:
+
+    ```
+    #!/bin/sh
+    echo "datacenter=pdx"
+    ```
+
+    5. Make the script executable:
+
+    ```
+    sudo chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
+    ```
+
+    6. Finally, verify that the fact was installed and is accessible by Facter. Notice the new output:
+
+    ```
+    facter datacenter
+    pdx
+    ```
+
+    7. Run the agent to send facts to the primary server.
+  tabs:
+  - title: linux1
+    type: terminal
+    hostname: linux1
+  - title: linux2
+    type: terminal
+    hostname: linux2
+  - title: puppet
+    type: terminal
+    hostname: puppet
+  - title: Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  difficulty: basic
+  timelimit: 1200
+checksum: "4941439265840676538"

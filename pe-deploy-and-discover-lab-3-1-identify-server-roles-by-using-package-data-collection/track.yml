@@ -1,0 +1,92 @@
+slug: pe-deploy-and-discover-lab-3-1
+id: v3t0yr1nxnqr
+type: sandbox
+title: 'PE Deploy and Discover - Lab 3.1: Identify Server Roles by Using Package Data Collection'
+teaser: PE Deploy and Discover - Lab 3.1 Identify Server Roles by Using Package Data Collection
+description: |-
+  Your objective is to enable continuous auditing and compliance across the systems in your environment:
+
+  1. Ensure visibility of all currently installed packages and versions.
+  2. Identify each server's role in your environment.
+
+
+  In this lab, you will enable the package data collection feature via the console to discover what packages are installed across your systems. You will then use this information to identify the different server roles within your environment.
+
+  Package data collection is disabled by default, so the Packages page in the console initially appears blank. To view a node's current package inventory, you must enable package data collection.
+
+  You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
+icon: ""
+tags:
+- deploy-and-discover
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+private: true
+published: false
+show_timer: true
+challenges:
+- slug: working-with-the-package-data-collector
+  id: kcnxqq8o1o5d
+  type: challenge
+  title: Working with the package data collector
+  teaser: Working with the package data collector
+  assignment: |-
+    1. *Enable package data collection.*
+
+        1. In the console, click Node groups.
+
+        2. To collect package data on all your nodes, click the PE Agent node group.
+
+        3. To collect package data on a subset of your nodes, click Add group and create a classification node group. Select PE Agent as the group's parent name. After the new node group is set up, dynamically add the relevant nodes on the Rules tab.
+
+        4. Click Classes. In the Add new class field, select puppet_enterprise::profile::agent and click Add class.
+
+        5. In the puppet_enterprise::profile::agent class, set the Parameter to package_inventory_enabled and the Value to true. Click Add parameter and commit your changes.
+
+        6. Run Puppet to apply these changes to the nodes in your node group.
+
+        7. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the Packages page on each subsequent Puppet run.
+
+        8. Run Puppet a second time to begin collecting package data, and then click Packages.
+
+    2. *View and manage package inventory.*
+
+        1. To view and manage the complete inventory of packages on your systems, view the Packages page in the console.
+
+        2. Run Puppet to collect the latest package data from your nodes.
+
+        3. Search for packages: In the console, click Packages to view your package inventory. To narrow the list of packages, enter the name or partial name of a package in the Filter by package name field and click Apply.
+
+        4. Enter the following package names one at a time:
+        "java"
+        "apache"
+        "nginx"
+
+        If a node is found with one of the above packages, you can now start to identify the node's role:
+        "java" - role: webapp
+        "apache" - role: webserver
+        "nginx" - role: loadbalancer
+
+
+    Some of the other students will have different packages across their servers in their lab environment - this is expected!
+
+    *What did you do?*
+    You ensured the visibility of all currently installed packages and versions.
+  tabs:
+  - title: linux1
+    type: terminal
+    hostname: linux1
+  - title: linux2
+    type: terminal
+    hostname: linux2
+  - title: puppet
+    type: terminal
+    hostname: puppet
+  - title: Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  difficulty: basic
+  timelimit: 1200
+checksum: "5392778570961430334"
