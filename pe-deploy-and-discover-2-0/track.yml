@@ -15,7 +15,7 @@ tags:
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
-private: false
+private: true
 published: false
 challenges:
 - slug: install-pe-agents
@@ -79,6 +79,11 @@ challenges:
   - title: linux2
     type: terminal
     hostname: linux2
+  - title: windows
+    type: service
+    hostname: guac
+    path: /#/client/c/windows?username=instruqt&password=Passw0rd!
+    port: 8080
   difficulty: basic
-  timelimit: 96000
-checksum: "10213038216484561114"
+  timelimit: 500
+checksum: "15257927459795718751"

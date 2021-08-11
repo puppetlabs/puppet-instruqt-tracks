@@ -4,9 +4,7 @@ version: 0.0.1
 type: sandbox
 title: 'PE Deploy and Discover - Lab 1.1: Configure user access'
 teaser: Configure users in PE
-description: In this lab you will configure PE to grant read-only access to a team
-  of users so that they can login to the PE console and inspect information about
-  the systems.
+description: In this lab you will configure PE to grant read-only access to a team of users so that they can login to the PE console and inspect information about the systems.
 icon: ""
 tags:
 - ""

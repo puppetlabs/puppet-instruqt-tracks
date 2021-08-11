@@ -66,6 +66,6 @@ chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
 puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
 
 service pe-puppetserver restart
-
+sleep 30
 /usr/local/bin/puppet agent -t
 /usr/local/bin/puppet agent -t

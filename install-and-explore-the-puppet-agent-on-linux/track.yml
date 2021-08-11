@@ -2,8 +2,7 @@ slug: install-and-explore-the-puppet-agent-on-linux
 id: jwzadwkm6e9p
 type: track
 title: Install and Explore the Puppet Agent on Linux
-teaser: Install the Puppet agent on a fresh node and explore some of the tools that
-  it provides.
+teaser: Install the Puppet agent on a fresh node and explore some of the tools that it provides.
 description: |-
   In this track, you’ll use the command-line tools installed with the Puppet agent to interact with a node in the same way an agent would.
 
@@ -166,8 +165,7 @@ challenges:
   teaser: Create an empty file. Then, request a description of it and review the output.
   notes:
   - type: text
-    contents: In the previous challenge, you requested a description of a file that
-      doesn't exist. Let’s see what you get for a real file.
+    contents: In the previous challenge, you requested a description of a file that doesn't exist. Let’s see what you get for a real file.
   assignment: |-
     # Step 1
     Run the following command to create an empty file in the same path as in the previous challenge:
@@ -205,12 +203,10 @@ challenges:
   id: y7jzqqkgnqww
   type: challenge
   title: "Modify a File Resource \U0001F469‍\U0001F4BB"
-  teaser: Use the `puppet resource` tool to add content to an empty file, and then
-    view the file contents.
+  teaser: Use the `puppet resource` tool to add content to an empty file, and then view the file contents.
   notes:
   - type: text
-    contents: Next, you’ll run the **puppet resource** command to add content to the
-      empty file.
+    contents: Next, you’ll run the **puppet resource** command to add content to the empty file.
   assignment: |-
     Running the `puppet resource` command with a `parameter=value` argument instructs Puppet to modify the resource to match that value.
 
@@ -249,8 +245,7 @@ challenges:
   id: 936x4nodyb0p
   type: challenge
   title: "Describe a Package Resource \U0001F469‍\U0001F4BB"
-  teaser: Use the `puppet resource` tool to describe a software package that doesn't
-    yet exist on the node.
+  teaser: Use the `puppet resource` tool to describe a software package that doesn't yet exist on the node.
   notes:
   - type: text
     contents: |-
@@ -378,16 +373,14 @@ challenges:
 
       Click **Start** when you're ready.
   assignment: |-
-    Answer the questions, and then click **CHECK YOUR ANSWERS** to see how you did.
+    Answer the questions, click **Submit**, and then click **View accuracy** to see how you did. Your results will appear in a new browser tab.
 
-    When you're done with the knowledge check, click **Check** to continue.
-
-    To do the knowledge check again, click **Back**, and then click the **Knowledge Check** challenge.
+    When you've finished reviewing your results, click **Check** to continue the track.
   tabs:
   - title: Knowledge Check
     type: website
     hostname: linux
-    url: https://survey.alchemer.com/s3/6318540/Puppet-Practice-Labs-Install-and-Explore-the-Puppet-Agent
+    url: https://docs.google.com/forms/d/e/1FAIpQLSf9HbjuXjCjfLeN28hqqv5f1VSKDgm-wPCc4cANv6CQQee4UQ/viewform?embedded=true
   difficulty: basic
   timelimit: 100
 - slug: wrapup-and-feedback
@@ -419,7 +412,7 @@ challenges:
   - title: Feedback
     type: website
     hostname: linux
-    url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
+    url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 100
-checksum: "15608058448153759007"
+checksum: "11920714089773800696"

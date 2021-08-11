@@ -233,14 +233,14 @@ challenges:
 
       When you're ready, click **Start**.
   assignment: |-
-    Answer the questions and then click **CHECK YOUR ANSWERS** to see how you did.
+    Answer the questions, click **Submit**, and then click **View accuracy** to see how you did. Your results will appear in a new browser tab.
 
-    When you finish the knowledge check, click **Check** to continue.
+    When you've finished reviewing your results, click **Check** to continue the track.
   tabs:
   - title: Knowledge Check
     type: website
     hostname: puppet
-    url: https://survey.alchemer.com/s3/6017440/Knowledge-Check
+    url: https://docs.google.com/forms/d/e/1FAIpQLSfamZAZYut5x0VX998jHdsXSzS3fX9IAYq_e9AiRSpXr6O80g/viewform?embedded=true
   - title: Platform Help
     type: website
     hostname: puppet
@@ -275,11 +275,11 @@ challenges:
   - title: Feedback Survey
     type: website
     hostname: target1c
-    url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
+    url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   - title: Platform Help
     type: website
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "5982777244820912531"
+checksum: "15462837558020593454"

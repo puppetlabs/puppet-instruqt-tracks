@@ -1,23 +1,31 @@
 slug: trigger-a-puppet-agent-run
 id: un8tjaoc0dh6
 type: track
-title: Trigger a Puppet Agent Run
-teaser: Manually trigger a Puppet run on a signed agent node and review the process
-  of the run.
+title: Run Puppet Manually After Defining a Desired State
+teaser: Learn the basics of defining a node's desired state, and watch how the agent makes changes to achieve desired state during a Puppet run.
 description: |-
-  The 'puppet resource' command you explored in the previous challenge let you see a system the way Puppet does — through the *resource abstraction layer* (RAL). The RAL provides a single common language for your Puppet server to manage all the systems in your infrastructure.
+  By default, Puppet runs every 30 minutes. But you can manually run Puppet, too - for example, when you simply want to observe what happens during a Puppet run or if you're developing code and want to observe the agent as it makes the required changes to the agent node.
+
+
+  The Puppet agent is an application that manages configurations on your nodes by using a [*catalog*](https://puppet.com/docs/puppet/latest/glossary.html#catalog). After requesting and receiving the catalog from the primary Puppet server, the agent checks the current state of each [*resource*](https://puppet.com/docs/puppet/latest/glossary.html#resource) that the catalog describes, making changes as needed to get each resource into its desired state.
 
 
   **Why complete this track?**
-  In this track, you'll walk through a Puppet agent run to understand how the agent communicates with the Puppet server.
+
+  In this track, you'll walk through what happens on the agent node during a Puppet run to understand how the agent communicates with the primary server.
 
   You'll learn how to:
-  List and sign agent certificates.
-  Interpret a Puppet agent run.
-  Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
+  - List and sign agent certificates, required for secure communication between the primary server and agent.
+  - Interpret the agent output during the Puppet run.
+  - Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
+
+
 
   **Keep an eye on the clock!**
+
   You will have 30 minutes to complete this track. At the end of 30 minutes, your learning environment will automatically expire and your work will not be saved. If you have not completed the track, you can restart the track and skip to any challenge.
+
+  If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/trigger-a-puppet-agent-run).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 level: beginner
 tags:
@@ -31,62 +39,66 @@ developers:
 - bart.kliebert@puppet.com
 - greg.larkin@puppet.com
 private: true
-published: false
+published: true
+show_timer: true
+skipping_enabled: true
 challenges:
 - slug: sign-a-certificate
   id: dty1ff36osqi
   type: challenge
-  title: "Sign a Certificate \U0001F4BB"
-  teaser: Sign a certificate on an unsigned agent node so that the Puppet server can
-    validate the node before authorizing communication.
+  title: "Sign an Agent Node's Certificate \U0001F4BB"
+  teaser: Sign a certificate on an unsigned agent node so that the primary Puppet server can validate the node before authorizing communication.
   notes:
   - type: text
     contents: |-
-      # How Puppet agents and the server communicate
-      The Puppet server and agent communicate over a secure SSL connection. Before the server can communicate with an agent, it verifies that the node’s certificate is signed.
+      # How the primary Puppet server and agents communicate
+      The primary Puppet server and Puppet agents communicate over an SSL connection. Before the primary server can communicate with an agent, it verifies that the agent node’s certificate is signed.
 
-      The Puppet server accepts catalog compilation requests only from agent nodes with signed certificates.
+      The primary server accepts catalog compilation requests only from agent nodes with signed certificates.
 
       ## **Start this track**
-      When your environment has finished spinning up, you'll see a green **Start** button at the bottom of the screen. Click it when you're ready to begin the track.
+      When your environment has finished spinning up (this takes about 1 minute), you'll see a green **Start** button at the bottom of the screen. Click it when you're ready to begin the track.
   assignment: |-
-    # Step 1: Switch to the node
-    Switch to the *Agent node* tab to the right so that you can run tasks from the node's command line.
+    # Step 1: Switch to the agent node
+    Switch to the **Agent node** tab to the right so that you can run tasks from the agent node's command line.
 
-    # Step 2: Trigger a run
-    Run the following command to trigger a Puppet agent run on the node, whose certificate is not signed.
+    # Step 2: Trigger a Puppet run
+    Run the following command to trigger a Puppet run on the agent node, whose certificate is not yet signed.
     ```
     puppet agent -t
     ```
-    ✔️ **Result:** The Puppet run fails. The agent attempts to contact the Puppet server, but the server rejects the request. No problem: You just have to sign the agent node's certificate.
+    ✔️ **Result:** As expected, the Puppet run fails. The agent attempts to contact the primary server, but the primary server rejects the request. No problem — you just have to sign the agent node's certificate.
 
     # A note on autosigning
-    As your infrastructure grows, you’ll likely use the Puppet Enterprise (PE) graphical console for certificate management, or enable autosigning so that you can sign many certificates at a time. However, in this practice lab, you'll sign a certificate manually from the command line, sufficient for signing a few certificates at a time (for example, in a demo environment).
+    As your infrastructure grows, you’ll likely use the Puppet Enterprise (PE) graphical console to manage certificates or enable autosigning so that you can sign many certificates at a time. In this practice lab, or in a demo environment, signing certificates manually from the command line is sufficient for signing a few certificates at a time.
 
-    # Step 3: Use the Puppet server to list unsigned certificates
-    Switch back to the *Puppet server* tab and use the `puppetserver ca` tool to list unsigned certificates:
+    # Step 3: On the primary server, list the unsigned certificates
+    Switch back to the **Puppet server** tab and use the `puppetserver ca` tool to list unsigned certificates:
     ```
     puppetserver ca list
     ```
-    Take note of the name of the unsigned node, `linux-node.classroom.puppet.com`.
+    Note the name of the unsigned node: `linux-node.classroom.puppet.com`
 
     # Step 4: Sign the certificate
-    Run the following command:
+    Run the following command, which includes the node name:
     ```
     puppetserver ca sign --certname linux-node.classroom.puppet.com
     ```
-    Notice you are specifying the name of the node (`linux-node.classroom.puppet.com`) in the command.
 
-    ✔️ **Result:** The Puppet agent on `linux-node.classroom.puppet.com` is now authorized to request the catalog from the Puppet server.
+    ✔️ **Result:** The Puppet agent on `linux-node.classroom.puppet.com` is now authorized to request the catalog from the primary server.
 
-    # Step 5: Go back to the node and trigger another run
-    Switch back to the *Agent node* tab and run the following command again:
+    # Step 5: On the agent node, trigger another run
+    Switch back to the **Agent node** tab and run the following command again:
     ```
     puppet agent -t
     ```
     ✔️ **Result:** The agent completes a successful run.
 
-    In the next challenge, you'll examine the output to understand the process Puppet follows during a Puppet run.
+    ## **What’s with all that text?**
+
+    Most of the text scrolling by is from a process called `pluginsync`. During `pluginsync`, any extensions installed on the server (such as custom facts, resource types, or providers) are copied to the agent *before* the Puppet run. This ensures that the agent has the tools it needs to apply the catalog.
+
+    In the next challenge, you'll examine the output to understand what happens during a Puppet run.
   tabs:
   - title: Puppet server
     type: terminal
@@ -104,50 +116,49 @@ challenges:
   id: xbnzl6tqkedg
   type: challenge
   title: "Trigger a Puppet Run \U0001F4BB"
-  teaser: Manually trigger a Puppet run and analyze the system output.
+  teaser: Discover the high-level steps the agent takes during a Puppet run.
   notes:
   - type: text
     contents: |-
-      # Manual vs automatic Puppet runs
-      By default, the Puppet agent service initiates a Puppet run every 30 minutes. Because it's difficult to demonstrate Puppet with these scheduled background runs, we disabled the Puppet agent service on your agent system.
+      # Manual vs. automatic Puppet runs
+      By default, the agent initiates a Puppet run every 30 minutes. Because it's difficult to demonstrate Puppet with these scheduled background runs, we disabled the Puppet agent service on your agent system.
 
-      In these challenges, you’ll use the `puppet agent -t` command to manually trigger a run.
+      Running Puppet manually is helpful when you're developing code — you can observe the agent output as it makes the required changes to the system.
+
+      In these challenges, you’ll use the `puppet agent -t` command to manually trigger a Puppet run.
 
       When you’re ready to begin, click **Start**.
   assignment: |-
-    Now that the agent's certificate is signed, the Puppet agent will retrieve a catalog from the Puppet server on the next run. To see this, trigger a run now.
+    Now that the agent node's certificate is signed, on its next run the agent can request a catalog from the primary server. Here, you'll explore the high-level steps the agent completes during a Puppet run.
 
-    # Step 1: Swith to the node
-    Switch to the *Agent node* tab to the right so that you can run tasks from the node's command line.
+    # Step 1: Switch to the agent node
+    Switch to the **Agent node** tab to the right so that you can run tasks from the node's command line.
 
     # Step 2: Trigger the run
-    Run the following command to trigger a puppet run:
+    Run the following command to trigger another Puppet run. The output will be easier to read now that `pluginsyc` did its work in the previous challenge:
     ```
     puppet agent -t
     ```
-    ✔️ **Result:** Because the certificate is signed, the agent has permission to retrieve the catalog from the Puppet server.
+    ✔️ **Result:** Because the certificate is signed, the agent has permission to retrieve the catalog from the primary server.
 
-    ## **What’s with all that text?**
-
-    Most of the text scrolling by is from a process called `pluginsync`. During `pluginsync`, any extensions installed on the server (such as custom facts, resource types, or providers) are copied to the Puppet agent *before* the run. This ensures that the agent has all the tools it needs to correctly apply the catalog.
 
     # Step 3: Analyze the output
-    The `pluginsync` process adds a lot of clutter, but you'll focus on the three lines that look like the following:
+    Focus on the three lines that look similar to the following text:
     ```
     Info: Loading facts
     Info: Caching catalog for agent.puppet.vm
     Info: Applying configuration version '1464919481'
     ```
-    This output shows you one side of the conversation between the agent and server:
-    1. The Puppet agent loads the facts (the details of the system the agent runs on) with the Puppet server.
-    2. The agent receives a new catalog and caches a copy of it.
+    This output shows one side of the conversation between the agent and primary server:
+    1. The agent loads the facts (the details of the system that the agent runs on) and sends them to the primary server.
+    2. The agent receives a new catalog from the primary server and caches a copy of it.
 
-          ✏️ **Note:**   You can configure the Puppet agent to fail over to this cached catalog if it can't connect to the server.
+          ✏️ **Note:**   You can configure the agent to fail over to this cached catalog if it can't connect to the primary server.
 
-    3. Finally, the Puppet agent applies the catalog. After this step, you typically see a list of all the changes that the agent made. In this case, the Puppet server didn't find any Puppet code to apply to the agent node, and it didn't make any changes (other than those involved in pluginsync) during this run.
+    3. The agent configures the node based on the desired state information in the catalog. After this step, you typically see a list of all the changes that the agent made. In this case, the primary server didn't find any Puppet code to apply to the agent node, so the agent didn't make any changes during this run.
 
     # That’s it?
-    Don’t worry, you’ll do something more interesting in the next challenge by specifying a desired state for some of the resources on the node.
+    Those are the high-level agent steps. Next, you'll define a unique setup, or configuration, for the agent node. This includes defining the desired state of the [resources](https://puppet.com/docs/puppet/latest/glossary.html#resource) on the node.
   tabs:
   - title: Puppet server
     type: terminal
@@ -165,40 +176,42 @@ challenges:
   id: zkwun505nnze
   type: challenge
   title: "Specify a Desired State \U0001F4BB"
-  teaser: Specify a desired state for a resource by adding a node definition to the
-    `site.pp` manifest.
+  teaser: Specify how to keep the agent node in its desired state by adding a node definition and resource to the `site.pp` manifest.
   notes:
   - type: text
     contents: |-
       # Node classification
-      When the Puppet server service receives a catalog request from an agent node with a valid certificate, it begins a process called *node classification* to determine what Puppet code to compile to generate a catalog for the agent node. It gets this information from the agent’s `site.pp` manifest file.
-
+      When the primary server receives a catalog request from an agent node with a valid certificate, it begins a process called [*node classification*](https://puppet.com/docs/puppet/latest/glossary.html#classify) to determine what Puppet code to compile to generate a catalog for the agent. The primary server gets this information from the `site.pp` manifest.
+  - type: text
+    contents: |-
       ## **The site.pp manifest**
-      The `site.pp` manifest is a special file on the Puppet server where you can write node definitions and specify your nodes' desired states.
+      The `site.pp` manifest is a file on the Puppet server where you can write node definitions and specify your nodes' desired states.
 
-      > **Node**: In the Puppet world, a *node* is any system or device in your infrastructure.
+      > **Node**: In the context of Puppet, a *node* is any system or device in your infrastructure.
 
-      > **Node definition**: Defines how the Puppet server should manage a given system. When an agent contacts the server, the server checks the `site.pp` manifest for node definitions that match the node name.
+      > **Node definition**: Defines how the primary server should manage a given system. When an agent contacts the server, the server checks the `site.pp` manifest for node definitions that match the node name. Node definitions enable you to assign specific configurations to specific nodes.
 
-      You'll use this method in subsequent challenges — it's the easiest way to see how node classification works. However, you can also get node classification info in the PE console.
+      For this example, working with `site.pp` is the easiest way to see how node classification works. You can also get node classification info in the PE console.
 
       When you’re ready to begin, click **Start**.
   assignment: |-
     # Step 1: Open the manifest file
-    Switch to the *Editor* tab and click on the only item in the **FILES** list, your `site.pp` manifest file.
+    Switch to the **Editor** tab and click on the only item in the **FILES** list, your `site.pp` manifest file.
 
-    # Step 2: Start with a code block
-    Add the following code to the node definition section at bottom of the manifest:
-    ```
+    # Step 2: Examine the definition of the agent node
+    As part of node classification, the server checks the manifest for node definitions, which start with declaring the node name:
+
     node 'linux-node.classroom.puppet.com' {
 
     }
-    ```
+
+
+    Typically, you would include one or more *[class](https://puppet.com/docs/puppet/latest/glossary.html#class) declarations* inside this `node` block.
 
     # Step 3: Add a resource declaration
-    So far, you’ve entered only a code outline. Typically, you would include one or more *class declarations* inside this `node` block. You'll learn about classes in the next learning track.
+    Now add a resource declaration, which adds a resource to the catalog and describes that resource's state. Add the following node definition and resource declaration to the node definition section at bottom of the manifest:
 
-    For now, simply write a resource declaration directly into the node definition so that your code looks like this:
+    ✏️ **Customize your code:** In the code block below, replace `Hello Puppet` with your own custom message, which will be displayed on the next Puppet run.
 
     ```
     node 'linux-node.classroom.puppet.com' {
@@ -209,7 +222,7 @@ challenges:
     # Step 4: Save your changes
     Click the disk icon: <img src="https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/save-icon.png">
 
-    ✔️ **Result:** The `site.pp` manifest file is updated. Now, when the agent contacts the server, the server encounters the node definition in this code block and uses it to compile a catalog for this node.
+    ✔️ **Result:** Now when the agent contacts the server, the server uses this node definition (among other things) to compile a catalog for this node.
 
     # Step 5: Trigger an agent run
     Now that you have some Puppet code for the server to parse, switch to the *Agent node* tab to the right and trigger a Puppet run:
@@ -217,14 +230,18 @@ challenges:
     puppet agent -t
     ```
 
-    ✏️ **Note:**  In this example, the catalog will include only a `notify` resource type, which tells the agent to display `Hello Puppet!` when it applies the catalog on its next run. This code doesn't make any changes to the node.
+    ✏️ **Note:**  In this example, the catalog includes only a `notify` resource type, which instructs the agent to display the message in the code when it applies the catalog on its next run. This code doesn't make any changes to the node.
 
-    ✔️ **Result:** The output from the Puppet run will include the following:
+    ✔️ **Result:** The output from this Puppet run includes the following:
 
     ```
     Notice: Hello Puppet!
     Notice: /Stage[main]/Main/Node[agent.puppet.vm]/Notify[Hello Puppet!]/message: defined 'message' as 'Hello Puppet!'
     ```
+
+    Resource declarations define the desired state of that node. When a Puppet run is triggered, the server parses these declarations, builds the catalog, and sends it back to the agent. The agent makes the changes to achieve the desired state of the resources in its catalog.
+
+    You can use multiple resource declarations to perform complex operations such as configuring a load balancer or defining hundreds of firewall rules - the sky's the limit.
   tabs:
   - title: Puppet server
     type: terminal
@@ -256,14 +273,14 @@ challenges:
 
       Click **Start** when you're ready.
   assignment: |-
-    Answer the questions and then click **CHECK YOUR ANSWERS** to see how you did.
+    Answer the questions, click **Submit**, and then click **View accuracy** to see how you did. Your results will appear in a new browser tab.
 
-    When you're done with the knowledge check, click **Check** to continue.
+    When you've finished reviewing your results, click **Check** to continue the track.
   tabs:
   - title: Knowledge Check
     type: website
     hostname: puppet
-    url: https://survey.alchemer.com/s3/6339641/Puppet-Practice-Labs-Trigger-a-Puppet-Agent-Run
+    url: https://docs.google.com/forms/d/e/1FAIpQLScTVJ5O_HHQnQv4jX6KGzMS93YZMsWqaRRajBzvjgALaznoHQ/viewform?embedded=true
   difficulty: basic
   timelimit: 360
 - slug: wrapup-and-feedback
@@ -276,9 +293,9 @@ challenges:
     contents: |-
       # Excellent! You’re nearly done!
 
-      Click **Start** to review what you learned and let us know what you thought of this track.
+      Click **Start** to let us know what you thought of this track.
   assignment: |-
-    In this lab, you learned how the Puppet server and agent communicate during an agent run.
+    In this lab, you learned how the primary server and agent communicate during a Puppet run.
 
     You learned how to:
     1. List and sign agent certificates.
@@ -290,14 +307,16 @@ challenges:
     - [Puppet Compass](https://learn.puppet.com/)
     - [Puppet Community Slack](https://slack.puppet.com/)
 
-    To access the commands used throughout this lab, visit the companion [Lab Aid](link).
+    To access the commands used throughout this lab, visit the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/).
 
-    Click **Check** to close this track.
+    Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-instruqt-tracks/tree/main/trigger-a-puppet-agent-run) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
+
+    To close this track, click **Check**.
   tabs:
-  - title: Wrap-up and Feedback
+  - title: Feedback
     type: website
     hostname: puppet
-    url: https://survey.alchemer.com/s3/6263245/Practice-Lab-Feedback-Survey
+    url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 360
-checksum: "2569527916660743710"
+checksum: "961919049264324288"

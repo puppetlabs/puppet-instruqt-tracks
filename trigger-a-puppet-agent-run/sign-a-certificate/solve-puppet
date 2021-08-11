@@ -1,0 +1,3 @@
+puppetserver ca list
+puppetserver ca sign --certname linux-node.classroom.puppet.com
+exit 0
