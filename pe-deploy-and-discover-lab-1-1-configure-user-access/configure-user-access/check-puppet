@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Generate a token to use for querying the PE APIs
+type_header='Content-Type: application/json'
+uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+data='{"login": "admin", 
+       "password": "puppetlabs"}'
+
+curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+
+
