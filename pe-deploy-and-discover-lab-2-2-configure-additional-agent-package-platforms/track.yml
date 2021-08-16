@@ -2,21 +2,34 @@ slug: pe-deploy-and-discover-lab-2-2
 id: yvrywfvwitpx
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.2: Configure Additional Agent Package Platforms'
-teaser: PE Deploy and Discover - 2.2 Configure Additional Agent Package Platforms
+teaser: Learn how to automate configuration management of every server in your infrastructure.
 description: |-
-  In this lab you will:
+  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
-  1. Attempt an agent installation on an operating system platform that is different from the primary server.
-  2. Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
-  3. Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
-icon: ""
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+
+  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  ___
+
+  **What you'll learn**
+
+  In this lab you'll learn how to configure the Puppet Server to support installing agents on multiple operating systems enabling you to automate configuration management of every server in your infrastructure, whatever its OS.
+
+  **Prerequisites**
+
+  None
+
+  **Before you start**
+
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
 owner: puppet
 developers:
 - greg.larkin@puppet.com
 private: true
-published: false
+published: true
 show_timer: true
 challenges:
 - slug: configure-additional-agent-package-platforms
@@ -24,14 +37,18 @@ challenges:
   type: challenge
   title: Configure additional agent package platforms
   teaser: Configure additional agent package platforms
-  assignment: |-
-    In this lab you will:
+  notes:
+  - type: text
+    contents: |-
+      In this lab you will:
 
-    * Attempt an agent installation on an operating system platform that is different from the primary server.
-    * Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
-    * Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
+      1. Attempt an agent installation on an operating system platform that is different from the primary server.
+      2. Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
+      3. Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
 
-    1. Install an agent on a target by using the installation script with the
+      Click **Start** when you're ready to begin.
+  assignment: |
+    1. On the Linux node (**linux1** tab), install an agent on a target by using the installation script with the
     `custom_attributes:challengePassword` parameter:
 
     ```
@@ -52,25 +69,40 @@ challenges:
     #
     ```
 
-    3. The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_rep::platform` class.
+    The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_rep::platform` class.
 
-    4. In the console, click *Node groups*, and in the *PE Infrastructure* group, select the *PE Master* group.
+    3. On the **PE Console** tab, log in to PE using username: `admin`, password: `puppetlabs`.
 
-    5. On the *Classes* tab, enter `pe_repo` and select the repo class from the list of classes. Note that the repo classes are listed as `pe_repo::platform::<AGENT_OS_VERSION_ARCHITECTURE>`.
+    4. From the console sidebar, navigate to the **Node groups** page. Click the plus icon (+) next to **PE Infrastructure** and then click **PE Master**.
 
-    6. Execute a puppet run on the primary server.
+    5. On the **Classes** tab, enter `pe_repo` into the **Add new class** field. From the drop-down menu, select the repo class from the list of classes (`pe_repo::platform::el_8_x86_64`).
+    ✏️ Note: Repo classes are listed as `pe_repo::platform::<AGENT_OS_VERSION_ARCHITECTURE>`.
 
-    7. Install an agent on a target by using the installation script with the `custom_attributes:challengePassword parameter`:
+    6. Click **Add class** and then click **Commit 1 change**.
+
+    7. On the **Puppet Server** tab, execute a Puppet run:
+    ```
+    puppet agent -t
+    ```
+
+    8. Install an agent on a target by running the installation script with the `custom_attributes:challengePassword parameter`:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
+    Your output should look like [EXAMPLE OUTPUT]
+
+    Congratulations! You configured additional agent package platforms.
+
+    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
   tabs:
-  - title: Puppet
+  - title: Puppet Server
     type: terminal
     hostname: puppet
-  - title: Console
+  - title: PE Console
     type: service
     hostname: puppet
     port: 443
@@ -82,6 +114,10 @@ challenges:
     hostname: guac
     path: /#/client/c/windows?username=instruqt&password=Passw0rd!
     port: 8080
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "14285194659163542864"
+checksum: "207511694557024545"

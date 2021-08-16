@@ -2,23 +2,27 @@ slug: pe-deploy-and-discover-lab-3-0
 id: trd6dwmkdt6s
 type: sandbox
 title: 'PE Deploy and Discover - Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts'
-teaser: PE Deploy and Discover - Lab 3.0 Identify Information About Your Nodes By Using facter_task & External Facts
+teaser: Use facter_task & external facts in PE to identify information about your nodes.
 description: |-
-  Your team lead finds a document that contains details (including the location) about servers in a couple of networks. You will use this new information to extend Facter by creating external facts.
+  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
-  In this lab, you will use the console to run facter_task against the nodes in your environment to discover which data center each node is located in, and then create an external fact to mark each node with their corresponding data center.
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
 
-  1. In the console, run `facter_task` to discover each node's network. For each node in your environment, run `facter_task` to return the network subnet.
+  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  ___
 
-  2. Create an external fact.
+  **What you'll learn**
 
-  Now that you have the network subnet, you can identify in which data center each node is located:
+  In this lab you'll learn how to use **facter_task** from within the PE console to create custom external facts, giving you a glimpse of how Puppet can be used as a customizable inventory system that provides visibility and insights on your infrastructure's nodes.
 
-  | Network         | Data Center |
-  | --------------- | ----------- |
-  | 10.10.100.0/24  | nyc         |
-  | 10.10.200.0/24  | pdx         |
-icon: ""
+  **Prerequisites**
+
+  None
+
+  **Before you start**
+
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
 owner: puppet
@@ -33,6 +37,14 @@ challenges:
   type: challenge
   title: Use Facter with an external script
   teaser: Use Facter with an external script
+  notes:
+  - type: text
+    contents: |-
+      In this lab, you will use the PE console to:
+       * Run `facter_task` against the nodes in your environment to discover which data center each node is located in.
+       * Create an external fact to mark each node with its corresponding data center.
+
+      Click **Start** when you're ready to begin.
   assignment: |-
     Facter gathers built-in (core) facts that are packaged with itself. It can also use scripts written by you or a third party to gather custom or external facts.
 
@@ -95,6 +107,10 @@ challenges:
     hostname: puppet
     path: /
     port: 443
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "4941439265840676538"
+checksum: "12351448250518162487"

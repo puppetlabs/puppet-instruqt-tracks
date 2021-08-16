@@ -2,20 +2,34 @@ slug: pe-deploy-and-discover-2-1
 id: y8mpb4sleibk
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.1: Configure Autosigning'
-teaser: PE Deploy and Discover - 2.1 Configure Autosigning
+teaser: Learn how to automate installation on new nodes using autosigning.
 description: |-
-  In this lab you will:
+  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
-  1. Configure autosigning to allow nodes to be automatically added to the primary server.
-  2. Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
-icon: ""
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+
+  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  ___
+
+  **What you'll learn**
+
+  In this lab you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet installation on new nodes, avoiding the need for human interaction and thus reducing deployment times.
+
+  **Prerequisites**
+
+  None
+
+  **Before you start**
+
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
 owner: puppet
 developers:
 - greg.larkin@puppet.com
 private: true
-published: false
+published: true
 show_timer: true
 challenges:
 - slug: configure-autosigning
@@ -23,20 +37,29 @@ challenges:
   type: challenge
   title: Configure autosigning
   teaser: Install the PE agent with autosigning enabled
-  assignment: |-
-    In this lab you will:
+  notes:
+  - type: text
+    contents: |-
+      In this lab you will:
 
-    * Configure autosigning to allow nodes to be automatically added to the primary server.
-    * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+      * Configure autosigning to allow nodes to be automatically added to the primary server.
+      * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
 
-    1. Create the autosign script at:
-
+      Click **Start** when you're ready to begin.
+  assignment: |
+    1. On the **Puppet** tab, navigate to
     ```
-    /etc/puppetlabs/puppet/autosign.rb
+    cd /etc/puppetlabs/puppet
     ```
-
-    with the following content:
-
+    2. Create the autosign.rb file:
+    ```
+    touch autosign.rb
+    ```
+    3. Open the file using Vim:
+    ```
+    vim autosign.rb
+    ```
+    4. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
     ```
     #!/opt/puppetlabs/puppet/bin/ruby
     #
@@ -73,65 +96,64 @@ challenges:
     end
     ```
 
-    2. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
+    5. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
 
     ```
     chmod +x /etc/puppetlabs/puppet/autosign.rb
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    3. Create the PSK file at:
+    6. Create and open the PSK file by running:
+    [CODE TO CREATE PSK FILE]
 
-    ```
-    /etc/puppetlabs/puppet/psk
-    ```
-
-    with the following content:
+    7. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
 
     ```
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    4. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`:
+    8. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Puppet** tab, run:
 
     ```
     chmod 600 /etc/puppetlabs/puppet/psk
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
     ```
 
-    5. Configure the primary server to enable autosigning with `autosign.rb`:
+    9. Configure the primary server to enable autosigning with `autosign.rb` by running:
 
     ```
     puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    6. Restart the primary server:
+    10. Restart the primary server:
 
     ```
     sudo service pe-puppetserver restart
     ```
 
-    7. Switch over to the tab labelled `linux1`.
-
-    8. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+    11. On the **linux1** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    8. After installation is complete, switch to the Console tab and log in with username `admin` and password `puppetlabs`.
+    12. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    9. Navigate to Inventory > Nodes and validate that the `linux1` node is now being managed by Puppet Enterprise.
+    13. From the console sidebar, navigate to the **Nodes** page and validate that the `linux1` node is now being managed by Puppet Enterprise.
 
-    10. Click on the `linux1` node, and inspect its facts under the Facts tab:
+    14. Click on the **linux1** node, and inspect its facts under the **Facts** tab.
 
-    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/2.0.pe-deploy-and-discover-node-facts.png)
+    Congratulations! You installed the PE agent with autosigning enabled.
+
+    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
   tabs:
   - title: Puppet
     type: terminal
     hostname: puppet
-  - title: Console
+  - title: PE Console
     type: service
     hostname: puppet
     port: 443
@@ -143,6 +165,10 @@ challenges:
     hostname: guac
     path: /#/client/c/windows?username=instruqt&password=Passw0rd!
     port: 8080
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "3487011350381772887"
+checksum: "1900941158667334273"

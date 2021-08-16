@@ -15,7 +15,7 @@ description: |-
   Package data collection is disabled by default, so the Packages page in the console initially appears blank. To view a node's current package inventory, you must enable package data collection.
 
   You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
-icon: ""
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
 owner: puppet
@@ -87,6 +87,10 @@ challenges:
     hostname: puppet
     path: /
     port: 443
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "1653974010078688626"
+checksum: "15494656308822961977"

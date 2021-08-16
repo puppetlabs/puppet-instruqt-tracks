@@ -1,36 +1,50 @@
 slug: pe-deploy-and-discover-1-0
 id: mxxouyyo8i2z
 type: sandbox
-title: 'PE Deploy and Discover - Lab 1.0: Install the PE Server'
-teaser: PE Deploy and Discover - 1.0 Install the PE Server
+title: 'PE Deploy and Discover - Lab 1.0: Install Puppet Enterprise'
+teaser: Learn how to install Puppet Enterprise and monitor its status in the PE console.
 description: |-
-  In this lab, you'll learn an easy and straightforward process for installing Puppet Enterprise enabling you to start automating your infrastructure on day one.
-
-  Your lab environment consists of:
-   - A target server for the primary server installation.
-   - A number of other servers (a mix of Windows & Linux nodes) that you will manage agents on.
+  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
 
-  Your objective is to enable continuous audit and compliance over all systems in your environment:
-   - Ensure visibility of all currently installed packages and versions.
-   - Identify each server's role in your environment.
-icon: ""
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+
+  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+
+  ___
+  **What you'll learn**
+
+  In this lab, you'll learn an easy and straightforward process for installing Puppet Enterprise (PE), enabling you to start automating your infrastructure on day one.
+
+  **Prerequisites**
+
+  None
+
+  **Before you start**
+
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
 owner: puppet
 developers:
 - greg.larkin@puppet.com
+- tara.swenson@puppet.com
 private: true
 published: true
 challenges:
 - slug: sandbox
   id: o7pfcncfzcua
   type: challenge
-  title: Install PE Server
-  teaser: Learn how to install and configure the PE Server.
+  title: Install PE
+  teaser: Install PE and monitor its services in the console.
   notes:
   - type: text
-    contents: Please wait while your lab environment is launched...
+    contents: |-
+      In this lab you will learn how to install and configure Puppet Enterprise on a primary server.
+
+       Click **Start** when you're ready to begin.
   assignment: |-
     1. On the **Puppet Server** tab, download the tarball:
     ```
@@ -41,38 +55,44 @@ challenges:
     ```
     tar -xf puppet-enterprise-2019.8.6-el-7-x86_64.tar.gz
     ```
-    3. Run the Puppet Enterprise installer. When prompted, enter Y to proceed:
+    3. Run the Puppet Enterprise installer. When prompted, enter **Y** to proceed:
     ```
     ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer
     ```
-    4. Set the password for the console to **puppetlabs** (you will use this password to log into PE once it is installed):
+    4. Set the password for the PE console to **puppetlabs** (you will use this password to log into PE after it is installed):
     ```
     puppet infrastructure console_password --password=puppetlabs
     ```
-    5. Run the following command <b>twice</b> to complete the Puppet Server installation [enter information to explain what running the command twice does/why its necessary]:
+    5. Run the following command <b>twice</b> to complete the PE installation:
     ```
     puppet agent -t
     ```
-    6. Check the status of Puppet services from the command line:
+    ✏️ Note: Running the agent twice ensures that all of the post-configuration operations have been completed and that PE is running as expected.
+
+    6. From the command line, check the status of the Puppet services:
     ```
     puppet infrastructure status
     ```
 
-    7. Switch to the **Console** tab.
+    7. Switch to the **PE Console** tab.
 
-    8. Log in with `admin` and password `puppetlabs` (the password you set in Step 4).
+    8. Log in with ID `admin` and password `puppetlabs` (the password you set in Step 4).
 
-    9. On the **Status** page, click "Puppet Services status" (shown at the top right of the page). In the drop-down menu, you should see something similar to the following:
+    9. On the **Status** page, click **Puppet Services status** (near the top right of the page). You should see something similar to the following:
 
     ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)
     10. Review the list to ensure all services are running.
 
-    Congratulations! You installed and configured the PE Server.
+    Congratulations! You installed PE, and its basic configuration is now complete.
+
+    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+    To complete this lab, click **Next**.
   tabs:
   - title: Puppet Server
     type: terminal
     hostname: puppetserver
-  - title: Console
+  - title: PE Console
     type: service
     hostname: puppetserver
     port: 443
@@ -82,4 +102,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "965354653152586821"
+checksum: "1458758333920924728"
