@@ -47,7 +47,7 @@ challenges:
       * Use the local installation method via the frictionless installer script to install an agent on a target server.
 
       Click **Start** when you're ready to begin.
-  assignment: |-
+  assignment: |
     ## Method 1: Install a PE agent locally using the install script on the command line
 
     1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
@@ -83,6 +83,12 @@ challenges:
     ````
     9. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see ?? nodes listed: ???. Click on the ?? node.
     10. From the **Fact** tab, inspect the facts about the ?? node.
+
+    Congratulations! You [add text here]
+
+    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
   tabs:
   - title: PE Console
     type: service
@@ -94,9 +100,6 @@ challenges:
   - title: linux1
     type: terminal
     hostname: linux1
-  - title: linux2
-    type: terminal
-    hostname: linux2
   - title: windows
     type: service
     hostname: guac
@@ -107,5 +110,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
-  timelimit: 900
-checksum: "15239878070851562359"
+  timelimit: 3600
+checksum: "16542573482221942544"

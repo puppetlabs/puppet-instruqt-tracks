@@ -19,12 +19,9 @@ description: |-
 
   None
 
-  ___
-  **Keep an eye on the clock!**
+  **Before you start**
 
-  ![.](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/15min.png "This lab will take approximately 15 minutes to complete.")
-
-  This lab should take about 15 minutes to complete, however, **the virtual environment will stay up for 60 minutes** in case you need more time. After 60 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
@@ -114,5 +111,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 3600
-checksum: "4559508677621021082"
+  timelimit: 1200
+checksum: "9262027363322960339"
