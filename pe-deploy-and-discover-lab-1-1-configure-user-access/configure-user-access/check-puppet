@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Generate a token to use for querying the PE APIs
-type_header='Content-Type: application/json'
-uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
-data='{"login": "admin", 
-       "password": "puppetlabs"}'
+# Export the token value to the environment for API use
+export TOKEN=$(cat /tmp/token.json | jq -r .token)
 
-curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+# Check if new user has been created
+URI="https://$(puppet config print server):4433/rbac-api/v1/users?token=${TOKEN}"
+if [ `curl -s --insecure $URI | jq -r .[].display_name | sort -u | tr "\n" "," | md5sum | awk '{print $1 }'` != '38e77c4596bcc23b71f60fbc8d4d21fa' ]; then
+  fail-message "New user has not been created yet"
+  exit 1
+fi
 
-
+exit 0

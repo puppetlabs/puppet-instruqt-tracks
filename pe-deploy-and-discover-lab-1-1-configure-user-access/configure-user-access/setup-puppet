@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set +x
+
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -6,20 +9,34 @@ do
 done
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
-while  ! nc -z -w3 localhost 443 
+while  ! nc -z -w3 localhost 443
 do
     echo "Waiting for port 443 to be reachable on localhost"
-   
 done
 
 sleep 10
 
-# Exit if the privacy policy has been declined by the user
-[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 0
-
 # Install some JSON manipulation tools
+# NB: For this track, these need to be installed no matter what so
+# we can generate an API token and use it in the check script
 yum install -y jq nodejs
 npm install -g json
+
+# Generate a token to use for querying the PE APIs
+type_header='Content-Type: application/json'
+uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+data='{"login": "admin",
+       "password": "puppetlabs"}'
+
+while  ! nc -z -w3 localhost 4433
+do
+    echo "Waiting for port 4433 to be reachable on localhost"
+done
+
+curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+
+# Exit if the privacy policy has been declined by the user
+[ "${INSTRUQT_PRIVACY_POLICY_CONSENT:-false}" == "false" ] && exit 0
 
 # Get the environment variables injected by Instruqt
 printenv | grep ^INSTR | jq -sR '
