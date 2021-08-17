@@ -19,9 +19,12 @@ description: |-
 
   None
 
-  **Before you start**
+  ___
+  **Keep an eye on the clock!**
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+  ![.](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/15min.png "This lab will take approximately 15 minutes to complete.")
+
+  This lab should take about 15 minutes to complete, however, **the virtual environment will stay up for 60 minutes** in case you need more time. After 60 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
@@ -45,12 +48,12 @@ challenges:
        * Create an external fact to mark each node with its corresponding data center.
 
       Click **Start** when you're ready to begin.
-  assignment: |-
-    Facter gathers built-in (core) facts that are packaged with itself. It can also use scripts written by you or a third party to gather custom or external facts.
+  assignment: |
+    Facter gathers built-in (core) facts that are packaged within itself. It can also use scripts written by you or a third party to gather custom or external facts.
 
     In this exercise, you will install an external fact script that creates a datacenter fact. You will then verify that Facter can retrieve that fact with the script.
 
-    1. First, check that the datacenter fact does not already exist. This command should produce no value:
+    1. First, check that the datacenter fact does not already exist. On the **linux1** tab, run the following command - it should produce no value:
 
     ```
     facter datacenter
@@ -64,53 +67,52 @@ challenges:
     cd ~/
     ```
 
-    3. Create the Facter location directory and external fact script:
+    3. Create the Facter location directory and external fact script by running the following command:
 
     ```
     sudo mkdir -p /etc/puppetlabs/facter/facts.d
     sudo touch /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    4. Add the following contents to the script, making sure to include the corresponding data center using the table above:
+    4. Open the script using Vi:
+    ```
+    vi /etc/puppetlabs/facter/facts.d/datacenter.sh
+    ```
 
+    5. Add the following contents to the script, making sure to include the corresponding data center using the table above:
     ```
     #!/bin/sh
     echo "datacenter=pdx"
     ```
 
-    5. Make the script executable:
-
+    5. Run the following command to make the script executable:
     ```
     sudo chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    6. Finally, verify that the fact was installed and is accessible by Facter. Notice the new output:
+    6. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacener` again and notice the new output - it should return the output `pdx`.
 
+    7. Run the Puppet agent to send facts to the Puppet server:
     ```
-    facter datacenter
-    pdx
+    puppet agent -t
     ```
 
-    7. Run the agent to send facts to the primary server.
+    Congratulations! You installed an external fact script to create a datacenter fact, and then verified that facter was able to retrieve the data in the fact (location: pdx).
+
+    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
   tabs:
+  - title: Puppet Server
+    type: terminal
+    hostname: puppet
   - title: linux1
     type: terminal
     hostname: linux1
-  - title: linux2
-    type: terminal
-    hostname: linux2
-  - title: puppet
-    type: terminal
-    hostname: puppet
-  - title: Console
-    type: service
-    hostname: puppet
-    path: /
-    port: 443
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 1200
-checksum: "12351448250518162487"
+  timelimit: 3600
+checksum: "4559508677621021082"

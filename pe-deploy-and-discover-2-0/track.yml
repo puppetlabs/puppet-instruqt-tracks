@@ -88,7 +88,7 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: Puppet
+  - title: Puppet Server
     type: terminal
     hostname: puppet
   - title: linux1
@@ -108,4 +108,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 900
-checksum: "15621844109684279843"
+checksum: "15239878070851562359"
