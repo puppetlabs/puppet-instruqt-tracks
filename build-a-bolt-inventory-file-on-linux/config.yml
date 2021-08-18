@@ -7,8 +7,8 @@ virtualmachines:
 - name: web1
   image: centos-7-v20201014
   shell: /bin/bash
-  machine_type: n1-standard-2
+  machine_type: n1-standard-1
 - name: web2
   image: centos-7-v20201014
   shell: /bin/bash
-  machine_type: n1-standard-2
+  machine_type: n1-standard-1

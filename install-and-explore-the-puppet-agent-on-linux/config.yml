@@ -3,4 +3,4 @@ virtualmachines:
 - name: linux
   image: centos-7-v20201014
   shell: /bin/bash
-  machine_type: n1-standard-2
+  machine_type: n1-standard-1
