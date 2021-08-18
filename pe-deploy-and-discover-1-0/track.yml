@@ -33,6 +33,7 @@ developers:
 - tara.swenson@puppet.com
 private: true
 published: true
+show_timer: true
 challenges:
 - slug: sandbox
   id: o7pfcncfzcua
@@ -102,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "5436797250811312421"
+checksum: "16979159047682811788"

@@ -76,10 +76,11 @@ challenges:
         "apache" - role: webserver
         "nginx" - role: loadbalancer
 
-    Some of the other students will have different packages across their servers in their lab environment - this is expected!
+    Congratulations! You ensured the visibility of all currently installed packages and versions. Some of the other students will have different packages across their servers in their lab environment - this is expected!
 
-    *What did you do?*
-    You ensured the visibility of all currently installed packages and versions.
+    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
   tabs:
   - title: linux1
     type: terminal
@@ -101,4 +102,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "16478928214122618833"
+checksum: "18100038345846191036"
