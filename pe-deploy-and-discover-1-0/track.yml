@@ -8,9 +8,9 @@ description: |-
 
 
 
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
-  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
 
   ___
   **What you'll learn**
@@ -43,7 +43,7 @@ challenges:
   notes:
   - type: text
     contents: |-
-      In this lab you will learn how to install and configure Puppet Enterprise on a primary server.
+      In this lab, you will learn how to install and configure Puppet Enterprise.
 
        Click **Start** when you're ready to begin.
   assignment: |-
@@ -64,11 +64,11 @@ challenges:
     ```
     puppet infrastructure console_password --password=puppetlabs
     ```
-    5. Run the following command <b>twice</b> to complete the PE installation:
+    5. Run Puppet <b>twice</b> to complete the PE installation:
     ```
     puppet agent -t
     ```
-    ✏️ Note: Running the agent twice ensures that all of the post-configuration operations have been completed and that PE is running as expected.
+    ✏️ Note: Running Puppet twice ensures that all of the post-configuration operations have been completed and that PE is running as expected.
 
     6. From the command line, check the status of the Puppet services:
     ```
@@ -103,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "16979159047682811788"
+checksum: "3513770606822765394"

@@ -62,7 +62,7 @@ challenges:
 
     6. In the top-right corner of the page, click **Generate password reset**, copy the link, and then click **Close**.
 
-    7. Paste the link in a new web browser tab. Then, enter a new password and click **Reset password**.
+    7. Paste the link into a new web browser tab. Then, enter a new password and click **Reset password**.
     ✏️ Note: Choose a memorable password — you'll use it to log in on the final step.
 
     8. Close the browser tab and go back to the **PE Console** tab within the lab. In the sidebar, click **Access Control**, and then click the **User roles** tab.
@@ -93,4 +93,4 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "15451922068335819641"
+checksum: "8028737210655246177"
