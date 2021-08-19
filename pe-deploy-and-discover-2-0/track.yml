@@ -6,9 +6,9 @@ teaser: Learn how to install the PE agent using the console and the command line
 description: |-
   # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
-  Thank you for your help. We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
 
   **What you'll learn**
@@ -21,7 +21,7 @@ description: |-
 
   **Before you start**
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - deploy-and-discover
@@ -53,18 +53,18 @@ challenges:
 
     1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
     2. From the console sidebar, navigate to the **Nodes** page.
-    3. Click **Add Nodes**, located in the upper right corner of the console.
+    3. Click **Add Nodes** in the upper-right corner of the console.
     4. Click **Install Agents**.
     5. Copy the curl command that appears in the ***nix nodes** field at the right by selecting it and clicking CTRL+C/CMD+C or right-click+copy.
     6. Navigate to the Linux node by clicking on the **Linux agent** tab. From there, paste and run the curl command. Running this command will install the PE agent.
-    7. After the installation finishes, return to the **PE Console** tab and click the refresh button shown at the top right of the console.
-    8. From the console sidebar, navigate to the **Certificates** page. Click on the **Unsigned certificates** tab.
+    7. When the installation is complete, return to the **PE Console** tab and click the refresh button shown at the top right of the console.
+    8. From the console sidebar, navigate to the **Certificates** page. Click the **Unsigned certificates** tab.
     9. Click **Accept** on the `linux` node listed there.
-    10. Return to the Linux node by clicking on the **Linux agent** tab, and then trigger a Puppet agent run:
+    10. Return to the Linux node by clicking on the **Linux agent** tab, and then trigger a Puppet run:
     ````
     puppet agent -t
     ````
-    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see two nodes listed: the Puppet server and the `linux` node. Click on the `linux` node.
+    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see two nodes listed: the Puppet server and the `linux` node. Click the `linux` node.
     12. From the **Facts** tab, inspect the facts about the `linux` node.
 
     ## Method 2: Install a PE agent remotely using the PE console
@@ -78,16 +78,16 @@ challenges:
      - password: `Passw0rd!`
     6. From the console sidebar, navigate to the **Certificates** page. Click on the **Unsigned certificates** tab.
     7. Click **Accept** on the `windows` node listed there.
-    8. Navigate to the Windows node by clicking on the **Windows agent** tab, and then trigger a Puppet agent run:
+    8. Navigate to the Windows node by clicking the **Windows agent** tab, and then trigger a Puppet run:
     ````
     puppet agent -t
     ````
-    9. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see 3 nodes listed: the Puppet server, `linux` and `windows`. Click on the `windows` node.
+    9. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see 3 nodes listed: the Puppet server, `linux`, and `windows`. Click the `windows` node.
     10. From the **Facts** tab, inspect the facts about the `windows` node.
 
-    Congratulations, you have installed Puppet agents!
+    Congratulations, you just installed Puppet agents!
 
-    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
     To close this lab, click **Next**.
   tabs:
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "6218919385232192032"
+checksum: "18060313364219227640"
