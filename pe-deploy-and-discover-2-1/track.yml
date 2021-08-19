@@ -47,19 +47,15 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the **Puppet** tab, navigate to
+    1. On the **Puppet server** tab, navigate to
     ```
     cd /etc/puppetlabs/puppet
     ```
-    2. Create the autosign.rb file:
-    ```
-    touch autosign.rb
-    ```
-    3. Open the file using Vim:
+    2. Create and edit the autosign.rb file:
     ```
     vim autosign.rb
     ```
-    4. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
+    3. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
     ```
     #!/opt/puppetlabs/puppet/bin/ruby
     #
@@ -96,15 +92,17 @@ challenges:
     end
     ```
 
-    5. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
+    4. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
 
     ```
     chmod +x /etc/puppetlabs/puppet/autosign.rb
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    6. Create and open the PSK file by running:
-    [CODE TO CREATE PSK FILE]
+    5. Create and edit the PSK file:
+    ```
+    vim psk
+    ```
 
     7. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
 
@@ -131,7 +129,7 @@ challenges:
     sudo service pe-puppetserver restart
     ```
 
-    11. On the **linux1** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+    11. On the **Linux agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
@@ -140,9 +138,9 @@ challenges:
 
     12. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    13. From the console sidebar, navigate to the **Nodes** page and validate that the `linux1` node is now being managed by Puppet Enterprise.
+    13. From the console sidebar, navigate to the **Nodes** page and validate that the `linux` node is now being managed by Puppet Enterprise.
 
-    14. Click on the **linux1** node, and inspect its facts under the **Facts** tab.
+    14. Click on the **linux** node, and inspect its facts under the **Facts** tab.
 
     Congratulations! You installed the PE agent with autosigning enabled.
 
@@ -150,17 +148,17 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet
+  - title: Puppet server
     type: terminal
     hostname: puppet
   - title: PE Console
     type: service
     hostname: puppet
     port: 443
-  - title: linux1
+  - title: Linux agent
     type: terminal
-    hostname: linux1
-  - title: windows
+    hostname: linux
+  - title: Windows agent
     type: service
     hostname: guac
     path: /#/client/c/windows?username=instruqt&password=Passw0rd!
@@ -171,4 +169,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "4654265350086137744"
+checksum: "11313296254154283159"

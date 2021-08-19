@@ -11,10 +11,10 @@ virtualmachines:
   image: kmo-instruqt/puppet
   shell: /bin/bash
   machine_type: n1-standard-4
-- name: linux1
-  image: kmo-instruqt/linux-node-no-agent
-  shell: /bin/bash
-  machine_type: n1-standard-1
 - name: windows
   image: kmo-instruqt/puppet-windows
   machine_type: n1-standard-2
+- name: linux
+  image: kmo-instruqt/linux-node-no-agent
+  shell: /bin/bash
+  machine_type: n1-standard-1
