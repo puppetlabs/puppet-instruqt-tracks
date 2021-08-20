@@ -48,8 +48,7 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the Linux node (**linux1** tab), install an agent on a target by using the installation script with the
-    `custom_attributes:challengePassword` parameter:
+    1. On the Linux node (**linux1** tab), install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
@@ -63,29 +62,28 @@ challenges:
                                      Dload  Upload   Total   Spent    Left  Speed
     100 20122  100 20122    0     0   122k      0 --:--:-- --:--:-- --:--:--  123k
     curl failed to get https://puppet:8140/packages/2019.8.6/el-8-x86_64.bash
-    The agent packages needed to support el-8-x86_64 are not present on your master.
-    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node and then run Puppet.
+    The agent packages needed to support el-8-x86_64 are not present on your primary server.
+    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node, and then run Puppet.
     The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.
     #
     ```
 
-    The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_rep::platform` class.
+    The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_repo::platform` class.
 
-    3. On the **PE Console** tab, log in to PE using username: `admin`, password: `puppetlabs`.
+    3. On the **PE Console** tab, log into PE with username `admin`and password `puppetlabs`.
 
-    4. From the console sidebar, navigate to the **Node groups** page. Click the plus icon (+) next to **PE Infrastructure** and then click **PE Master**.
+    4. From the console sidebar, navigate to the **Node groups** page. Expand (click **+**) **PE Infrastructure** and click **PE Master**.
 
-    5. On the **Classes** tab, enter `pe_repo` into the **Add new class** field. From the drop-down menu, select the repo class from the list of classes (`pe_repo::platform::el_8_x86_64`).
-    ✏️ Note: Repo classes are listed as `pe_repo::platform::<AGENT_OS_VERSION_ARCHITECTURE>`.
+    5. On the **Classes** tab, enter `pe_repo` in **Add new class**. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and click *Add class**.
 
-    6. Click **Add class** and then click **Commit 1 change**.
+    6. Commit your change: Click **Commit** in the bottom right of the page.
 
-    7. On the **Puppet Server** tab, execute a Puppet run:
+    7. On the **Puppet Server** tab, run Puppet:
     ```
     puppet agent -t
     ```
 
-    8. Install an agent on a target by running the installation script with the `custom_attributes:challengePassword parameter`:
+    8. Install an agent on a target by running the installation script and including the `custom_attributes:challengePassword` parameter to autosign the agent certificate:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
@@ -95,7 +93,7 @@ challenges:
 
     Congratulations! You configured additional agent package platforms.
 
-    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
     To close this lab, click **Next**.
   tabs:
@@ -120,4 +118,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "18330074205902880875"
+checksum: "11437592590343322373"
