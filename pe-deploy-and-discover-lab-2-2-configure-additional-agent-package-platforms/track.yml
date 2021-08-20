@@ -74,7 +74,7 @@ challenges:
 
     4. From the console sidebar, navigate to the **Node groups** page. Expand (click **+**) **PE Infrastructure** and click **PE Master**.
 
-    5. On the **Classes** tab, enter `pe_repo` in **Add new class**. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and click *Add class**.
+    5. On the **Classes** tab, enter `pe_repo` in **Add new class**. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and click **Add class**.
 
     6. Commit your change: Click **Commit** in the bottom right of the page.
 
@@ -118,4 +118,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "11437592590343322373"
+checksum: "14235173290157611649"
