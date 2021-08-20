@@ -50,7 +50,7 @@ challenges:
 
     In this exercise, you will install an external fact script that creates a datacenter fact. You will then verify that Facter can retrieve that fact with the script.
 
-    1. First, check that the datacenter fact does not already exist. On the **linux1** tab, run the following command - it should produce no value:
+    1. First, check that the datacenter fact does not already exist. On the **Linux agent** tab, run the following command - it should produce no value:
 
     ```
     facter datacenter
@@ -67,8 +67,8 @@ challenges:
     3. Create the Facter location directory and external fact script by running the following command:
 
     ```
-    sudo mkdir -p /etc/puppetlabs/facter/facts.d
-    sudo touch /etc/puppetlabs/facter/facts.d/datacenter.sh
+    mkdir -p /etc/puppetlabs/facter/facts.d
+    touch /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
     4. Open the script using Vi:
@@ -84,7 +84,7 @@ challenges:
 
     5. Run the following command to make the script executable:
     ```
-    sudo chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
+    chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
     6. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacener` again and notice the new output - it should return the output `pdx`.
@@ -100,16 +100,16 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet Server
+  - title: Puppet server
     type: terminal
     hostname: puppet
-  - title: linux1
+  - title: Linux agent
     type: terminal
-    hostname: linux1
+    hostname: linux
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "8790779853744854515"
+checksum: "17013766025934292416"
