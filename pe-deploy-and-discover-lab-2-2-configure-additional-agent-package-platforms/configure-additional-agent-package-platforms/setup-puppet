@@ -69,4 +69,12 @@ service pe-puppetserver restart
 
 /usr/local/bin/puppet agent -t
 
+# Wait for any running agent to finish
+while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
+  sleep 1
+done
 
+# Run the agent again to reconfigure the installation script
+/usr/local/bin/puppet agent -t
+
+sleep 5
