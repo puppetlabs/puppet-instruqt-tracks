@@ -46,11 +46,11 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |
-    Facter gathers built-in (core) facts that are packaged within itself. It can also use scripts written by you or a third party to gather custom or external facts.
+    Facter gathers built-in (core) facts that are packaged within itself. It can also gather custom or external facts by using scripts that you or a third party have written.
 
-    In this exercise, you will install an external fact script that creates a datacenter fact. You will then verify that Facter can retrieve that fact with the script.
+    In this exercise, you will install an external fact script that creates a data center fact. You will then verify that Facter can retrieve that fact with the script.
 
-    1. First, check that the datacenter fact does not already exist. On the **Linux agent** tab, run the following command - it should produce no value:
+    1. First, check that the data center fact does not already exist. On the **Linux agent** tab, run the following command — it should produce no value:
 
     ```
     facter datacenter
@@ -64,14 +64,14 @@ challenges:
     cd ~/
     ```
 
-    3. Create the Facter location directory and external fact script by running the following command:
+    3. Create the Facter location directory and external fact script:
 
     ```
     mkdir -p /etc/puppetlabs/facter/facts.d
     touch /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    4. Open the script using Vi:
+    4. Open the script using the vi editor:
     ```
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
@@ -82,21 +82,21 @@ challenges:
     echo "datacenter=pdx"
     ```
 
-    5. Run the following command to make the script executable:
+    5. Make the script executable:
     ```
     chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    6. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacener` again and notice the new output - it should return the output `pdx`.
+    6. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacenter` again and notice the new output - it should return `pdx`.
 
     7. Run the Puppet agent to send facts to the Puppet server:
     ```
     puppet agent -t
     ```
 
-    Congratulations! You installed an external fact script to create a datacenter fact, and then verified that facter was able to retrieve the data in the fact (location: pdx).
+    Congratulations! You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: pdx).
 
-    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
+    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
     To close this lab, click **Next**.
   tabs:
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "17013766025934292416"
+checksum: "16934106591876986632"

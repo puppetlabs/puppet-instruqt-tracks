@@ -1,8 +1,8 @@
 slug: pe-deploy-and-discover-2-0
 id: rzm1rnl0at70
 type: sandbox
-title: 'PE Deploy and Discover - Lab 2.0: Install PE Agents'
-teaser: Learn how to install the PE agent using the console and the command line.
+title: 'PE Deploy and Discover - Lab 2.0: Install Agents'
+teaser: Learn how to install an agent in PE by using the console and the command line.
 description: |-
   # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
 
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "18060313364219227640"
+checksum: "69463560587845054"
