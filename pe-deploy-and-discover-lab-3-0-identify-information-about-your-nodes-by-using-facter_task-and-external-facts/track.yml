@@ -100,16 +100,16 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet server
+  - title: Puppet Server
     type: terminal
     hostname: puppet
-  - title: Linux agent
+  - title: Linux Agent
     type: terminal
-    hostname: linux
+    hostname: nixagent
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "5439306019126480060"
+checksum: "13284781433279393675"

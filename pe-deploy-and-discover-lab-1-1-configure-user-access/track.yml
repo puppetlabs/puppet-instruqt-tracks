@@ -88,9 +88,9 @@ challenges:
     type: website
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSf-PbKW_YJg4VP6AO12HVuLexbwwIbC8CsyWugiK5_wYNRk4g/viewform?embedded=true
-  - title: Linux
+  - title: Linux (remove)
     type: terminal
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "2555505124453043547"
+checksum: "10265386642740451006"

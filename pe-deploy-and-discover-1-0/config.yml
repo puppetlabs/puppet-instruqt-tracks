@@ -1,6 +1,6 @@
 version: "2"
 virtualmachines:
-- name: puppetserver
+- name: puppet
   image: centos-7-v20201014
   shell: /bin/bash
   machine_type: n1-standard-4

@@ -82,16 +82,16 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: linux1
+  - title: Linux Agent 1
     type: terminal
-    hostname: linux1
-  - title: linux2
+    hostname: nixagent1
+  - title: Linux Agent 2
     type: terminal
-    hostname: linux2
-  - title: puppet
+    hostname: nixagent2
+  - title: Puppet Server
     type: terminal
     hostname: puppet
-  - title: Console
+  - title: PE Console
     type: service
     hostname: puppet
     path: /
@@ -102,4 +102,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "1153046570277212197"
+checksum: "11158633063230456632"

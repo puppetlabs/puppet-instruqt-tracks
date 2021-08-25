@@ -1,3 +1,0 @@
-#!/bin/bash
-
-# Check for 'pdx' after running facter datacenter

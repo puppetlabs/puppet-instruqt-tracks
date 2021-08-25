@@ -92,15 +92,15 @@ challenges:
   tabs:
   - title: Puppet Server
     type: terminal
-    hostname: puppetserver
+    hostname: puppet
   - title: PE Console
     type: service
-    hostname: puppetserver
+    hostname: puppet
     port: 443
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
-    hostname: puppetserver
+    hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "7358549553951370771"
+checksum: "1668156839094842394"

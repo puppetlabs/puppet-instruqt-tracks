@@ -95,16 +95,16 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: Puppet server
+  - title: Puppet Server
     type: terminal
     hostname: puppet
-  - title: Linux agent
+  - title: Linux Agent
     type: terminal
-    hostname: linux
-  - title: Windows agent
+    hostname: nixagent
+  - title: Windows Agent
     type: service
     hostname: guac
-    path: /#/client/c/windows?username=instruqt&password=Passw0rd!
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
     port: 8080
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "6903403494000205960"
+checksum: "6719209957194820990"
