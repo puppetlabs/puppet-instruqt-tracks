@@ -1,14 +1,14 @@
 slug: pe-deploy-and-discover-lab-1-1-configure-user-access
 id: uzggwuspuomz
 type: sandbox
-title: 'PE Deploy and Discover - Lab 1.1: Configure user access'
+title: 'PE Deploy and Discover - Lab 1.1: Configure User Access'
 teaser: Learn how to assign role-based access in Puppet Enterprise.
 description: |-
-  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
   Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
 
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
   ___
   **What you'll learn**
 
@@ -36,13 +36,13 @@ challenges:
   id: hu8et40y7pvb
   type: challenge
   title: Configure user access
-  teaser: Learn how to grant role-based access in PE.
+  teaser: Create a user and assign them a default role.
   notes:
   - type: text
     contents: |-
-      In this lab, you will create a Puppet Enterprise user and grant limited permissions from the PE console.
+      In this lab, you will create a Puppet Enterprise (PE) user and assign them the default Viewer role (which has limited permissions) from the PE console.
 
-      User roles are sets of permissions you can apply to multiple users. You can't assign permissions to single users in PE, only to user roles.
+      User roles are sets of permissions that you assign to users. In PE, you assign roles to users (or groups of users), rather than assigning specific permissions to individual users.
 
       Managing access based on roles — or, role-based access — is more efficient than managing user permissions on a per-user basis.
 
@@ -53,27 +53,27 @@ challenges:
 
     2. From the console sidebar, click **Access Control**.
 
-    3. In the **Full name** field, enter the user's name using standard capitalization and spacing.
+    3. Add the user. In the **Full name** field, enter the user's name using standard capitalization and spacing.
     ✏️ Note: Not sure what name to use? Feel free to use your own!
 
-    4. In the **Login** field, enter a username for the user, such as: `firstname.lastname`. Then, click **Add local user**. The name is added to the list.
+    4. Add the user's login info. In the **Login** field, enter a username for the user, such as: `firstname.lastname`. Then, click **Add local user**. The name is added to the list.
 
     5. Click the username to open the **User details** page.
 
-    6. In the top-right corner of the page, click **Generate password reset**, copy the link, and then click **Close**.
+    6. Generate a password for the user. In the top-right corner of the page, click **Generate password reset**, copy the link, and then click **Close**.
 
     7. Paste the link into a new web browser tab. Then, enter a new password and click **Reset password**.
     ✏️ Note: Choose a memorable password — you'll use it to log in on the final step.
 
     8. Close the browser tab and go back to the **PE Console** tab within the lab. In the sidebar, click **Access Control**, and then click the **User roles** tab.
 
-    9. In the list of roles, click **Viewers**. On the **Member users** tab, select the new user from the list, and then click **Add user**.
+    9. Assign the View role to the new user. In the list of roles, click **Viewers**. On the **Member users** tab, select the new user from the **User name** list, and then click **Add user**.
 
     10. Commit your changes — see the button in the bottom-right corner of the page.
 
     11. To verify the settings, log in as the new user: In the console sidebar, click **Log out**, and then log in again with the username and password that you set in steps 4 and 7. From here you can explore your user settings.
 
-    Congratulations! Using the PE console, you just created a user and assigned them to a role that has limited permissions in PE.
+    Congratulations! Using the PE console, you just created a user and assigned them the Viewer role, which has limited permissions in PE.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -93,4 +93,4 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "8028737210655246177"
+checksum: "2555505124453043547"

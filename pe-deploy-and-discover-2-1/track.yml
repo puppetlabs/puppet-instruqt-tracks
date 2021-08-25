@@ -4,16 +4,16 @@ type: sandbox
 title: 'PE Deploy and Discover - Lab 2.1: Configure Autosigning'
 teaser: Learn how to automate installation on new nodes using autosigning.
 description: |-
-  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
   Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
 
   **What you'll learn**
 
-  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet installation on new nodes, thus eliminating an mundane task and making deployment faster.
+  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet installation on new nodes, thus eliminating a mundane task and making deployment faster.
 
   **Prerequisites**
 
@@ -169,4 +169,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "3732575780049952021"
+checksum: "634331385127623948"

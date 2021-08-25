@@ -4,13 +4,13 @@ type: sandbox
 title: 'PE Deploy and Discover - Lab 1.0: Install Puppet Enterprise'
 teaser: Learn how to install Puppet Enterprise and monitor its status in the PE console.
 description: |-
-  # We're putting the finishing touches on this BETA Practice Lab — go ahead and take a peek!
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
 
 
   Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
 
   ___
   **What you'll learn**
@@ -103,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "2919817480305726493"
+checksum: "7358549553951370771"
