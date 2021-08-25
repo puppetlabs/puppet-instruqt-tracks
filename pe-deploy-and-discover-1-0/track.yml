@@ -47,12 +47,12 @@ challenges:
 
        Click **Start** when you're ready to begin.
   assignment: |-
-    1. On the **Puppet Server** tab, download the tarball:
+    1. On the **Puppet Server** tab, download the installation tarball:
     ```
     curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'
     ```
 
-    2. Unpack the installation tarball:
+    2. Unpack the tarball:
     ```
     tar -xf puppet-enterprise-2019.8.6-el-7-x86_64.tar.gz
     ```
@@ -60,29 +60,29 @@ challenges:
     ```
     ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer
     ```
-    4. Set the password for the PE console to **puppetlabs** (you will use this password to log into PE after it is installed):
+    4. Set the password for the PE console to **puppetlabs** (you will use this password to log into the console after PE is installed):
     ```
     puppet infrastructure console_password --password=puppetlabs
     ```
-    5. Run Puppet <b>twice</b> to complete the PE installation:
+    5. Run Puppet <b>twice</b> to complete the PE installation (don't chain the commands):
     ```
     puppet agent -t
     ```
-    ✏️ Note: Running Puppet twice ensures that all of the post-configuration operations have been completed and that PE is running as expected.
+    ✏️ Note: Running Puppet twice ensures that all of the post-configuration operations are complete and that PE is running.
 
-    6. From the command line, check the status of the Puppet services:
+    6. Check the status of the Puppet services:
     ```
     puppet infrastructure status
     ```
 
     7. Switch to the **PE Console** tab.
 
-    8. Log in with ID `admin` and password `puppetlabs` (the password you set in Step 4).
+    8. Log into the console with ID `admin` and password `puppetlabs` (the password you set in Step 4).
 
-    9. On the **Status** page, click **Puppet Services status** (near the top right of the page). You should see something similar to the following:
+    9. On the **Status** page, click **Puppet Services status** near the top right. You should see output similar to the following:
 
     ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)
-    10. Review the list to ensure all services are running.
+    10. Make sure that all the services in the list are running ("operational").
 
     Congratulations! You installed PE, and its basic configuration is now complete.
 
@@ -103,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "3513770606822765394"
+checksum: "2919817480305726493"
