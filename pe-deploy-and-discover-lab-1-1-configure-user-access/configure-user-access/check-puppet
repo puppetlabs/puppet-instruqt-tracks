@@ -5,7 +5,7 @@ export TOKEN=$(cat /tmp/token.json | jq -r .token)
 
 # Check if new user has been created
 URI="https://$(puppet config print server):4433/rbac-api/v1/users?token=${TOKEN}"
-if [ `curl -s --insecure $URI | jq -r .[].display_name | sort -u | tr "\n" "," | md5sum | awk '{print $1 }'` != '38e77c4596bcc23b71f60fbc8d4d21fa' ]; then
+if [ `curl -s --insecure $URI | jq -r .[].display_name | sort -u | tr "\n" "," | md5sum | awk '{print $1 }'` = '38e77c4596bcc23b71f60fbc8d4d21fa' ]; then
   fail-message "New user has not been created yet"
   exit 1
 fi
