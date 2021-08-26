@@ -110,7 +110,7 @@ challenges:
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Puppet** tab, run:
+    7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Primary Server** tab, run:
 
     ```
     chmod 600 /etc/puppetlabs/puppet/psk
@@ -169,4 +169,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "7550333014326092196"
+checksum: "2311609816997531027"
