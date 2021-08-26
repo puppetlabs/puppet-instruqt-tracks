@@ -13,7 +13,7 @@ description: |-
 
   **What you'll learn**
 
-  In this lab you'll learn how to configure the Puppet Server to support installing agents on multiple operating systems enabling you to automate configuration management of every server in your infrastructure, whatever its OS.
+  In this lab you'll learn how to configure the Puppet server to support installing agents on multiple operating systems enabling you to automate configuration management of every server in your infrastructure, whatever its OS.
 
   **Prerequisites**
 
@@ -78,7 +78,7 @@ challenges:
 
     6. Commit your change: Click **Commit** in the bottom right of the page.
 
-    7. On the **Puppet Server** tab, run Puppet:
+    7. On the **Primary Server** tab, run Puppet:
     ```
     puppet agent -t
     ```
@@ -96,7 +96,7 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: PE Console
@@ -117,4 +117,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "6322236800897017637"
+checksum: "16255279121104584756"

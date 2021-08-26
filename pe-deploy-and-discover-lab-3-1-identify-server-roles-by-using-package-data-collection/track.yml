@@ -88,7 +88,7 @@ challenges:
   - title: Linux Agent 2
     type: terminal
     hostname: nixagent2
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: PE Console
@@ -102,4 +102,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "11158633063230456632"
+checksum: "54604698893794870"

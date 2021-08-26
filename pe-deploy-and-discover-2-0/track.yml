@@ -56,16 +56,16 @@ challenges:
     3. Click **Add Nodes** in the upper-right corner of the console.
     4. Click **Install Agents**.
     5. Copy the curl command that appears in the ***nix nodes** field at the right by selecting it and clicking CTRL+C/CMD+C or right-click+copy.
-    6. Navigate to the Linux node by clicking on the **Linux agent** tab. From there, paste and run the curl command. Running this command will install the PE agent.
+    6. Navigate to the Linux node by clicking on the **Linux Agent** tab. From there, paste and run the curl command. Running this command will install the PE agent.
     7. When the installation is complete, return to the **PE Console** tab and click the refresh button shown at the top right of the console.
     8. From the console sidebar, navigate to the **Certificates** page. Click the **Unsigned certificates** tab.
-    9. Click **Accept** on the `linux` node listed there.
-    10. Return to the Linux node by clicking on the **Linux agent** tab, and then trigger a Puppet run:
+    9. Click **Accept** on the `nixagent` node listed there.
+    10. Return to the Linux node by clicking on the **Linux Agent** tab, and then trigger a Puppet run:
     ````
     puppet agent -t
     ````
-    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see two nodes listed: the Puppet server and the `linux` node. Click the `linux` node.
-    12. From the **Facts** tab, inspect the facts about the `linux` node.
+    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see two nodes listed: the Puppet server and the `nixagent` node. Click the `nixagent` node.
+    12. From the **Facts** tab, inspect the facts about the `nixagent` node.
 
     ## Method 2: Install a PE agent remotely using the PE console
     1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
@@ -73,17 +73,17 @@ challenges:
     3. Click **Add Nodes**, located in the upper right corner of the console.
     4. Click **Install Agents**.
     5. From the drop-down menu, select **WinRM**. Enter the following information, then click **Add nodes**:
-     - WinRM hosts: `windows`
+     - WinRM hosts: `winagent`
      - User: `instruqt`
      - password: `Passw0rd!`
     6. From the console sidebar, navigate to the **Certificates** page. Click on the **Unsigned certificates** tab.
-    7. Click **Accept** on the `windows` node listed there.
-    8. Navigate to the Windows node by clicking the **Windows agent** tab, and then trigger a Puppet run:
+    7. Click **Accept** on the `winagent` node listed there.
+    8. Navigate to the Windows node by clicking the **Windows Agent** tab, and then trigger a Puppet run:
     ````
     puppet agent -t
     ````
-    9. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see 3 nodes listed: the Puppet server, `linux`, and `windows`. Click the `windows` node.
-    10. From the **Facts** tab, inspect the facts about the `windows` node.
+    9. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You will see 3 nodes listed: the Puppet server, `nixagent`, and `winagent`. Click the `winagent` node.
+    10. From the **Facts** tab, inspect the facts about the `winagent` node.
 
     Congratulations, you just installed Puppet agents!
 
@@ -95,7 +95,7 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: Linux Agent
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "6719209957194820990"
+checksum: "3388700909746258772"

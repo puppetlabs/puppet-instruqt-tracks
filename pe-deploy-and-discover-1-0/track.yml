@@ -47,7 +47,7 @@ challenges:
 
        Click **Start** when you're ready to begin.
   assignment: |-
-    1. On the **Puppet Server** tab, download the installation tarball:
+    1. On the **Primary Server** tab, download the installation tarball:
     ```
     curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'
     ```
@@ -90,7 +90,7 @@ challenges:
 
     To complete this lab, click **Next**.
   tabs:
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: PE Console
@@ -103,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "1668156839094842394"
+checksum: "16291650487058267861"

@@ -100,7 +100,7 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: Linux Agent
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "13284781433279393675"
+checksum: "10745720488057322147"

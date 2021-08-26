@@ -47,7 +47,7 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the **Puppet server** tab, navigate to
+    1. On the **Primary Server** tab, navigate to
     ```
     cd /etc/puppetlabs/puppet
     ```
@@ -138,9 +138,9 @@ challenges:
 
     12. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    13. From the console sidebar, navigate to the **Nodes** page and validate that the `linux` node is now being managed by Puppet Enterprise.
+    13. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by Puppet Enterprise.
 
-    14. Click on the **linux** node, and inspect its facts under the **Facts** tab.
+    14. Click on the **nixagent** node, and inspect its facts under the **Facts** tab.
 
     Congratulations! You installed the PE agent with autosigning enabled.
 
@@ -148,7 +148,7 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Puppet Server
+  - title: Primary Server
     type: terminal
     hostname: puppet
   - title: PE Console
@@ -169,4 +169,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "9987122054144538505"
+checksum: "1270060615625118376"
