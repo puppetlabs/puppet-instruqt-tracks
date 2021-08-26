@@ -95,7 +95,7 @@ challenges:
     4. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
 
     ```
-    chmod +x /etc/puppetlabs/puppet/autosign.rb
+    chmod 700 /etc/puppetlabs/puppet/autosign.rb
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
     ```
 
