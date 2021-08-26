@@ -104,43 +104,43 @@ challenges:
     vim psk
     ```
 
-    7. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
+    6. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
 
     ```
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    8. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Puppet** tab, run:
+    7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Puppet** tab, run:
 
     ```
     chmod 600 /etc/puppetlabs/puppet/psk
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
     ```
 
-    9. Configure the primary server to enable autosigning with `autosign.rb` by running:
+    8. Configure the primary server to enable autosigning with `autosign.rb` by running:
 
     ```
     puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    10. Restart the primary server:
+    9. Restart the primary server:
 
     ```
     sudo service pe-puppetserver restart
     ```
 
-    11. On the **Linux agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+    10. On the **Linux agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    12. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
+    11. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    13. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by Puppet Enterprise.
+    12. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by Puppet Enterprise.
 
-    14. Click on the **nixagent** node, and inspect its facts under the **Facts** tab.
+    13. Click on the **nixagent** node, and inspect its facts under the **Facts** tab.
 
     Congratulations! You installed the PE agent with autosigning enabled.
 
@@ -169,4 +169,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "1270060615625118376"
+checksum: "16214797202582138855"
