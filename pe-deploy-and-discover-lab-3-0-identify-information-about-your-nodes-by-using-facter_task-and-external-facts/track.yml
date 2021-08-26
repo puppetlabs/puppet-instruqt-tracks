@@ -50,7 +50,7 @@ challenges:
 
     In this exercise, you will install an external fact script that creates a data center fact. You will then verify that Facter can retrieve that fact with the script.
 
-    1. First, check that the data center fact does not already exist. On the **Linux agent** tab, run the following command — it should produce no value:
+    1. First, check that the data center fact does not already exist. On the **Linux Agent** tab, run the following command — it should produce no value:
 
     ```
     facter datacenter

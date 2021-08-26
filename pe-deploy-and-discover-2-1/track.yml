@@ -129,7 +129,7 @@ challenges:
     sudo service pe-puppetserver restart
     ```
 
-    10. On the **Linux agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+    10. On the **Linux Agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
