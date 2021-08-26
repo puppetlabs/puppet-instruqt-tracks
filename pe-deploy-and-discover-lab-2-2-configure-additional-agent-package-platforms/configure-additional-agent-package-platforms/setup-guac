@@ -5,7 +5,7 @@ cat <<'EOF' > /config/guacamole/user-mapping.xml
     <authorize
         username="instruqt"
         password="Passw0rd!">
-        <connection name="windows">
+        <connection name="winagent">
             <protocol>rdp</protocol>
             <param name="hostname">winagent</param>
             <param name="port">3389</param>
