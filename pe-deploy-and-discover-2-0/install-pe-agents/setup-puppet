@@ -17,4 +17,6 @@ do
    
 done
 
+sleep 50
+
 /usr/local/bin/puppet agent -t
