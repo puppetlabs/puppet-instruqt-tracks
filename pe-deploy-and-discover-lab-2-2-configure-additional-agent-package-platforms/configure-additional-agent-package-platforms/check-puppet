@@ -1,3 +1,6 @@
 #!/bin/bash
 
-# No Check Needed
+if [ "$(puppet query 'nodes { certname ~ "nixagent" }' --urls http://localhost:8080 | jq -r .[])" = '' ]; then
+  fail-message "The Linux agent has not been installed yet"
+  exit 1
+fi

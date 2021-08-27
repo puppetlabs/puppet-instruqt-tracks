@@ -48,7 +48,7 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the Linux node (**linux1** tab), install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
+    1. On the Linux node (**Linux Agent** tab), install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
@@ -117,4 +117,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "1802440466304501035"
+checksum: "15528546583579201113"
