@@ -43,7 +43,7 @@ challenges:
   notes:
   - type: text
     contents: |-
-      In this lab, you will learn how to install and configure Puppet Enterprise.
+      In this lab, you'll complete an express installation of PE and confirm in the PE console that the installation was successful.
 
        Click **Start** when you're ready to begin.
   assignment: |-
@@ -103,4 +103,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "16291650487058267861"
+checksum: "9124781598254876021"
