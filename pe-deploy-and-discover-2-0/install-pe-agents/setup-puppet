@@ -2,6 +2,8 @@
 
 set -x
 
+yum install -y jq
+
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -15,6 +17,4 @@ do
    
 done
 
-sleep 50
-
-sudo /usr/local/bin/puppet agent -t
+/usr/local/bin/puppet agent -t
