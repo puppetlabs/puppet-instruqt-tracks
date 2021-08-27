@@ -95,9 +95,6 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
   - title: Linux Agent
     type: terminal
     hostname: nixagent
@@ -112,4 +109,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "822116734590068955"
+checksum: "6861227346229076562"
