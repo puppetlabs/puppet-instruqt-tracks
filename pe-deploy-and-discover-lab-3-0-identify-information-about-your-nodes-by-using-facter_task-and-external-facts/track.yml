@@ -29,7 +29,7 @@ owner: puppet
 developers:
 - greg.larkin@puppet.com
 private: true
-published: false
+published: true
 show_timer: true
 challenges:
 - slug: use-facter-with-an-external-script
@@ -112,4 +112,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "4508215350421387308"
+checksum: "1183531898677955131"

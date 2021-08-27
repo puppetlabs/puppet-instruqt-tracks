@@ -29,7 +29,7 @@ owner: puppet
 developers:
 - greg.larkin@puppet.com
 private: true
-published: false
+published: true
 show_timer: true
 challenges:
 - slug: working-with-the-package-data-collector
@@ -102,4 +102,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10182914147963811879"
+checksum: "11793837203853003312"
