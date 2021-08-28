@@ -74,8 +74,8 @@ challenges:
     4. Click **Install Agents**.
     5. From the drop-down menu, select **WinRM**. Enter the following information, then click **Add nodes**:
      - WinRM hosts: `winagent`
-     - User: `instruqt`
-     - password: `Passw0rd!`
+     - User: `Administrator`
+     - password: `Puppetlabs!`
     6. From the console sidebar, navigate to the **Certificates** page. Click on the **Unsigned certificates** tab.
     7. Click **Accept** on the `winagent` node listed there.
     8. Navigate to the Windows node by clicking the **Windows Agent** tab, and then trigger a Puppet run:
@@ -109,4 +109,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "9518700459329027594"
+checksum: "2246512546223473312"

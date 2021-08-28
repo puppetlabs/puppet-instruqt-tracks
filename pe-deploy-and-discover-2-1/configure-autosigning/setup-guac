@@ -9,8 +9,8 @@ cat <<'EOF' > /config/guacamole/user-mapping.xml
             <protocol>rdp</protocol>
             <param name="hostname">winagent</param>
             <param name="port">3389</param>
-            <param name="username">instruqt</param>
-            <param name="password">Passw0rd!</param>
+            <param name="username">Administrator</param>
+            <param name="password">Puppetlabs!</param>
             <param name="ignore-cert">true</param>
             <param name="resize-method">display-update</param>
         </connection>
