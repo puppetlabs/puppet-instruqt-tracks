@@ -16,5 +16,5 @@ virtualmachines:
   shell: /bin/bash
   machine_type: n1-standard-1
 - name: winagent
-  image: kmo-instruqt/puppet-windows
+  image: kmo-instruqt/windows
   machine_type: n1-standard-2
