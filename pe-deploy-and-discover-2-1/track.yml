@@ -158,15 +158,10 @@ challenges:
   - title: Linux Agent
     type: terminal
     hostname: nixagent
-  - title: Windows Agent
-    type: service
-    hostname: guac
-    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
-    port: 8080
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
-    hostname: guac
+    hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "5524738741630960119"
+checksum: "16298523430500574768"
