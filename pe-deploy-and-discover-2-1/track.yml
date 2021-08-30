@@ -55,7 +55,7 @@ challenges:
     ```
     vim autosign.rb
     ```
-    3. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
+    3. Paste the following content into the file (type `:set paste`, then `i`, and then paste from clipboard), then save and exit the file (`ESC`, `:wq`):
     ```
     #!/opt/puppetlabs/puppet/bin/ruby
     #
@@ -104,7 +104,7 @@ challenges:
     vim psk
     ```
 
-    6. Paste the following content into the file, then save and exit the file (`ESC`, `:wq`):
+    6. Paste the following content into the file (type `:set paste`, then `i`, and then paste from clipboard), then save and exit the file (`ESC`, `:wq`):
 
     ```
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
@@ -120,7 +120,7 @@ challenges:
     8. Configure the primary server to enable autosigning with `autosign.rb` by running:
 
     ```
-    puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
+    puppet config set autosign /etc/puppetlabs/puppet/autosign.rb --section server
     ```
 
     9. Restart the primary server:
