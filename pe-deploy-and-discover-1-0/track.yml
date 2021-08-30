@@ -48,6 +48,7 @@ challenges:
        Click **Start** when you're ready to begin.
   assignment: |-
     1. On the **Primary Server** tab, download the installation tarball:
+    Tip: To copy a command, hover over it and click the copy icon at the right; then, paste the command to the command line.
     ```
     curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'
     ```
@@ -60,6 +61,8 @@ challenges:
     ```
     ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer
     ```
+    ✏️ Note: This step might take a few minutes to complete.
+
     4. Set the password for the PE console to **puppetlabs** (you will use this password to log into the console after PE is installed):
     ```
     puppet infrastructure console_password --password=puppetlabs
@@ -103,4 +106,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "9124781598254876021"
+checksum: "8993153304302512148"
