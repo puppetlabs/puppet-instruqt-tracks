@@ -78,7 +78,7 @@ challenges:
      - password: `Puppetlabs!`
     6. From the console sidebar, navigate to the **Certificates** page. Click on the **Unsigned certificates** tab.
     7. Click **Accept** on the `winagent` node listed there.
-    8. Navigate to the Windows node by clicking the **Windows Agent** tab, and then trigger a Puppet run:
+    8. Navigate to the Windows node by clicking the **Windows Agent** tab, click on the **Start Command Prompt with Puppet** icon from the Start menu and then trigger a Puppet run by typing in the Command Prompt:
     ````
     puppet agent -t
     ````
