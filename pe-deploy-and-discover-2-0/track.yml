@@ -44,7 +44,7 @@ challenges:
       In this lab, you will:
 
       * Install an agent on a target server by using the remote installation method in the PE console.
-      * Sign the new agent certificate via the console.
+      * Sign the new agent certificate by using the console.
       * Install an agent on a target server by using the local installation method via the frictionless installer script.
 
       Click **Start** when you're ready to begin.
@@ -109,4 +109,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10775722226494212095"
+checksum: "17630218925362124534"
