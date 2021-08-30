@@ -2,7 +2,7 @@ slug: pe-deploy-and-discover-2-0
 id: rzm1rnl0at70
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.0: Install Agents'
-teaser: Learn how to install an agent in PE by using the console and the command line.
+teaser: Learn how to install agents in PE by using the console and the command line.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -13,7 +13,7 @@ description: |-
 
   **What you'll learn**
 
-  In this lab you'll install the Puppet agent using two different methods: by using the PE console and by running an installation script. Knowing how to install the Puppet agent using either method will enable you to decide which method is best for your particular environment. Installing Puppet agents at scale prepares the infrastructure to  quickly, automatically scale up the number of nodes managed and configured as Puppet manifests are written and deployed to the PE Server.
+  In this lab, you'll install the Puppet agent using two different methods: the PE console and an installation script. Knowing both methods means you can choose which method is best for your environment.  Installing Puppet agents at scale prepares the infrastructure to  quickly, automatically scale up the number of nodes managed and configured as Puppet manifests are written and deployed to the PE Server.
 
   **Prerequisites**
 
@@ -41,24 +41,24 @@ challenges:
   notes:
   - type: text
     contents: |-
-      In this lab you will:
+      In this lab, you will:
 
-      * Use the remote installation method via the PE console to install an agent on a target server.
+      * Install an agent on a target server by using the remote installation method in the PE console.
       * Sign the new agent certificate via the console.
-      * Use the local installation method via the frictionless installer script to install an agent on a target server.
+      * Install an agent on a target server by using the local installation method via the frictionless installer script.
 
       Click **Start** when you're ready to begin.
   assignment: |
-    ## Method 1: Install a PE agent locally using the install script on the command line
+    ## Method 1: Install a Puppet agent locally by running the installation script from the command line
 
     1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
     2. From the console sidebar, navigate to the **Nodes** page.
-    3. Click **Add Nodes** in the upper-right corner of the console.
+    3. In the upper-right corner of the console, click **Add Nodes** .
     4. Click **Install Agents**.
-    5. Copy the curl command that appears in the ***nix nodes** field at the right by selecting it and clicking CTRL+C/CMD+C or right-click+copy.
-    6. Navigate to the Linux node by clicking on the **Linux Agent** tab. From there, paste and run the curl command. Running this command will install the PE agent.
-    7. When the installation is complete, return to the **PE Console** tab and click the refresh button shown at the top right of the console.
-    8. From the console sidebar, navigate to the **Certificates** page. Click the **Unsigned certificates** tab.
+    5. Copy the curl command that is shown in the ***nix nodes** field at the right by selecting it and clicking CTRL+C/CMD+C or right-click+copy.
+    6. Navigate to the Linux node by clicking the **Linux Agent** tab. Then, paste and run the curl command. Running this command installs the PE agent.
+    7. When the installation is complete, return to the **PE Console** tab and click **Refresh** at the top right of the console.
+    8. From the console sidebar, navigate to the **Certificates** page and click the **Unsigned certificates** tab.
     9. Click **Accept** on the `nixagent` node listed there.
     10. Return to the Linux node by clicking on the **Linux Agent** tab, and then trigger a Puppet run:
     ````
@@ -109,4 +109,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "2246512546223473312"
+checksum: "2445539572892252649"
