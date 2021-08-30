@@ -38,8 +38,14 @@ if [ `stat -c '%G' $PSK_FILE` != 'pe-puppet' ]; then
   exit 1
 fi
 
-if [ `puppet config print autosign` != $AUTOSIGN_SCRIPT ]; then
+if [ `puppet config print autosign --section server` != $AUTOSIGN_SCRIPT ]; then
   fail-message "Puppet Enterprise has not been correctly configured for autosigning"
+  exit 1
+fi
+
+ls /etc/puppetlabs/puppet/ssl/ca/signed/nixagent*
+if [ $? != 0 ]; then
+  fail-message "Linux agent hasn't been signed"
   exit 1
 fi
 
