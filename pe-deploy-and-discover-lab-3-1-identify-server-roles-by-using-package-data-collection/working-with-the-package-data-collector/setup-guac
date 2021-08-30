@@ -12,6 +12,7 @@ cat <<'EOF' > /config/guacamole/user-mapping.xml
             <param name="username">Administrator</param>
             <param name="password">Puppetlabs!</param>
             <param name="ignore-cert">true</param>
+            <param name="resize-method">display-update</param>
         </connection>
     </authorize>
 </user-mapping>
