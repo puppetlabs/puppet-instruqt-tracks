@@ -50,7 +50,35 @@ challenges:
 
     In this exercise, you will install an external fact script that creates a data center fact. You will then verify that Facter can retrieve that fact with the script.
 
-    1. First, check that the data center fact does not already exist. On the **Linux Agent** tab, run the following command — it should produce no value:
+    1. Switch to the **PE Console** tab.
+
+    2. Log into the console with ID `admin` and password `puppetlabs`.
+
+    3. Click on **Orchestration->Tasks** and then click on the **Run a task** button.
+
+    4. Type `facter_task` in the **Task** text box.
+
+    5. Type `fact` in the **Parameter** text box and `timezone` in the **Value** text box.
+
+    6. Click the **Add to task** button.
+
+    7. Select **Node list** in **Select targets** dropdown.
+
+    8. Type `agent` in the **Add nodes** text box and click the **Search** button.
+
+    9. Click the **Add all** link and click the **Run task** button.
+
+    10. Note the timezone of the `nixagent` and `winagent` nodes.
+
+    4. Create an external fact.
+    Now that you have the time zone, you can use it to identify which data center each node is located:
+
+    | Time zone | Datacenter      |
+    |-----------|-----------------|
+    | Eastern   | datacenter-east |
+    | Pacific   | datacenter-west |
+
+    5. First, check that the data center fact does not already exist. On the **Linux Agent** tab, run the following command — it should produce no value:
 
     ```
     facter datacenter
@@ -58,48 +86,51 @@ challenges:
 
     Next, move the provided external fact script into place:
 
-    2. Navigate to your home directory:
+    6. Navigate to your home directory:
 
     ```
     cd ~/
     ```
 
-    3. Create the Facter location directory and external fact script:
+    7. Create the Facter location directory and external fact script:
 
     ```
     mkdir -p /etc/puppetlabs/facter/facts.d
-    touch /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    4. Open the script using the vi editor:
+    8. Open the script using the vi editor:
     ```
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    5. Add the following contents to the script, making sure to include the corresponding data center using the table above:
+    9. Add the following contents to the script, making sure to include the corresponding data center using the table above:
     ```
     #!/bin/sh
-    echo "datacenter=pdx"
+    echo "datacenter=datacenter-east"
     ```
 
-    5. Make the script executable:
+    10. Make the script executable:
     ```
     chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    6. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacenter` again and notice the new output - it should return `pdx`.
+    11. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacenter` again and notice the new output - it should return `datacenter-east`.
 
-    7. Run the Puppet agent to send facts to the Puppet server:
+    12. Run the Puppet agent to send facts to the Puppet server:
     ```
     puppet agent -t
     ```
 
-    Congratulations! You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: pdx).
+    Congratulations! You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: datacenter-east).
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
     To close this lab, click **Next**.
   tabs:
+  - title: PE Console
+    type: service
+    hostname: puppet
+    port: 443
   - title: Primary Server
     type: terminal
     hostname: puppet
@@ -117,4 +148,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "6649774728573644381"
+checksum: "15551395309152706308"
