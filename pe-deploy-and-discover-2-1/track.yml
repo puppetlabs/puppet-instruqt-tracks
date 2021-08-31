@@ -40,14 +40,14 @@ challenges:
   notes:
   - type: text
     contents: |-
-      In this lab you will:
+      In this lab, you will:
 
-      * Configure autosigning to allow nodes to be automatically added to the primary server.
-      * Use the frictionless installation script to install an agent and have it automatically signed using a challenge password.
+      * Configure the primary server to enable autosigning, enabling new nodes to be automatically added and managed by the primary server.
+      * Run agent installation script and automatically sign the agent's certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the **Primary Server** tab, navigate to
+    1. On the **Primary Server** tab, navigate to:
     ```
     cd /etc/puppetlabs/puppet
     ```
@@ -55,7 +55,9 @@ challenges:
     ```
     vim autosign.rb
     ```
-    3. Paste the following content into the file (type `:set paste`, then `i`, and then paste from clipboard), then save and exit the file (`ESC`, `:wq`):
+    3. Copy the code below into the file.
+
+    To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.
     ```
     #!/opt/puppetlabs/puppet/bin/ruby
     #
@@ -92,8 +94,8 @@ challenges:
     end
     ```
 
-    4. Set the script permissions to executable and set the owner/group to `pe-puppet:pe-puppet`:
-
+    4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`:
+    To save time, you can click the code below to copy it, and then paste it on the command line.
     ```
     chmod 700 /etc/puppetlabs/puppet/autosign.rb
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
@@ -104,7 +106,8 @@ challenges:
     vim psk
     ```
 
-    6. Paste the following content into the file (type `:set paste`, then `i`, and then paste from clipboard), then save and exit the file (`ESC`, `:wq`):
+    6. Copy the following content into the file.
+    Type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, press `ESC` and type `:wq`.
 
     ```
     PASSWORD_FOR_AUTOSIGNER_SCRIPT
@@ -136,13 +139,13 @@ challenges:
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    11. After installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
+    11. When the installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    12. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by Puppet Enterprise.
+    12. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by the primary server.
 
-    13. Click on the **nixagent** node, and inspect its facts under the **Facts** tab.
+    13. Click the **nixagent** node and explore its facts on the **Facts** tab.
 
-    Congratulations! You installed the PE agent with autosigning enabled.
+    Congratulations! You installed the Puppet agent with autosigning enabled.
 
     **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
 
@@ -164,4 +167,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "16298523430500574768"
+checksum: "490783670487588639"
