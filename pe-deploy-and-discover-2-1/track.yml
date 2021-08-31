@@ -43,7 +43,7 @@ challenges:
       In this lab, you will:
 
       * Configure the primary server to enable autosigning, enabling new nodes to be automatically added and managed by the primary server.
-      * Run agent installation script and automatically sign the agent's certificate by providing a challenge password.
+      * Run the agent installation script and automatically sign the agent's certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
   assignment: |
@@ -51,7 +51,7 @@ challenges:
     ```
     cd /etc/puppetlabs/puppet
     ```
-    2. Create and edit the autosign.rb file:
+    2. Create and edit the autosign.rb script:
     ```
     vim autosign.rb
     ```
@@ -101,12 +101,12 @@ challenges:
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
     ```
 
-    5. Create and edit the PSK file:
+    5. Create and edit the pre-shared key (PSK) file:
     ```
     vim psk
     ```
 
-    6. Copy the following content into the file.
+    6. Copy the following pre-shared key into the file.
     Type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, press `ESC` and type `:wq`.
 
     ```
@@ -167,4 +167,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "490783670487588639"
+checksum: "934938947437615477"
