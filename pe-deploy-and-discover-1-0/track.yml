@@ -48,7 +48,7 @@ challenges:
        Click **Start** when you're ready to begin.
   assignment: |-
     1. On the **Primary Server** tab, download the installation tarball:
-    Tip: To copy a command, hover over it and click the copy icon at the right; then, paste the command to the command line.
+    Tip: Click the code block to copy it, and then right-click and paste it on the command line.
     ```
     curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'
     ```
@@ -106,4 +106,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "8993153304302512148"
+checksum: "3820298829026846382"
