@@ -79,5 +79,3 @@ ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --i
 
 ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
 
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa linux2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
-
