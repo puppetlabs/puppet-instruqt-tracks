@@ -1,0 +1,83 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+while  ! nc -z -w3 localhost 443 
+do
+    echo "Waiting for port 443 to be reachable on localhost"
+   
+done
+
+cat << 'EOF' > /etc/puppetlabs/puppet/autosign.rb
+#!/opt/puppetlabs/puppet/bin/ruby
+#
+# A note on logging:
+#   This script's stderr and stdout are only shown at the DEBUG level
+#   of the server's logs. This means you won't see the error messages
+#   in puppetserver.log by default. All you'll see is the exit code.
+#
+#   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api
+#
+# Exit Codes:
+#   0 - A matching challengePassword was found.
+#   1 - No challengePassword was found.
+#   2 - The wrong challengePassword was found.
+#
+require 'puppet/ssl'
+
+csr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
+psk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip
+
+if pass = csr.custom_attributes.find do |attribute|
+     ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']
+   end
+else
+  puts 'No challengePassword found. Rejecting certificate request.'
+  exit 1
+end
+
+if pass['value'] == psk
+  exit 0
+else
+  puts "challengePassword does not match: #{pass['value']}"
+  exit 2
+end
+EOF
+
+chmod +x /etc/puppetlabs/puppet/autosign.rb
+chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
+
+cat << EOF > /etc/puppetlabs/puppet/psk
+PASSWORD_FOR_AUTOSIGNER_SCRIPT
+EOF
+
+chmod 600 /etc/puppetlabs/puppet/psk
+chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
+
+puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
+
+service pe-puppetserver restart
+
+# Wait for any running agent to finish
+while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
+  sleep 1
+done
+
+# Run the agent again to reconfigure the installation script
+/usr/local/bin/puppet agent -t
+
+sleep 5
+
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa linux1 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
+
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa linux2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
+
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa linux2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
+
