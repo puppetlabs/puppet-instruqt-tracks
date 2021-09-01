@@ -13,7 +13,7 @@ description: |-
 
   **What you'll learn**
 
-  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet installation on new nodes, thus eliminating a mundane task and making deployment faster.
+  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet agent installation on new nodes, thus eliminating a mundane task and making deployment faster.
 
   **Prerequisites**
 
@@ -39,7 +39,7 @@ challenges:
   id: jfhy7qsxgss1
   type: challenge
   title: Configure autosigning
-  teaser: Learn how to set up autosigning so that you can automate agent installation on new nodes.
+  teaser: Install the PE agent with autosigning enabled.
   notes:
   - type: text
     contents: |-
@@ -170,4 +170,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "5570195255153469200"
+checksum: "17558883160629795559"
