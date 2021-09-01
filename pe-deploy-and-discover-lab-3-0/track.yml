@@ -89,7 +89,7 @@ challenges:
     6. Navigate to your home directory:
 
     ```
-    cd ~/
+    cd
     ```
 
     7. Create the Facter location directory and external fact script:
@@ -106,7 +106,7 @@ challenges:
     9. Add the following contents to the script, making sure to include the corresponding data center using the table above:
     ```
     #!/bin/sh
-    echo "datacenter=datacenter-east"
+    echo "datacenter=datacenter-west"
     ```
 
     10. Make the script executable:
@@ -114,14 +114,16 @@ challenges:
     chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    11. Finally, verify that the fact was installed and is accessible by Facter. Run `facter datacenter` again and notice the new output - it should return `datacenter-east`.
+    11. Verify that the fact was installed and is accessible by Facter. Run `facter datacenter` again and notice the new output - it should return `datacenter-west`.
 
     12. Run the Puppet agent to send facts to the Puppet server:
     ```
     puppet agent -t
     ```
 
-    Congratulations! You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: datacenter-east).
+    13. Finally, click on the **PE Server** tab, then click **Inventory->Nodes** and the `nixagent` node. Click on the **Facts** tab and scroll down to view the `datacenter` fact displayed in the list.
+
+    Congratulations! You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: datacenter-west).
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -148,4 +150,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "6358023311158222337"
+checksum: "646174762423387626"
