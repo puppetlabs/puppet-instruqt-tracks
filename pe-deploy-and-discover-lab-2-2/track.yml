@@ -40,15 +40,16 @@ challenges:
   notes:
   - type: text
     contents: |-
-      In this lab you will:
+      In this lab, you will:
 
-      1. Attempt an agent installation on an operating system platform that is different from the primary server.
+      1. Attempt an agent installation on a node whose OS is not the same as the primary server's.
       2. Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
       3. Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. On the Linux node (**Linux Agent** tab), install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
+    1. Click the **Linux Agent** tab to go to the Linux node. Then, install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
+    Tip: Click the command below to copy it, and then right-click and paste it on the command line.
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
@@ -112,4 +113,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "16318262581496748673"
+checksum: "6372053000424562066"
