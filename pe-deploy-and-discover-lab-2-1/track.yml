@@ -1,8 +1,8 @@
 slug: pe-deploy-and-discover-lab-2-1
 id: y8mpb4sleibk
 type: sandbox
-title: 'PE Deploy and Discover - Lab 2.1: Configure Autosigning'
-teaser: Learn how to automate installation on new nodes using autosigning.
+title: 'PE Deploy and Discover - Lab 2.1: Configure Agent Certificate Autosigning'
+teaser: Learn how to set up autosigning so that you can automate agent installation on new nodes.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -28,6 +28,9 @@ tags:
 owner: puppet
 developers:
 - greg.larkin@puppet.com
+- thomas.chisholm@puppet.com
+- tara.swenson@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -36,7 +39,7 @@ challenges:
   id: jfhy7qsxgss1
   type: challenge
   title: Configure autosigning
-  teaser: Install the PE agent with autosigning enabled
+  teaser: Learn how to set up autosigning so that you can automate agent installation on new nodes.
   notes:
   - type: text
     contents: |-
@@ -141,7 +144,7 @@ challenges:
 
     11. When the installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    12. From the console sidebar, navigate to the **Nodes** page and validate that the `nixagent` node is now being managed by the primary server.
+    12. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is now being managed by the primary server.
 
     13. Click the **nixagent** node and explore its facts on the **Facts** tab.
 
@@ -167,4 +170,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "1243849756360565915"
+checksum: "5570195255153469200"

@@ -28,6 +28,8 @@ owner: puppet
 developers:
 - thomas.chisholm@puppet.com
 - greg.larkin@puppet.com
+- tara.swenson@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -93,4 +95,4 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "14681249831126941043"
+checksum: "8028491095008902405"

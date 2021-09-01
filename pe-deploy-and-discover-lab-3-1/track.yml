@@ -28,6 +28,9 @@ tags:
 owner: puppet
 developers:
 - greg.larkin@puppet.com
+- thomas.chisholm@puppet.com
+- tara.swenson@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -102,4 +105,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10749242560001923578"
+checksum: "8063787903466572097"

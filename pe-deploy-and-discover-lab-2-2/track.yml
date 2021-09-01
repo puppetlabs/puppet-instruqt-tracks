@@ -13,7 +13,8 @@ description: |-
 
   **What you'll learn**
 
-  In this lab you'll learn how to configure the Puppet server to support installing agents on multiple operating systems enabling you to automate configuration management of every server in your infrastructure, whatever its OS.
+  In this lab, you'll learn how to configure the primary Puppet server to download the packages needed to install agents on different operating systems, making agent deployment faster and easier across your infrastructure.
+
 
   **Prerequisites**
 
@@ -28,6 +29,9 @@ tags:
 owner: puppet
 developers:
 - greg.larkin@puppet.com
+- tara.swenson@puppet.com
+- thomas.chisholm@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -35,20 +39,20 @@ challenges:
 - slug: configure-additional-agent-package-platforms
   id: znr1665vsmzt
   type: challenge
-  title: Configure additional agent package platforms
-  teaser: Configure additional agent package platforms
+  title: Configure PE to support additional agent platforms
+  teaser: Add agent packages for the platforms in your infrastructure.
   notes:
   - type: text
     contents: |-
       In this lab, you will:
 
-      1. Attempt an agent installation on a node whose OS is not the same as the primary server's.
-      2. Add an agent package to PE to support another operating system by reconfiguring the primary server to download and add agent packages.
-      3. Use the local installation method via the frictionless installation script to install an agent on a target server and sign the agent certificate via autosigning with a challenge password.
+      1. Attempt an agent installation on a node with a different OS than the primary server.
+      2. Configure the primary server to provide OS-specific agent packages so that you can install agents across a variety of nodes.
+      3. Attempt the agent installation again and autosign the agent certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
   assignment: |
-    1. Click the **Linux Agent** tab to go to the Linux node. Then, install an agent by using the installation script with the following parameter: `custom_attributes:challengePassword`
+    1. Click the **Linux Agent** tab to go to the Linux node. Then, install an agent by running the installation script with the following parameter: `custom_attributes:challengePassword`
     Tip: Click the command below to copy it, and then right-click and paste it on the command line.
 
     ```
@@ -56,7 +60,7 @@ challenges:
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    2. In the installation log output, notice the failure:
+    2. In the output, notice the failure:
 
     ```
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -69,29 +73,29 @@ challenges:
     #
     ```
 
-    The installation fails because the EL8 package is not present on the primary server - the primary server is not EL8. To ensure that the packages are present on the primary server, you must reconfigure the primary server by assigning the appropriate `pe_repo::platform` class.
+    The installation fails because the EL8 package isn't present on the primary server - the primary server isn't running EL8. To ensure that the packages are present, you must add the `pe_repo::platform:<AGENT_OS_VERSION_ARCHITECTURE>` classes to the primary server.
 
     3. On the **PE Console** tab, log into PE with username `admin`and password `puppetlabs`.
 
     4. From the console sidebar, navigate to the **Node groups** page. Expand (click **+**) **PE Infrastructure** and click **PE Master**.
 
-    5. On the **Classes** tab, enter `pe_repo` in **Add new class**. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and click **Add class**.
+    5. Add the repository class for the agent node OS that you want to support. On the **Classes** tab, enter `pe_repo` in **Add new class**. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and click **Add class**.
 
     6. Commit your change: Click **Commit** in the bottom right of the page.
 
-    7. On the **Primary Server** tab, run Puppet:
+    7. On the **Primary Server** tab, run Puppet to manually trigger the download of the new agent package to the primary server:
     ```
     puppet agent -t
     ```
 
-    8. Install an agent on a target by running the installation script and including the `custom_attributes:challengePassword` parameter to autosign the agent certificate:
+    8. Click the **Linux Agent** tab. Then, install the agent on the Linux node by running the installation script and including the `custom_attributes:challengePassword` parameter to autosign the agent certificate:
 
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
 
-    Congratulations! You configured additional agent package platforms.
+    Congratulations! You now know how to configure PE to support installing agents that run a different OS than the primary server.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -113,4 +117,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "6372053000424562066"
+checksum: "15370120073593410922"

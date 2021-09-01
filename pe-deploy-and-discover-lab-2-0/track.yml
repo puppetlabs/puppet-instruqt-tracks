@@ -13,7 +13,10 @@ description: |-
 
   **What you'll learn**
 
-  In this lab, you'll install the Puppet agent using two different methods: the PE console and an installation script. Knowing both methods means you can choose which method is best for your environment.  Installing Puppet agents at scale prepares the infrastructure to  quickly, automatically scale up the number of nodes managed and configured as Puppet manifests are written and deployed to the PE Server.
+  In this lab, you'll install the Puppet agent using two different methods: locally using installation script and remotely from the PE console. Both methods enable you to install agents at scale.
+
+  Installing agents at scale prepares your infrastructure to quickly and automatically scale up the number of nodes managed and configured as Puppet manifests are written and deployed to the primary Puppet server.
+
 
   **Prerequisites**
 
@@ -29,6 +32,8 @@ owner: puppet
 developers:
 - thomas.chisholm@puppet.com
 - greg.larkin@puppet.com
+- tara.swenson@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -49,7 +54,12 @@ challenges:
 
 
       Click **Start** when you're ready to begin.
-  assignment: |
+  assignment: |2
+     - Take me to [Linux instructions](#linux)
+     - Take me to [Windows instructions](#windows)
+
+    <img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png" a name="linux">
+
     ## Method 1: Install an agent locally by running the installation script from the node's command line
 
     1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
@@ -68,6 +78,8 @@ challenges:
     11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You'll see two nodes listed: the Puppet server and the `nixagent` node. Click the `nixagent` node.
     12. On the **Facts** tab, inspect the facts about the `nixagent` node.
 
+    <img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png" a name="windows">
+
     ## Method 2: Install a Puppet agent remotely from the PE console
     1. If you're not already logged in, on the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
     2. From the console sidebar, navigate to the **Nodes** page.
@@ -77,6 +89,9 @@ challenges:
      - WinRM hosts: `winagent`
      - User: `Administrator`
      - password: `Puppetlabs!`
+
+    The installation might take a few minutes. To check the status of installation, go to the PE console **Tasks** page, click the **winagent** node, and examine the node run result: When the installation is complete (typically a minute or two), you'll see a certname in the output. Keep refreshing the PE console page (by clicking the refresh icon in the upper right of the page) until the certificate is available to sign.
+
     6. Now you have to sign the agent's certificate. From the console sidebar, navigate to the **Certificates** page and click the **Unsigned certificates** tab.
     7. In the list of nodes, find `winagent` and click **Accept**.
     8. Navigate to the Windows node by clicking the **Windows Agent** tab, and from the Windows Start Menu, select **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:
@@ -110,4 +125,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "7303415195943684904"
+checksum: "1806704429583283177"

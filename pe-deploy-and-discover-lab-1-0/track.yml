@@ -6,8 +6,6 @@ teaser: Learn how to install Puppet Enterprise and monitor its status in the PE 
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
-
-
   Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
@@ -31,6 +29,8 @@ owner: puppet
 developers:
 - greg.larkin@puppet.com
 - tara.swenson@puppet.com
+- thomas.chisholm@puppet.com
+- catherine.trinkwon@puppet.com
 private: true
 published: true
 show_timer: true
@@ -106,4 +106,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "5328499923726799362"
+checksum: "5083220994826462814"
