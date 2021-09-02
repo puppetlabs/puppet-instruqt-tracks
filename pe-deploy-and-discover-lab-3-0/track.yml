@@ -69,7 +69,7 @@ challenges:
 
     Result: The page will reload, displaying the timezone for the `nixagent` and `winagent` nodes.
 
-    Next, you will install an external fact script to create a data center fact and use that script to verify Facter can retrieve the fact.
+    Next, you will install an external fact script to create a datacenter fact and use that script to verify that Facter can retrieve the fact.
 
     Continue below to follow instructions for Linux, or jump ahead to [instructions for Windows](#windows).
     - - -
@@ -130,7 +130,7 @@ challenges:
     To close this lab, click **Next**.
 
     - - -
-    <img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png" a name="windows">
+    <a name="windows"><img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png"></a>
 
     ## Create an external fact:
     1. Check that the data center fact does not already exist. On the **Windows Agent** tab, open a Powershell window and run the following command — it should produce no value:
@@ -162,7 +162,7 @@ challenges:
 
     6. On the **PE Console** tab, navigate to **Nodes** and click on the `winagent` node. On the **Facts** tab, scroll down to view the `datacenter` fact displayed in the list.
 
-    **Congratulations!** You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (location: datacenter-east).
+    **Congratulations!** You installed an external fact script to create a datacenter fact, and then verified that Facter was able to retrieve the data in the fact (location: datacenter-east).
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -189,4 +189,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "2990014652507584472"
+checksum: "338184109015735330"
