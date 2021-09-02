@@ -13,7 +13,7 @@ description: |-
 
   **What you'll learn**
 
-  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet agent installation on new nodes, thus eliminating a mundane task and making deployment faster.
+  In this lab, you'll learn how to configure Puppet policy-based autosigning to securely automate Puppet agent installation on new nodes, eliminating a mundane task and making agent deployment faster.
 
   **Prerequisites**
 
@@ -45,7 +45,10 @@ challenges:
     contents: |-
       In this lab, you will:
 
-      * Configure the primary server to enable autosigning, enabling new nodes to be automatically added and managed by the primary server.
+      * Configure the primary server to enable policy-based autosigning, enabling new nodes to be automatically added and managed by the primary server.
+
+      In this example, the policy includes a simple check for a password. More complex policies might include an external database lookup or requiring other information to be passed in with the certificate request.
+
       * Run the agent installation script and automatically sign the agent's certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
@@ -144,9 +147,9 @@ challenges:
 
     11. When the installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
 
-    12. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is now being managed by the primary server.
+    12. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
 
-    13. Click the **nixagent** node and explore its facts on the **Facts** tab.
+    13. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
 
     Congratulations! You installed the Puppet agent with autosigning enabled.
 
@@ -170,4 +173,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "17558883160629795559"
+checksum: "612856158836940595"
