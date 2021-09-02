@@ -13,7 +13,7 @@ description: |-
 
   **What you'll learn**
 
-  In this lab, you'll learn how to configure the primary Puppet server to download the packages needed to install agents on different operating systems, making agent deployment faster and easier across your infrastructure.
+  In this lab, you'll learn how to configure the primary Puppet server to provide the packages needed to install agents on different operating systems, making agent deployment faster and easier across your infrastructure.
 
 
   **Prerequisites**
@@ -117,4 +117,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "18037513034325455552"
+checksum: "18020850943856868088"

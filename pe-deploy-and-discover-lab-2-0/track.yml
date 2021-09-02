@@ -2,7 +2,7 @@ slug: pe-deploy-and-discover-lab-2-0
 id: rzm1rnl0at70
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.0: Install Agents'
-teaser: Learn how to install agents in PE by using the console and the command line.
+teaser: Learn how to install agents in PE from both the command line and the PE console.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -54,11 +54,10 @@ challenges:
 
 
       Click **Start** when you're ready to begin.
-  assignment: |2
-     - Take me to [Linux instructions](#linux)
-     - Take me to [Windows instructions](#windows)
+  assignment: |
+    ✏️ Note: This lab includes instructions for both Linux (Method 1) and Windows (Method 2). To follow the Linux instructions, proceed below. Otherwise, click [here](#windows) to jump to Windows instructions.
 
-    <img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png" a name="linux">
+    <a name="linux"><img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png"></a>
 
     ## Method 1: Install an agent locally by running the installation script from the node's command line
 
@@ -78,7 +77,13 @@ challenges:
     11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You'll see two nodes listed: the Puppet server and the `nixagent` node. Click the `nixagent` node.
     12. On the **Facts** tab, inspect the facts about the `nixagent` node.
 
-    <img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png" a name="windows">
+    Congratulations, you just installed Puppet agents locally from the command line and remotely from the console!
+
+    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+    To close this lab, click **Next**.
+
+    <a name="windows"><img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png"></a>
 
     ## Method 2: Install a Puppet agent remotely from the PE console
     1. If you're not already logged in, on the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
@@ -125,4 +130,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "1806704429583283177"
+checksum: "18324622444316755279"

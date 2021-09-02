@@ -6,7 +6,7 @@ teaser: Learn how to assign role-based access in Puppet Enterprise.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the Bug Zapper tab at the top of each challenge and completing the short survey.
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
 
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com). We want to hear from you.
   ___
@@ -20,7 +20,7 @@ description: |-
 
   **Before you start**
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click Start track when you're ready to begin.
+  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
@@ -75,7 +75,7 @@ challenges:
 
     11. To verify the settings, log in as the new user: In the console sidebar, click **Log out**, and then log in again with the username and password that you set in steps 4 and 7. From here you can explore your user settings.
 
-    Congratulations! Using the PE console, you just created a user and assigned them the Viewer role, which has limited permissions in PE.
+    Congratulations! Using the PE console, you created a user and assigned them the Viewer role, which has limited permissions in PE.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -90,9 +90,6 @@ challenges:
     type: website
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSf-PbKW_YJg4VP6AO12HVuLexbwwIbC8CsyWugiK5_wYNRk4g/viewform?embedded=true
-  - title: Linux (remove)
-    type: terminal
-    hostname: puppet
   difficulty: basic
   timelimit: 900
-checksum: "8028491095008902405"
+checksum: "15818671715534686862"

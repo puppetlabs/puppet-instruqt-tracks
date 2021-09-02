@@ -39,7 +39,7 @@ challenges:
   id: jfhy7qsxgss1
   type: challenge
   title: Configure autosigning
-  teaser: Install the PE agent with autosigning enabled.
+  teaser: Install the Puppet agent with autosigning enabled.
   notes:
   - type: text
     contents: |-
@@ -173,4 +173,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "612856158836940595"
+checksum: "16865046090588358859"
