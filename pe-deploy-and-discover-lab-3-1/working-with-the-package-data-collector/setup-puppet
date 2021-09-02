@@ -79,9 +79,11 @@ ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --i
 
 ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT'
 
+rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
+yum install -y puppet-bolt-3.17.0
+bolt command run 'Start-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
 # State for Lab 3.0
-
-
 
 
 
