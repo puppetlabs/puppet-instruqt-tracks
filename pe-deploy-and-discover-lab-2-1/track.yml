@@ -100,8 +100,7 @@ challenges:
     end
     ```
 
-    4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`:
-    To save time, you can click the code below to copy it, and then paste it on the command line.
+    4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`. To save time, you can click the code below to copy it, and then paste it on the command line:
     ```
     chmod 700 /etc/puppetlabs/puppet/autosign.rb
     chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
@@ -160,17 +159,17 @@ challenges:
   - title: Primary Server
     type: terminal
     hostname: puppet
+  - title: Linux Agent
+    type: terminal
+    hostname: nixagent
   - title: PE Console
     type: service
     hostname: puppet
     port: 443
-  - title: Linux Agent
-    type: terminal
-    hostname: nixagent
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "16865046090588358859"
+checksum: "10018863757291740789"

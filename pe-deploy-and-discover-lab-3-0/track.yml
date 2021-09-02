@@ -55,7 +55,7 @@ challenges:
 
     1. On the **PE Console** tab, log in using the ID `admin` and password `puppetlabs`.
 
-    2. Navigate to **Tasks** and then click **Run a task**.
+    2. In the console sidebar, navigate to the **Tasks** page, and then click **Run a task**.
 
     3. In the **Task** field, enter `facter_task`.
 
@@ -189,4 +189,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "16182242617011439868"
+checksum: "2990014652507584472"
