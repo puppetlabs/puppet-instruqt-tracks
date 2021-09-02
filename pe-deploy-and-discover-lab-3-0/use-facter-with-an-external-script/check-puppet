@@ -1,3 +1,18 @@
 #!/bin/bash
 
-# Check for 'pdx' after running facter datacenter
+puppet query 'facts[name,value] { certname ~ "nixagent" and name = "datacenter" }'   --urls http://localhost:8080
+
+if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent" and name = "datacenter" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
+  LINUX_FACT=1
+fi
+
+if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "datacenter" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
+  WINDOWS_FACT=1
+fi
+
+if [ "${LINUX_FACT}" -o "${WINDOWS_FACT}" ]; then
+  exit 0
+else
+  fail-message "Neither the Linux nor the Windows datacenter fact has been created"
+  exit 1
+fi
