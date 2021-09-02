@@ -99,7 +99,7 @@ challenges:
 
     5. Add the following contents to the script, making sure to include the corresponding data center using the table below:
     ```
-    #!/bin/sh
+    #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
     ```
     | Time zone | Datacenter      |
