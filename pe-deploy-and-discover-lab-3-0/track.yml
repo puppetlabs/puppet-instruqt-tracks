@@ -99,7 +99,7 @@ challenges:
 
     5. Add the following contents to the script, and include the corresponding data center from the table below:
     ```
-    #!/bin/sh
+    #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
     ```
     | Time zone | Datacenter      |
@@ -189,4 +189,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "8101711840804180891"
+checksum: "10564981691732437825"
