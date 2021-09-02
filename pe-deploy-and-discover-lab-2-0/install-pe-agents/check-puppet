@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ "$(puppet query 'nodes { certname ~ "nixagent" }' --urls http://localhost:8080 | jq -r .[])" = '' ]; then
+if [ "$(puppet query 'nodes { certname ~ "nixagent" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
   LINUX_AGENT=1
 fi
 
-if [ "$(puppet query 'nodes { certname ~ "winagent" }' --urls http://localhost:8080 | jq -r .[])" = '' ]; then
+if [ "$(puppet query 'nodes { certname ~ "winagent" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
   WINDOWS_AGENT=1
 fi
 
