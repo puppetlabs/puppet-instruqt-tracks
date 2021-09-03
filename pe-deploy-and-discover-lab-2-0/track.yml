@@ -68,11 +68,12 @@ challenges:
     7. When the installation is complete, return to the **PE Console** tab and click **Refresh** at the top right of the console.
     8. Now you have to sign the agent's certificate. From the console sidebar, navigate to the **Certificates** page and click the **Unsigned certificates** tab.
     9. On the list of nodes, find the `nixagent` node and click **Accept**.
+
     10. Return to the Linux node by clicking on the **Linux Agent** tab, and then trigger a Puppet run:
     ````
     puppet agent -t
     ````
-    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. You'll see two nodes listed: the Puppet server and the `nixagent` node. Click the `nixagent` node.
+    11. In the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page. Click the `nixagent` node.
     12. On the **Facts** tab, inspect the facts about the `nixagent` node.
 
     Congratulations! You installed Puppet agents locally from the command line on Linux. Continue below to learn how to install the agent from the PE console using Windows.
@@ -88,14 +89,16 @@ challenges:
      - User: `Administrator`
      - password: `Puppetlabs!`
     5. Click **Add nodes**. The installation might take a few minutes to complete.
-    6. To check the status of the installation, navigate to **Tasks** page, and then click the ID number of the **pe_bootstrap** task. When the installation is complete, you'll see a certname in the output at the bottom of the page. A blue notification will appear on the Certificates tab when the certificate is available to sign.
-    7. Now sign the agent's certificate. Navigate to the **Certificates** page and then click the **Unsigned certificates** tab.
-    8. In the list of nodes, find `winagent` and click **Accept**.
-    10. Navigate to the Windows node by clicking the **Windows Agent** tab, and from the Windows Start Menu, select **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:
+    6. To check the status of the installation, navigate to **Tasks** page, and then click the ID number of the **pe_bootstrap** task. When the installation is complete, you'll see a certname in the output at the bottom of the page.
+    7. When the certificate is ready to sign, a blue notification will appear on the Certificates page link. If the notification doesn't appear after the `pe_bootstrap` task has finished running, click the refresh icon at the top right of the PE console.
+    8. Now sign the agent's certificate. Navigate to the **Certificates** page and then click the **Unsigned certificates** tab.
+    9. In the list of nodes, find `winagent` and click **Accept**.
+    10. Navigate to the Windows node by clicking the **Windows Agent** tab.
+    11. From the Windows Start Menu, click **Puppet**, and then click **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:
     ````
     puppet agent -t
     ````
-    11. Click the **PE Console** tab, and from the console sidebar, navigate to the **Nodes** page. You will see 3 nodes listed: the Puppet server, `nixagent`, and `winagent`. Click the `winagent` node.
+    11. Click the **PE Console** tab, and from the console sidebar, navigate to the **Nodes** page. Click the `winagent` node.
     12. From the **Facts** tab, inspect the facts about the `winagent` node.
 
     Congratulations! You installed Puppet agents remotely from the PE console on Windows.
@@ -122,4 +125,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSem6zQGd2jic0SB5ch0tenDgJu4X7pLu5wqJ0RbRepDzk4TbA/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "11844232473754676920"
+checksum: "13220719445320539096"
