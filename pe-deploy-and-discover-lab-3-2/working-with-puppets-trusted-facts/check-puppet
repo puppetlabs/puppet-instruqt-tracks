@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent" and name = "datacenter" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
-  if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent" and name = "role" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
+if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent" and name = "datacenter" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_datacenter' | grep -v 'null' )" != '' ]; then
+  if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent" and name = "role" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_role' | grep -v 'null' )" != '' ]; then
     LINUX_FACT=1
   fi
 fi
 
-if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "datacenter" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
-  if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "role" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
+if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "datacenter" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_datacenter' | grep -v 'null' )" != '' ]; then
+  if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "role" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_role' | grep -v 'null' )" != '' ]; then
     WINDOWS_FACT=1
   fi
 fi
