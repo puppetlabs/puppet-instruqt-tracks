@@ -4,7 +4,7 @@ containers:
   image: gcr.io/instruqt/guacamole
   memory: 512
 virtualmachines:
-- name: nixagent1
+- name: nixagent
   image: centos-7-v20201014
   shell: /bin/bash
   machine_type: n1-standard-1
@@ -12,10 +12,6 @@ virtualmachines:
   image: kmo-instruqt/puppet
   shell: /bin/bash
   machine_type: n1-standard-4
-- name: nixagent2
-  image: centos-7-v20201014
-  shell: /bin/bash
-  machine_type: n1-standard-1
 - name: winagent
   image: kmo-instruqt/windows-agent
   machine_type: n1-standard-2
