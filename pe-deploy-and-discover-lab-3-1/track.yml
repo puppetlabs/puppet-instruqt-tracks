@@ -55,13 +55,13 @@ challenges:
     You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
 
     # Enable package data collection.
-    1. In the console, click **Node groups**.
-     2. To collect package data on **all** your nodes, click the **PE Agent** node group.
+    1. In the console, click **Node groups**, then expand the **PE Infrastructure** group clicking on the **+** sign.
+    2. To collect package data on **all** your nodes, click the **PE Agent** node group.
     3. To collect package data on a **subset** of your nodes, click **Add group** and then create a classification node group. Select PE Agent as the group's parent name. After the new node group is set up, dynamically add the relevant nodes on the Rules tab.
 
     4. Click Classes. In the Add new class field, select puppet_enterprise::profile::agent and click Add class.
     5. In the puppet_enterprise::profile::agent class, set the Parameter to package_inventory_enabled and the Value to true. Click Add parameter and commit your changes.
-    6. Run Puppet to apply these changes to the nodes in your node group.
+    6. Click on Run Puppet button in the top right corner to apply these changes to the nodes in your node group.
     7. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the Packages page on each subsequent Puppet run.
     8. Run Puppet a second time to begin collecting package data, and then click Packages.
 
