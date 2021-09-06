@@ -107,7 +107,7 @@ challenges:
     | nginx       | cmsloadbalancer |
 
     ```
-    uri='https://primary.example.com:8140/packages/current/install.bash'
+    uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
     2. Log into the **PE Console**, and then click on the **Nodes** page to view the trusted facts on the new nodes.
@@ -191,12 +191,14 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
-  - title: Linux Agent 1
+  - title: Linux Agent
     type: terminal
-    hostname: nixagent1
-  - title: Linux Agent 2
-    type: terminal
-    hostname: nixagent2
+    hostname: nixagent
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
   - title: Primary Server
     type: terminal
     hostname: puppet
