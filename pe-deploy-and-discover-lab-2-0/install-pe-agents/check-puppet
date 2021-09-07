@@ -1,16 +1,15 @@
 #!/bin/bash
 
-if [ "$(puppet query 'nodes { certname ~ "nixagent" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
-  LINUX_AGENT=1
+EXIT_CODE=0
+
+if [ "$(puppet query 'nodes { certname ~ "nixagent" }' --urls http://localhost:8080 | jq -r .[])" == '' ]; then
+  fail-message "Linux agent has not been installed or its certificte has not been signed"
+  EXIT_CODE=1
 fi
 
-if [ "$(puppet query 'nodes { certname ~ "winagent" }' --urls http://localhost:8080 | jq -r .[])" != '' ]; then
-  WINDOWS_AGENT=1
+if [ "$(puppet query 'nodes { certname ~ "winagent" }' --urls http://localhost:8080 | jq -r .[])" == '' ]; then
+  fail-message "Windows agent has not been installed or its certificte has not been signed"
+  EXIT_CODE=1
 fi
 
-if [ "${LINUX_AGENT}" -o "${WINDOWS_AGENT}" ]; then
-  exit 0
-else
-  fail-message "Neither the Linux nor the Windows agent has been installed"
-  exit 1
-fi
+exit $EXIT_CODE
