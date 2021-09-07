@@ -2,7 +2,7 @@ slug: pe-deploy-and-discover-lab-3-0
 id: trd6dwmkdt6s
 type: sandbox
 title: 'PE Deploy and Discover - Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts'
-teaser: Use facter_task & external facts in PE to identify information about your nodes.
+teaser: Use facter_task & external facts in PE to discover data about your nodes.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -13,7 +13,11 @@ description: |-
 
   **What you'll learn**
 
-  In this lab you'll learn how to use **facter_task** from within the PE console to create custom external facts, giving you a glimpse of how Puppet can be used as a customizable inventory system that provides visibility and insights on your infrastructure's nodes.
+  In this lab, you'll run the **facter_task** task from the PE console to discover the built-in system facts that Facter gathers about each agent node. You'll also define a simple external (custom) fact to return site-specific data.
+
+  Facts provide a foundation on which you can write conditional expressions. For example, you might use external facts in a template to speed up the deployment of new nodes. You might also define custom facts to use in PuppetDB queries or to provide the primary server with additional information for building the agent node's catalog.
+
+
 
   **Prerequisites**
 
@@ -43,11 +47,13 @@ challenges:
   notes:
   - type: text
     contents: |-
-      Facter gathers built-in (core) facts that are packaged within it. It can also gather custom or external facts by using scripts that you or a third party have written.
+      Facter — a component of the Puppet agent — gathers built-in (core) facts that are packaged within it. It can also gather custom or external facts by using scripts that you or a third party have written.
+
+      Facter collects these facts on each Puppet run and sends them to the primary server. The primary server uses facts to build each agent's catalog.
 
       In this lab, you will use the PE console to:
        * Run `facter_task` against the nodes in your environment to discover which time zone each node is located in.
-       * Create an external fact to mark each node with its corresponding data center based on its time zone.
+       * Create an external (custom) fact to mark each node with its corresponding data center based on its time zone.
 
       Click **Start** when you're ready to begin.
   assignment: |
@@ -63,20 +69,20 @@ challenges:
 
     5. Specify what to run the task against. From the **Select targets** list, choose **Node list**.
 
-    6. Search for nodes used in this lab. In the **Add nodes** field enter `agent`, then click **Search**.
+    6. Search for the nodes used in this lab. In the **Add nodes** field, enter `agent` and click **Search**.
 
     7. Click **Add all**, and then click **Run task**.
 
-    Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact. Note the value for each node: You'll use it in the following sections.
+    Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact. Note the value for each node — you'll use it in the following sections.
 
-    Next, you will install an external fact script to create a data center fact, and then use that script to verify that Facter can retrieve the fact.
+    Next, you'll install an external fact script to create a `datacenter` fact, and then use that script to verify that Facter can retrieve the fact.
 
     Continue below to follow the instructions for Linux, or skip to the [Windows instructions](#windows).
     - - -
     <img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png" a name="linux">
 
     ## Create an external fact:
-    1. Check that the data center fact does not already exist. On the **Linux Agent** tab, run the following command (it should produce no value):
+    1. Check that the `datacenter` fact doesn't already exist. On the **Linux Agent** tab, run the following command (it should produce no value):
     Tip: Click the code block to copy it, and then right-click and paste it on the command line.
     ```
     facter datacenter
@@ -98,7 +104,7 @@ challenges:
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran facter_task).
+    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran `facter_task`).
     ```
     #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
@@ -128,13 +134,13 @@ challenges:
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
-    To try this on Windows, continue on. To close this lab, click **Next**.
+    To try this on Windows, read on. To close this lab, click **Next**.
 
     - - -
     <a name="windows"><img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png"></a>
 
     ## Create an external fact:
-    1. Check that the data center fact does not already exist. On the **Windows Agent** tab, open a Powershell window from the **Start** menu, and then run the following command (it should produce no value):
+    1. Check that the data center fact doesn't already exist. On the **Windows Agent** tab, open a Powershell window from the **Start** menu, and then run the following command (it should produce no value):
     ```
     facter datacenter
     ```
@@ -155,7 +161,7 @@ challenges:
     | Pacific   | datacenter-west |
 
     ## Verify that the fact was installed and is accessible by Facter:
-    4. Run `facter datacenter` again and notice the new output - it should return the value you chose in step 3.
+    4. Run `facter datacenter` again and notice the new output - Facter should return `datacenter-east`.
 
     5. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```
@@ -191,4 +197,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "1614883332439081259"
+checksum: "2972583314961395060"
