@@ -46,8 +46,8 @@ challenges:
       Facter gathers built-in (core) facts that are packaged within it. It can also gather custom or external facts by using scripts that you or a third party have written.
 
       In this lab, you will use the PE console to:
-       * Run `facter_task` against the nodes in your environment to discover which data center each node is located in.
-       * Create an external fact to mark each node with its corresponding data center.
+       * Run `facter_task` against the nodes in your environment to discover which time zone each node is located in.
+       * Create an external fact to mark each node with its corresponding data center based on its time zone.
 
       Click **Start** when you're ready to begin.
   assignment: |
@@ -67,7 +67,7 @@ challenges:
 
     7. Click **Add all**, and then click **Run task**.
 
-    Result: On the **Task Details** page, notice that the task output for each node includes the `timezone` fact.
+    Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact. Note the value for each node: You'll use it in the following sections.
 
     Next, you will install an external fact script to create a data center fact, and then use that script to verify that Facter can retrieve the fact.
 
@@ -98,7 +98,7 @@ challenges:
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    5. Add the following contents to the script, replacing `<DATACENTER>` with your time zone's **Datacenter** value from the table below:
+    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran facter_task).
     ```
     #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
@@ -117,14 +117,14 @@ challenges:
 
     7. Run `facter datacenter` again and notice the new output: Facter should return `datacenter-west`.
 
-    8. Run Puppet to send the new fact to the primary Puppet server:
+    8. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```
     puppet agent -t
     ```
 
     9. On the **PE Console** tab, navigate to the **Nodes** page and click the `nixagent` node. On the **Facts** tab, scroll to view the `datacenter` fact displayed in the list.
 
-    **Congratulations!** You installed an external fact script to create a data center fact, and then verified that Facter can retrieve the data in the fact (**datacenter** is set to the value you chose in step 5).
+    **Congratulations!** You installed an external fact script to create a `datacenter` fact, and then verified that Facter can retrieve the data in the fact.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -143,7 +143,7 @@ challenges:
     notepad C:\ProgramData\PuppetLabs\facter\facts.d\datacenter.ps1
     ```
 
-    3. Add the following contents to the file, replacing `<DATACENTER>` with your time zone's **Datacenter** value from the table below. Then, save and exit the file.
+    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran facter_task). Then, save and exit the file.
     Tip: Click the code block to copy it, and then right-click and paste it.
     ```
     write-host "datacenter=<DATACENTER>"
@@ -157,14 +157,14 @@ challenges:
     ## Verify that the fact was installed and is accessible by Facter:
     4. Run `facter datacenter` again and notice the new output - it should return the value you chose in step 3.
 
-    5. Run Puppet to send the new fact to the primary Puppet server:
+    5. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```
     puppet agent -t
     ```
 
     6. On the **PE Console** tab, navigate to **Nodes** and click the `winagent` node. On the **Facts** tab, scroll to view the `datacenter` fact shown in the list.
 
-    **Congratulations!** You installed an external fact script to create a data center fact, and then verified that facter was able to retrieve the data in the fact (**datacenter** is set to the value you chose in step 3).
+    **Congratulations!** You installed an external fact script to create a `datacenter` fact, and then verified that Facter was able to retrieve the data in the fact.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -191,4 +191,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "13995536535480797721"
+checksum: "1614883332439081259"
