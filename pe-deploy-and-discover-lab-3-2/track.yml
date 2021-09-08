@@ -209,6 +209,11 @@ challenges:
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
   difficulty: basic
   timelimit: 3600
-checksum: "2469311578569568549"
+checksum: "12193849916942171491"

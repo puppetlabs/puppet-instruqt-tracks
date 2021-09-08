@@ -2,6 +2,9 @@ version: "2"
 containers:
 - name: guac
   image: gcr.io/instruqt/guacamole
+  shell: /bin/bash
+  ports:
+  - 8080
   memory: 512
 virtualmachines:
 - name: nixagent1
