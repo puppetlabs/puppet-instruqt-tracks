@@ -20,5 +20,5 @@ virtualmachines:
   shell: /bin/bash
   machine_type: n1-standard-1
 - name: winagent
-  image: kmo-instruqt/windows-agent
+  image: kmo-instruqt/windows-iis-test
   machine_type: n1-standard-2
