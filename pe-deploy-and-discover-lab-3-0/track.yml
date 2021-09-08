@@ -43,7 +43,7 @@ challenges:
   id: br8duqywypho
   type: challenge
   title: Use Facter with an external script
-  teaser: Use Facter with an external script
+  teaser: Create an external fact in a script and discover what Facter returns.
   notes:
   - type: text
     contents: |-
@@ -197,4 +197,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "2972583314961395060"
+checksum: "1264867020564532198"
