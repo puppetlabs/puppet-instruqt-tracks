@@ -55,13 +55,13 @@ challenges:
     You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
 
     # Enable package data collection.
-    1. In the console, click **Node groups**.
+    1. Log into the console in the **PE Console** tab with username `admin` and password `puppetlabs` and click **Node groups**.
 
-    2. To collect package data on your nodes, click the **PE Agent** node group.
+    2. To collect package data on your nodes, expand the **PE Infrastructure** group, and click the **PE Agent** child node group.
 
-    3. Click **Classes** and locate the `puppet_enterprise::profile::agent` in the list.
+    3. Click **Classes** tab and locate the `puppet_enterprise::profile::agent` class in the list.
 
-    4. In the `puppet_enterprise::profile::agent` class, set the **Parameter** selection to `package_inventory_enabled` and the **Value** to `true`. Click **Add parameter** and commit your changes.
+    4. In the `puppet_enterprise::profile::agent` class, set the **Parameter** selection to `package_inventory_enabled` and the **Value** to `true`. Click **Add to node group** and commit your changes.
 
     5. Run Puppet to apply these changes to the nodes in the **PE Agent** node group.
 
@@ -94,24 +94,24 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  - title: Primary Server
+    type: terminal
+    hostname: puppet
   - title: Linux Agent 1
     type: terminal
     hostname: nixagent1
   - title: Linux Agent 2
     type: terminal
     hostname: nixagent2
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
-  - title: PE Console
-    type: service
-    hostname: puppet
-    path: /
-    port: 443
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "12820826508193908271"
+checksum: "16673660672639537481"

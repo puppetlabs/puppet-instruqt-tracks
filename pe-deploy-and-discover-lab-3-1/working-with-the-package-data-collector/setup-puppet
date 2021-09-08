@@ -75,7 +75,7 @@ done
 
 sleep 5
 
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd'
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd java-latest-openjdk'
 
 ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y nginx'
 
