@@ -85,10 +85,11 @@ bolt command run 'Start-Service puppet' --no-ssl-verify --user Administrator --p
 
 # State for Lab 3.0
 
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'timedatectl set-timezone America/Los_Angeles'
+ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'timedatectl set-timezone America/Los_Angeles'
+bolt command run 'tzutil /s "Eastern Standard Time"' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-
-
-
+# The external facts are not needed in this lab and can be omitted here
 
 /usr/local/bin/puppet agent -t
 /usr/local/bin/puppet agent -t

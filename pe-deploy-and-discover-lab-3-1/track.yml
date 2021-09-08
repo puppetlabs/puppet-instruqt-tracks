@@ -56,19 +56,27 @@ challenges:
 
     # Enable package data collection.
     1. In the console, click **Node groups**.
-     2. To collect package data on **all** your nodes, click the **PE Agent** node group.
-    3. To collect package data on a **subset** of your nodes, click **Add group** and then create a classification node group. Select PE Agent as the group's parent name. After the new node group is set up, dynamically add the relevant nodes on the Rules tab.
 
-    4. Click **Classes**. In the Add new class field, select `puppet_enterprise::profile::agent` and click **Add class**.
-    5. In the `puppet_enterprise::profile::agent` class, set the Parameter to `package_inventory_enabled` and the Value to `true`. Click **Add parameter** and commit your changes.
-    6. Run Puppet to apply these changes to the nodes in your node group.
-    7. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the **Packages** page on each subsequent Puppet run.
-    8. Run Puppet a second time to begin collecting package data, and then click **Packages**.
+    2. To collect package data on your nodes, click the **PE Agent** node group.
+
+    3. Click **Classes** and locate the `puppet_enterprise::profile::agent` in the list.
+
+    4. In the `puppet_enterprise::profile::agent` class, set the **Parameter** selection to `package_inventory_enabled` and the **Value** to `true`. Click **Add parameter** and commit your changes.
+
+    5. Run Puppet to apply these changes to the nodes in the **PE Agent** node group.
+
+    6. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the **Packages** page on each subsequent Puppet run.
+
+    7. Run Puppet a second time to begin collecting package data, and then click **Packages**.
 
     # View and manage package inventory.
+
     1. To view and manage the complete inventory of packages on your systems, view the **Packages** page in the console.
+
     2. Run Puppet to collect the latest package data from your nodes.
+
     3. Search for packages: In the console, click **Packages** to view your package inventory. To narrow the list of packages, enter the name or partial name of a package in the **Filter by package name** field and click **Apply**.
+
     4. Enter the following package names one at a time:
         **java-latest-openjdk**, **httpd**, **nginx**
 
@@ -106,4 +114,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "2085236320558800471"
+checksum: "12820826508193908271"
