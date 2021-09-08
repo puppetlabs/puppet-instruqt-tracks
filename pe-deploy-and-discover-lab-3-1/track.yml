@@ -59,25 +59,26 @@ challenges:
      2. To collect package data on **all** your nodes, click the **PE Agent** node group.
     3. To collect package data on a **subset** of your nodes, click **Add group** and then create a classification node group. Select PE Agent as the group's parent name. After the new node group is set up, dynamically add the relevant nodes on the Rules tab.
 
-    4. Click Classes. In the Add new class field, select puppet_enterprise::profile::agent and click Add class.
-    5. In the puppet_enterprise::profile::agent class, set the Parameter to package_inventory_enabled and the Value to true. Click Add parameter and commit your changes.
+    4. Click **Classes**. In the Add new class field, select `puppet_enterprise::profile::agent` and click **Add class**.
+    5. In the `puppet_enterprise::profile::agent` class, set the Parameter to `package_inventory_enabled` and the Value to `true`. Click **Add parameter** and commit your changes.
     6. Run Puppet to apply these changes to the nodes in your node group.
-    7. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the Packages page on each subsequent Puppet run.
-    8. Run Puppet a second time to begin collecting package data, and then click Packages.
+    7. Puppet enables package inventory collection on this Puppet run and begins collecting package data and reporting it on the **Packages** page on each subsequent Puppet run.
+    8. Run Puppet a second time to begin collecting package data, and then click **Packages**.
 
     # View and manage package inventory.
-    1. To view and manage the complete inventory of packages on your systems, view the Packages page in the console.
+    1. To view and manage the complete inventory of packages on your systems, view the **Packages** page in the console.
     2. Run Puppet to collect the latest package data from your nodes.
-    3. Search for packages: In the console, click Packages to view your package inventory. To narrow the list of packages, enter the name or partial name of a package in the Filter by package name field and click Apply.
+    3. Search for packages: In the console, click **Packages** to view your package inventory. To narrow the list of packages, enter the name or partial name of a package in the **Filter by package name** field and click **Apply**.
     4. Enter the following package names one at a time:
-        "java"
-        "apache"
-        "nginx"
+        **java-latest-openjdk**, **httpd**, **nginx**
 
     If a node is found with one of the above packages, you can now start to identify the node's role:
-        "java" - role: webapp
-        "apache" - role: webserver
-        "nginx" - role: loadbalancer
+
+    | Package name        | Server role   |
+    |---------------------|---------------|
+    | java-latest-openjdk | App server    |
+    | httpd               | Web server    |
+    | nginx               | Load balancer |
 
     Congratulations! You ensured the visibility of all currently installed packages and versions. Some of the other students will have different packages across their servers in their lab environment - this is expected!
 
@@ -105,4 +106,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "16791959090172441708"
+checksum: "2085236320558800471"

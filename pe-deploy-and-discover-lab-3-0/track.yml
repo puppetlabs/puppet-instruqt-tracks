@@ -15,7 +15,7 @@ description: |-
 
   In this lab, you'll run the **facter_task** task from the PE console to discover the built-in system facts that Facter gathers about each agent node. You'll also define a simple external (custom) fact to return site-specific data.
 
-  Facts provide a foundation on which you can write conditional expressions. For example, you might use external facts in a template to speed up the deployment of new nodes. You might also define custom facts to use in PuppetDB queries or to provide the primary server with additional information for building the agent node's catalog.
+  Facts provide a foundation on which you can write conditional expressions and reusable code. For example, you might use facts in a file template to configure different versions of a file based on the fact values that agents send to the primary server. You might also define facts to use in PuppetDB queries or to provide the primary server with additional information for building the agent node's catalog.
 
 
 
@@ -197,4 +197,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "1264867020564532198"
+checksum: "11509967289279945646"
