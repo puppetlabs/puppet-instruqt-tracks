@@ -19,7 +19,7 @@ cat <<'EOF' > /config/guacamole/user-mapping.xml
 EOF
 
 # Wait until RDP is available
-while ! nc -z winagent 3389; do
-  echo "Waiting for RDP to be available"
-  sleep 1
-done
+#while ! nc -z winagent 3389; do
+#  echo "Waiting for RDP to be available"
+#  sleep 1
+#done

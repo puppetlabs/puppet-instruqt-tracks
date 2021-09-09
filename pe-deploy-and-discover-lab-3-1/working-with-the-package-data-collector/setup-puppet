@@ -2,20 +2,20 @@
 
 set -x
 
-yum install -y jq
+#yum install -y jq
 
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
     sleep 1
 done
+
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
-while  ! nc -z -w3 localhost 443 
-do
-    echo "Waiting for port 443 to be reachable on localhost"
-   
-done
+#while  ! nc -z -w3 localhost 443 
+#do
+#    echo "Waiting for port 443 to be reachable on localhost"
+#done
 
 cat << 'EOF' > /etc/puppetlabs/puppet/autosign.rb
 #!/opt/puppetlabs/puppet/bin/ruby
@@ -65,7 +65,7 @@ chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
 
 puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
 
-service pe-puppetserver restart
+service pe-puppetserver reload
 
 # Wait for any running agent to finish
 while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
@@ -77,21 +77,26 @@ done
 
 sleep 5
 
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd java-latest-openjdk'
-
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y nginx'
-
 rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
-yum install -y puppet-bolt-3.17.0
+yum install -y puppet-bolt-3.17.0 jq
+
+bolt command run 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
+bolt command run 'yum install -y httpd java-latest-openjdk' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
+bolt command run 'yum install -y nginx' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent2
+
+#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd java-latest-openjdk'
+
+#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y nginx'
+
 bolt command run 'Start-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
 # State for Lab 3.0
 
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'timedatectl set-timezone America/Los_Angeles'
-ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'timedatectl set-timezone America/Los_Angeles'
+#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'timedatectl set-timezone America/Los_Angeles'
+#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'timedatectl set-timezone America/Los_Angeles'
 bolt command run 'tzutil /s "Eastern Standard Time"' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-# The external facts are not needed in this lab and can be omitted here
+# The external facts are configured in the setup-nixagentN scripts
 
 /usr/local/bin/puppet agent -t
 /usr/local/bin/puppet agent -t
