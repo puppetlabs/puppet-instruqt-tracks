@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+mkdir -p /etc/puppetlabs/facter/facts.d
+
+cat << 'EOF' > /etc/puppetlabs/facter/facts.d/datacenter.sh
+#!/usr/bin/env bash
+echo "datacenter=datacenter-west"
+EOF
+
+chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
+exit 0
