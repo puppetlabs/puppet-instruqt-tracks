@@ -43,6 +43,20 @@ challenges:
   notes:
   - type: text
     contents: |-
+      One of your team members hands you documentation containing a table that lists packages and servers, with a description of their roles within your infrastructure:
+
+      <img src="https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/lab3-1_documentation.png">
+
+      Click the arrow to the right (**>**) to continue.
+  - type: text
+    contents: |-
+      Package data collection is disabled by default, so the Packages page in the PE console initially appears blank. In order to view a node's current package inventory, you must **enable** package data collection.
+
+      You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
+
+      Click the arrow to the right (**>**) to continue.
+  - type: text
+    contents: |-
       Your objective is to enable continuous auditing and compliance across the systems in your environment:
 
       1. Ensure visibility of all currently installed packages and versions.
@@ -50,11 +64,7 @@ challenges:
 
       Click **Start** when you're ready to begin.
   assignment: |-
-    Package data collection is disabled by default, so the Packages page in the PE console initially appears blank. In order to view a node's current package inventory, you must **enable** package data collection.
-
-    You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that are not under active management with PE.
-
-    # Enable package data collection:
+    ## Enable package data collection:
     1. On the **PE Console** tab, log into the console with username `admin` and password `puppetlabs`.
 
     2. Go to the **Node groups** page, expand (click **+**) **PE Infrastructure**, and click the **PE Agent** node group.
@@ -65,13 +75,13 @@ challenges:
 
     5. Run Puppet to apply these changes to the nodes in the **PE Agent** node group: Click **Run** near the upper-right corner the page. Leave the options with the default values shown and click **Run job** near the bottom of the page. This might take a few moments to complete.
 
-    Tip: If you navigate away from the **Jobs details** page before the job completes, go to the Enforcement->Jobs page and click on the most recent job to return.
+    ✏️ Tip: If you navigate away from the **Jobs details** page before the job completes, click the **Jobs** page in the left sidebar, and then click on the most recent job to return.
 
     On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.
 
     6. To start collecting and reporting package data, run Puppet a second time by clicking **Run again** near the top of the job details page and select **All nodes**. Leave the default options as before and click **Run job** to start the second Puppet agent run. This might take a few moments to complete.
 
-    # View and manage package inventory:
+    ## View and manage package inventory:
 
     1. To view and manage the complete inventory of packages on your systems, go to the **Packages** page.
 
@@ -88,7 +98,7 @@ challenges:
     | httpd               | Web server    |
     | nginx               | Load balancer |
 
-    Congratulations! You ensured the visibility of all currently installed packages and versions.
+    **Congratulations!** You ensured the visibility of all currently installed packages and versions.
 
     **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
 
@@ -99,16 +109,10 @@ challenges:
     hostname: puppet
     path: /
     port: 443
-  - title: Linux Agent 1
-    type: terminal
-    hostname: nixagent1
-  - title: Linux Agent 2
-    type: terminal
-    hostname: nixagent2
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
-  timelimit: 3600
-checksum: "2284319726370146031"
+  timelimit: 1800
+checksum: "3238319906999505117"
