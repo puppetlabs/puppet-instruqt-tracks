@@ -63,13 +63,13 @@ challenges:
 
     4. In the **Parameter name** list for the class, select the `package_inventory_enabled` parameter and set its value to `true`. Then, click **Add to node group** and commit your changes by clicking **Commit** near the bottom of the page.
 
-    5. Run Puppet to apply these changes to the nodes in the **PE Agent** node group: Click **Run** near the upper-right corner the page.
+    5. Run Puppet to apply these changes to the nodes in the **PE Agent** node group: Click **Run** near the upper-right corner the page. Leave the options with the default values shown and click **Run job** near the bottom of the page. This might take a few moments to complete.
+
+    Tip: If you navigate away from the **Jobs details** page before the job completes, go to the Enforcement->Jobs page and click on the most recent job to return.
 
     On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.
 
-    6. To start collecting and reporting package data, run Puppet a second time by clicking **Run job** near the bottom of the page. This might take a few moments to complete.
-
-    Tip: If you navigated away from the **Jobs** page before running Puppet again, go to either the **Status** or **Jobs** page and click **Run** near the upper-right corner.
+    6. To start collecting and reporting package data, run Puppet a second time by clicking **Run again** near the top of the job details page and select **All nodes**. Leave the default options as before and click **Run job** to start the second Puppet agent run. This might take a few moments to complete.
 
     # View and manage package inventory:
 
@@ -111,4 +111,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10073632375213653423"
+checksum: "2284319726370146031"
