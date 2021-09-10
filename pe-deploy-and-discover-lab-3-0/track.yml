@@ -49,10 +49,25 @@ challenges:
   notes:
   - type: text
     contents: |-
+      Its your first day on the job at your new sysadmin role and your boss sent you a memo.
+
+      To read the memo, click the arrow (**>**) at the right.
+  - type: text
+    contents: |-
+      <img src="https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/lab-3.0-boss-memo.png" width="90%">
+
+      Read the memo, and then click the arrow (**>**) at the right to continue.
+  - type: text
+    contents: |-
+      With this new information, you'll extend Facter to identify and tag each server with its corresponding datacenter location.
+
       Facter — a component of the Puppet agent — gathers built-in (core) facts that are packaged within it. It can also gather custom or external facts by using scripts that you or a third party have written.
 
       Facter collects these facts on each Puppet run and sends them to the primary server. The primary server uses facts to build each agent's catalog.
 
+      Click the arrow (**>**) at the right to continue.
+  - type: text
+    contents: |-
       In this lab, you will use the PE console to:
        * Run `facter_task` against the nodes in your environment to discover which time zone each node is located in.
        * Create an external (custom) fact to mark each node with its corresponding data center based on its time zone.
@@ -75,9 +90,13 @@ challenges:
 
     7. Click **Add all**, and then click **Run task**.
 
-    Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact. Note the value for each node — you'll use it in the following sections.
+    ✔️ Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact.
 
-    Next, you'll install an external fact script to create a `datacenter` fact, and then use that script to verify that Facter can retrieve the fact.
+    Use the table below to determine which datacenter applies to each node's timezone. You will use this to create the datacenter fact in the following sections.
+    | Time zone      | Datacenter      |
+    |----------------|-----------------|
+    | Eastern / EDT  | datacenter-east |
+    | Pacific / PDT  | datacenter-west |
 
     Continue below to follow the instructions for Linux, or skip to the [Windows instructions](#windows).
     - - -
@@ -85,7 +104,7 @@ challenges:
 
     ## Create an external fact:
     1. Check that the `datacenter` fact doesn't already exist. On the **Linux Agent** tab, run the following command (it should produce no value):
-    Tip: Click the code block to copy it, and then right-click and paste it on the command line.
+    ✏️ Tip: Click the code block to copy it, and then right-click and paste it on the command line.
     ```
     facter datacenter
     ```
@@ -106,17 +125,15 @@ challenges:
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran `facter_task`).
+    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` on the PE Console).
     ```
     #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
     ```
-    | Time zone | Datacenter      |
-    |-----------|-----------------|
-    | Eastern   | datacenter-east |
-    | Pacific   | datacenter-west |
 
-    6. Close vi (type **:wq** and press **Enter**) and make the script executable:
+    ✏️ Tip: To paste text into Vi, type `:set paste`, press **Enter**, and then press `i`. Enter the correct datacenter, then save and exit by pressing `ESC` and typing `:wq`.
+
+    6. Run the following command make the script executable:
     ```
     chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
@@ -143,24 +160,23 @@ challenges:
 
     ## Create an external fact:
     1. Check that the data center fact doesn't already exist. On the **Windows Agent** tab, open a Powershell window from the **Start** menu, and then run the following command (it should produce no value):
+
+    ✏️ Tip: Click the code block to copy it, and then right-click and paste it.
+
     ```
     facter datacenter
     ```
+
     2. Move the provided external fact script into place by creating the following file (click **Yes** when prompted to create the file):
     ```
     notepad C:\ProgramData\PuppetLabs\facter\facts.d\datacenter.ps1
     ```
 
-    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value below that corresponds to the node's `timezone` fact (which was returned when you ran facter_task). Then, save and exit the file.
-    Tip: Click the code block to copy it, and then right-click and paste it.
+    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` from the PE console). Then, save and exit the file.
     ```
     write-host "datacenter=<DATACENTER>"
     ```
-
-    | Time zone | Datacenter      |
-    |-----------|-----------------|
-    | Eastern   | datacenter-east |
-    | Pacific   | datacenter-west |
+    ✏️ Tip: To paste text into Vi, type `:set paste`, press **Enter**, and then press `i`. Enter the correct datacenter, then save and exit by pressing `ESC` and typing `:wq`.
 
     ## Verify that the fact was installed and is accessible by Facter:
     4. Run `facter datacenter` again and notice the new output - Facter should return `datacenter-east`.
@@ -198,5 +214,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 3600
-checksum: "7506585924855765032"
+  timelimit: 1800
+checksum: "2897466990697533350"
