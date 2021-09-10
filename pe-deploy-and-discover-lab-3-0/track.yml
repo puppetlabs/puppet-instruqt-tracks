@@ -214,5 +214,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 1800
-checksum: "2897466990697533350"
+  timelimit: 3600
+checksum: "14845114292817861956"
