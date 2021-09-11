@@ -113,7 +113,7 @@ challenges:
 
     | Package     | Role            |
     | ----------- | --------------- |
-    | java        | ecommerce       |
+    | Java 8      | ecommerce       |
     | apache      | cmsweb          |
     | nginx       | cmsloadbalancer |
 
@@ -184,7 +184,7 @@ challenges:
 
     | Package     | Role            |
     | ----------- | --------------- |
-    | java        | ecommerce       |
+    | Java 8      | ecommerce       |
     | apache      | cmsweb          |
     | nginx       | cmsloadbalancer |
 
@@ -202,6 +202,11 @@ challenges:
 
     To close this lab, click **Next**.
   tabs:
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
   - title: Linux Agent 1
     type: terminal
     hostname: nixagent1
@@ -211,11 +216,6 @@ challenges:
   - title: Primary Server
     type: terminal
     hostname: puppet
-  - title: PE Console
-    type: service
-    hostname: puppet
-    path: /
-    port: 443
   - title: Windows Agent
     type: service
     hostname: guac
