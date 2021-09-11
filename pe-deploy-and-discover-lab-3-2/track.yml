@@ -55,7 +55,8 @@ challenges:
     ## Uninstall Linux agents
 
     The *nix agent package includes an uninstall script, which you can use when you're ready to retire a node.
-    1. Navigate to the **Linux node** by clicking on the **Linux agent** tab.
+    1. Navigate to the Linux nodes by clicking on the **Linux agent** tabs and running the following commands in each one.
+
     2. Retrieve the node's certname by running the following command:
 
     ```
@@ -71,7 +72,7 @@ challenges:
 
     In the output, look for the `## Done!` message to confirm that the uninstaller ran successfully.
 
-    4. Verify that the directory has been removed by running the following command:
+    4. Verify that the Puppet directory has been removed by running the following command:
 
     ```
     ls /etc/puppetlabs
@@ -93,7 +94,8 @@ challenges:
     - Makes the license available for another node.
     - Makes the hostname available for another node.
 
-    1. Navigate to the **PE Server** [previous instruction: Open a terminal on the primary server.]
+    1. Navigate to the **PE Server** tab.
+
     2. Purge the node by running the following command, replacing <CERTNAME> with the certname you obtained previously:
 
     ```
@@ -105,7 +107,8 @@ challenges:
     ## Install agents with trusted facts and an autosign password
 
     1. Install an agent on each target by using the installation script, passing in the corresponding role and datacenter.
-    - For the datacenter, use the external fact 'datacenter' you created in lab 3.0.
+
+    - For the datacenter, use the value of the external fact 'datacenter' that you created in lab 3.0.
     - For the role, use the package data you gathered from each node in lab 3.1.
 
     | Package     | Role            |
@@ -115,10 +118,10 @@ challenges:
     | nginx       | cmsloadbalancer |
 
     ```
-    uri='https://primary.example.com:8140/packages/current/install.bash'
+    uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
-    2. Log into the **PE Console**, and then click on the **Nodes** page to view the trusted facts on the new nodes.
+    2. Log into the console, and then click on the **Nodes** page to view the trusted facts on the new nodes.
 
     Congratulations! You uninstalled the Puppet agent from your nodes and purged them from PE so that you can re-use their node licenses. You securely assigned each server's role & datacenter in your environment by installing the Puppet agent with trusted facts. And, you installed the Puppet agent with an autosign password to enable certificate signing so that the agent can be authenticated by the primary server.
 
@@ -224,4 +227,4 @@ challenges:
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "8047393869929789501"
+checksum: "5867406131715283713"
