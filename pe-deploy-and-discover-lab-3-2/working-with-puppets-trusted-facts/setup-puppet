@@ -93,12 +93,15 @@ ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'timedate
 
 # Set datacenter fact on winagent and nixagents:
 bolt command run 'New-Item -Type File -Path C:\ProgramData\PuppetLabs\Facter\facts.d\datacenter.ps1' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
-bolt command run "Set-Content -Value 'Write-Host "datacenter=east"' -Path C:\ProgramData\PuppetLabs\Facter\facts.d\datacenter.ps1" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
-bolt command run "cd;mkdir -p /etc/puppetlabs/facter/facts.d;touch /etc/puppetlabs/facter/facts.d/datacenter.sh;echo -e '#!/bin/bash\n echo datacenter=west' > /etc/puppetlabs/facter/facts.d/datacenter.sh;chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh" --targets ssh://nixagent1 --user root --no-host-key-check
-bolt command run "cd;mkdir -p /etc/puppetlabs/facter/facts.d;touch /etc/puppetlabs/facter/facts.d/datacenter.sh;echo -e '#!/bin/bash\n echo datacenter=west' > /etc/puppetlabs/facter/facts.d/datacenter.sh;chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh" --targets ssh://nixagent2 --user root --no-host-key-check
+bolt command run "Set-Content -Value 'Write-Host "datacenter=datacenter-east"' -Path C:\ProgramData\PuppetLabs\Facter\facts.d\datacenter.ps1" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+bolt command run "cd;mkdir -p /etc/puppetlabs/facter/facts.d;touch /etc/puppetlabs/facter/facts.d/datacenter.sh;echo -e '#!/bin/bash\n echo datacenter=datacenter-west' > /etc/puppetlabs/facter/facts.d/datacenter.sh;chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh" --targets ssh://nixagent1 --user root --no-host-key-check
+bolt command run "cd;mkdir -p /etc/puppetlabs/facter/facts.d;touch /etc/puppetlabs/facter/facts.d/datacenter.sh;echo -e '#!/bin/bash\n echo datacenter=datacenter-west' > /etc/puppetlabs/facter/facts.d/datacenter.sh;chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh" --targets ssh://nixagent2 --user root --no-host-key-check
 
 
 # State code for Lab 3.1
+
+# Install the JRE on the Windows node prior to enabling package data collection
+bolt command run 'C:\ProgramData\chocolatey\choco.exe install javaruntime' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
 # Enable the package inventory
 cat << 'EOF' > /tmp/pe-agent-enable-package-inventory.pp
