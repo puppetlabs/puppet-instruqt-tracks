@@ -172,11 +172,10 @@ challenges:
     notepad C:\ProgramData\PuppetLabs\facter\facts.d\datacenter.ps1
     ```
 
-    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` from the PE console). Then, save and exit the file.
+    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` on the PE console). Then, save and exit the file.
     ```
     write-host "datacenter=<DATACENTER>"
     ```
-    ✏️ Tip: To paste text into Vi, type `:set paste`, press **Enter**, and then press `i`. Enter the correct datacenter, then save and exit by pressing `ESC` and typing `:wq`.
 
     ## Verify that the fact was installed and is accessible by Facter:
     4. Run `facter datacenter` again and notice the new output - Facter should return `datacenter-east`.
@@ -198,9 +197,6 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
   - title: Linux Agent
     type: terminal
     hostname: nixagent
@@ -214,5 +210,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 3600
-checksum: "14845114292817861956"
+  timelimit: 1800
+checksum: "5274564153484223227"
