@@ -109,15 +109,10 @@ challenges:
     hostname: puppet
     path: /
     port: 443
-  - title: Windows Agent
-    type: service
-    hostname: guac
-    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
-    port: 8080
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "1471625888093503856"
+checksum: "7937733373864054780"
