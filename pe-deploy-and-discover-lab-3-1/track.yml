@@ -88,13 +88,13 @@ challenges:
     2. Search for packages: To narrow the list, enter the name or partial name of a package in the **Filter by package name** field and click **Apply**.
 
     4. Enter the following package names one at a time:
-        **java-latest-openjdk**, **httpd**, **nginx**
+        **Java 8**, **httpd**, **nginx**
 
     If a node is found with one of the above packages, you can now start to identify the node's role:
 
     | Package name        | Server role   |
     |---------------------|---------------|
-    | java-latest-openjdk | App server    |
+    | Java 8              | App server    |
     | httpd               | Web server    |
     | nginx               | Load balancer |
 
@@ -109,10 +109,15 @@ challenges:
     hostname: puppet
     path: /
     port: 443
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
   - title: "Bug Zapper \U0001F99F⚡"
     type: website
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "3238319906999505117"
+checksum: "1471625888093503856"

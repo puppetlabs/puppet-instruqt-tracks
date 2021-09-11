@@ -81,14 +81,15 @@ rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
 yum install -y puppet-bolt-3.17.0 jq
 
 bolt command run 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
-bolt command run 'yum install -y httpd java-latest-openjdk' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
+bolt command run 'yum install -y httpd' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
 bolt command run 'yum install -y nginx' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent2
 
-#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd java-latest-openjdk'
+#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd'
 
 #ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y nginx'
 
 bolt command run 'Start-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+bolt command run 'C:\ProgramData\chocolatey\choco.exe install javaruntime' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
 # State for Lab 3.0
 
