@@ -40,6 +40,14 @@ challenges:
   type: challenge
   title: Working With Puppet's Trusted Facts
   teaser: Working With Puppet's Trusted Facts
+  notes:
+  - type: text
+    contents: |-
+      Using information gathered from package data collection, you will uninstall and then reinstall your agents with a trusted fact `pp_role` to enable you to identify each server's role.
+
+      In this lab, you will manually uninstall the agents and remove them from the primary server so that you can re-sign the agent certificate with trusted facts, and then reuse the node license.
+
+      Click **Start** when you're ready to begin.
   assignment: |-
     ✏️ Note: This lab includes instructions for both Linux and Windows. To follow the Linux instructions, proceed below. Otherwise, click [here](#windows) to jump to Windows instructions.
 
@@ -205,15 +213,15 @@ challenges:
     hostname: puppet
     path: /
     port: 443
-  - title: "Bug Zapper \U0001F99F⚡"
-    type: website
-    hostname: guac
-    url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   - title: Windows Agent
     type: service
     hostname: guac
     path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
     port: 8080
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "8108227295888101788"
+checksum: "8047393869929789501"
