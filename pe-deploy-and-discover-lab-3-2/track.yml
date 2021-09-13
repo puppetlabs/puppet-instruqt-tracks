@@ -38,14 +38,19 @@ challenges:
 - slug: working-with-puppets-trusted-facts
   id: 0fmim6wrx8d8
   type: challenge
-  title: Working With Puppet's Trusted Facts
-  teaser: Working With Puppet's Trusted Facts
+  title: Working with Puppet's trusted facts
+  teaser: Reinstall the Puppet agent and purge nodes from the PE server.
   notes:
   - type: text
     contents: |-
-      Using information gathered from package data collection, you will uninstall and then reinstall your agents with a trusted fact `pp_role` to enable you to identify each server's role.
+      [IN PROGRESS] In this lab, you will learn how to save and reuse licence slots when you decommission a node.
 
-      In this lab, you will manually uninstall the agents and remove them from the primary server so that you can re-sign the agent certificate with trusted facts, and then reuse the node license.
+      You will:
+
+      1. Manually uninstall the agents and remove them from the primary server.
+      2. Reinstall your agents with a trusted fact called `pp_role`.
+      3. Re-sign the agent certificate with trusted facts.
+      4. Reuse the node license.
 
       Click **Start** when you're ready to begin.
   assignment: |-
@@ -54,17 +59,15 @@ challenges:
     <a name="linux"><img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png"></a>
     ## Uninstall Linux agents
 
-    The *nix agent package includes an uninstall script, which you can use when you're ready to retire a node.
-    1. Navigate to the Linux nodes by clicking on the **Linux agent** tabs and running the following commands in each one.
+    On each Linux agent node, complete the following steps.
 
-    2. Retrieve the node's certname by running the following command:
-
+    1. Retrieve the node's certname by running the following command:
     ```
     puppet config print certname
     ```
-    ✏️ Note: Make note of the certname — you will need it later in the lab.
+    2. Copy the certname to a local text editor of your choice — you will need it later in the lab.
 
-    3. Run the uninstall script with the following command and parameters:
+    3. Retire the node by running the *nix agent uninstall script:
 
     ```
     /opt/puppetlabs/bin/puppet-enterprise-uninstaller -y -pd
@@ -72,7 +75,7 @@ challenges:
 
     In the output, look for the `## Done!` message to confirm that the uninstaller ran successfully.
 
-    4. Verify that the Puppet directory has been removed by running the following command:
+    5. Verify that the Puppet directory has been removed by running the following command:
 
     ```
     ls /etc/puppetlabs
@@ -82,6 +85,7 @@ challenges:
     ```
     ls: cannot access /etc/puppetlabs: No such file or directory
     ```
+    ✏️ Note: Remember to complete these instructions on each Linux agent node.
 
     ## Remove nodes from the primary server
 
@@ -94,7 +98,7 @@ challenges:
     - Makes the license available for another node.
     - Makes the hostname available for another node.
 
-    1. Navigate to the **PE Server** tab.
+    1. Navigate to the **Primary Server** tab.
 
     2. Purge the node by running the following command, replacing <CERTNAME> with the certname you obtained previously:
 
@@ -227,4 +231,4 @@ challenges:
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "17339091009160071751"
+checksum: "317916082591086506"
