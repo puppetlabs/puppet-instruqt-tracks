@@ -71,7 +71,7 @@ challenges:
 
     2. Copy the certname to a local text editor of your choice — you'll need it later in the lab.
 
-    3. Retire the node by running the *nix agent uninstall script on each :
+    3. Retire the node by running the *nix agent uninstall script on each:
 
     ```
     /opt/puppetlabs/bin/puppet-enterprise-uninstaller -y -pd
@@ -241,4 +241,4 @@ challenges:
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10682510549565360484"
+checksum: "140478097615300009"

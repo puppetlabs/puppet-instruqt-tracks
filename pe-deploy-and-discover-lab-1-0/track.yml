@@ -45,52 +45,7 @@ challenges:
       In this lab, you'll complete an express installation of PE and confirm in the PE console that the installation was successful.
 
        Click **Start** when you're ready to begin.
-  assignment: |-
-    1. On the **Primary Server** tab, download the installation tarball:
-    Tip: Click the code block to copy it, and then right-click and paste it on the command line.
-    ```
-    curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'
-    ```
-
-    2. Unpack the tarball:
-    ```
-    tar -xf puppet-enterprise-2019.8.6-el-7-x86_64.tar.gz
-    ```
-    3. Run the Puppet Enterprise installer. When prompted, enter **Y** to proceed:
-    ```
-    ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer
-    ```
-    ✏️ Note: This step might take a few minutes to complete.
-
-    4. Set the password for the PE console to **puppetlabs** (you will use this password to log into the console after PE is installed):
-    ```
-    puppet infrastructure console_password --password=puppetlabs
-    ```
-    5. Run Puppet <b>twice</b> to complete the PE installation (don't chain the commands):
-    ```
-    puppet agent -t
-    ```
-    ✏️ Note: Running Puppet twice ensures that all of the post-configuration operations are complete and that PE is running.
-
-    6. Check the status of the Puppet services:
-    ```
-    puppet infrastructure status
-    ```
-
-    7. Switch to the **PE Console** tab.
-
-    8. Log into the console with ID `admin` and password `puppetlabs` (the password you set in Step 4).
-
-    9. On the **Status** page, click **Puppet Services status** near the top right. You should see output similar to the following:
-
-    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)
-    10. Make sure that all the services in the list are running ("operational").
-
-    Congratulations! You installed PE, and its basic configuration is now complete.
-
-    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-    To complete this lab, click **Next**.
+  assignment: "\n1. On the **Primary Server** tab, download the installation tarball: <br><br>\U0001F4A1 **Tip:** Click the code block to copy it, and then right-click and paste it on the command line.<br><br>\n    ```\n    curl -JLO 'https://pm.puppet.com/cgi-bin/download.cgi?dist=el&rel=7&arch=x86_64&ver=2019.8.6'\n    ```\n\n2. Unpack the tarball:<br><br>\n    ```\n    tar -xf puppet-enterprise-2019.8.6-el-7-x86_64.tar.gz\n    ```\n\n3. Run the Puppet Enterprise installer. When prompted, enter ****Y**** to proceed:<br><br>✏️ **Note:** This step might take a few minutes to complete.<br><br>\n    ```\n    ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer\n    ```\n\n4. Set the password for the PE console to `puppetlabs`: <br><br>⚠️ **Important:** You will use this password to log into the console after PE is installed)<br><br>\n    ```\n    puppet infrastructure console_password --password=puppetlabs\n    ```\n\n5. Run Puppet <b>**twice**</b> to complete the PE installation:<br><br>✏️ **Note:** Running Puppet twice ensures that all of the post-configuration operations are complete and that PE is running.<br><br>⚠️ **Important:** Don't chain the commands.<br><br>\n    ```\n    puppet agent -t\n    ```\n\n6. Check the status of the Puppet services:<br><br>\n    ```\n    puppet infrastructure status\n    ```\n\n7. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n8. Log into the console with ID `admin` and password `puppetlabs` (the password you set in Step 4).\n\n9. On the **Status** page, click **Puppet Services status** near the top right. You should see output similar to the following:\n\n    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)\n\n10. Make sure that all the services in the list are running (\"operational\").\n\n<br>\U0001F388 **Congratulations!** You installed PE, and its basic configuration is now complete.\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**."
   tabs:
   - title: Primary Server
     type: terminal
@@ -105,4 +60,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "2146850692564999265"
+checksum: "9517558539487339967"

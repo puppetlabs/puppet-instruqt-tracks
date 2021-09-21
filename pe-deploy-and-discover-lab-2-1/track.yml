@@ -51,109 +51,7 @@ challenges:
       * Run the agent installation script and automatically sign the agent's certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
-  assignment: |
-    1. On the **Primary Server** tab, navigate to:
-    ```
-    cd /etc/puppetlabs/puppet
-    ```
-    2. Create and edit the autosign.rb script:
-    ```
-    vim autosign.rb
-    ```
-    3. Copy the code below into the file.
-
-    To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.
-    ```
-    #!/opt/puppetlabs/puppet/bin/ruby
-    #
-    # A note on logging:
-    #   This script's stderr and stdout are only shown at the DEBUG level
-    #   of the server's logs. This means you won't see the error messages
-    #   in puppetserver.log by default. All you'll see is the exit code.
-    #
-    #   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api
-    #
-    # Exit Codes:
-    #   0 - A matching challengePassword was found.
-    #   1 - No challengePassword was found.
-    #   2 - The wrong challengePassword was found.
-    #
-    require 'puppet/ssl'
-
-    csr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
-    psk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip
-
-    if pass = csr.custom_attributes.find do |attribute|
-         ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']
-       end
-    else
-      puts 'No challengePassword found. Rejecting certificate request.'
-      exit 1
-    end
-
-    if pass['value'] == psk
-      exit 0
-    else
-      puts "challengePassword does not match: #{pass['value']}"
-      exit 2
-    end
-    ```
-
-    4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`. To save time, you can click the code below to copy it, and then paste it on the command line:
-    ```
-    chmod 700 /etc/puppetlabs/puppet/autosign.rb
-    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
-    ```
-
-    5. Create and edit the pre-shared key (PSK) file:
-    ```
-    vim psk
-    ```
-
-    6. Copy the following pre-shared key into the file.
-    Type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, press `ESC` and type `:wq`.
-
-    ```
-    PASSWORD_FOR_AUTOSIGNER_SCRIPT
-    ```
-
-    7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Primary Server** tab, run:
-
-    ```
-    chmod 600 /etc/puppetlabs/puppet/psk
-    chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
-    ```
-
-    8. Configure the primary server to enable autosigning with `autosign.rb` by running:
-
-    ```
-    puppet config set autosign /etc/puppetlabs/puppet/autosign.rb --section server
-    ```
-
-    9. Restart the primary server:
-
-    ```
-    sudo service pe-puppetserver restart
-    ```
-
-    10. On the **Linux Agent** tab, install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
-
-    ```
-    uri='https://puppet:8140/packages/current/install.bash'
-    curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
-    ```
-
-    11. When the installation is complete, switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
-
-    12. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
-
-    13. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
-
-    Congratulations! You installed the Puppet agent with autosigning enabled.
-
-    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
-
-    To close this lab, click **Next**.
+  assignment: "1. On the **Primary Server** tab, navigate to:<br><br>\n\t```\n\tcd /etc/puppetlabs/puppet\n\t```\n\n2. Create and edit the `autosign.rb` script:<br><br>\n\n\t```\n\tvim autosign.rb\n\t```\n\n3. Copy the code below into the file.<br><br>\U0001F4A1 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.<br><br>\n\n\t```\n\t#!/opt/puppetlabs/puppet/bin/ruby\n\t#\n\t# A note on logging:\n\t#   This script's stderr and stdout are only shown at the DEBUG level\n\t#   of the server's logs. This means you won't see the error messages\n\t#   in puppetserver.log by default. All you'll see is the exit code.\n\t#\n\t#   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api\n\t#\n\t# Exit Codes:\n\t#   0 - A matching challengePassword was found.\n\t#   1 - No challengePassword was found.\n\t#   2 - The wrong challengePassword was found.\n\t#\n\trequire 'puppet/ssl'\n\n\tcsr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)\n\tpsk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip\n\n\tif pass = csr.custom_attributes.find do |attribute|\n\t     ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']\n\t   end\n\telse\n\t  puts 'No challengePassword found. Rejecting certificate request.'\n\t  exit 1\n\tend\n\n\tif pass['value'] == psk\n\t  exit 0\n\telse\n\t  puts \"challengePassword does not match: #{pass['value']}\"\n\t  exit 2\n\tend\n\t```\n\n4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`. <br><br>\U0001F4A1 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:<br><br>\n\t```\n\tchmod 700 /etc/puppetlabs/puppet/autosign.rb\n\tchown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb\n\t```\n\n5. Create and edit the pre-shared key (PSK) file:<br><br>\n\t```\n\tvim psk\n\t```\n\n6. Copy the following pre-shared key into the file.<br><br>\U0001F4A1 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.<br><br>\n\n\t```\n\tPASSWORD_FOR_AUTOSIGNER_SCRIPT\n\t```\n\n7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`. On the **Primary Server** tab, run:<br><br>\n\n\t```\n\tchmod 600 /etc/puppetlabs/puppet/psk\n\tchown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk\n\t```\n\n8. Configure the primary server to enable autosigning with `autosign.rb` by running:<br><br>\n\n\t```\n\tpuppet config set autosign /etc/puppetlabs/puppet/autosign.rb --section server\n\t```\n\n9. Restart the primary server:<br><br>\n\n\t```\n\tsudo service pe-puppetserver restart\n\t```\n\n10. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab.\n\n11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:<br><br>\n\n\t```\n\turi='https://puppet:8140/packages/current/install.bash'\n\tcurl --insecure \"$uri\" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT\n\t```\n\n12. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch back to the **PE Console** tab when the agent installation is complete.\n\n1. Log in with username `admin` and password `puppetlabs`.\n\n1. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.\n\n1. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.\n\n<br>\U0001F388 **Congratulations!**  You installed the Puppet agent with autosigning enabled.\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**."
   tabs:
   - title: Primary Server
     type: terminal
@@ -171,4 +69,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "15008870580679861322"
+checksum: "1954977840116517862"

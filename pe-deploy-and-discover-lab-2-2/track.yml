@@ -50,59 +50,14 @@ challenges:
       3. Attempt the agent installation again and autosign the agent certificate by providing a challenge password.
 
       Click **Start** when you're ready to begin.
-  assignment: |
-    1. Navigate to the Linux node by clicking the **Linux Agent** tab. Then, install an agent by running the installation script with the `custom_attributes:challengePassword` parameter:
-    ```
-    uri='https://puppet:8140/packages/current/install.bash'
-    curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
-    ```
-    2. In the output, notice the failure message:
-    ```
-    The agent packages needed to support el-8-x86_64 are not present on your primary server.
-    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node, and then run Puppet.
-    The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.
-    ```
-    The installation failed because the EL8 package isn't present on the primary server - the primary server isn't running EL8. To ensure that the packages are present, you must add the `pe_repo::platform:<AGENT_OS_VERSION_ARCHITECTURE>` classes to the primary server.
-
-    3. On the **PE Console** tab, log into PE with username `admin`and password `puppetlabs`.
-
-    4. From the console sidebar, navigate to the **Node groups** page. Expand **PE Infrastructure** (click **+**) and then click **PE Master**.
-
-    5. Add the repository class for the agent node OS that you want to support. On the **Classes** tab, in the **Add new class** field, enter `pe_repo`. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class and then click **Add class**.
-
-    6. Commit your change: Click **Commit** in the bottom right of the page.
-
-    7. On the **Primary Server** tab, run Puppet to manually trigger the download of the new agent package to the primary server:
-    ```
-    puppet agent -t
-    ```
-
-    8. Return to the Linux node by clicking the **Linux Agent** tab. Then, install the agent on the Linux node by running the following installation script, which includes the `custom_attributes:challengePassword` parameter to autosign the agent certificate:
-
-    ```
-    uri='https://puppet:8140/packages/current/install.bash'
-    curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
-    ```
-    In the output, notice the success message:
-    ```
-    Installed:
-      puppet-agent-6.22.1-1.el8.x86_64
-
-    Complete!
-    ```
-
-    Congratulations! You configured PE to support installing agents that run a different OS than the primary server.
-
-    **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-    To close this lab, click **Next**.
+  assignment: "1. On the Linux node, install an agent by running the installation script with the `custom_attributes:challengePassword` parameter:<br><br>\n    ```\n    uri='https://puppet:8140/packages/current/install.bash'\n    curl --insecure \"$uri\" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT\n    ```\n    ✔️ **Result:** The installation script will fail.\n\n2. In the output, notice the failure message:<br><br>\n    ```\n    The agent packages needed to support el-8-x86_64 are not present on your primary server.\n    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node, and then run Puppet.\n    The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.\n    ```\n\n    \U0001F4AD **Why did the installation fail?**<br>\n    The EL8 package isn't present on the primary server — the primary server isn't running EL8. To ensure that the packages are present, you must add the `pe_repo::platform:<AGENT_OS_VERSION_ARCHITECTURE>` classes to the primary server.\n\n3. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.<br><br>Log in with username `admin` and password `puppetlabs`.\n\n1. From the console sidebar, navigate to the **Node groups** page. Expand **PE Infrastructure** (click **+**) and then click **PE Master**.\n\n1. Add the repository class for the agent node OS that you want to support.\n    1. On the **Classes** tab, in the **Add new class** field, enter `pe_repo`.\n    2. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class.\n    3. Click **Add class**.\n\n1. Commit your change: Click **Commit** in the bottom right of the page.\n\n1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.\n\n1. Run Puppet to manually trigger the download of the new agent package to the primary server:<br><br>\n    ```\n    puppet agent -t\n    ```\n\n8. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab.\n\n1. Install the agent on the Linux node by running the following installation script, which includes the `custom_attributes:challengePassword` parameter to autosign the agent certificate:<br><br>\n    ```\n    uri='https://puppet:8140/packages/current/install.bash'\n    curl --insecure \"$uri\" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT\n    ```\n    In the output, notice the success message:\n    ```\n    Installed:\n      puppet-agent-6.22.1-1.el8.x86_64\n\n    Complete!\n    ```\n\n<br>\U0001F388 **Congratulations!** You configured PE to support installing agents that run a different OS than the primary server.\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**."
   tabs:
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
   - title: Linux Agent
     type: terminal
     hostname: nixagent
+  - title: Primary Server
+    type: terminal
+    hostname: puppet
   - title: PE Console
     type: service
     hostname: puppet
@@ -113,4 +68,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "4694691815010446581"
+checksum: "13090247656890936313"
