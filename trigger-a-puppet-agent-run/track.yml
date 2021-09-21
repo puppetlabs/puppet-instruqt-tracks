@@ -27,13 +27,7 @@ description: |-
 
   If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/trigger-a-puppet-agent-run).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
-level: beginner
-tags:
-- Puppet agent
-- ' agent run'
-- ' node classification'
-- ' site.pp'
-- ' manifest'
+tags: []
 owner: puppet
 developers:
 - bart.kliebert@puppet.com
@@ -319,4 +313,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 360
-checksum: "9130995484261163739"
+checksum: "4485354338456414529"

@@ -12,13 +12,7 @@ description: |-
   **Before you get started**
   Keep an eye on the clock! You have 30 minutes to complete this track. After 30 minutes, your learning environment will expire and your work will not be saved. If you have not completed the track, you can restart the track and skip to any challenge.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
-level: beginner
-tags:
-- Puppet
-- agent
-- resources
-- providers
-- packages
+tags: []
 owner: puppet
 developers:
 - tara.swenson@puppet.com
@@ -415,4 +409,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 100
-checksum: "18157904271342484387"
+checksum: "15051196854704310444"

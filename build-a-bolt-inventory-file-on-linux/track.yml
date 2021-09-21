@@ -37,10 +37,7 @@ description: |-
 
    If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
-tags:
-- Puppet
-- Bolt
-- Linux
+tags: []
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -272,4 +269,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "5406122957157259025"
+checksum: "1054214024656254416"

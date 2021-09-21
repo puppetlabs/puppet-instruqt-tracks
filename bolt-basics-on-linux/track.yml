@@ -28,10 +28,7 @@ description: |
 
   Keep an eye on the clock. You have 30 minutes to complete this track. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the track, you can simply restart it and skip to any challenge.
 icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
-tags:
-- Puppet
-- Bolt
-- Linux
+tags: []
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -282,4 +279,4 @@ challenges:
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
   timelimit: 360
-checksum: "11287530902673618512"
+checksum: "15637174876638631057"
