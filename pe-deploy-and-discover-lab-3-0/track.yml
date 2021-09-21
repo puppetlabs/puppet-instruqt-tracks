@@ -1,8 +1,8 @@
 slug: pe-deploy-and-discover-lab-3-0
 id: trd6dwmkdt6s
 type: sandbox
-title: 'PE Deploy and Discover - Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts'
-teaser: Use facter_task & external facts in PE to discover data about your nodes.
+title: 'PE Deploy and Discover - Lab 3.0: Discover Information About Your Nodes By Using facter_task and External Facts'
+teaser: You can use facts to help you write conditional expressions and reusable code.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -29,8 +29,7 @@ description: |-
 
   Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags:
-- deploy-and-discover
+tags: []
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -49,17 +48,17 @@ challenges:
   notes:
   - type: text
     contents: |-
-      Its your first day on the job at your new sysadmin role and your boss sent you a memo.
+      It's your first day on the job in your new sysadmin role, and your boss sent you an email asking you to tag each node with its corresponding data center.
 
-      To read the memo, click the arrow (**>**) at the right.
+      To read the email, click the arrow (**>**) at the right.
   - type: text
     contents: |-
       <img src="https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/lab-3.0-boss-memo.png" width="90%">
 
-      Read the memo, and then click the arrow (**>**) at the right to continue.
+      Read the email above, and then click the arrow (**>**) at the right to continue.
   - type: text
     contents: |-
-      With this new information, you'll extend Facter to identify and tag each server with its corresponding datacenter location.
+      With this new information, you'll extend Facter to identify and tag each server with its corresponding data center location.
 
       Facter — a component of the Puppet agent — gathers built-in (core) facts that are packaged within it. It can also gather custom or external facts by using scripts that you or a third party have written.
 
@@ -92,8 +91,8 @@ challenges:
 
     ✔️ Result: On the **Task Details** page, notice that the task output for each node includes the built-in `timezone` fact.
 
-    Use the table below to determine which datacenter applies to each node's timezone. You will use this to create the datacenter fact in the following sections.
-    | Time zone      | Datacenter      |
+    Use the table below to determine which data center corresponds to each node's time zone. You will use this to create the `datacenter` fact in the following sections.
+    | Time Zone      | Data Center      |
     |----------------|-----------------|
     | Eastern / EDT  | datacenter-east |
     | Pacific / PDT  | datacenter-west |
@@ -125,13 +124,13 @@ challenges:
     vi /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
 
-    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` on the PE Console).
+    5. Add the following contents to the script, replacing `<DATACENTER>` with the **Data Center** value (from the table above) that corresponds to the node's `timezone` fact, which was returned when you ran `facter_task` in the PE console.
     ```
     #!/usr/bin/env bash
     echo "datacenter=<DATACENTER>"
     ```
 
-    ✏️ Tip: To paste text into Vi, type `:set paste`, press **Enter**, and then press `i`. Enter the correct datacenter, then save and exit by pressing `ESC` and typing `:wq`.
+    ✏️ Tip: To paste text into vi, type `:set paste`, press **Enter**, and then press `i`. Enter the correct data center value, and then save and exit by pressing `ESC` and typing `:wq`.
 
     6. Run the following command make the script executable:
     ```
@@ -159,7 +158,7 @@ challenges:
     <a name="windows"><img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png"></a>
 
     ## Create an external fact:
-    1. Check that the data center fact doesn't already exist. On the **Windows Agent** tab, open a Powershell window from the **Start** menu, and then run the following command (it should produce no value):
+    1. Check that the `datacenter` fact doesn't already exist. On the **Windows Agent** tab, open a Powershell window from the **Start** menu, and then run the following command (it should produce no value):
 
     ✏️ Tip: Click the code block to copy it, and then right-click and paste it.
 
@@ -172,20 +171,20 @@ challenges:
     notepad C:\ProgramData\PuppetLabs\facter\facts.d\datacenter.ps1
     ```
 
-    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Datacenter** value that corresponded to the node's `timezone` fact (which was returned when you ran `facter_task` on the PE console). Then, save and exit the file.
+    3. Add the following contents to the file, replacing `<DATACENTER>` with the **Data Center** value (from the table above) that corresponds to the node's `timezone` fact, which was returned when you ran `facter_task` in the PE console. Then, save and exit the file.
     ```
     write-host "datacenter=<DATACENTER>"
     ```
 
     ## Verify that the fact was installed and is accessible by Facter:
-    4. Run `facter datacenter` again and notice the new output - Facter should return `datacenter-east`.
+    4. Run `facter datacenter` again and notice the new output: Facter should return `datacenter-east`.
 
     5. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```
     puppet agent -t
     ```
 
-    6. On the **PE Console** tab, navigate to **Nodes** and click the `winagent` node. On the **Facts** tab, scroll to view the `datacenter` fact shown in the list.
+    6. On the **PE Console** tab, from the console sidebar, navigate to the **Nodes** page and click the `winagent` node. On the **Facts** tab, scroll to view the `datacenter` fact shown in the list.
 
     **Congratulations!** You installed an external fact script to create a `datacenter` fact, and then verified that Facter was able to retrieve the data in the fact.
 
@@ -211,4 +210,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "5274564153484223227"
+checksum: "12306687160653011084"

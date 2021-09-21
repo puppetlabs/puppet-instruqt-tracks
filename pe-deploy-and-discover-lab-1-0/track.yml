@@ -23,8 +23,7 @@ description: |-
 
   Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags:
-- deploy-and-discover
+tags: []
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -106,4 +105,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "5083220994826462814"
+checksum: "2146850692564999265"

@@ -2,7 +2,7 @@ slug: pe-deploy-and-discover-lab-3-2
 id: 6iykmwi1khah
 type: track
 title: 'PE Deploy and Discover - Lab 3.2: Establish server roles by reinstalling agents with trusted facts'
-teaser: Reinstall your agents with a trusted fact to enable you to identify each server's role.
+teaser: Purge the agent from your nodes and reinstall it with Puppet's trusted facts.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -13,11 +13,16 @@ description: |-
 
   **What you'll learn**
 
-  In this lab you'll learn how to uninstall/reinstall the Puppet agent with trusted facts in order to use server roles in classifying nodes.
+  In this, lab, you'll purge the Puppet agent from your nodes, and then reinstall the agent on each node to include Puppet's pp_role and pp_datacenter trusted facts.
+
+  Because trusted facts are extracted from the agent certificate, the data is immutable, providing a higher level of security for your nodes. You can use the data from facts to classify nodes so that you can get configuration and performance data for a specific group of nodes.
+
 
   **Prerequisites**
 
-  None
+  To complete this lab, you must have already completed the following PE Deploy and Discover labs:
+   - [Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
+   - [Lab 3.1: Identify Server Roles by Using Package Data Collection](https://play.instruqt.com/puppet/invite/qbye99iuacew)
 
   **Before you start**
 
@@ -39,95 +44,97 @@ challenges:
   id: 0fmim6wrx8d8
   type: challenge
   title: Working with Puppet's trusted facts
-  teaser: Reinstall the Puppet agent and purge nodes from the PE server.
+  teaser: Purge the agents and reinstall them with trusted facts.
   notes:
   - type: text
     contents: |-
-      [IN PROGRESS] In this lab, you will learn how to save and reuse licence slots when you decommission a node.
+      In this lab, you'll learn how to add trusted facts to agents. You will:
 
-      You will:
+      1. Manually uninstall the agents and purge them from the primary server.
+      2. Reinstall your agents with two trusted facts: `pp_role` and `pp_datacenter`
+      3. Re-sign the agent certificate with the trusted facts.
 
-      1. Manually uninstall the agents and remove them from the primary server.
-      2. Reinstall your agents with a trusted fact called `pp_role`.
-      3. Re-sign the agent certificate with trusted facts.
-      4. Reuse the node license.
-
-      Click **Start** when you're ready to begin.
+      This lab environment takes about 7 minutes to spin up. When the **Start** button appears, click it to begin.
   assignment: |-
-    ✏️ Note: This lab includes instructions for both Linux and Windows. To follow the Linux instructions, proceed below. Otherwise, click [here](#windows) to jump to Windows instructions.
+    This lab includes instructions for both Linux and Windows. To follow the Linux instructions, proceed below. Or, you can jump to the [Windows instructions](#windows).
 
     <a name="linux"><img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png"></a>
     ## Uninstall Linux agents
 
-    On each Linux agent node, complete the following steps.
+    The **Linux Agent 1** and **Linux Agent 2** tabs represent Linux nodes. On each Linux agent node, complete the following steps.
 
     1. Retrieve the node's certname by running the following command:
     ```
     puppet config print certname
     ```
-    2. Copy the certname to a local text editor of your choice — you will need it later in the lab.
+    ✏️ Tip: You can also get the certname by logging in to the **PE Console** (ID **admin** and password **puppetlabs**). Go to the **> Nodes** page, click the node name and on the Node details page, find the **clientcert** value on the **Facts** tab.
 
-    3. Retire the node by running the *nix agent uninstall script:
+    2. Copy the certname to a local text editor of your choice — you'll need it later in the lab.
+
+    3. Retire the node by running the *nix agent uninstall script on each :
 
     ```
     /opt/puppetlabs/bin/puppet-enterprise-uninstaller -y -pd
     ```
-
-    In the output, look for the `## Done!` message to confirm that the uninstaller ran successfully.
-
-    5. Verify that the Puppet directory has been removed by running the following command:
+    4. Verify that the Puppet directory has been removed by running the following command:
 
     ```
     ls /etc/puppetlabs
     ```
-    Your output will show the following, which confirms that the agent no longer exists:
+    ✔️ Result: The output confirms that the agent no longer exists:
 
     ```
     ls: cannot access /etc/puppetlabs: No such file or directory
     ```
-    ✏️ Note: Remember to complete these instructions on each Linux agent node.
+    ✏️ Note: Remember to complete these instructions on each Linux agent node before proceeding.
 
     ## Remove nodes from the primary server
 
-    Uninstalling the agent from a node does not remove the node from PE. If you no longer want PE to manage an agent node, you must purge it, making its license available for another node.
+    Uninstalling the agent from a node does not remove the node from management by the primary server. If you no longer want the primary server to manage an agent node, you must also purge it, which will:
+    - Remove the node from PuppetDB and the console.
+    - Delete the primary server’s information cache for the node.
+    - Revoke the node’s certificate by updating the certificate revocation list (CRL).
+    - Free up the license and hostname for reuse by another node.
 
-    Removing (purging) a node:
+    1. If you haven't already done so, log in to the PE console (on the **PE Console** tab) with ID **admin** and password **puppetlabs**.
 
-    - Removes the node from PuppetDB.
-    - Deletes the primary server’s information cache for the node.
-    - Makes the license available for another node.
-    - Makes the hostname available for another node.
+    2. How that you're logged in, you can run commands on the primary server. Go to the **Primary Server** tab.
 
-    1. Navigate to the **Primary Server** tab.
-
-    2. Purge the node by running the following command, replacing <CERTNAME> with the certname you obtained previously:
+    3. Purge each Linux node by running the following command for each one, replacing `<CERTNAME>` with the printed certname of each node:
 
     ```
     puppet node purge <CERTNAME>
     ```
+    ✔️ Result: In the output, notice the message: "Node `<CERTNAME>` was purged."
 
-    Result: The node’s certificate is revoked, the certificate revocation list (CRL) is updated, and the node is removed from PuppetDB and the console. The license is now available for another node. The node can't check in or re-register with PuppetDB on the next Puppet run.
+    ✏️ Note: Remember to run this command for each Linux node before proceeding.
 
     ## Install agents with trusted facts and an autosign password
 
-    1. Install an agent on each target by using the installation script, passing in the corresponding role and datacenter.
+    Refer to the data you gathered in labs 3.0 and 3.1 so that you can use the correct values in the next step:
 
-    - For the datacenter, use the value of the external fact 'datacenter' that you created in lab 3.0.
-    - For the role, use the package data you gathered from each node in lab 3.1.
+    Replace `<DATACENTER>` with the value of the external `datacenter` fact that you created in lab 3.0.
+    | Time Zone      | Data Center      |
+    |----------------|-----------------|
+    | Eastern / EDT  | datacenter-east |
+    | Pacific / PDT  | datacenter-west |
 
+    Replace `<ROLE>` with the package data you gathered from each node in lab 3.1.
     | Package     | Role            |
     | ----------- | --------------- |
     | Java 8      | ecommerce       |
-    | apache      | cmsweb          |
+    | httpd       | cmsweb          |
     | nginx       | cmsloadbalancer |
 
+
+    1. On the **Primary Server** tab, install an agent on each target by running the following installation script, passing in the corresponding role and data center for each node.
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
-    2. Log into the console, and then click on the **Nodes** page to view the trusted facts on the new nodes.
+    2. In the PE console, go to the **Nodes** page and click on the node names to view the trusted facts for the new nodes.
 
-    Congratulations! You uninstalled the Puppet agent from your nodes and purged them from PE so that you can re-use their node licenses. You securely assigned each server's role & datacenter in your environment by installing the Puppet agent with trusted facts. And, you installed the Puppet agent with an autosign password to enable certificate signing so that the agent can be authenticated by the primary server.
+    **Congratulations!** You uninstalled the agent from your nodes and purged them from the primary server so that you can reuse their node licenses. You then securely assigned each server's role and data center in your environment by installing the Puppet agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
@@ -136,75 +143,78 @@ challenges:
     <a name="windows"><img src="https://storage.googleapis.com/instruqt-images/graphic-windows.png"></a>
      ## Uninstall Windows agents
 
-    To uninstall the agent from a Windows node, you can use the **Windows Add or Remove Programs** interface, or command line using the .msi package.
-
-    Uninstalling the Windows agent removes:
-    - The Puppet program directory
-    - The agent service
-    - All related registry keys
-
-    The `data` directory remains intact, including all SSL keys. To completely remove Puppet from the system, you must manually delete the data directory: `C:\ProgramData\PuppetLabs\puppet`
-
-    1. Navigate to the Windows node and open a PowerShell terminal.
+    1. Navigate to the **Windows Agent**, and then open a PowerShell terminal: Windows Start --> Windows Powershell --> Windows Powershell
     2. Retrieve the node's certname by running the following command:
     ```
     puppet config print certname
     ```
-    ✏️ Note: Make note of the certname — you will need it later in the lab.
+    ✏️ Note: You can also locate the certname by logging into the **PE Console** and navigating to the **Node Details** page.
 
-    3. Launch the **Windows Add or Remove Programs** interface by running the following command:
+    3. Copy the certname to a local text editor of your choice — you will need it later in the lab.
+
+    4. Launch the **Windows Add or Remove Programs** interface by running the following command:
     ```
     appwiz
     ```
-    4. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts.
-    5. Delete the data directory `C:\ProgramData\PuppetLabs\puppet` by running the following command in the PowerShell terminal:
+    5. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts to continue to uninstall. Uninstalling the agent removes the Puppet program directory, the agent service, and all related registry keys. This might take a couple of minutes.
+
+    6. The `data` directory remains intact, including all SSL keys. To completely remove the agent from the node, you must manually delete the data directory `C:\ProgramData\PuppetLabs\puppet` by running the following command in the PowerShell terminal:
 
     ```
     remove-item C:\ProgramData\PuppetLabs\puppet -Recurse -Confirm:$false
     ```
     ## Remove nodes from the primary server
 
-    Uninstalling the agent from a node does not remove the node from PE - If you no longer want PE to manage an agent node, you must purge it, making its license available for another node.
+    Uninstalling the agent from a node does not remove the node from the primary server. If you no longer want the primary server to manage an agent node, you must also purge it, which will:
+    - Remove the node from PuppetDB and the console.
+    - Delete the primary server’s information cache for the node.
+    - Revoke the node’s certificate by updating the certificate revocation list (CRL).
+    - Free up the license and hostname for reuse by another node.
 
-    Removing (purging) a node:
-
-    - Removes the node from PuppetDB.
-    - Deletes the primary server’s information cache for the node.
-    - Makes the license available for another node.
-    - Makes the hostname available for another node.
-
-    1. Navigate to the **PE Server**.
-    2. Purge the node by running the following command, replacing <CERTNAME> with the certname you obtained previously:
+    1. Click the **Primary Server** tab to go to the primary server.
+    2. Purge the node by running the following command, replacing <CERTNAME> with the certname from step 3 above.
     ```
     puppet node purge <CERTNAME>
     ```
-    Result: The node’s certificate is revoked, the certificate revocation list (CRL) is updated, and the node is removed from PuppetDB and the console. The license is now available for another node. The node can't check in or re-register with PuppetDB on the next Puppet run.
+    ✔️ Result: In the output, notice the message: "Node `<CERTNAME>` was purged."
 
     ## Install agents with trusted facts and an autosign password
 
-    1. Install an agent on each target by using the installation script, passing in the corresponding role and datacenter.
-    - For the datacenter, use the external fact 'datacenter' you created in lab 3.0.
-    - For the role, use the package data you gathered from each node in lab 3.1.
+    Refer to the data you gathered in labs 3.0 and 3.1 so that you can use the correct values in the next step:
 
+    Replace `<DATACENTER>` with the value of the external `datacenter` fact that you created in lab 3.0.
+    | Time Zone      | Data Center      |
+    |----------------|-----------------|
+    | Eastern / EDT  | datacenter-east |
+    | Pacific / PDT  | datacenter-west |
+
+    Replace `<ROLE>` with the value from the package data you gathered from the node in lab 3.1.
     | Package     | Role            |
     | ----------- | --------------- |
     | Java 8      | ecommerce       |
     | apache      | cmsweb          |
     | nginx       | cmsloadbalancer |
 
+    1. On the **Windows Agent**, install an agent by using the following installation script, passing in the corresponding role and datacenter for the last command. Run the following commands one at a time:
     ```
     [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
+    ```
+    ```
     $webClient = New-Object System.Net.WebClient;
+    ```
+    ```
     $webClient.DownloadFile('https://puppet:8140/packages/current/install.ps1', 'install.ps1');
+    ```
+    ```
     .\install.ps1 custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
-    2. Log into the **PE Console**, and then click on the **Nodes** page to view the trusted facts on the new nodes.
+    2. If you haven't already done so, log into the **PE console** (ID **admin** and password **puppetlabs**), go to the **Nodes** page, and then click on the Windows node name to view the trusted facts for the new node.
 
-    Congratulations! You uninstalled the Puppet agent from your nodes and purged them from PE so that you can re-use their node licenses. You securely assigned each server's role & datacenter in your environment by installing the Puppet agent with trusted facts. And, you installed the Puppet agent with an autosign password to enable certificate signing so that the agent can be authenticated by the primary server.
+    **Congratulations!** You uninstalled the Puppet agent from your node and purged it from PE so that you can reuse its node license. You securely assigned the server's role and data center in your environment by installing the agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
 
     **Find bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
-    To close this lab, click **Next**.
+    To close this lab, click **Check**.
   tabs:
   - title: PE Console
     type: service
@@ -231,4 +241,4 @@ challenges:
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "317916082591086506"
+checksum: "10682510549565360484"
