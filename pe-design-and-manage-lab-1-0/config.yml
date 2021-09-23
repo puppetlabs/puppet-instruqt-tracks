@@ -1,0 +1,8 @@
+version: "2"
+virtualmachines:
+- name: puppet
+  image: kmo-instruqt/puppet
+  machine_type: n1-standard-2
+- name: nixagent1
+  image: kmo-instruqt/linux-node
+  machine_type: n1-standard-2
