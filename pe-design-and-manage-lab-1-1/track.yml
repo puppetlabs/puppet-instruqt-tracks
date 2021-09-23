@@ -1,0 +1,91 @@
+slug: pe-design-and-manage-lab-1-1
+id: yu56fr4jobeo
+type: track
+title: 'PE Design and Manage - Lab 1.1: Simulate Changes with noop'
+teaser: Simulate an agent run to understand how Puppet remediates drift and keeps your systems in their desired state.
+description: |-
+  In this lab, you will simulate an agent run to understand how Puppet remediates drift and keeps your systems in their desired state. You will:
+
+
+  - Cause drift by making a breaking change to a Puppet component (the `pxp-agent` or the uninstaller script).
+  - Run Puppet with the `--noop` parameter to simulate an agent run without making changes to the system.
+  - Run Puppet normally to remediate the drift you caused.
+icon: ""
+tags:
+- ""
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+private: true
+published: true
+challenges:
+- slug: simulate-changes-with-noop
+  id: 8dcbrxcg3ex5
+  type: challenge
+  title: Simulate changes with noop
+  teaser: Simulate an agent run to understand how Puppet remediates drift and keeps your systems in their desired state.
+  notes:
+  - type: text
+    contents: |-
+      **What you'll learn**
+
+      In this lab you will:
+      - Cause drift by making a breaking change to a Puppet component (the pxp-agent or the uninstaller script).
+      - Run Puppet with the `--noop` parameter to simulate an agent run without making changes to the system.
+      - Run Puppet normally to remediate the drift you caused.
+  assignment: |-
+    # Let's break something
+    **What can we break?** Out of the box, Puppet manages only itself. So let's break Puppet!
+
+    Specifically, you'll cause drift on the agent node by making an unexpected change to one or more of the following:
+
+    | # | Type | Component |
+    |:-:|:-:|-------|
+    |**1**| Service | ` [pxp-agent] ` |
+    |**2**| File | ` [pxp-agent.conf] ` |
+    |**3**| File | ` [puppet-enterprise-uninstaller] ` |
+
+    ## Instructions
+
+    1. Choose a component to break. Then, cause drift on the node in one of the following ways:
+         | # | How to cause drift |
+         |:-:|------- |
+         |**1**| Stop the service by running this commnand: <br> ` service pxp-agent stop ` |
+         |**2**| Add text to the config file by running this command: <br> ` echo hello > /etc/puppet....pxp-agent.conf ` |
+         |**3**| Remove the uninstallation file by running this command: <br> ` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller `|
+
+    # See how Puppet would fix it
+
+    Run Puppet in noop mode to simulate a Puppet agent run and understand what Puppet agent would do.
+
+    ## Instructions
+
+    1. Run the command you think would trigger a Puppet agent run in noop mode. (Hint: You can use the `puppet --help` command for clues.)
+         | # | Choose a command to run |
+         |:-:|------- |
+         |**1**| `puppet agent run --noop` |
+         |**2**| `puppet agent -t --noop` |
+         |**3**| `puppet agent get_catalog --noop` |
+
+    2. Examine the output for the mention of `noop` to see the changes Puppet would have made.
+
+    # Let Puppet fix it
+    ## Instructions
+
+    1. Run the Puppet agent normally:
+
+        `puppet agent -t`
+
+    2. Examine the output to see the changes Puppet made to bring the node back into its desired state (all Puppet components fully functional).
+
+    How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
+  tabs:
+  - title: Linux Agent 1
+    type: terminal
+    hostname: nixagent1
+  - title: Primary Server
+    type: terminal
+    hostname: puppet
+  difficulty: basic
+  timelimit: 600
+checksum: "13172828124501603514"
