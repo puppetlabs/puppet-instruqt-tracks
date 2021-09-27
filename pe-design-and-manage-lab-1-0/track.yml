@@ -1,0 +1,106 @@
+slug: pe-design-and-manage-lab-1-0
+id: nua4cwppbg9z
+type: track
+title: 'PE Design and Manage - Lab 1.0: Inspect the agent catalog'
+teaser: Inspect the agent catalog
+description: |-
+  **What you'll learn**
+
+  In this lab you will:
+  Explore the agent run lifecycle by running puppet agent.
+  Inspect the resulting catalog to see what puppet agent manages out of the box.
+icon: ""
+tags:
+- ""
+owner: puppet
+developers:
+- jain.waldrip@puppet.com
+- greg.larkin@puppet.com
+- alex.williamson@puppet.com
+- thomas.chisholm@puppet.com
+private: true
+published: true
+challenges:
+- slug: inspect-the-agent-catalog
+  id: rl9eexqbjtq4
+  type: challenge
+  title: Inspect the agent catalog
+  teaser: Inspect the resulting catalog to see what puppet agent manages out of the box.
+  notes:
+  - type: text
+    contents: asdf
+  assignment: |+
+    # Instructions
+
+    1. On the Linux Agent 1 tab, run the Puppet agent to request a catalog from the primary server.
+
+    ```
+    puppet agent -t
+    ```
+    2. Locate the catalog by running the following command:
+
+    ```
+    puppet config print client_datadir
+    ```
+     Expected output:
+    ```
+    /etc/puppetlabs/puppet/cache/client_data              # on linux
+    ```
+    3. Inspect the contents of the catalog and take note - the service resource `pxp-agent` is being managed by running the following command:
+
+    ```
+    cat /etc/puppetlabs/puppet/cache/client_data/catalog/mynode.json | jq .
+    ```
+
+    Result: As the timestamp shows, the primary server just generated the first catalog and delivered it to the node.
+    ```
+    ...
+    {
+          "type": "Service",
+          "title": "pxp-agent",
+          "tags": [
+            "service",
+            "pxp-agent",
+            "class",
+            "puppet_enterprise::pxp_agent::service",
+            "puppet_enterprise",
+            "pxp_agent",
+            "puppet_enterprise::pxp_agent",
+            "puppet_enterprise::profile::agent",
+            "profile",
+            "agent",
+            "node",
+            "default"
+          ],
+          "file": "/opt/puppetlabs/puppet/modules/puppet_enterprise/manifests/pxp_agent/service.pp",
+          "line": 4,
+          "exported": false,
+          "parameters": {
+            "ensure": true,
+            "enable": true,
+            "hasrestart": true
+      ...
+    ```
+
+    # Questions
+
+    1. What if I wanted to do this on Windows?
+
+    ```
+    C:/ProgramData/PuppetLabs/puppet/cache/client_data    # on windows
+    ```
+
+    2. What is jq?
+    3. Why are we doing this? `pxp_agent` is one of the only things that comes fully configured, so we'll merely use it to demonstrate several Puppet things. This is not something a typical user would interact with on a normal basis.
+    4. Why would I do this? For peace of mind - to show that puppet only manages xyz.
+
+  tabs:
+  - title: Linux Agent 1
+    type: terminal
+    hostname: nixagent1
+  - title: Primary Server
+    type: terminal
+    hostname: puppet
+  difficulty: basic
+  timelimit: 600
+checksum: "17862310050429759174"
