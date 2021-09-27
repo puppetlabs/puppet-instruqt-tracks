@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-3-2
 id: 6iykmwi1khah
 type: track
-title: 'PE Deploy and Discover - Lab 3.2: Establish server roles by reinstalling agents with trusted facts'
+title: 'PE Deploy and Discover - Lab 3.2: Establish Server Roles by Reinstalling Agents With Trusted Facts'
 teaser: Purge the agent from your nodes and reinstall it with Puppet's trusted facts.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -241,4 +241,4 @@ challenges:
     url: https://docs.google.com/forms/d/1pT9JaoKEsNcq46Xd1sptUKqF2eINQA6aSJdZ5ClWtJA/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "140478097615300009"
+checksum: "7366740021147618848"

@@ -22,13 +22,14 @@ description: |-
   **Prerequisites**
 
   This lab builds on activities from other PE Deploy and Discover labs. Make sure that you have completed:
-  - [Lab 3.0: Identify Information About Your Nodes By Using facter_task & External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
+  - [Lab 3.0: Identify Your Nodes Using External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
 
   **Before you start**
 
   Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -73,51 +74,7 @@ challenges:
       You can choose to collect package data on all your nodes or just a subset. Any node with an agent version 1.6.0 or later installed can report package data, including nodes that do not have active configurations defined on the primary server.
 
       This lab takes about 5 minutes to spin up. When the **Start** button appears, click it to begin.
-  assignment: |-
-    ## Enable package data collection
-    1. On the **PE Console** tab, log in to the console with username `admin` and password `puppetlabs`.
-
-    2. From the console sidebar, navigate to the **Node groups** page, expand (click **+**) **PE Infrastructure**, and click the **PE Agent** node group.
-
-    3. On the **Classes** tab, notice that the `puppet_enterprise::profile::agent` class has already been added to this node group, along with a couple of class-specific parameters.
-
-    4. In the **Parameter name** list for the class, select the `package_inventory_enabled` parameter and set it to `true`. Then, click **Add to node group** and commit your change by clicking **Commit** near the bottom of the page.
-
-    5. Run Puppet to apply the change to the nodes in the **PE Agent** node group: Click **Run > Puppet** near the upper-right corner of the page. Notice the node details, and leave the options with the default values shown. Then, click **Run job** near the bottom of the page. This might take a few moments to complete (monitor the job status near the upper-right corner of the page).
-
-    ✏️ Note: If you navigate away from the **Job details** page before the job completes, you can go back by going to the **Jobs** page and clicking the most recent job.
-
-    On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.
-
-    6. To start collecting and reporting package data, run Puppet a second time. In the upper right of the **Job details** page, click **Run again > All nodes**. Leave the default options as before and click **Run job** to start the second Puppet agent run. You can see the job status near the upper-right corner of the page.
-
-    ## View and manage package inventory
-
-    1. To view and manage the complete inventory of packages on your systems, go to the **Packages** page.
-
-    2. For this scenario, you're trying to find the app and web servers and load balancers by searching for the packages listed in the table below: Enter the name or partial name of a package in the **Filter by package name** field and click **Apply**. In the results list, click the package name, and notice which nodes have the package installed. Repeat this step for all the packages in the table.
-
-    | Package Name        | Server Role   |
-    |---------------------|---------------|
-    | Java 8              | App server    |
-    | httpd               | Web server    |
-    | nginx               | Load balancer |
-
-
-    ## Create a report that shows all the packages installed in your environment
-    1. On the **Packages** page, remove any filters from the previous steps. Then, right-click **Export Data** and click **Save link as**.
-    2. Download the CSV file to your local machine and review it.
-
-    ## Create a report that lists the web servers (nodes that have the **httpd** package installed)
-    1. On the **Packages** page, in the **Filter by package name** field, enter **httpd** and click **Apply**.
-    2. In the results, click **httpd**.
-    3. Right-click **Export Data**, and then click **Save link as**. Download and review the CSV file.
-
-    **Congratulations!** You enable package data collection and used the information to discover the roles of the nodes in your environment.
-
-    **Find bugs or have feedback? Click the Bug Zapper tab near the top of the page and let us know!**
-
-    To close this lab, click **Next**.
+  assignment: "## Enable package data collection\nLog in to the PE console with username `admin` and password `puppetlabs`.\n\n2. From the console sidebar, navigate to the **Node groups** page, expand (click **+**) **PE Infrastructure**, and click the **PE Agent** node group.\n\n3. On the **Classes** tab, notice that the `puppet_enterprise::profile::agent` class has already been added to this node group, along with a couple of class-specific parameters.\n\n4. Enable package data collection.\n    1. In the **Parameter name** list for the class, select the `package_inventory_enabled` parameter and set it to `true`.\n    2. Click **Add to node group**.\n    3. Commit your change by clicking **Commit** near the bottom of the page.\n\n5. Run Puppet to apply the change to the nodes in the **PE Agent** node group.\n    1. Click **Run > Puppet** near the upper-right corner of the page.\n    2. Notice the node details, and leave the options with the default values shown.\n    3. Click **Run job** near the bottom of the page.<br><br>✏️ **Note:** This might take a few moments to complete (monitor the job status near the upper-right corner of the page).<br><br>✔️ **Result:** On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.\n\n6. To start collecting and reporting package data, run Puppet a second time.\n    1. In the upper right of the **Job details** page, click **Run again > All nodes**.\n    2. Click **Run job** to start the second Puppet agent run.\n    3. Notice the job status near the upper-right corner of the page.\n\n---\n\n## View and manage package inventory\n\n1. Go to the **Packages** page.\n\n2. For this scenario, you're trying to find the app servers, web servers, and load balancers by searching for the packages listed in the table below:\n    1. Enter the name or partial name of a package in the **Filter by package name** field and click **Apply**.\n    2. In the results list, click the package name, and notice which nodes have the package installed.\n    3. Repeat this for all the packages in the table.\n\n    | Package Name        | Server Role   |\n    |---------------------|---------------|\n    | Java 8              | App server    |\n    | httpd               | Web server    |\n    | nginx               | Load balancer |\n\n---\n\n## Create a report of all packages installed in your environment\n\n1. On the **Packages** page, remove any filters from the previous steps.\n2. Right-click **Export Data** and click **Save link as**.\n3. Download the CSV file to your local machine and review it.\n\n---\n\n## Create a report that lists the web servers (nodes that have the **httpd** package installed)\n\n1. On the **Packages** page, in the **Filter by package name** field, enter **httpd** and click **Apply**.\n2. In the results, click **httpd**.\n3. Right-click **Export Data**, and then click **Save link as**.\n4. Download the CSV file to your local machine and review it.\n\n<br>\U0001F388 **Congratulations!** You enable package data collection and used the information to discover the roles of the nodes in your environment.\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**."
   tabs:
   - title: PE Console
     type: service
@@ -130,4 +87,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSenGFM2AnTNFEGm4K6WLkDE4XlQy5yggQtaatGPPYclkYmmlw/viewform?embedded=true
   difficulty: basic
   timelimit: 1800
-checksum: "6336245207158007887"
+checksum: "9332302665963903139"

@@ -2,7 +2,7 @@ slug: pe-deploy-and-discover-lab-2-1
 id: y8mpb4sleibk
 type: sandbox
 title: 'PE Deploy and Discover - Lab 2.1: Configure Agent Certificate Autosigning'
-teaser: Learn how to set up autosigning so that you can automate agent installation on new nodes.
+teaser: Set up autosigning so that you can automate agent installation on new nodes.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -23,7 +23,8 @@ description: |-
 
   Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -69,4 +70,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSe6525nHrz5FRpniKPvllcYfyDOQRl6St9wvW-wKErvmt8RSg/viewform?embedded=true
   difficulty: basic
   timelimit: 1200
-checksum: "1954977840116517862"
+checksum: "8274312711396767057"
