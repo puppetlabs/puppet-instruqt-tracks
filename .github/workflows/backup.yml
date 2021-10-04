@@ -21,7 +21,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Download Instruqt pinned release
-        run: wget https://github.com/instruqt/cli/releases/download/1785-9e2fa1f/instruqt-darwin-1785-9e2fa1f.zip
+        run: wget https://github.com/instruqt/cli/releases/download/1785-9e2fa1f/instruqt-linux-1785-9e2fa1f.zip
 
       - name: Unzip the instruqt cli
         run: unzip instruqt-darwin-1785-9e2fa1f.zip
