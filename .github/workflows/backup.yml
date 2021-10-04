@@ -34,6 +34,9 @@ jobs:
       - name: Run instruqt CLI test command
         run: instruqt
         
+      - name: Run instruqt update
+        run: instruqt update
+        
       - name: Make a temp working dir
         run: mkdir working
         
