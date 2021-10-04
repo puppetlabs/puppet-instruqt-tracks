@@ -31,3 +31,15 @@ jobs:
         
       - name: Run instruqt CLI test command
         run: instruqt
+        
+      - name: Make a temp working dir
+        run: mkdir working
+        
+      - name: Change to working dir
+        run: cd working
+        
+      - name: Test checking out repo
+        uses: actions/checkout@v2
+        
+      - name: Print dir contents
+        run: ls
