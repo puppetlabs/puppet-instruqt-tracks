@@ -35,7 +35,7 @@ jobs:
         run: instruqt
         
       - name: Run instruqt update
-        run: instruqt update
+        run: sudo instruqt update
         
       - name: Make a temp working dir
         run: mkdir working
