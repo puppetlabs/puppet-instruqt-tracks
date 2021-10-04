@@ -1,6 +1,6 @@
-# This is a basic workflow to help you get started with Actions
+# This job runs on a cron schedule to backup the instruqt project to this github repo
 
-name: CI
+name: Backup
 
 # Controls when the workflow will run
 on:
@@ -23,6 +23,11 @@ jobs:
       - name: Download Instruqt pinned release
         run: wget https://github.com/instruqt/cli/releases/download/1785-9e2fa1f/instruqt-darwin-1785-9e2fa1f.zip
 
-      # Runs a single command using the runners shell
       - name: Unzip the instruqt cli
-        run: ls
+        run: unzip instruqt-darwin-1785-9e2fa1f.zip
+        
+      - name: Copy instruqt CLI to usr/bin
+        run: cp instruqt /usr/bin/instruqt
+        
+      - name: Run instruqt CLI test command
+        run: instruqt
