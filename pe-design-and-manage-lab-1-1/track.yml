@@ -16,6 +16,9 @@ tags:
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
+- jain.waldrip@puppet.com
+- greg.larkin@puppet.com
+- alex.williamson@puppet.com
 private: true
 published: true
 challenges:
@@ -88,4 +91,4 @@ challenges:
     hostname: puppet
   difficulty: basic
   timelimit: 600
-checksum: "13172828124501603514"
+checksum: "2338022558380071928"
