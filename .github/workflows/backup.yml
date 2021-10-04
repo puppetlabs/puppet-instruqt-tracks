@@ -27,7 +27,7 @@ jobs:
         run: unzip instruqt-darwin-1785-9e2fa1f.zip
         
       - name: Copy instruqt CLI to usr/bin
-        run: cp instruqt /usr/bin/instruqt
+        run: sudo cp instruqt /usr/bin/instruqt
         
       - name: Run instruqt CLI test command
         run: instruqt
