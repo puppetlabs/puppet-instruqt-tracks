@@ -1,0 +1,45 @@
+# This job runs on a cron schedule to backup the instruqt project to this github repo
+
+name: Backup
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: '30 7-7 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch: 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Download Instruqt pinned release
+        run: wget https://github.com/instruqt/cli/releases/download/1785-9e2fa1f/instruqt-linux-1785-9e2fa1f.zip
+
+      - name: Unzip the instruqt cli
+        run: unzip instruqt-linux-1785-9e2fa1f.zip
+        
+      - name: Copy instruqt CLI to usr/bin
+        run: sudo cp instruqt /usr/bin/instruqt
+        
+      - name: Run instruqt CLI test command
+        run: instruqt
+        
+      - name: Make a temp working dir
+        run: mkdir working
+        
+      - name: Change to working dir
+        run: cd working
+        
+      - name: Test checking out repo
+        uses: actions/checkout@v2
+        
+      - name: Print dir contents
+        run: ls
