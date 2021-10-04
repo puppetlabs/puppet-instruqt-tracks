@@ -16,6 +16,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      INSTRUQT_TOKEN: ${{ secrets.INSTRUQT_API_TOKEN }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -42,4 +44,9 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Print dir contents
-        run: ls
+        run: ls  
+        
+      - name: Test pulling tracks from list file
+        run: cat .github/workflows/backup.list |  xargs -t  -n 1 instruqt track pull
+        
+
