@@ -1,10 +1,12 @@
 puppet/bolt-basics-on-linux
 puppet/build-a-bolt-inventory-file-on-linux
 puppet/install-and-explore-the-puppet-agent-on-linux
+puppet/trigger-a-puppet-agent-run
 puppet/pe-deploy-and-discover-lab-1-0
 puppet/pe-deploy-and-discover-lab-1-1
 puppet/pe-deploy-and-discover-lab-2-0
 puppet/pe-deploy-and-discover-lab-2-1
+puppet/pe-deploy-and-discover-lab-2-2
 puppet/pe-deploy-and-discover-lab-3-0
 puppet/pe-deploy-and-discover-lab-3-2
 puppet/pe-design-and-manage-lab-1-0
