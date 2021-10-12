@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-1-0
 id: mxxouyyo8i2z
 type: sandbox
-title: 'PE Deploy and Discover - Lab 1.0: Install Puppet Enterprise'
+title: Install Puppet Enterprise
 teaser: Learn how to install Puppet Enterprise and monitor its status in the PE console.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -19,11 +19,16 @@ description: |-
 
   None
 
-  **Before you start**
+  ---
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -59,5 +64,5 @@ challenges:
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
-  timelimit: 1800
-checksum: "9517558539487339967"
+  timelimit: 3599
+checksum: "9230390255449428986"

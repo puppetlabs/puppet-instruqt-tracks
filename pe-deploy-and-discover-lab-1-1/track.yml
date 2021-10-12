@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-1-1
 id: uzggwuspuomz
 type: sandbox
-title: 'PE Deploy and Discover - Lab 1.1: Configure User Access'
+title: Configure User Access
 teaser: Learn how to assign role-based access in Puppet Enterprise.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -18,9 +18,13 @@ description: |-
 
   None
 
-  **Before you start**
+  ---
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
+  **Keep an eye on the clock**
+
+  ![15 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/15min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 15 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
@@ -61,5 +65,5 @@ challenges:
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSf-PbKW_YJg4VP6AO12HVuLexbwwIbC8CsyWugiK5_wYNRk4g/viewform?embedded=true
   difficulty: basic
-  timelimit: 900
-checksum: "10730260945252645966"
+  timelimit: 3600
+checksum: "9346202253585305619"

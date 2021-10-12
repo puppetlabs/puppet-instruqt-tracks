@@ -7,8 +7,20 @@ description: |-
   **What you'll learn**
 
   In this lab you will:
-  Explore the agent run lifecycle by running puppet agent.
-  Inspect the resulting catalog to see what puppet agent manages out of the box.
+  * Explore the agent run lifecycle by running puppet agent.
+  * Inspect the resulting catalog to see what puppet agent manages out of the box.
+
+  **Prerequisites**
+
+  None
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![10 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/10min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 10 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: ""
 tags:
 - ""
@@ -28,11 +40,18 @@ challenges:
   teaser: Inspect the resulting catalog to see what puppet agent manages out of the box.
   notes:
   - type: text
-    contents: asdf
-  assignment: |+
+    contents: |-
+      In this lab you will:
+
+      * Explore the agent run lifecycle by running puppet agent.
+
+      * Inspect the resulting catalog to see what puppet agent manages out of the box.
+
+      Click **Start** when you're ready to begin.
+  assignment: |-
     # Instructions
 
-    1. On the Linux Agent 1 tab, run the Puppet agent to request a catalog from the primary server.
+    1. On the nixagent tab, run the Puppet agent to request a catalog from the primary server.
 
     ```
     puppet agent -t
@@ -44,15 +63,14 @@ challenges:
     ```
      Expected output:
     ```
-    /etc/puppetlabs/puppet/cache/client_data              # on linux
+    /opt/puppetlabs/puppet/cache/client_data              # on linux
     ```
-    3. Inspect the contents of the catalog and take note - the service resource `pxp-agent` is being managed by running the following command:
+    3. Inspect the contents of the catalog and take note - the service resource pxp-agent is being managed by running the following command to filter the catalog contents for resources of type "Service":
 
     ```
-    cat /etc/puppetlabs/puppet/cache/client_data/catalog/mynode.json | jq .
+    cat /opt/puppetlabs/puppet/cache/client_data/catalog/*.json | jq -c '.resources[] | select(.type=="Service")' | jq
     ```
-
-    Result: As the timestamp shows, the primary server just generated the first catalog and delivered it to the node.
+    Result: As the timestamp for the catalog file shows, the primary server just generated the first catalog and delivered it to the node.
     ```
     ...
     {
@@ -81,26 +99,18 @@ challenges:
             "hasrestart": true
       ...
     ```
-
-    # Questions
-
-    1. What if I wanted to do this on Windows?
-
-    ```
-    C:/ProgramData/PuppetLabs/puppet/cache/client_data    # on windows
-    ```
-
-    2. What is jq?
-    3. Why are we doing this? `pxp_agent` is one of the only things that comes fully configured, so we'll merely use it to demonstrate several Puppet things. This is not something a typical user would interact with on a normal basis.
-    4. Why would I do this? For peace of mind - to show that puppet only manages xyz.
-
   tabs:
-  - title: Linux Agent 1
+  - title: nixagent
     type: terminal
     hostname: nixagent1
-  - title: Primary Server
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  - title: PE-shell
     type: terminal
     hostname: puppet
   difficulty: basic
-  timelimit: 600
-checksum: "17862310050429759174"
+  timelimit: 3569
+checksum: "9941370097920433408"

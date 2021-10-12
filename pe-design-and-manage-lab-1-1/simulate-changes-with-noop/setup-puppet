@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while  ! nc -z -w3 localhost 443 
+do
+    echo "Waiting for port 443 to be reachable on localhost"
+   
+done
+
+
+IPADDR=$(hostname -I)
+
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" \
+--targets ssh://nixagent1 \
+--user root \
+--no-host-key-check
+
+sleep 20
+
+bolt command run 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' \
+--targets ssh://nixagent1 \
+--user root \
+--no-host-key-check
+
+sleep 10
+
+type_header='Content-Type: application/json'
+uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+data='{"login": "admin",
+       "password": "puppetlabs"}'
+
+curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+mkdir -p /root/.puppetlabs
+cat /tmp/token.json | jq -r .token > /root/.puppetlabs/token
+chmod 600 /root/.puppetlabs/token

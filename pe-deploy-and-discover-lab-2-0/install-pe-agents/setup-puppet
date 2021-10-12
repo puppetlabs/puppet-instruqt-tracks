@@ -2,8 +2,6 @@
 
 set -x
 
-yum install -y jq
-
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -17,6 +15,16 @@ do
    
 done
 
-sleep 50
+IPADDR=$(hostname -I)
+
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal  >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent
+
+bolt command run "Add-Content -Value '$IPADDR puppet puppet.c.kmo-instruqt.internal' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
+sleep 10
 
 /usr/local/bin/puppet agent -t
+
+sleep 30
+
+

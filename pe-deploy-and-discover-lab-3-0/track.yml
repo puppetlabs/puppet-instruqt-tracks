@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-3-0
 id: trd6dwmkdt6s
 type: sandbox
-title: 'PE Deploy and Discover - Lab 3.0: Identify Your Nodes Using External Facts'
+title: Identify Your Nodes Using External Facts
 teaser: You can use facts to help you write conditional expressions and reusable code.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -25,9 +25,13 @@ description: |-
 
   None
 
-  **Before you start**
+  ---
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
@@ -88,10 +92,9 @@ challenges:
     type: service
     hostname: puppet
     port: 443
-  - title: "Bug Zapper \U0001F99F⚡"
+  - title: Lab Aid
     type: website
-    hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSfeCPR2SFCb_xCGvz-8gcXk5bncpBdFkXUovtzR0Yjfil1cAw/viewform?embedded=true
   difficulty: basic
-  timelimit: 1800
-checksum: "13299101054124179489"
+  timelimit: 3600
+checksum: "8212711336682617234"

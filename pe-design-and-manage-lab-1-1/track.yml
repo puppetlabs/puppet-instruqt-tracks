@@ -10,6 +10,18 @@ description: |-
   - Cause drift by making a breaking change to a Puppet component (the `pxp-agent` or the uninstaller script).
   - Run Puppet with the `--noop` parameter to simulate an agent run without making changes to the system.
   - Run Puppet normally to remediate the drift you caused.
+
+  **Prerequisites**
+
+  None
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![10 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/10min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 10 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: ""
 tags:
 - ""
@@ -53,9 +65,9 @@ challenges:
     1. Choose a component to break. Then, cause drift on the node in one of the following ways:
          | # | How to cause drift |
          |:-:|------- |
-         |**1**| Stop the service by running this commnand: <br> ` service pxp-agent stop ` |
-         |**2**| Add text to the config file by running this command: <br> ` echo hello > /etc/puppet....pxp-agent.conf ` |
-         |**3**| Remove the uninstallation file by running this command: <br> ` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller `|
+         |**1**| Stop the service by running this commnand: <br> ``` service pxp-agent stop ``` |
+         |**2**| Add text to the config file by running this command: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
+         |**3**| Remove the uninstallation file by running this command: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
 
     # See how Puppet would fix it
 
@@ -66,9 +78,9 @@ challenges:
     1. Run the command you think would trigger a Puppet agent run in noop mode. (Hint: You can use the `puppet --help` command for clues.)
          | # | Choose a command to run |
          |:-:|------- |
-         |**1**| `puppet agent run --noop` |
-         |**2**| `puppet agent -t --noop` |
-         |**3**| `puppet agent get_catalog --noop` |
+         |**1**| ```puppet agent run --noop``` |
+         |**2**| ```puppet agent -t --noop``` |
+         |**3**| ```puppet agent get_catalog --noop``` |
 
     2. Examine the output for the mention of `noop` to see the changes Puppet would have made.
 
@@ -77,18 +89,23 @@ challenges:
 
     1. Run the Puppet agent normally:
 
-        `puppet agent -t`
+        ```puppet agent -t```
 
     2. Examine the output to see the changes Puppet made to bring the node back into its desired state (all Puppet components fully functional).
 
     How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
   tabs:
-  - title: Linux Agent 1
+  - title: nixagent
     type: terminal
     hostname: nixagent1
-  - title: Primary Server
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  - title: PE-shell
     type: terminal
     hostname: puppet
   difficulty: basic
-  timelimit: 600
-checksum: "2338022558380071928"
+  timelimit: 3569
+checksum: "7243830040784146470"
