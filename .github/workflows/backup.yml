@@ -5,7 +5,7 @@ name: Backup
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '30 7-7 * * *'
+    - cron: '30 7-19 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: 
