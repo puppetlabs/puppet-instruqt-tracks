@@ -19,15 +19,18 @@ description: |-
   - Interpret the agent output during the Puppet run.
   - Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
 
+  ---
 
+  **Keep an eye on the clock**
 
-  **Keep an eye on the clock!**
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  You will have 30 minutes to complete this track. At the end of 30 minutes, your learning environment will automatically expire and your work will not be saved. If you have not completed the track, you can restart the track and skip to any challenge.
+  Click **Start track** when you're ready to begin.
 
   If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/trigger-a-puppet-agent-run).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - bart.kliebert@puppet.com
@@ -105,7 +108,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: trigger-a-puppet-run
   id: xbnzl6tqkedg
   type: challenge
@@ -165,7 +168,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: specify-a-desired-state
   id: zkwun505nnze
   type: challenge
@@ -252,7 +255,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 450
+  timelimit: 900
 - slug: knowledge-check
   id: jgcl5sswpk3h
   type: challenge
@@ -276,7 +279,7 @@ challenges:
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLScTVJ5O_HHQnQv4jX6KGzMS93YZMsWqaRRajBzvjgALaznoHQ/viewform?embedded=true
   difficulty: basic
-  timelimit: 360
+  timelimit: 720
 - slug: wrapup-and-feedback
   id: tgxcnqzczuoo
   type: challenge
@@ -312,5 +315,5 @@ challenges:
     hostname: puppet
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
-  timelimit: 360
-checksum: "4485354338456414529"
+  timelimit: 721
+checksum: "461284851300169462"

@@ -1,0 +1,8 @@
+ANSWER=$(puppet query "events[certname, timestamp, resource_type, resource_title, message, old_value, new_value]{latest_report? = true and status='success' and certname ~ 'nixagent1'}" | jq '.[].message')
+
+if [[ $ANSWER == *"(corrective)"* ]]; then
+  exit 0
+else
+  fail-message "No recent corrective changes applied to nixagent"
+  exit 1
+fi

@@ -7,12 +7,19 @@ description: |-
   In this track, you’ll use the command-line tools installed with the Puppet agent to interact with a node in the same way an agent would.
 
   **Why complete this track?**
+
   This hands-on approach will help you understand the agent's role in the broader Puppet architecture and how the agent checks and modifies the state of a node it’s installed on.
 
-  **Before you get started**
-  Keep an eye on the clock! You have 30 minutes to complete this track. After 30 minutes, your learning environment will expire and your work will not be saved. If you have not completed the track, you can restart the track and skip to any challenge.
+  ---
+
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - tara.swenson@puppet.com
@@ -103,7 +110,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: explore-resource-syntax-by-using-the-puppet-agent
   id: zhyswco37bif
   type: challenge
@@ -151,7 +158,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 200
+  timelimit: 400
 - slug: describe-a-file-resource
   id: qoptwf0kdkvj
   type: challenge
@@ -192,7 +199,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 200
+  timelimit: 400
 - slug: modify-a-file-resource
   id: y7jzqqkgnqww
   type: challenge
@@ -234,7 +241,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: describe-a-package-resource
   id: 936x4nodyb0p
   type: challenge
@@ -276,7 +283,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 260
+  timelimit: 520
 - slug: install-a-package
   id: 4vclrt84vclu
   type: challenge
@@ -352,7 +359,7 @@ challenges:
     hostname: linux
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: knowledge-check
   id: 1zqwtvtfvyhl
   type: challenge
@@ -376,7 +383,7 @@ challenges:
     hostname: linux
     url: https://docs.google.com/forms/d/e/1FAIpQLSf9HbjuXjCjfLeN28hqqv5f1VSKDgm-wPCc4cANv6CQQee4UQ/viewform?embedded=true
   difficulty: basic
-  timelimit: 100
+  timelimit: 200
 - slug: wrapup-and-feedback
   id: nyd2wskqueys
   type: challenge
@@ -408,5 +415,5 @@ challenges:
     hostname: linux
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
-  timelimit: 100
-checksum: "15051196854704310444"
+  timelimit: 221
+checksum: "8731951814774019446"

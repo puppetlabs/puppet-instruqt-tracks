@@ -15,15 +15,12 @@ do
    
 done
 
-service pe-puppetserver restart
+IPADDR=$(hostname -I)
 
-# Wait for any running agent to finish
-while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
-  sleep 1
-done
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal  >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent
 
-sudo /usr/local/bin/puppet agent -t
+sleep 10
 
-sleep 5
+/usr/local/bin/puppet agent -t
 
-sudo /usr/local/bin/puppet agent -t
+sleep 30

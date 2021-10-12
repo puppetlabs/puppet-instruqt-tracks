@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-2-2
 id: yvrywfvwitpx
 type: sandbox
-title: 'PE Deploy and Discover - Lab 2.2: Configure Additional Agent Package Platforms'
+title: Configure Additional Agent Package Platforms
 teaser: Learn how to configure PE to support agent installation on different operating systems.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -20,11 +20,16 @@ description: |-
 
   None
 
-  **Before you start**
+  ---
 
-  Keep an eye on the clock. You have 30 minutes to complete this lab. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the lab, you can simply restart it. Click **Start track** when you're ready to begin.
+  **Keep an eye on the clock**
+
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
-tags: []
+tags:
+- ""
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -67,5 +72,5 @@ challenges:
     hostname: guac
     url: https://docs.google.com/forms/d/e/1FAIpQLSdY-3mNOlLsOXazyxzw295dUHMgU8ThEBS_iITfO0Pd8uVcIQ/viewform?embedded=true
   difficulty: basic
-  timelimit: 1200
-checksum: "13090247656890936313"
+  timelimit: 3600
+checksum: "5185470366769743412"

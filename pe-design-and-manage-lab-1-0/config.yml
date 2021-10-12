@@ -1,8 +1,8 @@
 version: "2"
 virtualmachines:
 - name: puppet
-  image: kmo-instruqt/puppet
-  machine_type: n1-standard-2
+  image: kmo-instruqt/puppet-pe201-lab-1-0
+  machine_type: n1-highcpu-32
 - name: nixagent1
-  image: kmo-instruqt/linux-node
+  image: kmo-instruqt/nixagent1-pe201-lab-1-0
   machine_type: n1-standard-2

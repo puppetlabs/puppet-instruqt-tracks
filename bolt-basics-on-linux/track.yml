@@ -23,12 +23,16 @@ description: |
    - Linux command line experience is helpful but not required.
    - NTP service familiarity is helpful but not required.
 
+  ---
 
-  **Before you start**
+  **Keep an eye on the clock**
 
-  Keep an eye on the clock. You have 30 minutes to complete this track. After 30 minutes, your learning environment expires and your work will not be saved. If you haven't completed the track, you can simply restart it and skip to any challenge.
-icon: https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/bolt-logo-icon.png
-tags: []
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bolt-logo-icon.png
+tags:
+- ""
 owner: puppet
 developers:
 - greg.larkin@puppet.com
@@ -97,7 +101,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 360
+  timelimit: 720
 - slug: verify-your-bolt-installation-linux
   id: wvghomls1zpw
   type: challenge
@@ -141,7 +145,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 360
+  timelimit: 720
 - slug: run-bolt-commands-on-remote-targets
   id: xpxk4boeqvir
   type: challenge
@@ -215,7 +219,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 360
+  timelimit: 720
 - slug: knowledge-check
   id: qhdb3cpdzkci
   type: challenge
@@ -243,7 +247,7 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 360
+  timelimit: 720
 - slug: wrapup-and-feedback
   id: vor7wnab2oje
   type: challenge
@@ -278,5 +282,5 @@ challenges:
     hostname: puppet
     url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
   difficulty: basic
-  timelimit: 360
-checksum: "15637174876638631057"
+  timelimit: 715
+checksum: "9863362875278406607"
