@@ -1,7 +1,7 @@
 slug: pe-deploy-and-discover-lab-1-0
 id: mxxouyyo8i2z
 type: sandbox
-title: Install Puppet Enterprise
+title: Install the Primary Server
 teaser: Learn how to install Puppet Enterprise and monitor its status in the PE console.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -27,6 +27,7 @@ description: |-
 
   Click **Start track** when you're ready to begin.
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+level: beginner
 tags:
 - ""
 owner: puppet
@@ -65,4 +66,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSdXxLVi1073YLagzRRh0Iq-RNgu-kkoVotcPGnrS2PKs0qtyw/viewform?embedded=true
   difficulty: basic
   timelimit: 3599
-checksum: "9230390255449428986"
+checksum: "3130927308477697616"

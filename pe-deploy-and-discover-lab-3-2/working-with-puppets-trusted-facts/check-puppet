@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent1" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_datacenter' | grep -v 'null' )" != '' ]; then
+  if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent1" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_role' | grep -v 'null' )" != '' ]; then
+    LINUX1_FACT=1
+  fi
+fi
+
+if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent2" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_datacenter' | grep -v 'null' )" != '' ]; then
+  if [ "$(puppet query 'facts[name,value] { certname ~ "nixagent2" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_role' | grep -v 'null' )" != '' ]; then
+    LINUX2_FACT=1
+  fi
+fi
+
+if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_datacenter' | grep -v 'null' )" != '' ]; then
+  if [ "$(puppet query 'facts[name,value] { certname ~ "winagent" and name = "trusted" }' --urls http://localhost:8080 |  jq -r '.[].value.extensions.pp_role' | grep -v 'null' )" != '' ]; then
+    WINDOWS_FACT=1
+  fi
+fi
+
+if [ "${LINUX1_FACT}" -a "${LINUX2_FACT}" -a "${WINDOWS_FACT}" ]; then
+  exit 0
+else
+  fail-message "Not all of the Linux and Windows datacenter and role facts have been created"
+  exit 1
+fi

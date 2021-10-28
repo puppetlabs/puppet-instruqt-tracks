@@ -1,4 +1,4 @@
-CATALOG=/opt/puppetlabs/puppet/cache/client_data/catalog/*.json
+CATALOG=/opt/puppetlabs/puppet/cache/client_data/catalog/nixagent*.json
 
 if test -f $CATALOG; then
     CATALOGEXISTS=1

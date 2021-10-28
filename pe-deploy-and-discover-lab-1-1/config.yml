@@ -3,4 +3,4 @@ virtualmachines:
 - name: puppet
   image: kmo-instruqt/puppet-pe101-lab-1-1
   shell: /bin/bash
-  machine_type: n1-highcpu-8
+  machine_type: n1-highcpu-16

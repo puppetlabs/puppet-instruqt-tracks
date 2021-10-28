@@ -2,8 +2,6 @@
 
 set -x
 
-#yum install -y jq
-
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
     echo "Waiting for Instruqt to finish booting the VM"
@@ -12,92 +10,21 @@ done
 
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
-#while  ! nc -z -w3 localhost 443 
-#do
-#    echo "Waiting for port 443 to be reachable on localhost"
-#done
+IPADDR=$(hostname -I)
 
-cat << 'EOF' > /etc/puppetlabs/puppet/autosign.rb
-#!/opt/puppetlabs/puppet/bin/ruby
-#
-# A note on logging:
-#   This script's stderr and stdout are only shown at the DEBUG level
-#   of the server's logs. This means you won't see the error messages
-#   in puppetserver.log by default. All you'll see is the exit code.
-#
-#   https://docs.puppet.com/puppet/latest/ssl_autosign.html#policy-executable-api
-#
-# Exit Codes:
-#   0 - A matching challengePassword was found.
-#   1 - No challengePassword was found.
-#   2 - The wrong challengePassword was found.
-#
-require 'puppet/ssl'
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
 
-csr = Puppet::SSL::CertificateRequest.from_s(STDIN.read)
-psk = File.read('/etc/puppetlabs/puppet/psk').chomp.strip
+bolt command run "Add-Content -Value '$IPADDR puppet puppet.c.kmo-instruqt.internal' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-if pass = csr.custom_attributes.find do |attribute|
-     ['challengePassword', '1.2.840.113549.1.9.7'].include? attribute['oid']
-   end
-else
-  puts 'No challengePassword found. Rejecting certificate request.'
-  exit 1
-end
+bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
 
-if pass['value'] == psk
-  exit 0
-else
-  puts "challengePassword does not match: #{pass['value']}"
-  exit 2
-end
-EOF
+bolt command run 'Restart-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-chmod +x /etc/puppetlabs/puppet/autosign.rb
-chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
-
-cat << EOF > /etc/puppetlabs/puppet/psk
-PASSWORD_FOR_AUTOSIGNER_SCRIPT
-EOF
-
-chmod 600 /etc/puppetlabs/puppet/psk
-chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
-
-puppet config set autosign /etc/puppetlabs/puppet/autosign.rb
-
-service pe-puppetserver reload
-
-# Wait for any running agent to finish
-while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
-  sleep 1
-done
-
-# Run the agent again to reconfigure the installation script
-/usr/local/bin/puppet agent -t
-
-sleep 5
-
-rpm -Uvh https://yum.puppet.com/puppet-tools-release-el-7.noarch.rpm
-yum install -y puppet-bolt-3.17.0 jq
-
-bolt command run 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
-bolt command run 'yum install -y httpd' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
-bolt command run 'yum install -y nginx' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent2
-
-#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y httpd'
-
-#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; yum install -y nginx'
-
-bolt command run 'Start-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
-bolt command run 'C:\ProgramData\chocolatey\choco.exe install javaruntime' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
-
-# State for Lab 3.0
-
-#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent1 'timedatectl set-timezone America/Los_Angeles'
-#ssh -o StrictHostKeyChecking=no -l root -i /root/.ssh/id_rsa nixagent2 'timedatectl set-timezone America/Los_Angeles'
 bolt command run 'tzutil /s "Eastern Standard Time"' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-# The external facts are configured in the setup-nixagentN scripts
+sleep 10
 
 /usr/local/bin/puppet agent -t
-/usr/local/bin/puppet agent -t
+
+sleep 20
+

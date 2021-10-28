@@ -82,7 +82,7 @@ challenges:
     Add the `/opt/puppetlabs/bin/` directory to the system path so that you can run the `puppet` command from any directory. Run the following two commands:
 
     ```
-    echo 'export PATH=/opt/puppetlabs/bin/:$PATH' >> ~/.bashrc
+    echo 'export PATH=/opt/puppetlabs/bin:/opt/puppetlabs/puppet/bin:$PATH' >> ~/.bashrc
     ```
     ```
     source ~/.bashrc
@@ -339,7 +339,7 @@ challenges:
     # Step 4
     Run the following command:
     ```
-    puppet resource package httpd ensure=2.4.6-97.el7.centos
+    puppet resource package httpd ensure=2.4.6-97.el7.centos.1
     ```
     ## Result
     Puppet installs the version that you specify.
@@ -416,4 +416,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 221
-checksum: "8731951814774019446"
+checksum: "554496681165027717"

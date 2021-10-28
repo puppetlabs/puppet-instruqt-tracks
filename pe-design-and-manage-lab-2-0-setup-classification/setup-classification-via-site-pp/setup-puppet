@@ -52,5 +52,12 @@ cat /tmp/token.json | jq -r .token > /root/.puppetlabs/token
 chmod 600 /root/.puppetlabs/token
 
 # Now run Puppet twice on the nodes
-puppet job run --query 'nodes {}'
-puppet job run --query 'nodes {}'
+# puppet job run --query 'nodes {}'
+# puppet job run --query 'nodes {}'
+
+
+# setup webhook on gitea server with RBAC token
+curl -XPOST -H "Content-Type: application/json" \
+  -u puppet:puppetlabs \
+  -d "{\"type\": \"gitea\", \"config\": {\"content_type\": \"json\",\"url\": \"https://$(hostname):8170/code-manager/v1/webhook?type=github\u0026token=$(cat /root/.puppetlabs/token)\"},\"events\": [\"push\"],\"active\": true}" \
+  http://gitea:3000/api/v1/repos/puppet/control-repo/hooks
