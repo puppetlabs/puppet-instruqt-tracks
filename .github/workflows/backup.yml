@@ -50,7 +50,7 @@ jobs:
         run: ls  
         
       - name: Remove tracks dirs to prepare to pull new data
-        run: cat .github/workflows/backup.list | sed 's~puppet/~~g'  | xargs -t -n 1 rm -r
+        run: cat .github/workflows/backup.list | sed 's~puppet/~~g'  | xargs -t -n 1 rm -r -f
         
       - name: Pull tracks from list file
         run: cat .github/workflows/backup.list |  xargs -t  -n 1 instruqt track pull
