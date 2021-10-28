@@ -1,0 +1,147 @@
+slug: pe-design-and-manage-lab-2-0-setup-classification
+id: 7pv1ikgfzzp0
+version: 0.0.1
+type: track
+title: PE Design and Manage-Lab 2.0 Setup Classification
+description: |-
+  In this lab you will:
+
+  - Setup classification in site.pp in the control-repo by writing code that will assign your roles classes to your nodes.
+  - Create placeholder code to build out your initial role (cmswebapp).
+  - Run puppet on your node to test your changes.
+icon: ""
+tags:
+- ""
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+- thomas.chisholm@puppet.com
+- jain.waldrip@puppet.com
+- greg.larkin@puppet.com
+private: true
+published: false
+challenges:
+- slug: setup-classification-via-site-pp
+  id: ufhubmprx1gw
+  type: challenge
+  title: Setup Classification via site.pp
+  teaser: Set up classification via site.pp in the control repo
+  assignment: |-
+    # Instructions
+    1. Create your control-repo locally on your Windows development workstation.
+
+    ```
+    git clone http://gitea:3000/puppet/control-repo.git
+    ```
+
+    2. Configure git
+
+    ```
+    git config --global user.email "noreply@puppet.com"
+    git config --global user.name "Puppet User"
+    ```
+
+    3. Checkout a feature branch <b>webapp</b>.
+
+    ```
+    cd control-repo
+    git checkout -b webapp
+    ```
+
+    4. Hop over to the PE console, have a look at your trusted fact `pp_role`, for each of your nodes -note this down so that you can verify your changes later.
+
+    5. In your control-repo, modify site.pp to include classification for your nodes:
+
+    *Note: I opened Notepad to edit the file here but instructions for VS Code would be better?*
+
+    ```
+    # /manifests/site.pp
+    node default {
+      include "role::cmswebapp"
+    }
+    ```
+
+    6. Commit & push your code to your feature branch <b>webapp</b>.
+
+    ```
+    git add .
+    git commit
+    git push origin webapp
+    ```
+
+    7. Classify the `nixagent1` node in the PE Console.
+      * Switch to the *PE Console* tab, log in using admin/puppetlabs and click on the *Node Groups* menu.
+      * Click on the "+" to expand the *All Environments* group, then click on the *Development environment* group.
+      * Click on the *Node name* text box and type `nixagent`.
+      * Select the hostname that appears, click *Pin node* and *Commit 1 change*.
+      * Click *Node Groups* again, then click the "+" to expand the *Development environment* group.
+      * Click the *Development one-time run exception* group and repeat the node pinning from the previous step.
+
+    8. Click the *Run->Puppet* menu in the top-right corner of the node group. Choose *Select an environment for nodes to run in* and select *webapp* from the drop-down box. Choose *Node group* under *Inventory* and *Development one-time run exception (agent-specified)* for the node group. Click *Run job* to run Puppet on the nixagent1 node.
+
+    The job will fail, and click the report link. Then click the *Log* tab and inspect the node report:
+
+    ```
+    Could not retrieve catalog from remote server: Error 500 on SERVER: Server Error: Evaluation Error: Error while evaluating a Function Call, Could not find class ::role::cmswebapp for nixagent1.wnwwq2zaew8p.svc.cluster.local (file: /etc/puppetlabs/code/environments/webapp/manifests/site.pp, line: 31, column: 3) on node nixagent1.wnwwq2zaew8p.svc.cluster.local
+    ```
+
+    9. Why did Puppet fail to compile the catalog? The compiler tried to <b>autoload</b> the class `role::cmswebapp`, however this class does not yet exist - we need to create it.
+
+    10. Change into your role directory to create your role `role::cmswebapp`class using `pdk new class role::cmswebapp` -this creates the following manifest file: `role/manifests/cmswebapp.pp`.
+
+    11. Modify the file to include some placeholder code for your new role, for example:
+    ```
+    # @summary A short summary of the purpose of this class
+    #
+    # A description of what this class does
+    #
+    # @example
+    #   include role::cmswebapp
+    class role::cmswebapp {
+      notify { "Hello from the cmswebapp server!": }
+    }
+    ```
+    12. Run pdk validate to validate your code - PDK warns about your code style - fix the style error warning about double quotes on line 8. You don't need to use double quotes because you don't need to do any interpolation - this is a literal string.
+    13. Run `pdk validate` to verify - all good?
+    14. Commit and push your code to your feature branch <b>webapp</b>.
+    15. Run Puppet via the console in your environment branch <b>webapp</b> then inspect the node reports.
+
+
+    Did you realize that all of your nodes are being classified with the role `cmswebapp`? This is not a full solution because you need to also classify the `ecommerce` node - we will develop this further in the following lab to implement a dynamic way of classifying nodes using <b>Trusted Facts</b>.
+
+
+    <b>What is "notify?"</b> - Notify is a resource that sends an arbitrary message to the agent run-time log - you used it to demonstrate how to declare resources in a profile class. Resources are covered in more depth in a later course.
+
+    *It’s important to note that the `notify` resource type is not idempotent. As a result, notifications are shown as a change on every Puppet run.
+  tabs:
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+    url: https://google.com
+  - title: PE Shell
+    type: terminal
+    hostname: puppet
+  - title: Linux Agent 1
+    type: terminal
+    hostname: nixagent1
+  - title: Linux Agent 2
+    type: terminal
+    hostname: nixagent2
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
+  - title: Gitea Shell
+    type: terminal
+    hostname: gitea
+  - title: Gitea Console
+    type: service
+    hostname: gitea
+    path: /
+    port: 3000
+  difficulty: basic
+  timelimit: 3600
+checksum: "10850392033355648548"
