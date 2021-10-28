@@ -19,17 +19,18 @@ IPADDR=$(hostname -I)
 
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
+sleep 30
 
 bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" \
---targets ssh://nixagent1 \
+--targets ssh://nixagent \
 --user root \
 --no-host-key-check
 
-sleep 20
+sleep 10
 
 
 bolt command run 'curl --insecure https://puppet:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT; timedatectl set-timezone America/Los_Angeles' \
---targets ssh://nixagent1 \
+--targets ssh://nixagent \
 --user root \
 --no-host-key-check
 

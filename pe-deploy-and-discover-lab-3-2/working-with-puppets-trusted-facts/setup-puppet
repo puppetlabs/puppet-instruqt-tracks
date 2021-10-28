@@ -8,6 +8,8 @@ do
     sleep 1
 done
 
+sleep 30
+
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
 IPADDR=$(hostname -I)

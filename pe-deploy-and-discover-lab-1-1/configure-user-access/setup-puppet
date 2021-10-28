@@ -14,7 +14,9 @@ do
     echo "Waiting for port 443 to be reachable on localhost"
 done
 
-sleep 10
+/usr/local/bin/puppet agent -t
+
+sleep 30
 
 # Install some JSON manipulation tools
 # NB: For this track, these need to be installed no matter what so
