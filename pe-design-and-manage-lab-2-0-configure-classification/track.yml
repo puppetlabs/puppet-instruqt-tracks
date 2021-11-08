@@ -1,0 +1,191 @@
+slug: pe-design-and-manage-lab-2-0-configure-classification
+id: dqpof8ghvrmb
+version: 0.0.1
+type: track
+title: PE Design and Manage-Lab 2.0 Configure classification
+teaser: Configure classification with trusted facts
+description: |-
+  In this lab, you will:
+
+  1. Setup classification in site.pp in the control-repo by writing code that will assign your roles classes to your nodes using trusted facts
+  2. Create placeholder code to build out your initial roles (cmswebapp & ecommerce).
+  3. Run puppet on your node to test your changes.
+icon: ""
+tags:
+- ""
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+private: true
+published: false
+challenges:
+- slug: configure-classification-with-trusted-facts
+  id: ns2rbfx52q8q
+  type: challenge
+  title: Configure classification with trusted facts
+  teaser: Configure classification with trusted facts
+  assignment: |-
+    # Instructions
+    1. Create your control-repo locally on your Windows development workstation by doing the following:
+      - Run Visual Studio Code from the Start Menu
+      - Select File > Open Folder and navigate to the C:\CODE directory and select it
+      - Click accept when prompted to trust code in this directory
+      - Select Terminal > New Terminal
+      - In the terminal window run the following; when prompted accept adding the Gitea server to known hosts:
+
+    ```
+    git clone git@gitea:puppet/control-repo.git
+    ```
+
+    2. Configure git
+
+    ```
+    git config --global user.email "noreply@puppet.com"
+    git config --global user.name "Puppet User"
+    ```
+
+    3. Checkout a feature branch <b>webapp</b>.
+
+    ```
+    cd control-repo
+    git checkout -b webapp
+    ```
+    4. Hop over to the PE console, have a look at your trusted fact `pp_role`, for each of your nodes -note this down so that you can verify your changes later.
+
+    5. In your control-repo directory inside Visual Studio Code, modify the site.pp file in the control-repo/manifests directory to include classification for your nodes:
+
+    ```
+    # /manifests/site.pp
+    node default {
+      include "role::${trusted['extensions']['pp_role']}"
+    }
+    ```
+    6. Commit & push your code to your feature branch <b>webapp</b>.
+
+    ```
+    git add .
+    git commit -m "site.pp changes for roles"
+    git push origin webapp
+    ```
+
+
+    7. Navigate back to the PE Console to force a puppet agent run using your new environment branch <b>webapp</b> then inspect the node reports:
+      - Navigate to the Node Groups page and expand the All Environmments > Development environment > Development one-time run exception group
+      - Click the Development one-time run exception group link
+      - Click the **Edit node group metadata** link
+      - In the Environment drop-down list select the **webapp** environment. * Note the environment name matches the name of the code branch you created in step 3*
+      - Click the radio button selection that indicates **Nodes may match any rule**
+      - Click **commit 2 changes** in the button the appears in the lower right corner
+      - Once the changes are committed, click the **Run** button in the upper right hand corner and select **Puppet** to force a puppet agent which will apply the **webapp** environment to your agent nodes
+      - On the resulting screen ensure you see your 3 nodes on which you are about to force a puppet agent run
+      - Click the **Run job** button in the lower right hand corner
+      - Inspect the resulting job log for the *winagent* node by clicking the **Report** hyperlink
+      - Open the **Log** tab to see the following error:
+
+    ```
+    Error: Could not retrieve catalog from remote server: Error 500 on SERVER: Server Error: Evaluation Error: Error while evaluating a Function Call, Could not find class ::role::ecommerce for 2359win2.classroom.puppet.com (file: /etc/puppetlabs/code/environments/student2/manifests/site.pp, line: 3, column: 3) on node 2359win2.classroom.puppet.com
+    ```
+
+    8. Why did puppet fail to compile the catalog? `role::ecommerce` does not exist. The compiler tried to <b>autoload,/b> the class `role::ecommerce`, however this class does not yet exist - we need to create it.
+
+    9. Navigate back to Visual Studio Code on your Windows station. In your terminal change into your role directory at `control-repo/site-modules/role` to create your role `role::ecommerce`class using `pdk new class role::ecommerce` - this creates the following manifest file: `role/manifests/ecommerce.pp`.
+
+    *Ensure you are in the control-repo/site-modules/role directory before running this command:*
+    ```
+    pdk new class role::ecommerce
+    ```
+
+    10. Modify the new ecommerce.pp file to include some placeholder code for your new role, for example:
+
+    ```
+    # @summary A short summary of the purpose of this class
+    #
+    # A description of what this class does
+    #
+    # @example
+    #   include role::ecommerce
+    class role::ecommerce {
+      notify { 'Hello! my role is: ${trusted['extensions']['pp_role']} \
+      and I've been running for ${facts['uptime']}': }
+    }
+    ```
+    11. Run the command `pdk validate` from your terminal to check before committing and pushing your code - you should see an error... `pdk (ERROR): puppet-lint: single quoted string containing a variable found`  - remember you need to interpolate the string for the value of the `$trusted['extensions']['pp_role']` variable - fix this by replacing the single quotes with double quotes.
+
+    12. Save your changes and run `pdk validate` again - all good?
+
+    13. Commit & push your changes to your <b>webapp</b> branch.
+    ```
+    git add .
+    git commit -m "adding ecommerce role"
+    git push origin webapp
+    ```
+
+    14. Run Puppet via the console using your environment branch <b>webapp</b> again, then inspect the node reports. Windows agent has succeeded while the two linux agents are still in a failed state. Let's fix that by assigning roles to each of the nodes.
+
+    15. Switch back to the Window_Agent tab and navigate to `control-repo/site-modules/role` in the Visual Studo Code terminal. Run `pdk new class role::cmsweb`. After that, in the same location, run `pdk new class role::cmsloadbalancer`. Add the following code to each file, respectively. First `cmsweb.pp`:
+
+    ```
+    # @summary A short summary of the purpose of this class
+    #
+    # A description of what this class does
+    #
+    # @example
+    #   include role::cmsweb
+    class role::cmsweb {
+      notify { "Hello! my role is: ${trusted['extensions']['pp_role']} \
+      and I've been running for ${facts['uptime']}": }
+    }
+    ```
+    Then `cmsloadbalancer.pp`
+
+    ```
+    # @summary A short summary of the purpose of this class
+    #
+    # A description of what this class does
+    #
+    # @example
+    #   include role::cmsloadbalancer
+    class role::cmsloadbalancer {
+      notify { "Hello! my role is: ${trusted['extensions']['pp_role']} \
+      and I've been running for ${facts['uptime']}": }
+    }
+    ```
+    16. Save your changes and push the code to your `webapp` branch.
+    ```
+    git add .
+    git commit -m "adding cmsloadbalancer and cmsweb roles"
+    git push origin webapp
+    ```
+
+    17. Switch back to the PE Console tab. From Node Groups, open the  `Development one-time run exception` group and execute a puppet agent run against all three nodes making sure to apply the *webapp* environment. All three nodes should finish successfully when their respective report link is inspected.
+  tabs:
+  - title: PE Shell
+    type: terminal
+    hostname: puppet
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  - title: Linux Agent 1
+    type: terminal
+    hostname: nixagent1
+  - title: Linux Agent 2
+    type: terminal
+    hostname: nixagent2
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
+  - title: Gitea
+    type: service
+    hostname: gitea
+    path: /
+    port: 3000
+  - title: gitea-shell
+    type: terminal
+    hostname: gitea
+  difficulty: basic
+  timelimit: 7200
+checksum: "5103976125718864280"

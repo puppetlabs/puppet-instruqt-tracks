@@ -54,3 +54,16 @@ chmod 600 /root/.puppetlabs/token
 # Now run Puppet twice on the nodes
 puppet job run --query 'nodes {}'
 puppet job run --query 'nodes {}'
+
+# Adding Get-PuppetInstallerScript to all users profiles for windows machine bail out
+cat << 'EOF' > Profile.ps1
+function Get-PuppetInstallerScript {
+    [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
+    $webClient = New-Object System.Net.WebClient;
+    $webClient.DownloadFile('https://puppet:8140/packages/current/install.ps1', 'install.ps1');
+
+}
+EOF
+
+bolt file upload "Profile.ps1" "C:\Windows\System32\WindowsPowerShell\v1.0\Profile.ps1" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
