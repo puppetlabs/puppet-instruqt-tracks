@@ -1,7 +1,7 @@
 slug: pe-design-and-manage-lab-1-0
 id: nua4cwppbg9z
 type: track
-title: Inspect the Agent Catalog
+title: Inspect an Agent Catalog
 teaser: Learn how to request, locate, and inspect the Puppet agent catalog.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -71,4 +71,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSeW5svhPB8_0R_PJw0RhsKH1ABS31pYMa0mTf3cO8fRGoTA0A/viewform?embedded=true
   difficulty: basic
   timelimit: 3600
-checksum: "10107227796747317083"
+checksum: "15383185841262115533"

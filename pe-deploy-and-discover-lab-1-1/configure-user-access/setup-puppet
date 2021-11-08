@@ -57,3 +57,8 @@ curl --max-time 10 -s -X POST \
     -H "Authorization: huds78HUIFMV8497x78bve" \
     -d @/tmp/instruqt.json \
     https://www.workato.com/webhooks/rest/15945364-35cf-4532-8fec-37447dad29d6/instruqt-lifecycle-script
+
+
+/usr/local/bin/puppet agent -t
+
+sleep 30
