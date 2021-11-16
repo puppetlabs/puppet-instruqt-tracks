@@ -79,6 +79,10 @@ challenges:
     hostname: puppet
     path: /
     port: 443
+  - title: Lab Aid
+    type: website
+    hostname: guac
+    url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-packages-and-server-roles-by-using-package-data-collection
   difficulty: basic
   timelimit: 3600
-checksum: "6307920808585388509"
+checksum: "9532829110886118217"

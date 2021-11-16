@@ -61,6 +61,10 @@ challenges:
     type: service
     hostname: puppet
     port: 443
+  - title: Lab Aid
+    type: website
+    hostname: nixagent
+    url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-agent-certificate-autosigning
   difficulty: basic
   timelimit: 3600
-checksum: "12770403916327743301"
+checksum: "8402480190124846423"

@@ -65,6 +65,10 @@ challenges:
     hostname: guac
     path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
     port: 8080
+  - title: Lab Aid
+    type: website
+    hostname: guac
+    url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-puppet-agents
   difficulty: basic
   timelimit: 3599
-checksum: "484220051989096102"
+checksum: "14414920154832074850"

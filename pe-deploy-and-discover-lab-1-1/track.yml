@@ -54,6 +54,10 @@ challenges:
     hostname: puppet
     port: 443
     url: https://puppet-8443-INSTRUQT_PARTICIPANT_ID.env.play.instruqt.com
+  - title: Lab Aid
+    type: website
+    hostname: puppet
+    url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-user-access
   difficulty: basic
   timelimit: 3600
-checksum: "11429370810196804478"
+checksum: "8246393610479721781"
