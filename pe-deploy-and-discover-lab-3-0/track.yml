@@ -85,6 +85,10 @@ challenges:
     type: service
     hostname: puppet
     port: 443
+  - title: Lab Aid
+    type: website
+    hostname: guac
+    url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-your-nodes-by-using-external-facts
   difficulty: basic
   timelimit: 3600
-checksum: "1228981393349732142"
+checksum: "13520825430328511607"

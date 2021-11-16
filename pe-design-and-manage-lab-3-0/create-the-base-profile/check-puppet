@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [ ! -e /etc/puppetlabs/code/environments/webapp ]; then
+  fail-message "The webapp environment has not been deployed to the PE server"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/ecommerce.pp ]; then
+  fail-message "The role::ecommerce manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/cmsweb.pp ]; then
+  fail-message "The role::cmsweb manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/cmsloadbalancer.pp ]; then
+  fail-message "The role::cmsloadbalancer manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/ecommerce.pp; then
+  fail-message "The role::ecommerce manifest does not compile"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/cmsweb.pp; then
+  fail-message "The role::cmsweb manifest does not compile"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/role/manifests/cmsloadbalancer.pp; then
+  fail-message "The role::cmsloadbalancer manifest does not compile"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/base.pp ]; then
+  fail-message "The profile::base manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/base.pp; then
+  fail-message "The profile::base manifest does not compile"
+  exit 1
+fi
+
+exit 0

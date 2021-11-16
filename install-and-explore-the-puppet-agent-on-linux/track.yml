@@ -42,7 +42,7 @@ challenges:
       # What is the Puppet agent?
       Puppet is a suite of tools and services that work together to help you manage and coordinate the systems in your infrastructure.
 
-      One of these tools, the Puppet agent, runs on every system Puppet manages, acting as a maintenance crew that travels between the system where it's installed (the node) and the primary Puppet server.
+      One of these tools, the Puppet agent, runs on every system that Puppet manages, acting as a maintenance crew that travels between the system where it's installed (the node) and the primary Puppet server.
 
       The Puppet agent:
       1. Requests and receives the node's desired state information from the primary server.
@@ -90,7 +90,7 @@ challenges:
 
     ✔️ **Result:** You now can invoke Puppet from any directory on the node.
 
-    # Step 4: Verify the path.
+    # Step 4: Verify the path
 
     Invoke Puppet without any parameters by running this command:
 
@@ -142,7 +142,7 @@ challenges:
     ```
     **Type —** Describes what the resource is. In this case, a file.
 
-    **Title —** A unique name that Puppet uses internally to identify the resource. In this case, it’s the file path and name, */tmp/test*.
+    **Title —** A unique name that Puppet uses internally to identify the resource. In this case, it’s the file path and name, **/tmp/test**.
 
     **Attributes** — A bracketed list of parameter => value pairs that specifies the state of the resource and its relationship to the node. A resource can have many parameter values.
 
@@ -387,7 +387,7 @@ challenges:
 - slug: wrapup-and-feedback
   id: nyd2wskqueys
   type: challenge
-  title: "Wrap-Up & Feedback \U0001F4AC"
+  title: "Wrap-Up and Feedback \U0001F4AC"
   teaser: Recap what you learned and tell us what you think.
   notes:
   - type: text
@@ -416,4 +416,4 @@ challenges:
     url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
   difficulty: basic
   timelimit: 221
-checksum: "554496681165027717"
+checksum: "95182077324901592"

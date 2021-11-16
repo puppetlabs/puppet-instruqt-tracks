@@ -1,0 +1,93 @@
+slug: pe-design-and-manage-lab-3-1
+id: rhg94thglduz
+type: sandbox
+title: Develop Apache and IIS profiles
+teaser: Develop the Apache and IIS profiles
+description: |+
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+
+  **What you'll learn**
+
+  In this lab you will develop the Apache and IIS profiles, making use of component modules Apache & IIS to configure your webservers according to the requirements of your objective:
+  - Must use port 80
+  - Must use the following location for core files (docroot):
+      - Linux: /var/www
+      - Windows: c:\inetpub\www
+
+  **Prerequisites**
+
+  None
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
+
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+tags:
+- ""
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- alex.williamson@puppet.com
+private: true
+published: true
+show_timer: true
+challenges:
+- slug: develop-apache-and-iis-profiles
+  id: pcd8cxyxxxir
+  type: challenge
+  title: Develop the Apache and IIS profiles
+  teaser: Develop the Apache and IIS profiles
+  notes:
+  - type: text
+    contents: |-
+      In this lab you will develop the Apache and IIS profiles, making use of component modules Apache & IIS to configure your webservers according to the requirements of your objective:
+
+       - You must use port 80.
+       - You must use the following location for core files (docroot):
+          - Linux: `/var/www`
+          - Windows: `c:\inetpub\www`
+
+      Click **Start** when you are ready to begin.
+  assignment: "# Verify that no websites are currently configured\n1. On the **Windows Agent** tab, from the **Start** menu, open **VS Code**.\n2. Click **File > Autosave**.\n\n✏️ **Note:** This step isn’t required, but enabling Auto Save prevents you from having to remember to save along the way, ensuring your edits won’t be lost.\n\n3. Click **File > Open Folder**, and then navigate to and select the `C:\\CODE` directory.\n4. Click **Terminal > New Terminal**.\n5. Run the `Invoke-WebRequest` command on each node to verify that no websites are already configured:\n\nWinagent:\n```\nInvoke-WebRequest -URI http://winagent\n```\nNixagent1:\n```\nInvoke-WebRequest -URI http://nixagent1\n```\n\n✔️ **Result:** The output will show a failure message for each node: `Unable to connect to the remote server`.\n<br><br>\n❔  **Why did this happen?** You did not receive any response from a webserver because you have not yet installed or configured anything.\n---\n\n# Create your control-repo locally on your Windows development workstation\n\n1. Clone the control repo. In the terminal window run the following:\n\n```\ngit clone git@gitea:puppet/control-repo.git\n```\n\n2. Checkout the feature branch <b>webapp</b>:\n```\ncd control-repo\ngit checkout webapp\n```\n---\n\n# Create the Apache & IIS profiles\n1. Navigate to `site-modules/profile`:\n```\ncd site-modules/profile\n```\n2. Create the manifest files by running each of the following commands:\n\n```\npdk new class profile::apache\n```\n```\npdk new class profile::iis\n```\n\n\U0001F4A1**Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.\n\n---\n\n# Update the content within the Apache and IIS files\n\n1. For the ``apache.pp`` file, replace the content with the following:\n```\n# apache profile: site-modules/profile/manifests/apache.pp\nclass profile::apache {\n  $port    = 80\n  $docroot = '/var/www'\n  include apache\n  apache::vhost { 'vhost.example.com':\n    port    => $port,\n    docroot => $docroot,\n  }\n}\n```\n2. For the `iis.pp` file, replace the content with the following:\n\n```\n# iis profile: site-modules/profile/manifests/iis.pp\nclass profile::iis {\n  $iis_features = ['Web-WebServer','Web-Scripting-Tools']\n  $index_content = \"\n  <!DOCTYPE html>\n  <html>\n  <body>\n\n  <h1>Ecommerce Site</h1>\n\n  </body>\n  </html>\"\n\n  iis_feature { $iis_features:\n    ensure => 'present',\n  }\n\n  # Delete the default website to prevent a port binding conflict.\n  iis_site {'Default Web Site':\n    ensure  => absent,\n    require => Iis_feature['Web-WebServer'],\n  }\n\n  iis_site { 'ecom':\n    ensure          => 'started',\n    physicalpath    => 'c:\\\\inetpub\\\\ecom',\n    applicationpool => 'DefaultAppPool',\n    require         => [\n      File['ecom'],\n      Iis_site['Default Web Site']\n    ],\n  }\n\n  file { 'ecom':\n    ensure => 'directory',\n    path   => 'c:\\\\inetpub\\\\ecom',\n  }\n\n  file {'index':\n    require => File['ecom'],\n    path    => 'c:\\\\inetpub\\\\ecom\\\\index.html',\n    content => $index_content\n  }\n}\n```\n\n---\n# Add the Apache and IIS profiles to the role files\n\n1. Open the **cmsweb.pp** file at `control-repo/site-modules/role/manifests/cmsweb.pp` and add the following line:\n```\ninclude profile::apache\n```\n2. Open the **ecommerce.pp** file at `control-repo/site-modules/role/manifests/ecommerce.pp` and add the following line:\n```\ninclude profile::iis\n```\n3. Navigate to the control repo by running the following command twice:\n```\ncd ..\n```\n\n3. Commit and push your code to your feature branch:\n```\ngit add .\ngit commit -m \"Change profiles for role features\"\ngit push -u origin webapp\n```\n\U0001F4A1 **Tip:** Remember to run `git status` frequently to check on the status of your files.\n---\n\n# Run Puppet in noop mode from the PE console and then inspect the reports\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n1. Switch to the **PE Console** tab.\n2. Log into PE with username `admin` and password `puppetlabs`.\n3. Run Puppet in noop mode via the console in your environment branch:\n    1. Navigate to the **Node groups** page and expand the **All Environmments** group by clicking the plus icon (**+**).\n    2. Click **Development environment**.\n    3. Click the **Classes** tab, and then click the **Refresh** link on the right side of the page.\n    4. Click the **Matching nodes** tab to ensure all your nodes are listed for this group.\n    5. Click **Run > Puppet** (located in the upper right hand corner).\n    6. You will be redirected to the **Run Puppet** page. Select the following options:\n      - **Environment**: Select the radio button option **Select an environment for nodes to run in:**, and then choose **webapp** from the drop down menu.\n      - **Schedule**: Leave settings as-is.\n      - **Run options**: Select the **no-op** mode check box.\n    7. Click **Run Job** (located in the lower right hand corner) to begin the Puppet agent run on all shown nodes.\n4.  You will be redirected to the **Job details** page. Once the jobs have completed, click the **Report** link shown to the right of the **winagent** node.\n5. Click the **Log** tab and notice the error message contained in the output: `Could not find class ::apache`\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n6. Fix the missing module dependency by adding the Apache module to the Puppetfile (located at `control-repo/Puppetfile`):\n```\n# Puppetfile\nmod 'puppetlabs-apache', '7.0.0'\nmod 'puppetlabs-iis', '8.0.3'\n```\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n7. Run Puppet in noop mode via the PE console in your environment branch again.\n\U0001F4A1 **Tip:** Need a refresher for this step? Refer to Step 3 above.\n\n8. Click the **Log** tab and notice the error message contained in the output: `Could not find class ::concat`\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n9. Fix the missing module dependency by adding the `concat` module to the Puppetfile (`control-repo/Puppetfile`):\n```\n# Puppetfile\n\nmod 'puppetlabs-concat', '7.1.1'\nmod 'puppetlabs-pwshlib', '0.10.0'\n```\n10. Commit and push your code to your feature branch:\n```\ngit add .\ngit commit -m \"Change puppetfile to fix dependencies\"\ngit push\n```\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n11. Run Puppet in noop mode via the PE console once more, confirming that the run is successful.\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n13. From the VS Code terminal window, run the `Invoke-WebRequest` command to verify that a new web site has been created on each of your nodes:\nWinagent:\n```\nInvoke-WebRequest -URI http://winagent\n```\nNixagent1:\n```\nInvoke-WebRequest -URI http://nixagent1\n```\n14. Navigate to the catalog for each node and review its contents:\n- Windows: `C:/ProgramData/PuppetLabs/puppet/cache/client_data`\n- Linux: `/opt/puppetlabs/puppet/cache/client_data`\n\n❔ **What's inside the catalog now? Do you see more resources? Which ones? Where did they come from?**\n\n\U0001F388 **Congratulations!** You created and updated the Apache and IIS manifest files, added the profiles to the roles, ran Puppet in noop mode from the PE console, inspected the error messages with the reports, and fixed the module dependencies which resulted in creating a website on each of your nodes.\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Check**. (ID note: Button needs to be updated)\n"
+  tabs:
+  - title: Windows Agent
+    type: service
+    hostname: guac
+    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
+    port: 8080
+  - title: PE Console
+    type: service
+    hostname: puppet
+    path: /
+    port: 443
+  - title: "Bug Zapper \U0001F99F⚡"
+    type: website
+    hostname: guac
+    url: https://docs.google.com/forms/d/e/1FAIpQLSdDtUxdeMUA6ZwOqOzk7hVN9mIkvRjIFWCfre3j7OqM9RuNFw/viewform?embedded=true
+  - title: Primary Server
+    type: terminal
+    hostname: puppet
+  - title: Linux Agent 1
+    type: terminal
+    hostname: nixagent1
+  - title: Linux Agent 2
+    type: terminal
+    hostname: nixagent2
+  - title: Git Server
+    type: service
+    hostname: gitea
+    path: /
+    port: 3000
+  difficulty: basic
+  timelimit: 7200
+checksum: "9554664040894697548"
