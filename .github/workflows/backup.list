@@ -15,7 +15,7 @@ puppet/pe-design-and-manage-lab-1-1
 puppet/pe-design-and-manage-lab-2-0
 puppet/pe-design-and-manage-lab-3-0
 puppet/pe-design-and-manage-lab-3-1
-puppet/pe-develop-and-maintain-lab-1-0-configure-code-manager-and-deploy-code
+puppet/pe-develop-and-maintain-lab-1-0-configure-code-manager
 puppet/pe-develop-and-maintain-lab-1-1-use-an-agent-specified-node-group-for-testing
 puppet/pe-301-develop-and-maintain-lab-2-0-hiera-and-puppet-lookup
 puppet/pe-301-develop-and-maintain-lab-2-1-refactor-base-profile-to-use-data
