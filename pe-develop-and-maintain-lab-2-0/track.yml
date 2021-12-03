@@ -1,0 +1,23 @@
+slug: pe-develop-and-maintain-lab-2-0
+id: 2xirfylhwwjm
+type: sandbox
+title: PE 301 Develop and Maintain-Lab 2.0-Hiera and Puppet Lookup
+teaser: In this lab you will use the puppet lookup command on your primary server
+  to discover how hiera looks for data based on your hiera.yaml configuration and
+  your node facts.
+description: In this lab you will use the puppet lookup command on your primary server
+  to discover how hiera looks for data based on your hiera.yaml configuration and
+  your node facts.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- greg.larkin@puppet.com
+- alex.williamson@puppet.com
+- jain.waldrip@puppet.com
+private: true
+published: false
+checksum: "16989519775804327312"

@@ -1,0 +1,23 @@
+slug: pe-develop-and-maintain-lab-3-1
+id: heqfx0zdwc7j
+type: sandbox
+title: PE 301 Develop and Maintain-Lab 3.1-Use resources at the profile layer
+teaser: Use file resources in your Apache & IIS profile to manage website content
+description: |-
+  In this lab you will:
+
+  - Use file resources in your Apache & IIS profile to manage website content
+  - Deploy your code to production
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- jain.waldrip@puppet.com
+- greg.larkin@puppet.com
+- thomas.chisholm@puppet.com
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "16583035183486907348"

@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 virtualmachines:
 - name: nixagent
   image: kmo-instruqt/nixagent1-pe201-lab-1-1
@@ -6,4 +6,5 @@ virtualmachines:
   machine_type: n1-standard-1
 - name: puppet
   image: kmo-instruqt/puppet-pe201-lab-1-1
+  shell: /bin/bash
   machine_type: n1-highcpu-32

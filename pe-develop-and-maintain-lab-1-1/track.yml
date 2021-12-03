@@ -1,0 +1,21 @@
+slug: pe-develop-and-maintain-lab-1-1
+id: l2silpxi4szv
+type: sandbox
+title: PE 301 Develop and Maintain-Lab 1.1-Use an Agent-Specified Node Group for Testing
+teaser: Configure PE so you can implement environment-based testing using a one-time
+  run exception environment group.
+description: Configure PE so you can implement environment-based testing using a one-time
+  run exception environment group.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- alex.williamson@puppet.com
+- greg.larkin@puppet.com
+- jain.waldrip@puppet.com
+private: true
+published: false
+checksum: "6383251664256378576"

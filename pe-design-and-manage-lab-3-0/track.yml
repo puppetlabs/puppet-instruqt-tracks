@@ -1,8 +1,9 @@
 slug: pe-design-and-manage-lab-3-0
 id: rgoha2tsmt27
 type: sandbox
-title: Create the Base Profile
-teaser: Create the base profile
+title: Create a Base Profile
+teaser: Create a base profile that shows a dynamic login message based on information
+  retrieved from trusted facts.
 description: |2+
 
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -12,12 +13,21 @@ description: |2+
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
 
+
+  Your systems likely complete tasks that are common across all nodes, such as showing a login message, enabling network time synchronization, or setting up (or removing) access via ssh or remote desktop.
+
+  You can include these common configuration tasks in a *base profile*, which you can then include in all of your roles (web server, ecommerce server, and so on) to ensures that all systems, regardless of their role, have the same base configuration. As your business and technology needs change, you can easily update the base profile by including only the technology-specific profiles and classes that you need.
+
+  Creating a base profile — a basic but important building block — means faster and consistent provisioning, less maintenance, and a sustainable code base.
+
   **What you'll learn**
 
-  In this lab you will:
-  1. Develop the existing placeholder code in the base profile to make use of a component module in order to configure base configuration.
-  2. Add a component module to the Puppetfile.
-  3. Test changes.
+  In this lab, you will:
+  - Add a base profile to existing roles. You'll discover that Puppet cannot build a catalog until you create the classes that you include in your `.pp` files!
+  - Use Puppet Development Kit (PDK) to create a base profile class.
+  - Add a class to the base profile to show a dynamic, role-specific login message based on information retrieved from trusted facts.
+  - Log into nodes that have different roles to see the dynamic login message.
+
 
 
   **Prerequisites**
@@ -36,6 +46,11 @@ description: |2+
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
+- PE201
+- roles
+- profiles
+- PDK
+- BACKUP
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
@@ -44,45 +59,4 @@ developers:
 private: true
 published: true
 show_timer: true
-challenges:
-- slug: create-the-base-profile
-  id: 2kemewf7bxic
-  type: challenge
-  title: Create the base profile
-  teaser: Create the base profile
-  notes:
-  - type: text
-    contents: Create the base profile
-  assignment: "# Create a control-repo locally on your Windows development workstation\n1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n2. Run **Visual Studio Code** from the Start menu.\n3. Click **File** > **Autosave**.\n4. Click **File** > **Open Folder** and navigate to the **C:\\CODE directory** and select it.\n5. Click **Accept** when prompted to trust code in this directory.\n6. Click **Terminal** > **New Terminal**.\n7. In the terminal window, run the following command:\n\n        git clone git@gitea:puppet/control-repo.git\n---\n# Include a base profile in your roles\n1. Checkout the feature branch <b>webapp</b>:\n      ```\n      cd control-repo\n      git checkout webapp\n      ```\n\n3. Open the `site-modules/role/manifests/cmsweb.pp` role file and modify it to include an initial profile:\n    ```\n    # site-modules/role/manifests/cmsweb.pp\n    class role::cmsweb {\n      include profile::base\n    }\n    ```\n\n4. Do the same for the `ecommerce.pp` role in the same directory.\n    ```\n    # site-modules/role/manifests/ecommerce.pp\n    class role::ecommerce {\n      include profile::base\n    }\n    ```\n5. Do the same for the `cmsloadbalancer.pp` role in the same directory.\n    ```\n    # site-modules/role/manifests/cmsloadbalancer.pp\n    class role::cmsloadbalancer {\n      include profile::base\n    }\n    ```\n6. Run `pdk validate` to validate your code.\n    ```\n    cd site-modules\\role\n    pdk validate\n    ```\n    ✔️ **Result:** Your code passes validation.\n6. Commit and push your code to your feature branch.\n    ```\n    git add .\n    git commit -m \"Add base profile to roles\"\n    git push\n    ```\n---\n# Trigger an agent run against your environment branch\n1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab and login with username `admin` and password `puppetlabs`.\n\n2. Navigate to the Node Groups page and expand the All Environmments group.\n3. Click the **Development environment** group link.\n4. Click the **Classes** tab and click the **Refresh** link on the right side of the page.\n5. Click the **Matching nodes** tab to ensure all your nodes are listed for this group.\n6. Click the **Run** button in the upper right hand corner and select **Puppet** from the resulting drop-down.\n7. Choose the `webapp` environment you created in a previous step:\n    1. Under **Environment**, choose **Select an environment for nodes to run in**.\n    2. From the dropdown menu, choose **webapp**.\n1. Click **Run Job** at the lower right to begin the puppet agent run on the nodes.\n1. On the **Job Progress** screen, click  **Report** once the jobs have completed for the **winagent** node.\n1. Open the **Log** tab of any node to see the following error:\n\n    ```\n    Error: Error while evaluating a Function Call, Could not find class ::profile::base\n    ```\n\n    ❔ **Why did Puppet fail to compile the catalog?**<br>Because the base profile class you included in your roles does not yet exist.\n---\n# Create a base profile\n1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n2. In the Visual Studio Code terminal, navigate to the `site-modules/profile` directory to create a new base profile using the pdk:\n\n    ```\n    cd ..\\profile\n    pdk new class profile::base\n    ```\n\n3. Modify the base profile in `site-modules/profile/manifests` to include code to declare the motd class:\n    ```\n    # site-modules/profile/manifests/base.pp\n    # @summary A short summary of the purpose of this class\n    #\n    # A description of what this class does\n    #\n    # @example\n    #   include profile::base\n    class profile::base {\n      class { 'motd':\n          content => \"Hello! You are in ${trusted['extensions']['pp_datacenter']}.\\n\"\n      }\n    }\n    ```\n4. Validate your code.\n    ```\n    pdk validate\n    ```\n    ✔️ **Result:** Your code passes validation.\n\n\n5. Commit and push your code to your feature branch.\n    ```\n    git add .\n    git commit -m \"Add base profile to roles\"\n    git push\n    ```\n    ✔️ **Result:** Your code will be automatically deployed to the PE server.\n\n1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n1. Trigger an agent run against your environment branch, then inspect the report.<br><br>\U0001F4A1 **Tip:** If you don't recall how, the instructions are in a section above.\n---\n# See the change\nFollow the instructions for each OS below to verify your changes took effect.\n\n|Windows             |Linux            |\n|--------------------|--------------------|\n|<ol><li>![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.</li><br><li>Click the **Start** menu.</li><br><li>Click the user icon.</li><br><li>Select **Sign Out**.</li><br><li>When presented with the **Reconnect** option, click **Reconnect**.<br><br>✔️ **Result:** The message of the day appears on the login screen.</li></ol>|<ol><li>![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab.</li><br><li>In the termnial, type the command `ssh root@localhost`.</li><br><li>Type `yes` when prompted.<br><br>✔️ **Result:** The message of the day appears.</li></ol><br><br><br><br><br>|\n\n\U0001F388 **Congratulations!**\nUsing the roles and profiles pattern, you built a base profile (a building block that defines a shared feature set across many nodes) to customize the login message of your nodes.\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**."
-  tabs:
-  - title: Windows Agent
-    type: service
-    hostname: guac
-    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
-    port: 8080
-  - title: PE Console
-    type: service
-    hostname: puppet
-    path: /
-    port: 443
-  - title: "Bug Zapper \U0001F99F⚡"
-    type: website
-    hostname: guac
-    url: https://docs.google.com/forms/d/e/1FAIpQLSfQK4DblKykkrbbRRp9Wofb9ehFXf2YSmVgQFlaDYe0iDzT-A/viewform?embedded=true
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
-  - title: Linux Agent 1
-    type: terminal
-    hostname: nixagent1
-  - title: Linux Agent 2
-    type: terminal
-    hostname: nixagent2
-  - title: Git Server
-    type: service
-    hostname: gitea
-    path: /
-    port: 3000
-  difficulty: basic
-  timelimit: 7200
-checksum: "4855882068349830632"
+checksum: "8997575205349240106"

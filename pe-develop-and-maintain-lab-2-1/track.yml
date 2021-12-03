@@ -1,0 +1,23 @@
+slug: pe-develop-and-maintain-lab-2-1
+id: mgt8lxxgtbv4
+type: sandbox
+title: PE 301 Develop and Maintain-Lab 2.1-Refactor Base Profile to Use Data
+teaser: In this lab you will refactor your base profile by moving variables to class
+  parameters, so that you can re-use the profile in another role without having to
+  duplicate code.
+description: In this lab you will refactor your base profile by moving variables to
+  class parameters, so that you can re-use the profile in another role without having
+  to duplicate code.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- jain.waldrip@puppet.com
+- greg.larkin@puppet.com
+- alex.williamson@puppet.com
+- thomas.chisholm@puppet.com
+private: true
+published: false
+checksum: "7185163426349265058"
