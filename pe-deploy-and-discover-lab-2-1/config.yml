@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 virtualmachines:
 - name: nixagent
   image: kmo-instruqt/nixagent1-pe101-lab-2-1

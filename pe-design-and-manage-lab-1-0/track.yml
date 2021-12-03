@@ -1,6 +1,6 @@
 slug: pe-design-and-manage-lab-1-0
 id: nua4cwppbg9z
-type: track
+type: sandbox
 title: Inspect the Agent Catalog
 teaser: Learn how to request, locate, and inspect the Puppet agent catalog.
 description: |-
@@ -35,6 +35,7 @@ tags:
 - PE201
 - agent
 - catalog
+- BACKUP
 owner: puppet
 developers:
 - jain.waldrip@puppet.com
@@ -44,31 +45,4 @@ developers:
 private: true
 published: true
 show_timer: true
-challenges:
-- slug: inspect-the-agent-catalog
-  id: rl9eexqbjtq4
-  type: challenge
-  title: Inspect the Agent Catalog
-  teaser: See what the Puppet agent manages out of the box.
-  notes:
-  - type: text
-    contents: |-
-      In this lab you will:
-
-      * Run Puppet and explore the Puppet run lifecycle.
-
-      * Inspect the agent catalog — built during the Puppet run — to see what the Puppet agent manages out of the box.
-
-      Click **Start** when you're ready to begin.
-  assignment: "1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab if needed.\n2. Run Puppet to request the agent's catalog from the primary server:\n\n    ```\n    puppet agent -t\n    ```\n3. Locate the agent's catalog:\n\n    ```\n    puppet config print client_datadir\n    ```\n    ✔️ **Result:** The output shows the catalog's location:\n\n       /opt/puppetlabs/puppet/cache/client_data\n\n4. View the catalog's timestamp:\n\n    ```\n    ls -l /opt/puppetlabs/puppet/cache/client_data/catalog/nixagent*.json\n    ```\n\n5. Verify that the timestamp in the output matches the current system date/time:\n\n    ```\n    date\n    ```\n\n6. Run the following command to filter the catalog contents for the `Service` resource:\n\n    ```\n    cat /opt/puppetlabs/puppet/cache/client_data/catalog/*.json | jq -c '.resources[] | select(.type==\"Service\")' | jq\n    ```\n\n7. Inspect the catalog contents, and notice that the agent manages the `pxp-agent` service resource:\n    ```\n    ...\n    {\n          \"type\": \"Service\",\n          \"title\": \"pxp-agent\",\n          \"tags\": [\n            \"service\",\n            \"pxp-agent\",\n            \"class\",\n            \"puppet_enterprise::pxp_agent::service\",\n            \"puppet_enterprise\",\n            \"pxp_agent\",\n            \"puppet_enterprise::pxp_agent\",\n            \"puppet_enterprise::profile::agent\",\n            \"profile\",\n            \"agent\",\n            \"node\",\n            \"default\"\n          ],\n          \"file\": \"/opt/puppetlabs/puppet/modules/puppet_enterprise/manifests/pxp_agent/service.pp\",\n          \"line\": 4,\n          \"exported\": false,\n          \"parameters\": {\n            \"ensure\": true,\n            \"enable\": true,\n            \"hasrestart\": true\n      ...\n    ```\n\n<br>\U0001F388 **Congratulations!** You requested a catalog from the primary server, located the catalog on the Linux agent, verified it was created recently, filtered the catalog contents for the `Service` resource type, and verified that the agent is managing the `pxp-agent` service resource.\n\n---\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Check**.\n"
-  tabs:
-  - title: Linux Agent
-    type: terminal
-    hostname: nixagent
-  - title: "Bug Zapper \U0001F99F⚡"
-    type: website
-    hostname: puppet
-    url: https://docs.google.com/forms/d/e/1FAIpQLSeW5svhPB8_0R_PJw0RhsKH1ABS31pYMa0mTf3cO8fRGoTA0A/viewform?embedded=true
-  difficulty: basic
-  timelimit: 3600
-checksum: "13421630583805310896"
+checksum: "17190050706324577919"

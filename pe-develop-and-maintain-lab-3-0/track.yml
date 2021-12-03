@@ -1,0 +1,24 @@
+slug: pe-develop-and-maintain-lab-3-0
+id: vavo214rpwgx
+type: sandbox
+title: PE 301 Develop and Maintain-Lab 3.0-Refactor profiles with parameters
+teaser: 'Lab 3.0: Refactor profiles with parameters'
+description: |-
+  In this lab you will:
+
+  - Configure Hiera via the control-repo
+  - Externalize data by moving it out of your profiles to enable reuse of profiles
+  - Deploy your code to production
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- jain.waldrip@puppet.com
+- alex.williamson@puppet.com
+- greg.larkin@puppet.com
+- thomas.chisholm@puppet.com
+private: true
+published: false
+checksum: "13210540866247100498"

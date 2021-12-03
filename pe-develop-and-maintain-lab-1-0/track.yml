@@ -1,0 +1,26 @@
+slug: pe-develop-and-maintain-lab-1-0
+id: svc4osqv2ysp
+type: sandbox
+title: PE 301 Develop and Maintain Lab 1.0 Configure Code Manager and Deploy Code
+teaser: Create a dedicated code deployment user you will use to authenticate to deploy
+  code.
+description: |-
+  In this lab you will:
+  - Create a dedicated code deployment user you will use to authenticate to deploy code.
+  - Configure Code Manager to authenticate and download your control-repo from the git server.
+  - Create a feature branch in your control-repo from main to allow you to develop safely without affecting production.
+  - Add module in your Puppetfile on your feature branch to test a code deployment
+  - Deploy code from your feature branch to the primary server to enable you to later test changes on nodes in a separate puppet environment.I
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- alex.williamson@puppet.com
+- greg.larkin@puppet.com
+- jain.waldrip@puppet.com
+private: true
+published: false
+checksum: "392641296509132214"

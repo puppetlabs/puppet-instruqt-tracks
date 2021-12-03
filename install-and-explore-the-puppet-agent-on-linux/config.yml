@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 virtualmachines:
 - name: linux
   image: centos-7-v20201014

@@ -1,8 +1,9 @@
 slug: pe-design-and-manage-lab-2-0
 id: dqpof8ghvrmb
 type: sandbox
-title: Configure Classification with Trusted Facts
-teaser: Configure classification with trusted facts
+title: Configure Node Classification by Using Trusted Facts
+teaser: Use Facter and trusted facts to dynamically classify the roles of the nodes
+  in your infrastructure.
 description: |
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -10,14 +11,15 @@ description: |
 
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
+  Configuring nodes by assigning classes, parameters, and variables to them is called *classification*. Dynamically classifying nodes — instead of hardcoding information in your Puppet manifests — makes it easy to add and remove nodes from your infrastructure, reducing manual inventory management and strengthening your code base.
 
   **What you'll learn**
 
-  In this lab you will:
+  In this lab, you will:
 
-   - Classify the **site.pp** file in your control repo by assigning the **roles** classes to your nodes using trusted facts.
-   - Create placeholder code to build out the initial roles (**`cmswebapp`** & **`ecommerce`**).
-   - Run puppet on your node to test your changes.
+   - Modify the `site.pp` file in your control repo to assign role classes to nodes (or *classify* them) by using trusted facts.
+   - Create placeholder code to build out initial ecommerce, web application, and load balancer roles.
+   - Run Puppet to test your changes.
 
   **Prerequisites**
 
@@ -33,58 +35,15 @@ description: |
 icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
+- PE201
+- classification
+- facts
+- roles
+- BACKUP
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
 private: true
 published: true
 show_timer: true
-challenges:
-- slug: configure-classification-with-trusted-facts
-  id: ns2rbfx52q8q
-  type: challenge
-  title: Configure classification with trusted facts
-  teaser: Configure classification with trusted facts
-  notes:
-  - type: text
-    contents: |-
-      In this lab you will:
-
-       - Classify `site.pp` in your control repo by assigning the `roles` classes to your nodes using trusted facts.
-       - Create placeholder code to build out the initial roles (cmswebapp & ecommerce).
-       - Run puppet on your node to test your changes.
-
-       Click **Start** when you're ready to begin.
-  assignment: "# Create a local control repo and update the **webapp** feature branch\n1. On the **Windows Agent** node, click the **Start** menu, and then open **Visual Studio Code**.\n2. Set VS Code to autosave — click **File** > **Auto Save**.\n✏️ **Note:** This step isn’t required, but enabling Auto Save prevents you from having to remember to save along the way, ensuring your edits won’t be lost.\n\n3. Open the `CODE` directory. Click **File** > **Open Folder**, and then navigate to the `C:\\CODE` directory and click **Select Folder**.\n4. Create a new terminal in VS Code. Click **Terminal** > **New Terminal**.\n5. In the terminal window, run the following command to clone the control repo. When prompted, enter **yes** to accept adding the Gitea server to known hosts.\n```\ngit clone git@gitea:puppet/control-repo.git\n```\n6. Configure git username and email by running the following command:\n```\ngit config --global user.email \"noreply@puppet.com\"\ngit config --global user.name \"Puppet User\"\n```\n7. Check out a new feature branch called <b>webapp</b>:\n```\ncd control-repo\ngit checkout -b webapp\n```\n![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n8. Log into the PE Console with username `admin` and password `puppetlabs`.\n\n9. Navigate to the **Nodes** page, and then click each node link to examine the contents of each node's trusted facts. Notice the value shown for each node's trusted fact `pp_role`:\n\n| Node      | Value             |\n| --------  |------             |\n| Nixagent1 | \"cmsweb\"          |\n| Nixagent2 | \"cmsloadbalancer\" |\n| Winagent  | \"ecommerce\"       |\n\n![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n10. From the control repo directory inside VS Code, navigate to 'Manifests' > `site.pp`. Modify the file to include classification for your nodes using the trusted fact by pasting in the following content:\n```\n# /manifests/site.pp\nnode default {\n  include \"role::${trusted['extensions']['pp_role']}\"\n}\n```\n\n12. In the VS Code terminal window, commit & push your code to your feature branch <b>webapp</b>:\n```\ngit add .\ngit commit -m \"Add pp_role to site.pp \"\ngit push -u origin webapp\n```\n---\n# Run the Puppet agent using the <b>webapp</b> environment branch and then inspect the node reports\n1. On the **PE Console** tab, navigate to the **Node groups** page, and then click the plus icon (**+**) to expand the **All Environmments** group.\n2. Click **Development environment**.\n3. On the **Classes** tab, click **Refresh** (right side of the page). [**WHY? What should learner see here?**]\n4. On the **Matching nodes** tab, ensure all your nodes are listed for this group. Then, click **Run** > **Puppet**.\n5. Under the **Environment** heading at the left, click **Select an environment for nodes to run in:** and then choose **webapp**.\n6. In the lower right corner, click **Run Job** to begin the Puppet agent run on all shown nodes.\n7. The page will refresh to show the job progress. Once the jobs have completed for the **winagent** node, click the report link at the right. [**I'm getting an error message on Nixagent2, not winagent**]\n8. On the report page, click the **Log** tab to review the error message. [**My error message is different than the one that was pasted here**]\n\n\U0001F4AD **Question: Why did puppet fail to compile the catalog?**\nThe compiler tried to autoload the `role::ecommerce` class, however this class does not yet exist.\n\n---\n# Create the `role::ecommerce` class\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n1. From the terminal window in VS Code, navigate to your role directory (`control-repo/site-modules/role`).\n2. Run the following PDK command to create the `role::ecommerce` class. Running this command creates the `role/manifests/ecommerce.pp` manifest file.\n```\npdk new class role::ecommerce\n```\n4. Modify the new `ecommerce.pp` file to include some placeholder code for your new role, for example:\n```\n# @summary A short summary of the purpose of this class\n#\n# A description of what this class does\n#\n# @example\n#   include role::ecommerce\nclass role::ecommerce {\n  notify { 'Hello! my role is: ${trusted[\\'extensions\\'][\\'pp_role\\']} \\\n    and I\\'ve been running for ${facts[\\'uptime\\']}':\n  }\n}\n```\n5. In the `site-modules\\role` directory from your terminal, run the command `pdk validate` before committing and pushing your code.\n\n✔️ **Result:** You will receive an error message: `pdk (ERROR): puppet-lint: single quoted string containing a variable found`.\n\n\U0001F4AD **Why did this happen?** Remember that you must interpolate the string for the value of the `$trusted['extensions']['pp_role']` variable. Fix this by replacing the single quotes with double quotes as shown:\n```\nclass role::ecommerce {\n  notify { \"Hello! my role is: ${trusted['extensions']['pp_role']} \\\n      and I've been running for ${facts['uptime']}\":\n  }\n}\n```\n6. From the `site-modules\\role` directory in the terminal, run `PDK validate` again.\n\n✔️ **Result:** [???]\n\n7. Commit & push your changes to the <b>webapp</b> branch.\n```\ngit add .\ngit commit -m \"Add ecommerce role\"\ngit push\n```\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n8. Run Puppet from the PE console using your environment branch <b>webapp</b> again, then inspect the node reports.\n\n\U0001F4A1 **Need a refresher?** Review the steps shown in the \"**Run the Puppet agent...**\" section above.\n\n✔️ **Result:** The Windows agent has succeeded while the two Linux agents are still in a failed state. Fix that by assigning roles to each of the nodes.\n\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.\n\n9. In the VS Code terminal, from the `control-repo/site-modules/role` directory, run `pdk new class role::cmsweb`. Then, run `pdk new class role::cmsloadbalancer`.\n\n10. Add the following code to `cmsweb.pp` file:\n\n```\n# @summary A short summary of the purpose of this class\n#\n# A description of what this class does\n#\n# @example\n#   include role::cmsweb\nclass role::cmsweb {\n  notify { \"Hello! my role is: ${trusted['extensions']['pp_role']} \\\n  and I've been running for ${facts['uptime']}\": }\n}\n```\n11. Add the following code to the `cmsloadbalancer.pp` file:\n\n```\n# @summary A short summary of the purpose of this class\n#\n# A description of what this class does\n#\n# @example\n#   include role::cmsloadbalancer\nclass role::cmsloadbalancer {\n  notify { \"Hello! my role is: ${trusted['extensions']['pp_role']} \\\n  and I've been running for ${facts['uptime']}\": }\n}\n```\n12. Push your code to the `webapp` branch:\n```\ngit add .\ngit commit -m \"Add cmsloadbalancer and cmsweb roles\"\ngit push\n```\n![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.\n\n13. From the **Node groups** page, open the `Development environments` group and execute a Puppet agent run against all three nodes, making sure to apply the *webapp* environment.\n\n✔️ **Result:** All three nodes should finish successfully when their respective report link is inspected.\n\n---\n\n\U0001F388 **Congratulations!** [Enter what was accomplished here]\n\n---\n\n**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**\n\nTo close this lab, click **Next**. / **Check**\n\n"
-  tabs:
-  - title: Windows Agent
-    type: service
-    hostname: guac
-    path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
-    port: 8080
-  - title: PE Console
-    type: service
-    hostname: puppet
-    path: /
-    port: 443
-  - title: "Bug Zapper \U0001F99F⚡"
-    type: website
-    hostname: guac
-    url: https://docs.google.com/forms/d/e/1FAIpQLSdfPBFG2teZDMmSKWEypthk3idZdxZhBvt8tIENJmPy49OxhQ/viewform?embedded=true
-  - title: Primary Server
-    type: terminal
-    hostname: puppet
-  - title: Linux Agent 1
-    type: terminal
-    hostname: nixagent1
-  - title: Linux Agent 2
-    type: terminal
-    hostname: nixagent2
-  - title: Git Server
-    type: service
-    hostname: gitea
-    path: /
-    port: 3000
-  difficulty: basic
-  timelimit: 3600
-checksum: "4592031609874559060"
+checksum: "18253988095103068428"
