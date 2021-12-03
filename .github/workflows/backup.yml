@@ -21,6 +21,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Update python
+        uses: actions/setup-python@v2.3.1
+        with:
+          python-version: '3.9'
+          
+      - name: Install python requests and upgrade pip
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install requests
+          
       # Runs a single command using the runners shell
       - name: Download Instruqt pinned release
         run: wget https://github.com/instruqt/cli/releases/download/1785-9e2fa1f/instruqt-linux-1785-9e2fa1f.zip
@@ -49,11 +59,14 @@ jobs:
       - name: Print dir contents
         run: ls  
         
+      - name: Run python list builder script
+        run: python3 utils/get_backup_list.py
+        
       - name: Remove tracks dirs to prepare to pull new data
-        run: cat .github/workflows/backup.list | sed 's~puppet/~~g'  | xargs -t -n 1 rm -r -f
+        run: cat utils/backup.list | sed 's~puppet/~~g'  | xargs -t -n 1 rm -r -f
         
       - name: Pull tracks from list file
-        run: cat .github/workflows/backup.list |  xargs -t  -n 1 instruqt track pull
+        run: cat utils/backup.list |  xargs -t  -n 1 instruqt track pull
         
       - name: Print dir contents
         run: ls
