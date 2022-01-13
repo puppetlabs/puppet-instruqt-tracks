@@ -2,18 +2,27 @@
 slug: set-up-code-manager-and-deploy-code-to-production
 id: zcognslglvff
 type: challenge
-title: Set up Code Manager and Deploy Code to Production
-teaser: Deploy code from your feature branch to the primary server to enable you to
-  later test changes on nodes in a separate puppet environment.
+title: Set up Code Manager and deploy code to production
+teaser: Deploy code from your feature branch to the primary server, enabling you to
+  test changes on nodes in a separate Puppet environment.
 notes:
 - type: text
   contents: |-
+    Configuring Code Manager to move code from source control to the primary server
+     makes it easier for developers to safely and securely deliver their code.
+
+    After developers' code changes are reviewed, approved, and merged, Code Manager authenticates the dedicated Code Deployer user role to automatically push the code to the primary server. Assigning a dedicated user to be a Code Deployer limits access to the primary server, which is considered a best practice.
+
+    The code is then available to test in a separate Puppet environment, such as a branch for a specific feature, a staging environment, or a simulated production environment.
+
     In this lab you will:
-    - Create a dedicated code deployment user you will use to authenticate to deploy code.
-    - Configure Code Manager to authenticate and download your control-repo from the git server.
-    - Create a feature branch in your control-repo from main to allow you to develop safely without affecting production.
-    - Add module in your Puppetfile on your feature branch to test a code deployment
-    - Deploy code from your feature branch to the primary server to enable you to later test changes on nodes in a separate puppet environment.
+    - Create a dedicated code deployment user that you will use to authenticate code deployment.
+    - Configure Code Manager to authenticate and download your control repo from the Git server.
+    - In your control repo, create a feature branch from the main branch, enabling you to develop safely without affecting production.
+    - Add a module to the Puppetfile in your feature branch to test a code deployment.
+    - Deploy code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
+
+    Click **Start** when you're ready to begin.
 tabs:
 - title: Windows Agent
   type: service
@@ -36,71 +45,155 @@ tabs:
 - title: Linux Agent 1
   type: terminal
   hostname: nixagent1
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
+- title: "Bug Zapper \U0001F99F⚡"
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLScGEdG86t-YZ6nVXeC6pZbiCQ3htJZlTu4e1_V3Vr3J2u-vIw/viewform?embedded=true
 difficulty: basic
 timelimit: 3600
 ---
 # Clone the control repo on your Windows development workstation
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
-2. From the **Start** menu, open **Visual Studio Code**.
-3. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
-4. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-5. When prompted, click **Accept** to trust code in this directory.
-6. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
-7. In the VS Code terminal window, run the following command:
+1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
+2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+✏️ **Note:**  If prompted, click **Accept** to trust code in this directory.
+
+4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+5. In the VS Code terminal window, run the following command:
 
         git clone git@gitea:puppet/control-repo.git
 ---
-# Configure code manager
-1. Make changes to your Puppetfile:
-
-- Checkout your new feature branch `webapp` from `main`.
+# Add the apache module to the Puppetfile
+1. Check out the `webapp` feature branch:
 ```
 cd control-repo
 git checkout webapp
 ```
-- Add the time module by copying and pasting to the end of your Puppetfile. You'll use this module in later labs.
+2. Navigate to the **Puppetfile** at the root of the **control-repo** directory and open it.  Add the apache module by copying the code below into the end of the Puppetfile:
 ```
-mod 'time',
-  ;git => 'https://git.local/puppet/puppet-time'
+mod 'puppetlabs-apache',
+  :git => 'http://gitea:3000/puppet/apache.git',
+  :ref => 'main'
 ```
-- Commit & push your changes to your feature branch `webapp`.
+3. Commit and push your changes to the `webapp` feature branch:
 ```
 git add .
-git commit -m "Add time module"
+git commit -m "Add Apache module dependency"
 git push
 ```
 
-2. Create a dedicated code deployment user with password.
+---
+# Create a dedicated code deployment user
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png)Switch to the **PE Console** tab.
 
-3. Set up token-based authentication for code deployment via `puppet-access login` - check that the token has been created in it's default location.
+1. Log in with username `admin` and password `puppetlabs`.
+2. In the left navigation panel, under the **Admin** heading, click **Access Control**.
+3. On the **Users** tab, enter the following information, and then click **Add local user**:
+ - In the **Full name** field, enter `Code Deployer`.
+ - In the **Login** field, enter `deployer`.
+4. Click the **Code Deployer** user, and then click the **Generate password reset** link in the upper-right corner.
+5. Copy and paste the generated link into a new browser tab. In the **NEW PASSWORD** field, enter the password `puppetlabs`, and then click **Reset password**.
+6. Close the browser tab. On the **PE Console** tab, close the **Password Reset Link** window.
+7. Navigate to **Access Control** > **User roles** tab, and then click on the **Code Deployers** role.
+8. From the **User name** list, select `Code Deployer`, click **Add User**, and commit the changes (click **Commit** in the bottom-right corner).
 
-4. Via the PE console, add the parameters to the following keys:
+---
+# Configure Code Manager
+1. Navigate to the **Node Groups** page, expand the **PE Infrastructure** group, and then click **PE Master**.
+2. On the **Classes** tab, scroll to **Class: puppet_enterprise::profile::master**. From the **Parameter name** list, select the parameter shown, enter the relevant value, and then click **Add to node group**. Repeat for each parameter shown:
 
-- `puppet_enterprise::profile::master class: code_manager_auto_configure`
-- `r10k_remote`
-- `r10k_private_key`
+  |  Parameter                     |  Value                                                 |
+  |--------------------------------|--------------------------------------------------------|
+  |  code_manager_auto_configure   |  true                                                  |
+  |  r10k_remote                   | "git@gitea:puppet/control-repo.git"                    |
+  |  r10k_private_key              | "/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa" |
 
-5. Run puppet on the primary server to apply the changes and configure code manager.
+3. Commit the changes.
 
-6. Test the connection to the control repository--the token will be loaded from the default location.` puppet-code deploy --dry-run`.
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab
 
-7. Observe output - success? This means code manager was able to connect and read all the git branches in the control-repo.
+4. Run `puppet agent -t` to apply the changes and configure Code Manager. Run the agent until it no longer applies corrective or intentional changes.
 
-8. Check the contents of the puppet codedir `puppet config print codedir` and also compare it with the control-repo in your version control repository - note that the directory environment `feature_1` branch has not been deployed, let's deploy it manually.
-
-9. Initiate a run `puppet-code deploy webapp --wait`
-
-10. Error - puppet code deploy fails - check the syntax in your Puppetfile:
- ```
- mod 'time',
-   ;git => 'https://git.local/puppet/puppetlabs-time',
+---
+# Deploy with Code Manager
+1. Test the connection to the control repository:
 ```
-11. Check the contents of the codedir - the directory environment `feature_1` did not get deployed.
+puppet code deploy --dry-run
+```
 
-12. Check the contents of the staging dir - observe the bad code.
+2. Observe the following output:
+```
+...
+Found 2 environments.
+[
+  {
+    "environment": "production"
+  },
+  {
+    "environment": "webapp"
+  }
+]
+```
+The output indicates that Code Manager was able to connect to and read all the Git branches in the control repo.
 
-13. Replace the semi-colon with a double-colon, commit and push your changes again.
+3. Check the contents of the Puppet code directory.  You can find the Puppet codedir with the command:
+```
+puppet config print codedir
+```
+Use the following command to view the contents of the **environment** directory:
+```
+ls -lah /etc/puppetlabs/code/environments/
+```
 
-14. Initiate a run `puppet-code deploy webapp --wait`.
+4. Note that the directory environment `webapp` branch has not been deployed.
 
-15. Check the contents of the puppet codedir and also compare it with the control-repo in your version control repository - note that the directory environment `webapp`  branch has been deployed because it contains your updated module time.
+5. Deploy the `webapp` branch manually:
+```
+puppet code deploy webapp --wait
+```
+6. Check the contents of the Puppet code `environments/webapp` directory:
+```
+ls -lah /etc/puppetlabs/code/environments/webapp
+```
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+
+7. Compare these contents with the `control-repo > Puppetfile` contents in the control repository on the Windows server. Note that the directory environment `webapp` branch has been deployed and the `modules` subdirectory now contains the Apache module because the new version of the Puppetfile has instructions to deploy it from your Git server.
+
+---
+# Configure a webhook to deploy code automatically
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab
+1. Use the command below to generate and show a login token for the code deployment user:
+```
+puppet access login deployer --lifetime 180d
+```
+2. Use the command below to show the access token, and save it to your notes:
+```
+more /root/.puppetlabs/token
+```
+3. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Git Server** tab
+4. Login with username `puppet` and password `puppetlabs`.  Once you are logged in, look for the **Repositories** sidebar on the right.  Click the link to go to the **puppetlabs/control-repo** repository.
+5. Click the **Settings** link on the upper right
+6. Click to open the **Webhooks** tab
+7. Click on the **Add Webhook** button on the upper right, and select **Gitea** in the dropdown menu
+8. Paste the following link into the **Target URL** field:
+```
+https://puppet:8170/code-manager/v1/webhook?type=github&token=
+```
+9. Paste the Puppet admin token that you copied earlier at the end of the link and click the **Add Webhook** button at the bottom of the screen
+10. You will be taken to a list of webhooks; click on the URL for the webhook that you just added
+11. Click on **Test Delivery** at the bottom of the page.  After a few seconds, you should see an entry in the list with a green checkmark next to it.
+
+🎈 **Congratulations!** In this lab you created a dedicated code deployment user that you used to authenticate to deploy code. You then configured Code Manager to authenticate and download your control repo from the Git server. Next, you created a feature branch in your control repo, which allowed you to develop safely without affecting production. Then, to test a code deployment, you added a module to the Puppetfile on your feature branch Finally, you deployed code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
+
+To continue, click **Next**.
+
+---
+**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+

@@ -1,15 +1,42 @@
 slug: pe-develop-and-maintain-lab-1-1
 id: l2silpxi4szv
 type: sandbox
-title: PE 301 Develop and Maintain-Lab 1.1-Use an Agent-Specified Node Group for Testing
-teaser: Configure PE so you can implement environment-based testing using a one-time
-  run exception environment group.
-description: Configure PE so you can implement environment-based testing using a one-time
-  run exception environment group.
-icon: ""
+title: Test Changes in an Agent-Specified Node Group
+teaser: Configure PE to enable environment-based testing using a one-time run exception
+  environment group.
+description: |
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+  Reduce the risk in code deployment by enabling the testing of changes in a safe environment - often referred to as *canary testing*. For example, you can assign nodes to node groups that simulate your development, staging, and production environments. As you develop features, you can test your code in any of these environments.
+
+  You'll use both dynamic (via trusted facts) and static (manual) methods to assign nodes to node groups to build the test environments that you need.
+
+
+  **What you'll learn**
+
+  In this lab you will:
+   - Configure PE so that you can implement environment-based testing using a one-time run exception environment group.
+
+  **Prerequisites**
+
+  [Configure Code Manager and Deploy Code](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-1-0)
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
 - BACKUP
+- PE301
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
@@ -17,5 +44,6 @@ developers:
 - greg.larkin@puppet.com
 - jain.waldrip@puppet.com
 private: true
-published: false
-checksum: "6383251664256378576"
+published: true
+show_timer: true
+checksum: "16760756081205875627"

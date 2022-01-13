@@ -2,170 +2,155 @@
 slug: refactor-profiles-with-parameters
 id: w2ebaevntvrz
 type: challenge
-title: Refactor profiles with parameters
-teaser: Refactor profiles with parameters
+title: Refactor the apache web server profile
+teaser: Extend the apache profile by using a class parameter to abstract port information.
+  Then, deploy your code to production.
 notes:
 - type: text
   contents: |-
     In this lab you will:
 
-    - Configure Hiera via the control-repo
-    - Externalize data by moving it out of your profiles to enable reuse of profiles
-    - Deploy your code to production
+    - Run a PQL query to get the list of nodes in the dc-west data center.
+    - Extend the apache profile by using a class parameter to abstract port information.
+    - Test your changes by running Puppet against a specific node group.
+    - Test your changes incrementally in a canary release. Within the subset of nodes in the canary release, you'll run Puppet in no-op mode and run it again normally.
+    - Deploy code to the production environment.
+
+    Click **Start** when you are ready to begin.
 tabs:
-- title: Primary Server
-  type: terminal
+- title: PE Console
+  type: service
   hostname: puppet
+  path: /
+  port: 443
 - title: Windows Agent
   type: service
   hostname: guac
   path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
   port: 8080
+- title: Primary Server
+  type: terminal
+  hostname: puppet
 - title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: Linux Agent 2
+- title: Linux Agent 3
   type: terminal
-  hostname: nixagent2
-- title: Git Server
-  type: service
-  hostname: gitea
-  path: /
-  port: 3000
+  hostname: nixagent3
+- title: Linux Agent 4
+  type: terminal
+  hostname: nixagent4
+- title: Linux Agent 5
+  type: terminal
+  hostname: nixagent5
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
+- title: "Bug Zapper \U0001F99F⚡"
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLSdlP8i4l00XMd54dge_zc6d3oVi-dX6xOdstd_b6YSinyDatg/viewform?embedded=true
 difficulty: basic
-timelimit: 600
+timelimit: 3600
 ---
-# Identify nodes in the *dc-east* datacenter
-1.![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
-Check the console for nodes with trusted fact pp_datacenter=dc-east - these nodes need their web service port re-configured to 82.
+# Identify nodes in the **dc-west** datacenter
+1. Log into the **PE console** with username `admin` and password `puppetlabs`.
+2. Retrieve the list of nodes with the trusted fact `pp_datacenter=dc-west`:
+    1. Navigate to the **Nodes** page.
+    2. From the **Filter by** list, choose **PQL Query**.
+    3. From the **Common queries** list, choose **Nodes with a specific fact and fact value**.
+    4. Copy the following code into the query box and click **Submit query** to get the list of nodes:
+    ```
+    inventory[certname] { trusted.extensions.pp_datacenter = "dc-west" }
+    ```
+✔️ **Result:** Observe which nodes are returned by the query. These nodes need their web service port configured to 8080.
 
-# Develop your profiles to externalize data:
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
-2. From the **Start** menu, open **Visual Studio Code**.
-3. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
-4. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-5. If prompted to trust the code in this directory, click **Accept**.
-6. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
-7. In the VS Code terminal window, run the following command:
+# Develop profiles to externalize node data
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
 
-        git clone git@gitea:puppet/control-repo.git
-8. Check out the **webapp** feature branch:
-      ```
-      cd control-repo
-      git checkout webapp
-      ```
-9. Edit the apache profile:
-# site-modules/profile/manfiests/apache.pp
-class profile::apache {
-    $port    = 80
-    $docroot = '/var/www'
-    $index_html = "${docroot}/index.html"
-    $site_content = "Hello world!"
-    include apache
-    apache::vhost { 'vhost.example.com':
-      port    => $port,
-      docroot => $docroot,
-  }
-  file { $index_html:
-    ensure  => file,
-    content => $site_content,
-    }
-}
+1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
+2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
 
-# becomes...
-# site-modules/profile/manfiests/apache.pp
+4. Open a new terminal. Click **Terminal** > **New Terminal**.
+5. In the VS Code terminal window, run the following command:
+```
+git clone git@gitea:puppet/control-repo.git
+```
+6. Check out the `webapp` feature branch to inspect some preconfigured Hiera data:
+```
+cd control-repo
+git checkout webapp
+```
+
+7. Navigate to **control-repo** > **site-modules** > **profile** > **manifests** > **apache.pp** and replace the existing code with the following code to extend the apache profile. Note the `$port` variable:
+
+```
+# site-modules/profile/manifests/apache.pp
 class profile::apache (
     $port,
 )
+{
     $docroot = '/var/www'
     $index_html = "${docroot}/index.html"
-    $site_content = "Hello world!"
+    $site_content = 'Hello world!'
     include apache
     apache::vhost { 'vhost.example.com':
       port    => $port,
       docroot => $docroot,
   }
 }
-
-10. Edit the IIS profile:
-# iis profile: site-modules/profile/manifests/iis.pp
-class profile::iis {
-    $site_root = 'c:\\inetpub\\www'
-    $iis_features = ['Web-WebServer','Web-Scripting-Tools']
-
-    iis_feature { $iis_features:
-      ensure => 'present',
-    }
-
-    iis_site { 'ecom':
-      ensure          => 'started',
-      physicalpath    => $site_root,
-      applicationpool => 'DefaultAppPool',
-      bindings        => [
-          {
-            'bindinginformation' => "*:80:",
-            'protocol'           => 'http',
-          },
-        ],
-    }
-}
-
-becomes...
-
-# iis profile: site-modules/profile/manifests/iis.pp
-class profile::iis (
-    $port,    # parametarize $port
-){
-   $site_root    = 'c:\\inetpub\\ecom'
-   $iis_features = ['Web-WebServer','Web-Scripting-Tools']
-
-   iis_feature { $iis_features:
-     ensure => 'present',
-  }
-
-  iis_site { 'ecom':
-    ensure          => 'started',
-    physicalpath    => $site_root,
-    applicationpool => 'DefaultAppPool',
-    bindings        => [
-      {
-        'bindinginformation' => "*:${port}:",   # interpolate $port
-        'protocol'           => 'http',
-      },
-    ],
-  }
-}
-
 ```
-11. Run PDK to validate your code, commit, push and deploy.
-12. Run puppet on your nodes in dc-east, observe failures:
+8. In the terminal window, navigate to `site-modules/profile` and check your code by running `pdk validate` in the terminal window.
+
+9. Commit, push, and deploy your code:
 ```
-Error: Could not retrieve catalog from remote server: Error 500 on SERVER:
-Server Error: Function lookup() did not find a value for the name 'profile::apache::port' on node NODE1.LOCAL
-Warning: Not using cache on failed catalog
-Error: Could not retrieve catalog; skipping run
-
-Error: Could not retrieve catalog from remote server: Error 500 on SERVER:
-Server Error: Function lookup() did not find a value for the name 'profile::iis::port' on node NODE2.LOCAL
-Warning: Not using cache on failed catalog
-Error: Could not retrieve catalog; skipping run
+git add .
+git commit -m "Extend the apache profile"
+git push
 ```
-13. <b>Why did it fail to compile?</b> The hiera data does not yet exist and there is no default for the parameter. Remember, a failed catalog is better than a misconfiguration using a default--i.e. an assumption.
+# <a name="runpuppet">Run Puppet against the Development node group</a>
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
 
-14. Add hiera data:
+1. Run Puppet on your development node group:
+    1. Navigate to the **Node Groups** page.
+    2. Expand **All Environments** and click **Development environment**.
+    3. Click **Run** > **Puppet**.
+    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
+✔️ **Result:** The job fails on all nixagent nodes.
 
+2. Click the report link for one of the nodes, and on the **Log** tab, find an error message similar to the following:
 ```
-# <control-repo>/data/datacenter/dc-west.yaml
-profile::apache::port: 82
-profile::iis::port: 82
-
-# <control-repo>/data/common.yaml
-profile::apache::port: 80
-profile::iis::port: 80
+Could not retrieve catalog from remote server:
+Error 500 on SERVER: Server Error: Evaluation Error:
+Error while evaluating a Function Call, Class[Profile::Apache]:
+expects a value for parameter 'port'
 ```
+✔️ **Result:** The catalog didn't compile because the Hiera data does not yet exist and there is no default value for the parameter.
 
-15. Add the required hiera layer for `pp_datacenter`:
+# Edit the Hiera data
 
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+
+1. Add Hiera data for both `dc-west.yaml` and `common.yaml` configurations. Create the `data/datacenter/` directory and relevant files:
+    1. Navigate to **control-repo** > **data**.
+    2. Right-click the `data` directory and then click **New Folder**. Name the new folder `datacenter`.
+    3. Right-click the `datacenter` directory and then click **New File**. Name the new file `dc-west.yaml` and paste in the following contents. Note the `port` value:
+    ```
+    # <control-repo>/data/datacenter/dc-west.yaml
+    ---
+    profile::apache::port: 8080
+    ```
+    4. Open `common.yaml` and paste in the following contents.
+    ```
+    # <control-repo>/data/common.yaml
+    profile::apache::port: 80
+    ```
+
+2. Navigate to `control-repo/hiera.yaml` and add the required Hiera layer for `pp_datacenter` by updating the file with the following content. Note the new `datacenter` path beneath the `department` path:
 ```
 # <control-repo>/hiera.yaml
 ---
@@ -176,22 +161,103 @@ hierarchy:
       data_hash: yaml_data
       paths:
         - "nodes/%{trusted.certname}.yaml"
-        - "domain/%{facts.domain}.yaml"
+        - "department/%{trusted.extensions.pp_department}.yaml"
         - "datacenter/%{trusted.extensions.pp_datacenter}.yaml"
         - "common.yaml"
 ```
-16. Run PDK to validate your code, commit, push and deploy.
+3. Commit, push, and deploy the code:
+```
+git add .
+git commit -m "Add Apache configuration YAML"
+git push
+```
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab
 
-17. Run puppet on dev nodes in dc-west. Observe successful run. Curl port 82 for a manual acceptance test.
+4. Run Puppet on the **Development environment** node group again (if you need a refresher, [refer back to step 1](#runpuppet) in this section).
 
-18. Canary release to a single node in production:
-    1. Pin a production node to your agent-specified environment
-    2. Run puppet in noop mode, specifying your feature branch environment - observe success.
-    3. Run puppet in normal mode, specifying your feature branch environment - observe success.
-    4. Unpin the node from the agent-specified environment.
+✔️ **Result:** Notice that the run is successful.
 
-19. Release your changes:
-    1. Merge (and delete) your feature branch to main.
-    2. Update your production branch with your merge commit.
-    3. Deploy your code to the primary server.
-    4. Run puppet on all nodes in production.
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab
+
+5. Test the port updates by running a web request on each node:
+
+dc-west:
+```
+Invoke-WebRequest -URI http://nixagent1:8080
+```
+dc-east
+```
+Invoke-WebRequest -URI http://nixagent3:80
+```
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab
+
+6. Create a one-time run exception group as a child of the **Production** group:
+    1. Navigate to the **Node Groups** page.
+    2. Click **Add group**.
+    3. Set the new group attributes as follows, ensuring that the `Environment group` checkbox is selected:
+      | Parent Name            | Group Name                              | Environment     |
+      |------------------------|-----------------------------------------|-----------------|
+      | Production environment | Production Agent-Specified One-Time Run | agent-specified |
+
+    4. Enter a description.
+    6. Click **Add**.
+
+# Pin a node and perform a canary release of the `webapp` branch to a Production node
+1. Pin a production node to the agent-specified environment. Your choices are nixagent4 or nixagent5:
+    1. Navigate to the **Node Groups** page.
+    2. Expand **All Environments**, and then expand **Production environment** and click **Production Agent-Specified One-Time Run**.
+    3. In the **Certname** field, click on **node name** and then select either **nixagent4** or **nixagent5**.
+    4. Click **Pin node**, and then click **Commit 1 change**.
+
+2. Run Puppet in no-op mode, specifying the feature branch environment:
+    1. Click **Run** > **Puppet**
+    2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list.
+    3. Check the box next to **No-op** and then click **Run job**.
+✔️ **Result:** Notice that the run was successful.
+
+3. Run Puppet in normal mode, specifying the feature branch environment:
+   1. Click **Run** > **Puppet**
+   2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list. This time, **do not** select the **No-op** checkbox.
+✔️ **Result:** Notice that the run was successful.
+
+4. Unpin the node from the agent-specified environment:
+    1. Navigate to the **Node Groups** page.
+    2. Expand **All Environments**, and then expand **Production environment** and click **Production Agent-Specified One-Time Run**.
+    3. Click **Unpin** (located at the right of page) and then click **Commit 1 change**.
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+
+5. Release your changes:
+    1. Merge the `webapp` branch to the production branch.
+    ```
+    git checkout production
+    git merge webapp
+    git push
+    ```
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+
+6. Run Puppet on all the production nodes.
+
+    1. Navigate to the **Node Groups** page.
+    2. Expand **All Environments** and then click **Production environment**.
+    3. Click **Run** > **Puppet**.
+    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    5. From the list, select **Production**, and then click **Run job**.
+
+7. Both production nodes, nixagent4 and nixagent5 should return with a successful run. Run the following commands from a Powershell session on the Winagent to verify they ran successfully:
+**dc-east**:
+```
+Invoke-WebRequest -URI http://nixagent4:80
+```
+**dc-west**:
+```
+Invoke-WebRequest -URI http://nixagent5:8080
+```
+
+✔️ **Result:** Nixagent4 and Nixagent5 ran successfully.
+
+🎈 **Congratulations!** In this lab you ran a PQL query to get the list of nodes in the **dc-west** data center. You extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You tested your changes incrementally in a canary release. Within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
+
+---
+**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**

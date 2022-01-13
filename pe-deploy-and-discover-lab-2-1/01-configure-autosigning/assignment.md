@@ -31,8 +31,12 @@ tabs:
   type: website
   hostname: nixagent
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-agent-certificate-autosigning
+- title: Practice Lab Help
+  type: website
+  hostname: nixagent
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 1. On the **Primary Server** tab, navigate to:<br><br>
 	```
@@ -86,6 +90,9 @@ timelimit: 3600
 4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`. <br><br>💡 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:<br><br>
 	```
 	chmod 700 /etc/puppetlabs/puppet/autosign.rb
+	```
+	then:
+	```
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
 	```
 
@@ -104,6 +111,9 @@ timelimit: 3600
 
 	```
 	chmod 600 /etc/puppetlabs/puppet/psk
+	```
+	then:
+	```
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
 	```
 
@@ -125,6 +135,9 @@ timelimit: 3600
 
 	```
 	uri='https://puppet:8140/packages/current/install.bash'
+	```
+	then:
+	```
 	curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
@@ -138,4 +151,4 @@ timelimit: 3600
 
 <br>🎈 **Congratulations!**  You installed the Puppet agent with autosigning enabled.
 
-<br>To close this lab, click **Next**.
+<br>To continue, click **Next**.

@@ -2,9 +2,19 @@
 slug: agent-specified-node-groups-for-testing
 id: byvczbgv7ity
 type: challenge
-title: Agent-Specified Node Groups for Testing
-teaser: In this lab you will configure PE so you can implement environment-based testing
-  using a one-time run exception environment group.
+title: Use an agent-specified node group for testing
+teaser: Configure PE so you can implement environment-based testing using a one-time
+  run exception environment group.
+notes:
+- type: text
+  contents: |-
+    In this lab you will:
+
+     - Configure PE so that you can implement environment-based testing using a one-time run exception environment group.
+
+    By making a breaking change to the one-time exception environment, you'll discover the relationship (through inheritance) between the development environment and the one-time exception environment.
+
+    Click **Start** when you're ready to begin.
 tabs:
 - title: Windows Agent
   type: service
@@ -19,68 +29,136 @@ tabs:
 - title: Primary Server
   type: terminal
   hostname: puppet
-- title: Linux Agent 3
-  type: terminal
-  hostname: nixagent3
 - title: Linux Agent 1
   type: terminal
   hostname: nixagent1
 - title: Linux Agent 2
   type: terminal
   hostname: nixagent2
+- title: Linux Agent 3
+  type: terminal
+  hostname: nixagent3
 - title: Git Server
   type: service
   hostname: gitea
   path: /
   port: 3000
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
+- title: "Bug Zapper \U0001F99F⚡"
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLSeo-czG1caPBdnCu1IhVVKJgun91C41-1_EGHcvViZnuQflqQ/viewform?embedded=true
 difficulty: basic
 timelimit: 3600
 ---
 # Create a control repo on your Windows development workstation
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
-2. From the **Start** menu, open **Visual Studio Code**.
-3. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
-4. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-5. If prompted to trust the code in this directory, click **Accept**.
-6. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
-7. In the VS Code terminal window, run the following command:
+1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
+2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
 
-        git clone git@gitea:puppet/control-repo.git
+4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+5. In the VS Code terminal window, run the following command:
+```
+git clone git@gitea:puppet/control-repo.git
+```
 ---
-# Add a debug message to all nodes via site.pp
+# Add a debug message to all nodes by updating site.pp
+
+1. Check out the `webapp` feature branch:
+```
+cd control-repo
+git checkout webapp
+```
+2. Navigate to **control-repo** > **manifests** > **site.pp** and replace the existing code with the following code:
 ```
 # control-repo/manifests/site.pp
 node default {
-    include "${trusted['extensions']['pp_role']}"
-    notify { 'it worked! This is experimental code on your feature branch!': }
-    }
- ```
-2. Check the one-time run exception group within the development environment, verify the settings:
-- Name — Canary one-time run exception
-- Parent — Development environment
-- Environment — agent-specified
-- Environment group — checked
+    include "role::${trusted['extensions']['pp_role']}"
+    notify { 'It worked! This is experimental code on your feature branch!': }
+}
+```
+3. Push your changes to the control repo via Git:
+```
+git add .
+git commit -m "Add debug message to site.pp"
+git push
+```
+---
+# Make a breaking change to the Development one-time run group to show agent-specifed environment inheritance
 
-3. Add an agent-specified environment node group for production to enable canary release--you will use this later:
-- Name — Canary one-time run exception
-- Parent — Production environment
-- Environment — agent-specified
-- Environment group — checked
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
 
-4. Login to your nodes--check that they have the pp_environment trusted fact set to "development". Notice that one of your nodes does not have this trusted fact set, so you'll need to manually pin that node to the development environment node group.
+1. Log into PE with username `admin` and password `puppetlabs`.
+2. Navigate to the **Node groups** page.
+3. Expand the **All Environments** group, expand the **Development environment** group, and click **Development one-time run exception**.
+4. Make a breaking change to this group's rules. This will show you how runtime evaluation occurs during the Puppet run with an agent-specifed environment as a result of inheritance from the **Development** group. Add a new rule that has the following values, click **Add rule**, and commit your changes (click **Commit** at the bottom of the page):
 
-5. Pin the node to the parent development environment node group.
-
-6. Run puppet agent -t --environment <ENVNAME>, where <ENVNAME> is the name of the Puppet environment that contains your test code (your feature branch).
-
-7. <FAIL> Why did the run fail? The code has not yet been deployed - log on to the primary to inspect the codedir to confirm this.
-
-8. Deploy your feature branch - log on to the primary server to confirm that your feature branch environment has been deployed.
-
-9. Run puppet agent -t --environment <ENVNAME>, where <ENVNAME> is the name of the Puppet environment that contains your test code (your feature branch).
+    |Fact                            |Operator    |Value      |
+    |--------------------------------|------------|-----------|
+    |`agent_specified_environment`   |     `= `   |`devapp`   |
 
 
-If you're using Code Manager and a Git workflow, <ENVNAME> is the name of your Git development or feature branch.
+6. Return to the **Node groups** page and click **Development environment**.
+
+7. On the **Classes** tab, click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.
+ ✏️ **Note:** After the classes reload, notice the text near the **Refresh** link: "Class definitions updated: a few seconds ago".
+
+8. In the upper-right corner, click **Run > Puppet**.
+
+9. On the **Run Puppet** page, select the following options:
+  - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.
+10. Click **Run job** and wait for jobs to complete.
 
 
-During this Puppet run, the agent sets the agent_specified_environment value to <ENVNAME>. The Canary one-time run exception group matches the node and permits it to use the requested environment.
+✔️ **Result:** Notice that none of the jobs were successful. This is because the selection of an environment causes the nodes to "fall into" the **Development one-time run exception group** during the Puppet run. In this case, the rule that you introduced means that you can only apply the nonexistent **devapp** branch. In the next steps, you'll fix those rules.
+
+---
+
+# Fix the broken rule, and then run Puppet against the development group, specifying the **webapp** branch
+1. In the PE console, navigate to the **Node groups** page.
+2. Expand the **All Environments** group, and then expand **Development environment** and then click **Development one-time run exception**.
+3. Remove the `agent_specified_environment = devapp` rule by clicking **Remove** (shown to the right), and commit the change.
+4. Return to the **Node groups** page and click **Development environment**.
+5. In the upper-right corner, click **Run > Puppet**.
+6. You will be redirected to the **Run Puppet** page. Select the following options:
+  - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.
+7. Click **Run job** and wait for jobs to complete.
+
+✔️ **Result:** When the run is complete, notice that you have log entries for all nodes except Nixagent3. Next, you will explore why that is.
+
+---
+
+# Investigate missing facts on new nodes
+1. Navigate to the **Nodes** page.
+2. From the **Filter by** list, select **PQL Query**.
+3. From the **Common queries** list, select **Nodes with a specific fact and fact value**.
+4. Replace the query text with the following text, and then click **Submit query**:
+```
+inventory[certname] { trusted.extensions.pp_environment = "development" }
+```
+✔️ **Result:** Notice that there is a node missing from the results. Navigate to the **Status** page, and then select and copy the name of the missing node. This node is not shown in the list because it's missing the `pp_environment` fact. Next, you will fix this issue by pinning the missing fact to the node.
+
+---
+# Pin the missing `pp_environment` fact to the missing node
+
+1. Navigate to the **Node Groups** page and click **Development environment**.
+2. In the **Certname** field, paste the name of the node you just copied, click **Pin node**, and commit the change.
+3. Kick off another Puppet run for the **Development** group, specifying the `webapp` branch environment. In the upper-right corner, click **Run > Puppet** with the following options:
+  - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+4. Click **Run job** and wait for jobs to complete.
+
+✔️ **Result:** When the run finishes, notice that you have a log and a successful run for the new node that was pinned to the **Development** node group.
+
+
+🎈 **Congratulations!** In this lab you configured PE so that you could implement environment-based testing using a one-time run exception environment group.
+
+---
+**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+To continue, click **Next**.
+
+

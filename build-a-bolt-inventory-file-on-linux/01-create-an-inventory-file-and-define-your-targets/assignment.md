@@ -2,7 +2,7 @@
 slug: create-an-inventory-file-and-define-your-targets
 id: 69ibjvibsm9i
 type: challenge
-title: " Create an Inventory File and Define Your Targets \U0001F4C4"
+title: " Create an inventory file and define your targets \U0001F4C4"
 teaser: Group targets by a common operating system or functional role to streamline
   orchestration tasks.
 notes:
@@ -22,9 +22,8 @@ tabs:
   type: code
   hostname: puppet
   path: /root
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

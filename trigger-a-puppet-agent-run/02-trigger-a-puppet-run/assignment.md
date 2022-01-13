@@ -2,7 +2,7 @@
 slug: trigger-a-puppet-run
 id: xbnzl6tqkedg
 type: challenge
-title: "Trigger a Puppet Run \U0001F4BB"
+title: "Trigger a Puppet run \U0001F4BB"
 teaser: Discover the high-level steps the agent takes during a Puppet run.
 notes:
 - type: text
@@ -22,10 +22,9 @@ tabs:
 - title: Agent Node
   type: terminal
   hostname: linux-node
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 600
 ---

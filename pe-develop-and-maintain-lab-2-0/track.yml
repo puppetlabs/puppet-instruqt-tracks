@@ -1,17 +1,49 @@
 slug: pe-develop-and-maintain-lab-2-0
 id: 2xirfylhwwjm
 type: sandbox
-title: PE 301 Develop and Maintain-Lab 2.0-Hiera and Puppet Lookup
-teaser: In this lab you will use the puppet lookup command on your primary server
-  to discover how hiera looks for data based on your hiera.yaml configuration and
-  your node facts.
-description: In this lab you will use the puppet lookup command on your primary server
-  to discover how hiera looks for data based on your hiera.yaml configuration and
-  your node facts.
-icon: ""
+title: Abstract Data From Code by Using Hiera
+teaser: Discover how Hiera looks for data based on the hiera.yaml configuration and
+  node facts by running the puppet lookup command on the primary server.
+description: |+
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+  Suppose you have code, such as time synchronization code, that runs on both Windows and Linux. Rather than *duplicating* the code to run on different platforms, you can abstract the details into an external data source (such as .yaml files) so that you can *reuse* the code (roles, profiles, and modules) across platforms.
+
+  By separating data from code, you're following the DRY principle, so that you … don't repeat yourself.
+
+  How does Puppet reconcile the externalized data with the rest of your code? It uses Hiera, a built-in key-value lookup tool. When Puppet compiles node catalogs, it invokes Hiera to search for and retrieve the data it needs.
+
+  Hiera looks up data by using the `puppet lookup` command. You can run this command from the command line when you want to explore and test your data.
+
+  Separating data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
+
+
+  **What you'll learn**
+
+  In this lab you will:
+   - Use the **`puppet lookup`** command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
+
+  **Prerequisites**
+
+  [Testing Changes in an Agent-Specified Node Group](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-1-1)
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
+
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
 - BACKUP
+- PE301
 owner: puppet
 developers:
 - thomas.chisholm@puppet.com
@@ -19,5 +51,6 @@ developers:
 - alex.williamson@puppet.com
 - jain.waldrip@puppet.com
 private: true
-published: false
-checksum: "16989519775804327312"
+published: true
+show_timer: true
+checksum: "4884793253497472016"

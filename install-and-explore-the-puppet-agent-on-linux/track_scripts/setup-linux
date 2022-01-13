@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Preinstall this package so the gem provider can be used in the last challenge
+yum install -y rubygems

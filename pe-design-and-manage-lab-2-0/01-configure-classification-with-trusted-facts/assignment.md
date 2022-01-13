@@ -14,6 +14,8 @@ notes:
      - Create placeholder code to build out the initial roles (ecommerce, cmsweb, and cmsloadbalancer).
      - Test your changes by running Puppet.
 
+     You'll complete these tasks on tabs that correspond to a Windows node and the PE console. Feel free to explore the other tabs - for example, check out the Linux nodes, which each run an agent.
+
      Click **Start** when you're ready to begin.
 tabs:
 - title: Windows Agent
@@ -40,12 +42,12 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: "Bug Zapper \U0001F99F⚡"
+- title: Practice Lab Help
   type: website
   hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSdfPBFG2teZDMmSKWEypthk3idZdxZhBvt8tIENJmPy49OxhQ/viewform?embedded=true
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 # Create a local control repository and update site.pp in the **webapp** feature branch
 
@@ -244,9 +246,4 @@ timelimit: 3600
 
 🎈 **Congratulations!** You created a local repo and updated the webapp feature branch. You then identified each node's `pp_role` trusted fact and modified the site.pp file to classify your nodes by using that fact. After running Puppet and reviewing the error messages in the reports, you created the `role::ecommerce` class and added placeholder code. Then, you created the `role::cmsweb` and `role::cmsloadbalancer` classes for the other servers in this simulated production environment.
 
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-To close this lab, click **Check**.
-
+To continue, click **Next**.

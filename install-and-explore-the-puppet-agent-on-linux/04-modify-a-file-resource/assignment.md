@@ -2,7 +2,7 @@
 slug: modify-a-file-resource
 id: y7jzqqkgnqww
 type: challenge
-title: "Modify a File Resource \U0001F469‍\U0001F4BB"
+title: "Modify a file resource \U0001F469‍\U0001F4BB"
 teaser: Use the `puppet resource` tool to add content to an empty file, and then view
   the file contents.
 notes:
@@ -13,10 +13,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 600
 ---

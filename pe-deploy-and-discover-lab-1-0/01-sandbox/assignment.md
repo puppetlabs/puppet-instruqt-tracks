@@ -21,8 +21,12 @@ tabs:
 - title: Lab Aid
   type: website
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-the-primary-server
+- title: Practice Lab Help
+  type: website
+  hostname: puppet
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3599
+timelimit: 3000
 ---
 
 1. On the **Primary Server** tab, download the installation tarball: <br><br>💡 **Tip:** Click the code block to copy it, and then right-click and paste it on the command line.<br><br>
@@ -66,5 +70,3 @@ timelimit: 3599
 10. Make sure that all the services in the list are running ("Operational").
 
 <br>🎈 **Congratulations!** You installed PE, and its basic configuration is now complete.
-
-<br>To close this lab, click **Next**.

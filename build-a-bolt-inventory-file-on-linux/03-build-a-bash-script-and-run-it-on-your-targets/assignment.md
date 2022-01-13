@@ -2,7 +2,7 @@
 slug: build-a-bash-script-and-run-it-on-your-targets
 id: xuxnxfxlf8vj
 type: challenge
-title: "Build a Bash Script and Run It on Your Targets \U0001F4DC"
+title: "Build a Bash script and run it on your targets \U0001F4DC"
 teaser: Invoke a script with Bolt to complete a multistep NTP configuration.
 notes:
 - type: text
@@ -23,9 +23,8 @@ tabs:
   type: code
   hostname: puppet
   path: /root
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

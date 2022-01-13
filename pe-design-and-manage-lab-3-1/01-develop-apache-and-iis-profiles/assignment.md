@@ -50,12 +50,12 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: "Bug Zapper \U0001F99F⚡"
+- title: Practice Lab Help
   type: website
   hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSdDtUxdeMUA6ZwOqOzk7hVN9mIkvRjIFWCfre3j7OqM9RuNFw/viewform?embedded=true
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 7200
+timelimit: 3000
 ---
 # Verify that no websites are currently configured
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
@@ -286,8 +286,4 @@ Invoke-WebRequest -URI http://nixagent1
 
 🎈 **Congratulations!** You created and updated the Apache and IIS manifest files and added the profiles to the roles. You then ran Puppet in no-op mode in the PE console and inspected the error messages in the reports. You then fixed the module dependencies, which resulted in creating a website on each of your nodes.
 
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-To close this lab, click **Next**.
+To continue, click **Next**.

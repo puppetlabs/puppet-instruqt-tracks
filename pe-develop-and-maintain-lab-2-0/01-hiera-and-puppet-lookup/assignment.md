@@ -2,45 +2,116 @@
 slug: hiera-and-puppet-lookup
 id: pjzdkzqxxmfh
 type: challenge
-title: Hiera and Puppet Lookup
-teaser: In this lab you will use the puppet lookup command on your primary server
-  to discover how hiera looks for data based on your hiera.yaml configuration and
-  your node facts.
+title: Use the Puppet lookup command on the primary server
+teaser: Discover how Hiera looks for data based on the hiera.yaml configuration and
+  node facts.
+notes:
+- type: text
+  contents: |-
+    In this lab you will:
+
+     - Use the `puppet lookup` command on your primary server to discover how Hiera looks for data based on your hiera.yaml configuration and your node facts.
+
+    Click **Start** when you are ready to begin.
 tabs:
-- title: Primary Server
-  type: terminal
-  hostname: puppet
 - title: Windows Agent
   type: service
   hostname: guac
   path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Linux Agent 1
+- title: Primary Server
   type: terminal
-  hostname: nixagent1
-- title: Linux Agent 2
-  type: terminal
-  hostname: nixagent2
-- title: Linux Agent 3
-  type: terminal
-  hostname: nixagent3
-- title: Git Server
+  hostname: puppet
+- title: PE Console
   type: service
-  hostname: gitea
+  hostname: puppet
   path: /
-  port: 3000
+  port: 443
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
+- title: "Bug Zapper \U0001F99F⚡"
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLSdK2AQaJ6Y96a8tP1WTf4r-03ihwDtV_MHfc0G__SbWfYUhfw/viewform?embedded=true
 difficulty: basic
-timelimit: 600
+timelimit: 3600
 ---
-1. Check each your node's certnames by logging in to each node and running:
-`puppet config print certname   # you will need this in the next step`.
+# Clone the control repo on your Windows development workstation
+1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
+2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
 
-2. Logon to your primary server and run puppet lookup to lookup data for each node:
+4. Open a new terminal. Click **Terminal** > **New Terminal**.
+5. In the VS Code terminal window, run the following command:
 ```
-puppet lookup profile::base::login_message --explain --node <node certname>puppet lookup profile::base::ntp_servers --explain --node <node certname>
+git clone git@gitea:puppet/control-repo.git
 ```
-3. Check the `hiera.yaml` file in your control-repo to verify the hierarchies against the puppet lookup command output.
+6. Check out the feature branch `webapp` to inspect some preconfigured Hiera data:
+```
+cd control-repo
+git checkout webapp
+```
+# Run the `puppet lookup` command to identify the login message for each node
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+1. Copy (but don't run) the following `puppet lookup` command into the Primary Server window. Again, **do not run the command yet**:
+```
+puppet lookup profile::base::login_message --node <NODENAME> --environment webapp --explain
+```
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
 
-4. What were the facts that affected the lookup? Login to each node and check the facts that are used in the hierarchy of the `hiera.yaml` configuration file.
+2. Log into the PE console with username `admin` and password `puppetlabs`.
+3. Navigate to the **Status** page, and then highlight and copy a node name.
 
-5. Are all facts present on both nodes? Why did Hiera retrieve data from `common.yaml` for Node B?
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+
+4. On the Primary Server tab, replace **`<NODENAME>`** in the command with the name of the node you just copied, and then run the command on the selected node.
+5. Review the login message in the output:
+    `Found key: "profile::base::login_message" value: "<LOGIN MESSAGE HERE>"`
+
+6. Repeat steps 1-5, replacing `<NODENAME>` with the name of the other node.
+✔️ **Result:** Review the output. Notice how it differs from the output for the previous node.
+
+# Run `puppet lookup` to identify other information for each node
+1. Copy (but don't run) the following `puppet lookup` command into the Primary Server window. Again, **do not run the command yet**:
+```
+puppet lookup profile::ntp::servers --node <NODENAME> --environment webapp --explain
+```
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+
+2. In the PE console, navigate to the **Status** page, and then highlight and copy a node name.
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+
+3. On the Primary Server tab, replace **`<NODENAME>`** in the command with the name of the node you just copied.
+4. Run the command on the selected node and review the output.
+5. Repeat steps 1-4, replacing `<NODENAME>` with the name of the other node, and then review the output. Notice how it differs from the output of the previous node.
+
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+
+6. Review the contents of files at the following locations:
+ - **control-repo** > **hiera.yaml**
+ - **control-repo** > **data** > **datacenter**
+ - **control-repo** > **data** > **department**
+
+ ✔️ **Result:** Verify the hierarchy of the contents in these files against the `puppet lookup` command output.
+
+# Identify which facts affected the lookup
+![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+
+1. Run the following `puppet query` command to check the facts that are used in the hierarchy of the `hiera.yaml` configuration file for all of your nodes:
+```
+puppet query 'facts[certname,value] { name = "trusted" }'
+```
+
+✔️ **Result:** Review the trusted facts and notice whether all facts are present on both nodes.
+
+🎈 **Congratulations!** In this lab, you used the `puppet lookup` command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
+
+---
+
+**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+

@@ -4,16 +4,7 @@ type: sandbox
 title: Create a Base Profile
 teaser: Create a base profile that shows a dynamic login message based on information
   retrieved from trusted facts.
-description: |2+
-
-  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
-
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
-
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
-  ___
-
-
+description: |+
   Your systems likely complete tasks that are common across all nodes, such as showing a login message, enabling network time synchronization, or setting up (or removing) access via ssh or remote desktop.
 
   You can include these common configuration tasks in a *base profile*, which you can then include in all of your roles (web server, ecommerce server, and so on) to ensures that all systems, regardless of their role, have the same base configuration. As your business and technology needs change, you can easily update the base profile by including only the technology-specific profiles and classes that you need.
@@ -43,7 +34,7 @@ description: |2+
   Click **Start track** when you're ready to begin.
 
 
-icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - PE201
@@ -59,4 +50,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "8997575205349240106"
+checksum: "9566962389799140445"

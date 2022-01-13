@@ -1,16 +1,10 @@
 slug: pe-design-and-manage-lab-3-1
 id: rhg94thglduz
 type: sandbox
-title: Develop web server profiles that consume Puppet Forge modules
+title: Develop Web Server Profiles that Consume Puppet Forge Modules
 teaser: Build apache and iis web server profiles with Puppet code and Puppet Forge
   modules.
 description: |+
-  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
-
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
-
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
-  ___
   In this lab, you will create and configure a pair of web servers: a CMS backend web application server powered by Apache HTTP and a front-end ecommerce application server powered by Internet Information Services (IIS) for Windows® Server.
 
   To do this, you'll use the roles and profiles pattern. You'll create and build the profile classes, which consume component modules from Puppet Forge. After you build the profiles, you'll compose roles consisting of these profiles to continue building out the capability of your data center across Linux and Windows nodes.
@@ -39,7 +33,7 @@ description: |+
 
   Click **Start track** when you're ready to begin.
 
-icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - BACKUP
@@ -50,4 +44,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "4025213775533220934"
+checksum: "5921988991650418915"

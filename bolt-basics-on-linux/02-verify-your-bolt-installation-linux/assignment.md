@@ -2,7 +2,7 @@
 slug: verify-your-bolt-installation-linux
 id: wvghomls1zpw
 type: challenge
-title: Verify Your Bolt Installation ✔️
+title: Verify your Bolt installation ✔️
 teaser: Make sure your Bolt installation works as expected.
 notes:
 - type: text
@@ -14,9 +14,8 @@ tabs:
 - title: Bolt
   type: terminal
   hostname: puppet
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720
