@@ -2,7 +2,7 @@
 slug: specify-a-desired-state
 id: zkwun505nnze
 type: challenge
-title: "Specify a Desired State \U0001F4BB"
+title: "Specify a desired state \U0001F4BB"
 teaser: Specify how to keep the agent node in its desired state by adding a node definition
   and resource to the `site.pp` manifest.
 notes:
@@ -33,10 +33,9 @@ tabs:
   type: code
   hostname: puppet
   path: /etc/puppetlabs/code/environments/production/manifests/site.pp
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 900
 ---

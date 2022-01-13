@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: tgxcnqzczuoo
 type: challenge
-title: "Wrap-up and Feedback \U0001F4AC"
+title: "Wrap-up and feedback \U0001F4AC"
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -15,6 +15,10 @@ tabs:
   type: website
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
+- title: Practice Lab Help
+  type: website
+  hostname: puppet
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 721
 ---

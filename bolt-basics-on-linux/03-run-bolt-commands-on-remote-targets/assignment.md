@@ -2,7 +2,7 @@
 slug: run-bolt-commands-on-remote-targets
 id: xpxk4boeqvir
 type: challenge
-title: "Run Bolt Commands on Remote Targets \U0001F469‍\U0001F4BB"
+title: "Run Bolt commands on remote targets \U0001F469‍\U0001F4BB"
 teaser: Run your first Bolt commands on remote targets.
 notes:
 - type: text
@@ -22,9 +22,8 @@ tabs:
 - title: Target 2
   type: terminal
   hostname: target2
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

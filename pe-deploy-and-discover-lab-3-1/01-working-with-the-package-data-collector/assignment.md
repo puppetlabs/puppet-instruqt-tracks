@@ -43,11 +43,15 @@ tabs:
   type: website
   hostname: guac
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-packages-and-server-roles-by-using-package-data-collection
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 ## Enable package data collection
-1. Log in to the PE console with username `admin` and password `puppetlabs`.
+1. Log into the PE console with username `admin` and password `puppetlabs`.
 
 2. From the console sidebar, navigate to the **Node groups** page, expand (click **+**) **PE Infrastructure**, and click the **PE Agent** node group.
 
@@ -104,4 +108,4 @@ timelimit: 3600
 
 <br>🎈 **Congratulations!** You enabled package data collection and used the information to discover the roles of the nodes in your environment.
 
-<br>To close this lab, click **Next**.
+<br>To continue, click **Next**.

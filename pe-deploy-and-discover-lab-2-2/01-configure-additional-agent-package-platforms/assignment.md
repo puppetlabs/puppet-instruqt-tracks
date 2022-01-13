@@ -25,8 +25,15 @@ tabs:
   type: service
   hostname: puppet
   port: 443
+- title: Lab Aid
+  type: website
+  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-additional-agent-package-platforms
+- title: Practice Lab Help
+  type: website
+  hostname: puppet
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 1. On the Linux node, install an agent by running the installation script with the `custom_attributes:challengePassword` parameter:<br><br>
     ```
@@ -80,4 +87,4 @@ timelimit: 3600
 
 <br>🎈 **Congratulations!** You configured PE to support installing agents that run a different OS than the primary server.
 
-<br>To close this lab, click **Next**.
+<br>To continue, click **Next**.

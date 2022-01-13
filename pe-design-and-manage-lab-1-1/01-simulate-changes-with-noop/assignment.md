@@ -13,6 +13,8 @@ notes:
     - Run Puppet with the `--noop` parameter to simulate a Puppet run without enforcing the agent catalog and making changes to the system.
     - Run Puppet normally to fix the drift you caused.
 
+    In this lab, you'll use only the Linux agent (on the Linux Agent tab). Feel free to explore the PE console and primary server command line available on the other tabs. To log into the PE console, use userid `admin` and password `puppetlabs`.
+
     Click **Start** when you're ready to begin.
 tabs:
 - title: Linux Agent
@@ -26,12 +28,12 @@ tabs:
 - title: Primary Server
   type: terminal
   hostname: puppet
-- title: "Bug Zapper \U0001F99F⚡"
+- title: Practice Lab Help
   type: website
   hostname: nixagent
-  url: https://docs.google.com/forms/d/e/1FAIpQLSfeF6zSPTGev89tNO86g37Bp7np76X9tdiP_njUjWzyT0tTqA/viewform?embedded=true
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 ## **First, let's break something.**
 **What can we break?** Out of the box, Puppet manages only itself. So let's break Puppet!
@@ -46,10 +48,10 @@ Specifically, you'll cause drift on the agent node by making an unexpected chang
 
 **Instructions**
 
-1. Choose one or more components to break. Then, cause drift on the node in the following ways:<br><br>
+1. Choose one or more components to break. Then, cause drift on the Linux agent node by running one of the following commands:<br><br>
      | # | How to cause drift |
      |:-:|------- |
-     |**1**| Stop the service by running this commnand: <br> ``` service pxp-agent stop ``` |
+     |**1**| Stop the service by running this command: <br> ``` service pxp-agent stop ```      |
      |**2**| Add text to the config file by running this command: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
      |**3**| Remove the uninstall script by running this command: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
 
@@ -71,15 +73,10 @@ Run Puppet in no-op mode to simulate a Puppet run and understand what the Puppet
 ## **Finally, let's run Puppet to fix it.**
 
 1. Run Puppet normally:
-
     ```puppet agent -t```
 
 2. Examine the output to see the changes Puppet made to bring the node back into its desired state (all Puppet components fully functional).
 
 🎈 **Congratulations!** How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
 
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-To close this lab, click **Next**.
+To continue, click **Next**.

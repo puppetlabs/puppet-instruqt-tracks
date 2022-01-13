@@ -1,17 +1,50 @@
 slug: pe-develop-and-maintain-lab-2-1
 id: mgt8lxxgtbv4
 type: sandbox
-title: PE 301 Develop and Maintain-Lab 2.1-Refactor Base Profile to Use Data
-teaser: In this lab you will refactor your base profile by moving variables to class
-  parameters, so that you can re-use the profile in another role without having to
-  duplicate code.
-description: In this lab you will refactor your base profile by moving variables to
-  class parameters, so that you can re-use the profile in another role without having
-  to duplicate code.
-icon: ""
+title: Refactor the Base Profile
+teaser: Refactor your base profile by moving variables to class parameters so that
+  you can reuse the profile in another role without having to duplicate code.
+description: |+
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+  Suppose you have a base profile that shows a login message across all the servers in your organization, but now you need to show a different login message for the servers owned by the finance department.
+
+  To do this, you'll create class parameters in your manifests to abstract the data in the base profile that enables specific messaging. Abstracting data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
+
+  Then, you'll externalize the finance department's login message in Hiera.
+
+  You'll discover how to run a Puppet Query Language (PQL) query return nodes with a specific fact and fact value, which can help you to correctly abstract the data from code and troubleshoot as needed.
+
+  At the end of the lab, you'll have configured the finance nodes to department-specific login message by externalizing data to the appropriate yaml configuration file. You'll compare this with the sales department nodes, which show a common login message.
+
+
+  **What you'll learn**
+
+  In this lab you will:
+   - Refactor your base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate code.
+
+
+  **Prerequisites**
+
+  [Abstract data from code by using Hiera](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-0)
+
+  ---
+
+  **Keep an eye on the clock**
+
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  Click **Start track** when you're ready to begin.
+
+icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
 - BACKUP
+- PE301
 owner: puppet
 developers:
 - jain.waldrip@puppet.com
@@ -19,5 +52,6 @@ developers:
 - alex.williamson@puppet.com
 - thomas.chisholm@puppet.com
 private: true
-published: false
-checksum: "7185163426349265058"
+published: true
+show_timer: true
+checksum: "15029813827179347861"

@@ -22,9 +22,8 @@ tabs:
 - title: Bolt
   type: terminal
   hostname: puppet
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

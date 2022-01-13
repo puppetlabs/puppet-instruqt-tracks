@@ -1,0 +1,93 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+sleep 30
+
+mkdir /etc/puppetlabs/code/environments/development
+
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+IPADDR=$(hostname -I)
+
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent3,nixagent4,nixagent5
+
+bolt command run "Add-Content -Value '$IPADDR puppet puppet.c.kmo-instruqt.internal' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
+bolt command run "sed -i 's/DEPT/finance/g' /etc/puppetlabs/puppet/csr_attributes.yaml" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent3,nixagent5
+
+bolt command run "sed -i 's/DEPT/sales/g' /etc/puppetlabs/puppet/csr_attributes.yaml" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent4
+
+bolt command run "sed -i 's/dc-west/dc-east/g' /etc/puppetlabs/puppet/csr_attributes.yaml" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent4,nixagent3
+
+bolt command run "sed -i 's/development/production/g' /etc/puppetlabs/puppet/csr_attributes.yaml" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent4,nixagent5
+
+bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent3,nixagent4,nixagent5
+
+bolt command run 'Restart-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
+sleep 10
+
+/usr/local/bin/puppet agent -t
+
+sleep 10
+
+# Generate a token to use with puppet job run
+type_header='Content-Type: application/json'
+uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+data='{"login": "admin",
+       "password": "puppetlabs",
+       "lifetime": "180d"
+      }'
+
+while ! nc -z -w3 localhost 4433
+do
+  echo "Waiting for port 4433 to be reachable on localhost"
+done
+
+curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+mkdir -p /root/.puppetlabs
+cat /tmp/token.json | jq -r .token > /root/.puppetlabs/token
+chmod 600 /root/.puppetlabs/token
+
+# Now run Puppet twice on the nodes
+# puppet job run --query 'nodes {}'
+# puppet job run --query 'nodes {}'
+
+curl -XPOST -H "Content-Type: application/json" \
+  -u puppet:puppetlabs \
+  -d "{\"type\": \"gitea\", \"config\": {\"content_type\": \"json\",\"url\": \"https://puppet:8170/code-manager/v1/webhook?type=github\u0026token=$(cat /root/.puppetlabs/token)\"},\"events\": [\"push\"],\"active\": true}" \
+  http://gitea:3000/api/v1/repos/puppet/control-repo/hooks
+
+bolt file upload /tmp/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+bolt file upload /tmp/id-control_repo.rsa C:\\users\\instruqt\\.ssh\\id_rsa --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+bolt command run 'git config --global user.email "noreply@puppet.com"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+bolt command run 'git config --global user.name "Puppet User"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+ssh-keyscan -H gitea >> known_hosts
+
+bolt file upload known_hosts C:\\users\\instruqt\\.ssh\\known_hosts --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+puppet code deploy --all --wait  
+
+cat << 'EOF' > settings.json
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "open"
+}
+EOF
+
+bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+bolt command run 'Remove-Item -Path C:\Temp\VSCodeExtensions\*.* -Recurse' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent

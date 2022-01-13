@@ -2,7 +2,7 @@
 slug: run-a-command-on-your-targets
 id: aumjsw3ompmd
 type: challenge
-title: ' Run a Command on Your Targets ✔️'
+title: ' Run a command on your targets ✔️'
 teaser: Run the `ntpdate` command to synchronize the system time on the targets defined
   in the **webservers** group.
 notes:
@@ -20,9 +20,8 @@ tabs:
 - title: Bolt
   type: terminal
   hostname: puppet
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

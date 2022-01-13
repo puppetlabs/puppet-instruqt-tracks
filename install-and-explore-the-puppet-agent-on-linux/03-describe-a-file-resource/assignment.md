@@ -2,7 +2,7 @@
 slug: describe-a-file-resource
 id: qoptwf0kdkvj
 type: challenge
-title: "Describe a File Resource \U0001F4BB"
+title: "Describe a file resource \U0001F4BB"
 teaser: Create an empty file. Then, request a description of it and review the output.
 notes:
 - type: text
@@ -12,10 +12,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 400
 ---

@@ -32,8 +32,12 @@ tabs:
   type: website
   hostname: guac
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-puppet-agents
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3599
+timelimit: 3000
 ---
 <a name="linux"><img src="https://storage.googleapis.com/instruqt-images/install-local-linux.png"></a>
 
@@ -119,4 +123,4 @@ timelimit: 3599
 
 <br>🎈 **Congratulations!**  You installed Puppet agents remotely from the PE console on Windows.
 
-<br>To close this lab, click **Next**.
+<br>To continue, click **Next**.

@@ -41,21 +41,20 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: "Bug Zapper \U0001F99F⚡"
+- title: Practice Lab Help
   type: website
   hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSfQK4DblKykkrbbRRp9Wofb9ehFXf2YSmVgQFlaDYe0iDzT-A/viewform?embedded=true
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 7200
+timelimit: 3000
 ---
 # Create a control repo on your Windows development workstation
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
-2. From the **Start** menu, open **Visual Studio Code**.
-3. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
-4. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-5. If prompted to trust the code in this directory, click **Accept**.
-6. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
-7. In the VS Code terminal window, run the following command:
+1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
+2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+4. If prompted to trust the code in this directory, click **Accept**.
+5. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+6. In the VS Code terminal window, run the following command:
 
         git clone git@gitea:puppet/control-repo.git
 ---
@@ -176,8 +175,5 @@ Follow the instructions for each OS below to verify that your changes took effec
 
 🎈 **Congratulations!**
 Using the roles and profiles pattern, you built a base profile — a building block that defines a shared feature set across many nodes — to customize the login message of your nodes.
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
 To close this lab, click **Next**.

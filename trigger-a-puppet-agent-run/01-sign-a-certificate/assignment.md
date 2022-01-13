@@ -2,7 +2,7 @@
 slug: sign-a-certificate
 id: dty1ff36osqi
 type: challenge
-title: "Sign an Agent Node's Certificate \U0001F4BB"
+title: "Sign an agent node's certificate \U0001F4BB"
 teaser: Sign a certificate on an unsigned agent node so that the primary Puppet server
   can validate the node before authorizing communication.
 notes:
@@ -22,10 +22,9 @@ tabs:
 - title: Agent Node
   type: terminal
   hostname: linux-node
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 600
 ---

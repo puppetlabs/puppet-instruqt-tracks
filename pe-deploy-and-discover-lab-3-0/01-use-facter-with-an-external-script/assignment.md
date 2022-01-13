@@ -48,8 +48,12 @@ tabs:
   type: website
   hostname: guac
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-your-nodes-by-using-external-facts
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 
 <img src="https://storage.googleapis.com/instruqt-images/graphic-linux.png" a name="linux">
@@ -177,4 +181,4 @@ Before creating the `datacenter` external fact, you need to know what value you'
 
 <br>🎈 **Congratulations!**  You installed an external fact script to create a `datacenter` fact, and then verified that Facter was able to retrieve the data in the fact.
 
-<br>To close this lab, click **Next**.
+<br>To continue, click **Next**.

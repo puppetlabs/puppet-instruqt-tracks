@@ -2,7 +2,7 @@
 slug: explore-resource-syntax-by-using-the-puppet-agent
 id: zhyswco37bif
 type: challenge
-title: "Explore Resource Syntax by Using the Puppet Agent \U0001F4BB"
+title: "Explore resource syntax by using the Puppet agent \U0001F4BB"
 teaser: Request a description of a resource and review the output.
 notes:
 - type: text
@@ -17,10 +17,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 400
 ---

@@ -2,7 +2,7 @@
 slug: install-a-package
 id: 4vclrt84vclu
 type: challenge
-title: "Install a Package \U0001F469‍\U0001F4BB"
+title: "Install a package \U0001F469‍\U0001F4BB"
 teaser: Use the Puppet agent to install a package and learn about package providers.
 notes:
 - type: text
@@ -16,10 +16,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 600
 ---
@@ -54,6 +53,8 @@ Run the following command:
 puppet resource package bogus-package ensure=present provider=gem
 ```
 
+**NOTE:** This command may take several minutes to complete while the entire RubyGems repository is searched for the bogus package name.
+
 ✔️ **Result:** As expected, Puppet still can't install the bogus package, however, this time the error message comes from the `gem` package provider, not `yum`.
 
 ## Can I specify which package version to install?
@@ -62,9 +63,9 @@ Yes. Simply specify the version in the `ensure` parameter. If you don't specify 
 The value `present` means *install the latest version*, but other values are interpreted as a specific version. If the package provider can't find the requested version, you'll see an error in the output.
 
 # Step 4
-Run the following command:
+Run the following command to install an older version of the `colors` gem package:
 ```
-puppet resource package httpd ensure=2.4.6-97.el7.centos.1
+puppet resource package colors ensure=0.0.6 provider=gem
 ```
 ## Result
 Puppet installs the version that you specify.

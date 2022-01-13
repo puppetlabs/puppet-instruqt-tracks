@@ -2,7 +2,7 @@
 slug: knowledge-check
 id: qhdb3cpdzkci
 type: challenge
-title: "Knowledge Check \U0001F4A1"
+title: "Knowledge check \U0001F4A1"
 teaser: Test your knowledge to make sure you've got it down.
 notes:
 - type: text
@@ -17,9 +17,8 @@ tabs:
   type: website
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLSfamZAZYut5x0VX998jHdsXSzS3fX9IAYq_e9AiRSpXr6O80g/viewform?embedded=true
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720

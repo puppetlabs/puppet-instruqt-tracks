@@ -2,7 +2,7 @@
 slug: install-the-puppet-agent-on-a-node
 id: kvex76zt0maw
 type: challenge
-title: "Install the Puppet Agent on a Node \U0001F4BB"
+title: "Install the Puppet agent on a node \U0001F4BB"
 teaser: Start off by installing the Puppet agent on a fresh node.
 notes:
 - type: text
@@ -23,10 +23,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 600
 ---

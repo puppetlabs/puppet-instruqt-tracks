@@ -2,7 +2,7 @@
 slug: describe-a-package-resource
 id: 936x4nodyb0p
 type: challenge
-title: "Describe a Package Resource \U0001F469‍\U0001F4BB"
+title: "Describe a package resource \U0001F469‍\U0001F4BB"
 teaser: Use the `puppet resource` tool to describe a software package that doesn't
   yet exist on the node.
 notes:
@@ -20,10 +20,9 @@ tabs:
 - title: Linux
   type: terminal
   hostname: linux
-- title: Platform Help
+- title: Practice Lab Help
   type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 520
 ---

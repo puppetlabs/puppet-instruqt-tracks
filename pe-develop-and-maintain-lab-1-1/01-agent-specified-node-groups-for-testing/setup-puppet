@@ -83,3 +83,5 @@ cat << 'EOF' > settings.json
 EOF
 
 bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+bolt command run 'Remove-Item -Path C:\Temp\VSCodeExtensions\*.* -Recurse' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent

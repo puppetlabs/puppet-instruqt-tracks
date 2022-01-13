@@ -38,8 +38,12 @@ tabs:
   type: website
   hostname: guac
   url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/establish-server-roles-by-reinstalling-agents-with-trusted-facts
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 *If you prefer to use Windows, you can jump to the [Windows instructions](#windows).*
 
@@ -194,4 +198,4 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 
 <br>🎈 **Congratulations!** You uninstalled the Puppet agent from your Windows node and purged it from the primary server so that you can reuse its node license. You securely assigned the server's role and data center in your environment by installing the agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
 
-To close this lab, click **Next**.
+To continue, click **Next**.
