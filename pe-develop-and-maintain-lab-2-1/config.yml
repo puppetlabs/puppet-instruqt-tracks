@@ -20,7 +20,7 @@ virtualmachines:
   machine_type: n1-highcpu-16
 - name: gitea
   image: kmo-instruqt/gitea-pe301-lab-1-1
-  machine_type: n1-standard-1
+  machine_type: n1-highcpu-4
 - name: nixagent3
   image: kmo-instruqt/nixagent3-pe301-lab-1-1
   shell: /bin/bash

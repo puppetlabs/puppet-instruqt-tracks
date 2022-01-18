@@ -53,7 +53,7 @@ timelimit: 3000
 
 1. Click the **Windows Agent** tab to go to the **Windows Agent** node. Then, click the **Start** menu and open **Visual Studio Code**.
 
-2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.
+2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 
 3. Open the `CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
 
@@ -79,7 +79,7 @@ timelimit: 3000
     git checkout -b webapp
     ```
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 8. Log into the PE Console with username `admin` and password `puppetlabs`.
 
@@ -91,7 +91,7 @@ timelimit: 3000
     | nixagent2 | "cmsloadbalancer" |
     | winagent  | "ecommerce"       |
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 10. In VS Code, open the `control-repo/manifests/site.pp` file. To classify your nodes by using the `pp_role` trusted fact, replace the content beneath `## Node Definitions ##` with the following code:
 
@@ -114,7 +114,7 @@ timelimit: 3000
 
 # Run Puppet using the <b>webapp</b> environment branch and inspect the reports <a name="run-puppet">
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+🔀 Switch to the **PE Console** tab.
 
 1. Navigate to the **Node groups** page; then, expand the **All Environments** group (click the plus sign (**+**) beside the group name) and click **Development environment**.
 
@@ -143,7 +143,7 @@ timelimit: 3000
 
 # Create the `role::<ROLE NAME>` classes
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+🔀 Switch to the **Windows Agent** tab.
 
 1. From the VS Code terminal, navigate to your role directory:
     ```
@@ -154,7 +154,7 @@ timelimit: 3000
     ```
     pdk new class role::ecommerce
     ```
-    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.
+    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.<br><br>
 
 4. Modify the new `ecommerce.pp` file to include placeholder code for your new role, as in this example:
     ```
@@ -170,7 +170,11 @@ timelimit: 3000
       }
     }
     ```
-5. In the `site-modules\role` directory from your terminal, run the `pdk validate` command.<br><br>✔️ **Result:** You'll receive an error message: `pdk (ERROR): puppet-lint: single quoted string containing a variable found`.<br><br>❔ **Why did this happen?**<br>Remember, you must interpolate the string for the value of the `$trusted['extensions']['pp_role']` variable. Fix this by replacing the single quotes with double quotes and removing the backslashes so that your code looks like this example:
+5. In the `site-modules\role` directory from your terminal, run the `pdk validate` command.
+
+    ✔️ **Result:** You'll receive an error message: `pdk (ERROR): puppet-lint: single quoted string containing a variable found`.
+
+    ❔ **Why did this happen?**<br>Remember, you must interpolate the string for the value of the `$trusted['extensions']['pp_role']` variable. Fix this by replacing the single quotes with double quotes and removing the backslashes so that your code looks like this example:
     ```
     class role::ecommerce {
       notify { "Hello! my role is: ${trusted['extensions']['pp_role']} \
@@ -188,18 +192,18 @@ timelimit: 3000
     git push origin webapp
     ```
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+   🔀 Switch to the **PE Console** tab.<br><br>
 
-7. Run Puppet using your environment branch <b>webapp</b> again, and then inspect the node reports.
-💡 **Need a refresher?** Review the steps shown in the "[**Run Puppet ...**](#run-puppet)" section above.
+8. Run Puppet using your environment branch <b>webapp</b> again, and then inspect the node reports.
+    💡 **Need a refresher?** Review the steps shown in the "[**Run Puppet ...**](#run-puppet)" section above.
 
-✔️ **Result:** The Windows agent succeeds but the two Linux agents still fail. Fix this by assigning roles to each of the nodes.
+    ✔️ **Result:** The Windows agent succeeds but the two Linux agents still fail. Fix this by assigning roles to each of the nodes.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
-8. In the VS Code terminal, from the `control-repo\site-modules\role` directory, run `pdk new class role::cmsweb`. Then, run `pdk new class role::cmsloadbalancer`.
+9. In the VS Code terminal, from the `control-repo\site-modules\role` directory, run `pdk new class role::cmsweb`. Then, run `pdk new class role::cmsloadbalancer`.
 
-9. Add the following code to the `cmsweb.pp` file:
+10. Add the following code to the `cmsweb.pp` file:
 
     ```
     # @summary A short summary of the purpose of this class
@@ -214,7 +218,7 @@ timelimit: 3000
     }
     ```
 
-10. Add the following code to the `cmsloadbalancer.pp` file:
+11. Add the following code to the `cmsloadbalancer.pp` file:
 
     ```
     # @summary A short summary of the purpose of this class
@@ -229,18 +233,18 @@ timelimit: 3000
     }
     ```
 
-11. Push your code to the `webapp` branch:
+12. Push your code to the `webapp` branch:
     ```
     git add .
     git commit -m "Add cmsweb and cmsloadbalancer roles"
     git push origin webapp
     ```
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
-12. Run the job again against all the nodes in one of these ways:
-- On the **Jobs** page, click the **Puppet run** tab and click the most recent job. Then, click **Run again** > **All nodes** in the upper-right corner, and click **Run job** near the bottom of the page.
-- On the **Node groups** page, open the `Development environments` group and run Puppet against all three nodes in the **webapp** environment.<br><br> ✔️ **Result:** All three nodes finish successfully when their respective report link is inspected.
+13. Run the job again against all the nodes in one of these ways:
+    - On the **Jobs** page, click the **Puppet run** tab and click the most recent job. Then, click **Run again** > **All nodes** in the upper-right corner, and click **Run job** near the bottom of the page.
+    - On the **Node groups** page, open the `Development environments` group and run Puppet against all three nodes in the **webapp** environment.<br><br> ✔️ **Result:** All three nodes finish successfully when their respective report link is inspected.
 
 ---
 

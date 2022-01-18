@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while ! nc -z -w3 localhost 3000
+do
+  echo "Waiting for port 3000 to be reachable on localhost"
+done
+
 : ${RSA_KEY:="/etc/keys/id-control_repo.rsa"}                               # Set this to the location of the Gitea private key
 : ${META_REPO:="https://github.com/puppetlabs/kmo-meta-control-repo.git"}   # Set this to the repo containing control repos for each lab
 : ${BRANCH_PREFIX:="pe_301_lab_3_1_"}                                       # Set this to the prefix for the current lab

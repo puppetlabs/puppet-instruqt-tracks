@@ -107,7 +107,7 @@ timelimit: 3000
 	PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-7. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png)Switch to the **Primary Server** tab and lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.<br><br>
+7. 🔀 Switch to the **Primary Server** tab and lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.<br><br>
 
 	```
 	chmod 600 /etc/puppetlabs/puppet/psk
@@ -129,7 +129,7 @@ timelimit: 3000
 	service pe-puppetserver restart
 	```
 
-10. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab.
+10. 🔀 Switch to the **Linux Agent** tab.
 
 11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:<br><br>
 
@@ -141,13 +141,13 @@ timelimit: 3000
 	curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-12. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch back to the **PE Console** tab when the agent installation is complete.
+12. 🔀 Switch back to the **PE Console** tab when the agent installation is complete.
 
-1. Log in with username `admin` and password `puppetlabs`.
+	1. Log in with username `admin` and password `puppetlabs`.
 
-1. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
+	2. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
 
-1. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
+	3. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
 
 <br>🎈 **Congratulations!**  You installed the Puppet agent with autosigning enabled.
 

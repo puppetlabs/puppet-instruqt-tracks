@@ -53,7 +53,9 @@ timelimit: 3600
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
+
+    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
+
 
 4. Open a new terminal. Click **Terminal** > **New Terminal**.
 5. In the VS Code terminal window, run the following command:
@@ -63,21 +65,21 @@ git clone git@gitea:puppet/control-repo.git
 
 # Create and move a variable in your base profile to a parameter block
 1. Check out the **webapp** feature branch:
-  ```
-  cd control-repo
-  git checkout webapp
-  ```
+      ```
+      cd control-repo
+      git checkout webapp
+      ```
 2. Navigate to **control-repo** > **site-modules** > **profile** > **manifests** > **base.pp** and replace the contents with the following code:
-```
-# profile/manifests/base.pp
-class profile::base (
-  $login_message
-){
-  class { 'motd':
-    content => $login_message,
-  }
-}
-```
+    ```
+    # profile/manifests/base.pp
+    class profile::base (
+      $login_message
+    ){
+      class { 'motd':
+        content => $login_message,
+    }
+    }
+    ```
 3. Externalize the data in Hiera for the `finance` department:
    1. Navigate to **control-repo** > **site-modules** > **profile** > **data**.
    2. Right-click the **data** directory, click **New Folder**, and name the new folder **department**.
@@ -90,126 +92,131 @@ class profile::base (
    ```
 4. From the VS Code terminal window, commit, push, and deploy your code:
 
-```
-git add .
-git commit -m "Parameterize login message for finance nodes"
-git push
-```
+    ```
+    git add .
+    git commit -m "Parameterize login message for finance nodes"
+    git push
+    ```
 # Run Puppet on nodes returned by a PQL query
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+🔀  Switch to the **PE Console** tab.
 1. Log into the PE console with username `admin` and password `puppetlabs`.
 2. Navigate to the **Nodes** page. From the **Filter by** list, select **PQL Query**.
 3. From the **Common queries** list, select **Nodes with a specific fact and fact value**.
 4. Replace the query text with the following text:
-```
-inventory[certname] { trusted.extensions.pp_department = "finance" }
-```
+    ```
+    inventory[certname] { trusted.extensions.pp_department = "finance" }
+    ```
 5. Click **Submit query**.
-✔️ **Result:** The query returns one node.
+
+    ✔️ **Result:** The query returns one node.
 
 6. Click the node name link to open the node data page for the **finance** node.
 7. Click **Run > Puppet**.
 8. You will be redirected to the **Run Puppet** page. Select the following options:
-  - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
-9. Select the checkbox to the left of the node name to run the job on that node only.
+
+      - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+
+9. Select the checkbox beside the node name to run the job on that node only.
 10. Click **Run job** and wait for the job to finish.
 ✔️ **Result:** The job fails. Click the report link at the right of the page and go to the **Log** tab to find out why.
 
 # Troubleshoot using the `puppet lookup` command
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+🔀 Switch to the **Primary Server** tab.
 1. Troubleshoot the failure by running the `puppet lookup` command. Copy (but don't run) the following command to the Primary Server tab. Again, **do not run it yet**:
-```
-puppet lookup profile::base::login_message --node <CERTNAME> --environment webapp --explain
-```
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    ```
+    puppet lookup profile::base::login_message --node <CERTNAME> --environment webapp --explain
+    ```
+    🔀 Switch to the **PE Console** tab.
 
 2. On the **Status** page, select and copy the node name.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+    🔀 Switch to the **Primary Server** tab.
 
 3. Replace `<CERTNAME>` with the name of the failing node that you copied, and then run the command.
 
-✔️ **Result:** Read the failure message: The lookup command didn't find a login message in the base profile for the node.
+    ✔️ **Result:** Read the failure message: The lookup command didn't find a login message in the base profile for the node.
 
 # Fix the Hiera data configuration
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+🔀 Switch to the **Windows Agent** tab.
 1. Configure the required domain-level Hiera data. Navigate to **control-repo** > **hiera.yaml** and replace the existing code with the following code, which adds the department-specific yaml file to the Hiera lookup path:
-```
-# <control-repo>/hiera.yaml
----
-version: 5
-hierarchy:
-  - name: Yaml data
-    datadir: data
-    data_hash: yaml_data
-    paths:
-      - "nodes/%{trusted.certname}.yaml"
-      - "department/%{trusted.extensions.pp_department}.yaml"
-      - "common.yaml"
-```
+    ```
+    # <control-repo>/hiera.yaml
+    ---
+    version: 5
+    hierarchy:
+      - name: Yaml data
+        datadir: data
+        data_hash: yaml_data
+        paths:
+          - "nodes/%{trusted.certname}.yaml"
+          - "department/%{trusted.extensions.pp_department}.yaml"
+          - "common.yaml"
+    ```
 2. From the VS Code terminal window, push your new changes:
-```
-git add .
-git commit -m "Edit hiera.yaml to support department facts"
-git push
-```
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    ```
+    git add .
+    git commit -m "Edit hiera.yaml to support department facts"
+    git push
+    ```
+    🔀 Switch to the **PE Console** tab.
 
 3. Run Puppet on the `finance` department node only:
     1. Navigate to the **Nodes** page.
     2. Click the node name link to open the node data page for the `finance` node.
     3. Click **Run > Puppet**.
     4. You will be redirected to the **Run Puppet** page. Select the following options:
-    - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+        - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
     5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for job to finish.
-✔️ **Result:** In the log, notice that the job completed successfully.
+            ✔️ **Result:** In the log, notice that the job completed successfully.
 
 4. Run Puppet on the `sales` department node only:
     1. Navigate to the **Nodes** page.
     2. Click the node name link to open the node data page for the `sales` node.
-    💡 **Tip:** You can find the `sales` department node by modifying the PQL query you ran previously:
-    ```
-    inventory[certname] { trusted.extensions.pp_department = "sales" }
-    ```
+
+        💡 **Tip:** You can find the `sales` department node by modifying the PQL query you ran previously:
+
+        ```
+        inventory[certname] { trusted.extensions.pp_department = "sales" }
+        ```
 
     3. Click **Run > Puppet**.
     4. You will be redirected to the **Run Puppet** page. Select the following options:
-    - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
-    5. Select the checkbox to the left of the node name to run the job on that node only.
+        - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+    5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for the job to finish.
-✔️ **Result:** In the log, notice that the job failed.
+    ✔️ **Result:** In the log, notice that the job failed.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.
 
 5. Navigate to **control-repo** > **data** > **common.yaml** and replace the existing content with the following required default data:
-```
-# data/common.yaml
----
-profile::base::login_message: 'Welcome!'
-```
+    ```
+    # data/common.yaml
+    ---
+    profile::base::login_message: 'Welcome!'
+    ```
 6. From the terminal window, add, commit, and push your changes:
-```
-git add .
-git commit -m "Add base profile login message to common.yaml"
-git push
-```
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    ```
+    git add .
+    git commit -m "Add base profile login message to common.yaml"
+    git push
+    ```
+    🔀 Switch to the **PE Console** tab.
 
 7. Run Puppet on the `sales` department node only:
     1. From the PE Console, navigate to the **Nodes** page.
     2. Click the node name link to open the node data page for the `sales` node.
-    💡 **Tip:** You can find the `sales` department node by modifying the PQL query you ran previously:
-    ```
-    inventory[certname] { trusted.extensions.pp_department = "sales" }
-    ```
+        💡 **Tip:** You can find the `sales` department node by modifying the PQL query you ran previously:
+        ```
+        inventory[certname] { trusted.extensions.pp_department = "sales" }
+        ```
     3. Click **Run > Puppet**.
     4. You will be redirected to the **Run Puppet** page. Select the following options:
-    - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
-    5. Select the checkbox to the left of the node name to run the job on that node only.
+        - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+    5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for the jobs to finish.
 
-✔️ **Result:** Notice that the jobs ran successfully.
+    ✔️ **Result:** Notice that the jobs ran successfully.
 
 🎈 **Congratulations!** In this lab, you refactored the base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate the code.
 

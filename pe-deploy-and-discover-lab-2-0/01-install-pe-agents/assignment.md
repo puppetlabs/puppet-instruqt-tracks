@@ -51,11 +51,13 @@ timelimit: 3000
 
 1. On the **Add nodes to inventory** page, click **Install Agents**.
 
-1. Copy the curl command shown in the ***nix nodes** field at the right of the console.<br><br>💡 **Tip:** Select the text and right-click to copy.
+1. Copy the curl command shown in the ***nix nodes** field at the right of the console.
 
-1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab. Then, paste and run the curl command.<br><br>✔️ **Result:** This command installs the Puppet agent.
+    💡 **Tip:** Select the text and right-click to copy.<br><br>
 
-1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch back to the **PE Console** tab when the installation is complete.
+1. 🔀 Switch to the **Linux Agent** tab. Then, paste and run the curl command.<br><br>✔️ **Result:** This command installs the Puppet agent.<br><br>
+
+1. 🔀 Switch back to the **PE Console** tab when the installation is complete.
 
 1. Click **Refresh** at the top right of the console.
 
@@ -63,20 +65,20 @@ timelimit: 3000
 
 1. In the list of nodes, find the node name containing `nixagent` and click **Accept**.
 
-1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch back to the **Linux Agent** tab.
+1. 🔀 Switch back to the **Linux Agent** tab.
 
-1. Trigger a Puppet run:<br><br>
+1. Trigger a Puppet run:
      ```
      puppet agent -t
      ```
 
-13. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch back to the **PE Console** tab.
+1. 🔀 Switch back to the **PE Console** tab.
 
-14. From the console sidebar, navigate to the **Nodes** page. Click the node name containing `nixagent`.
+1. From the console sidebar, navigate to the **Nodes** page. Click the node name containing `nixagent`.
 
 1. On the **Facts** tab, inspect the facts about the `nixagent` node.
 
-<br>🎈 **Congratulations!**  You installed Puppet agents locally from the command line on Linux. Continue below to learn how to install the agent from the PE console using Windows.
+🎈 **Congratulations!**  You installed Puppet agents locally from the command line on Linux. Continue below to learn how to install the agent from the PE console using Windows.
 
 ---
 
@@ -85,7 +87,7 @@ timelimit: 3000
 
 ## Install the agent from the PE console.
 
-1. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab if needed.
+1. 🔀 Switch to the **PE Console** tab if needed.
 
 2. From the console sidebar, navigate to the **Nodes** page. In the upper-right corner, click **Add Nodes**.
 
@@ -102,25 +104,26 @@ timelimit: 3000
 
 6. To check the status of the installation, navigate to the **Tasks** page, and then click the ID number of the **pe_bootstrap** task. When the installation is complete, you'll see a certname in the output at the bottom of the page.
 
-✏️ **Note:** The installation might take a few minutes to complete. Don't move on until step 6 has finished.
+    ✏️ **Note:** The installation might take a few minutes to complete. Don't move on until step 6 has finished.<br><br>
 
-7. When the certificate is ready to sign, a blue decoration is shown on the **Certificates** page link.<br><br>💡 **Tip:** If the decoration isn't shown after the `pe_bootstrap` task has finished running, click the refresh icon at the top right of the PE console.
+7. When the certificate is ready to sign, a blue decoration is shown on the **Certificates** page link.
+
+    💡 **Tip:** If the decoration isn't shown after the `pe_bootstrap` task has finished running, click the refresh icon at the top right of the PE console.<br><br>
 
 8. Sign the agent's certificate. Navigate to the **Certificates** page and click the **Unsigned certificates** tab.
 
 9. In the list of nodes, find the node name containing `winagent` and click **Accept**.
 
-10. ![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+10. 🔀 Switch to the **Windows Agent** tab.
 
-11. From the Windows Start Menu, click **Puppet**, and then click **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:<br><br>
+11. From the Windows Start Menu, click **Puppet**, and then click **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:
      ````
      puppet agent -t
      ````
-
 12. Click the **PE Console** tab, and from the console sidebar, navigate to the **Nodes** page. Click the node name containing `winagent`.
 
 1. On the **Facts** tab, inspect the facts about the `winagent` node.
 
-<br>🎈 **Congratulations!**  You installed Puppet agents remotely from the PE console on Windows.
+🎈 **Congratulations!**  You installed Puppet agents remotely from the PE console on Windows.
 
-<br>To continue, click **Next**.
+To continue, click **Next**.
