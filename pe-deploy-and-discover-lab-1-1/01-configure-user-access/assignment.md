@@ -32,21 +32,25 @@ difficulty: basic
 timelimit: 3000
 ---
 1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
-✏️ **Note:** If the console doesn't load correctly, refresh your browser window.
+
+    ✏️ **Note:** If the console doesn't load correctly, refresh your browser window.<br><br>
 
 2. From the console sidebar, click **Access Control**.
 3. Add the user. In the **Full name** field, enter the user's name using standard capitalization and spacing.
-✏️ **Note:** Not sure what name to use? Feel free to use your own!
+
+    ✏️ **Note:** Not sure what name to use? Feel free to use your own!<br><br>
 
 4. Add the user's login info. In the **Login** field, enter a username, for example, `firstname.lastname`. Use a naming convention that easily maps to the user's actual name. Then, click **Add local user**.
-✔️ **Result:** The name is added to the list.
+
+    ✔️ **Result:** The name is added to the list.<br><br>
 
 5. Open the **User details** page by clicking the username.
 
 6. Generate a password for the user. In the top-right corner of the page, click **Generate password reset**, copy the link, and then click **Close**.
 
 7. Paste the link into a new web browser tab. Then, enter a new password and click **Reset password**.
-✏️ **Note:** Choose a memorable password — you'll use it to log in on the final step.
+
+    ✏️ **Note:** Choose a memorable password — you'll use it to log in on the final step.<br><br>
 
 8. Close the browser tab and go back to the **PE Console** tab within the lab. In the sidebar, click **Access Control**, and then click the **User roles** tab.
 

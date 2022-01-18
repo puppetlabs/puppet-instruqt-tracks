@@ -64,7 +64,7 @@ node 'linux-node.classroom.puppet.com' {
 ```
 
 # Step 4: Save your changes
-Click the disk icon: <img src="https://education-downloads.s3-us-west-2.amazonaws.com/instruqt-assets/Build+a+Bolt+Inventory+File+on+Linux/save-icon.png">
+Click the disk icon: 💾
 
 ✔️ **Result:** Now when the agent contacts the server, the server uses this node definition (among other things) to compile a catalog for this node.
 

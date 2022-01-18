@@ -11,7 +11,7 @@ description: |+
 
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
-  Suppose you have code, such as time synchronization code, that runs on both Windows and Linux. Rather than *duplicating* the code to run on different platforms, you can abstract the details into an external data source (such as .yaml files) so that you can *reuse* the code (roles, profiles, and modules) across platforms.
+  Suppose you have code, such as time synchronization code, that runs on both Windows and Linux. Rather than *duplicating* the code to run on different platforms, you can abstract the configuration settings into an external data source (such as .yaml files) so that you can *reuse* the code (roles, profiles, and modules) across platforms.
 
   By separating data from code, you're following the DRY principle, so that you … don't repeat yourself.
 
@@ -53,4 +53,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "4884793253497472016"
+checksum: "10388239846696944671"

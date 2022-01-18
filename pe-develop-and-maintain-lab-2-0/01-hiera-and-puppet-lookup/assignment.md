@@ -42,71 +42,72 @@ timelimit: 3600
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
+
+    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
 
 4. Open a new terminal. Click **Terminal** > **New Terminal**.
 5. In the VS Code terminal window, run the following command:
-```
-git clone git@gitea:puppet/control-repo.git
-```
+    ```
+    git clone git@gitea:puppet/control-repo.git
+    ```
 6. Check out the feature branch `webapp` to inspect some preconfigured Hiera data:
-```
-cd control-repo
-git checkout webapp
-```
+    ```
+    cd control-repo
+    git checkout webapp
+    ```
 # Run the `puppet lookup` command to identify the login message for each node
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+🔀 Switch to the **Primary Server** tab.
 1. Copy (but don't run) the following `puppet lookup` command into the Primary Server window. Again, **do not run the command yet**:
-```
-puppet lookup profile::base::login_message --node <NODENAME> --environment webapp --explain
-```
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    ```
+    puppet lookup profile::base::login_message --node <NODENAME> --environment webapp --explain
+    ```
+    🔀 Switch to the **PE Console** tab.
 
 2. Log into the PE console with username `admin` and password `puppetlabs`.
 3. Navigate to the **Status** page, and then highlight and copy a node name.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+    🔀 Switch to the **Primary Server** tab.
 
 4. On the Primary Server tab, replace **`<NODENAME>`** in the command with the name of the node you just copied, and then run the command on the selected node.
 5. Review the login message in the output:
     `Found key: "profile::base::login_message" value: "<LOGIN MESSAGE HERE>"`
 
 6. Repeat steps 1-5, replacing `<NODENAME>` with the name of the other node.
-✔️ **Result:** Review the output. Notice how it differs from the output for the previous node.
+    ✔️ **Result:** Review the output. Notice how it differs from the output for the previous node.
 
 # Run `puppet lookup` to identify other information for each node
 1. Copy (but don't run) the following `puppet lookup` command into the Primary Server window. Again, **do not run the command yet**:
-```
-puppet lookup profile::ntp::servers --node <NODENAME> --environment webapp --explain
-```
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    ```
+    puppet lookup profile::ntp::servers --node <NODENAME> --environment webapp --explain
+    ```
+    🔀 Switch to the **PE Console** tab.
 
 2. In the PE console, navigate to the **Status** page, and then highlight and copy a node name.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+    🔀 Switch to the **Primary Server** tab.
 
 3. On the Primary Server tab, replace **`<NODENAME>`** in the command with the name of the node you just copied.
 4. Run the command on the selected node and review the output.
 5. Repeat steps 1-4, replacing `<NODENAME>` with the name of the other node, and then review the output. Notice how it differs from the output of the previous node.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.
 
 6. Review the contents of files at the following locations:
- - **control-repo** > **hiera.yaml**
- - **control-repo** > **data** > **datacenter**
- - **control-repo** > **data** > **department**
+     - **control-repo** > **hiera.yaml**
+     - **control-repo** > **data** > **datacenter**
+     - **control-repo** > **data** > **department**
 
  ✔️ **Result:** Verify the hierarchy of the contents in these files against the `puppet lookup` command output.
 
 # Identify which facts affected the lookup
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab.
+🔀 Switch to the **Primary Server** tab.
 
 1. Run the following `puppet query` command to check the facts that are used in the hierarchy of the `hiera.yaml` configuration file for all of your nodes:
-```
-puppet query 'facts[certname,value] { name = "trusted" }'
-```
+    ```
+    puppet query 'facts[certname,value] { name = "trusted" }'
+    ```
 
-✔️ **Result:** Review the trusted facts and notice whether all facts are present on both nodes.
+    ✔️ **Result:** Review the trusted facts and notice whether all facts are present on both nodes.
 
 🎈 **Congratulations!** In this lab, you used the `puppet lookup` command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
 

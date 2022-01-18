@@ -52,7 +52,7 @@ timelimit: 3000
 
 ⚠️ **Important:** The ****Linux Agent 1**** and ****Linux Agent 2**** tabs represent Linux nodes. Complete the following steps ****on each Linux agent node****.
 
-1. Retrieve the nodes' `certname` by running the following command on each node:<br><br>
+1. Retrieve the nodes' `certname` by running the following command on each node:
     ```
     puppet config print certname
     ```
@@ -60,12 +60,12 @@ timelimit: 3000
 
 2. Copy the certnames to a local text editor of your choice — you'll need them later in the lab.
 
-3. Retire the nodes by running the *nix agent uninstall script on each node: <br><br>
+3. Retire the nodes by running the *nix agent uninstall script on each node:
     ```
     /opt/puppetlabs/bin/puppet-enterprise-uninstaller -y -pd
     ```
 
-4. Verify that the Puppet directory has been removed by running the following command on each node:<br><br>
+4. Verify that the Puppet directory has been removed by running the following command on each node:
     ```
     ls /etc/puppetlabs
     ```
@@ -80,13 +80,14 @@ timelimit: 3000
 💭 **Why do this?**<br>
     Uninstalling the agent from a node does not remove the node from management by the primary server. You must also purge the node.
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab to run commands on the primary server.
+1. 🔀 Switch to the **Primary Server** tab to run commands on the primary server.
 
-2. Purge both Linux nodes by running the following command ****twice****, each time replacing `<CERTNAME>` with the certnames you gathered in a previous step:<br><br>
+2. Purge both Linux nodes by running the following command ****twice****, each time replacing `<CERTNAME>` with the certnames you gathered in a previous step:
     ```
     puppet node purge <CERTNAME>
     ```
-    ✔️ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`<br><br>
+    ✔️ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`
+
     ✏️ **Note:** Remember to run this command for each Linux node before continuing to the next section.
 
 ---
@@ -101,20 +102,22 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 | ****Linux Agent 2**** | `dc-west` | `cmsloadbalancer`|
 | ****Windows Agent**** | `dc-east` | `ecommerce` |
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the ****Linux Agent 1**** tab.
+1. 🔀 Switch to the ****Linux Agent 1**** tab.
 
-2. Install an agent on the node by running the following installation script.<br><br>⚠️ **Important:** Remember to replace `<DATACENTER>` and `<ROLE>` with data from the table above.<br><br>
+2. Install an agent on the node by running the following installation script.
+
+    ⚠️ **Important:** Remember to replace `<DATACENTER>` and `<ROLE>` with data from the table above.
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
-3. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the ****Linux Agent 2**** tab and repeat step 2 above.
+3. 🔀 Switch to the ****Linux Agent 2**** tab and repeat step 2 above.
 
-4. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the ****PE Console**** tab. Hit refresh inside the PE Console tab to see attached nodes.
+4. 🔀 Switch to the ****PE Console**** tab. Hit refresh inside the PE Console tab to see attached nodes.
 
 5. Click on the Linux node names to view the trusted facts for each new node.
 
-<br>🎈 **Congratulations!** You uninstalled the agent from your Linux nodes and purged them from the primary server so that you can reuse their node licenses. You then securely assigned each server's role and data center in your environment by installing the Puppet agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
+🎈 **Congratulations!** You uninstalled the agent from your Linux nodes and purged them from the primary server so that you can reuse their node licenses. You then securely assigned each server's role and data center in your environment by installing the Puppet agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
 
 ---
 
@@ -123,11 +126,11 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 
  # Uninstall Windows agents
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+1. 🔀 Switch to the **Windows Agent** tab.
 
 1. Open a PowerShell terminal: **Start** —> **Windows Powershell** —> **Windows Powershell**
 
-1. Retrieve the node's `certname` by running the following command:<br><br>
+1. Retrieve the node's `certname` by running the following command:
     ```
     puppet config print certname
     ```
@@ -135,14 +138,15 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 
 1. Copy the certname to a local text editor of your choice — you'll need it later in the lab.
 
-1. Launch the **Windows Add or Remove Programs** interface by running the following command in PowerShell:<br><br>
+1. Launch the **Windows Add or Remove Programs** interface by running the following command in PowerShell:
     ```
     appwiz
     ```
+1. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts to uninstall. Click OK on the dialogue box that says a reboot is necessary, but do not reboot.
+    ✏️ **Note:** Uninstalling the agent removes the Puppet program directory, the agent service, and all related registry keys. This might take a couple of minutes.
+    ⚠️ **Important:** The `data` directory remains intact, including all SSL keys. Completely remove the agent from the node in the next step.<br><br>
 
-1. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts to uninstall. Click OK on the dialogue box that says a reboot is necessary, but do not reboot.<br><br>✏️ **Note:** Uninstalling the agent removes the Puppet program directory, the agent service, and all related registry keys. This might take a couple of minutes.<br><br>⚠️ **Important:** The `data` directory remains intact, including all SSL keys. Completely remove the agent from the node in the next step.
-
-1. In the PowerShell terminal, run the following command:<br><br>
+1. In the PowerShell terminal, run the following command:
     ```
     remove-item C:\ProgramData\PuppetLabs\puppet -Recurse -Confirm:$false
     ```
@@ -151,9 +155,9 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 💭 **Why do this?**<br>
     Uninstalling the agent from a node does not remove the node from management by the primary server. You must also purge the node.
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Primary Server** tab to run commands on the primary server.
+1. 🔀 Switch to the **Primary Server** tab to run commands on the primary server.
 
-2. Purge the Windows node by running the following command, replacing `<CERTNAME>` with the certname you gathered in a previous step:<br><br>
+2. Purge the Windows node by running the following command, replacing `<CERTNAME>` with the certname you gathered in a previous step:
     ```
     puppet node purge <CERTNAME>
     ```
@@ -172,9 +176,10 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
 | ****Windows Agent**** | `dc-east` | `ecommerce` |
 
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the ****Windows Agent**** tab.
+1. 🔀 Switch to the ****Windows Agent**** tab.
 
-1. Install an agent by using the following installation script, passing in the corresponding role and data center for the last command. Run the following four commands one at a time:<br><br>
+1. Install an agent by using the following installation script, passing in the corresponding role and data center for the last command. Run the following four commands one at a time:
+
     Command 1
     ```
     [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
@@ -192,10 +197,10 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
     .\install.ps1 custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
 
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab and log in with user `admin` and password `puppetlabs`.
+1. 🔀 Switch to the **PE Console** tab and log in with user `admin` and password `puppetlabs`.
 
 1. On the **Nodes** page, click the Windows node name to view the trusted facts for the new node.
 
-<br>🎈 **Congratulations!** You uninstalled the Puppet agent from your Windows node and purged it from the primary server so that you can reuse its node license. You securely assigned the server's role and data center in your environment by installing the agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
+🎈 **Congratulations!** You uninstalled the Puppet agent from your Windows node and purged it from the primary server so that you can reuse its node license. You securely assigned the server's role and data center in your environment by installing the agent with trusted facts and provided an autosign password to enable certificate signing so that primary server can authenticate the agent.
 
 To continue, click **Next**.

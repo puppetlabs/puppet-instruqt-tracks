@@ -65,7 +65,7 @@ timelimit: 3000
       git checkout webapp
       ```
 
-3. Open the `site-modules/role/manifests/cmsweb.pp` role file and include an initial base profile by replacing the existing code with the following code:
+2. Open the `site-modules/role/manifests/cmsweb.pp` role file and include an initial base profile by replacing the existing code with the following code:
     ```
     # site-modules/role/manifests/cmsweb.pp
     class role::cmsweb {
@@ -73,27 +73,27 @@ timelimit: 3000
     }
     ```
 
-4. Repeat for the `ecommerce.pp` role in the same directory.
+3. Repeat for the `ecommerce.pp` role in the same directory.
     ```
     # site-modules/role/manifests/ecommerce.pp
     class role::ecommerce {
       include profile::base
     }
     ```
-5. Repeat for the `cmsloadbalancer.pp` role in the same directory.
+4. Repeat for the `cmsloadbalancer.pp` role in the same directory.
     ```
     # site-modules/role/manifests/cmsloadbalancer.pp
     class role::cmsloadbalancer {
       include profile::base
     }
     ```
-6. Validate your code by running `pdk validate`.
+5. Validate your code by running `pdk validate`.
 
-    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.
      ```
     cd site-modules\role
     pdk validate
     ```
+    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.
     ✔️ **Result:** PDK indicates that your code is valid.
 6. Commit and push your code to your feature branch.
     ```
@@ -103,8 +103,8 @@ timelimit: 3000
     ```
 ---
 # Trigger a Puppet run against your environment branch
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab and log in with username `admin` and password `puppetlabs`.
-
+🔀 Switch to the **PE Console** tab.
+1. Log in with username `admin` and password `puppetlabs`.
 2. Navigate to the **Node groups** page; then, expand the **All Environments** group and click **Development environment**.
 3. On the **Classes** tab, click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.
 4. On the **Matching nodes** tab, ensure that all your nodes are listed for this group.
@@ -113,8 +113,8 @@ timelimit: 3000
     2. Under **Environment**, click **Select an environment for nodes to run in**.
     3. Select **webapp**.
     4. Click **Run Job** at the lower right to kick off a Puppet run.
-1. When the jobs finish running, click any node's report link in the **Report** column.
-1. On the **Log** tab, notice the following error:
+6. When the jobs finish running, click any node's report link in the **Report** column.
+7. On the **Log** tab, notice the following error:
 
     ```
     Error: Error while evaluating a Function Call, Could not find class ::profile::base
@@ -123,16 +123,16 @@ timelimit: 3000
     ❔ **Why did Puppet fail to compile the catalog?**<br>The base profile class you included in your roles doesn't exist yet.
 ---
 # Create a base profile
-1. ![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.
+🔀 Switch to the **Windows Agent** tab.
 
-2. In the Visual Studio Code terminal, navigate to the `site-modules\profile` directory and create a base profile using PDK.
+1. In the Visual Studio Code terminal, navigate to the `site-modules\profile` directory and create a base profile using PDK.
 
     ```
     cd ..\profile
     pdk new class profile::base
     ```
 
-3. Replace the code in the base profile (`site-modules/profile/manifests\base.pp`) with code that declares the motd class:
+2. Replace the code in the base profile (`site-modules/profile/manifests\base.pp`) with code that declares the motd class:
     ```
     # site-modules/profile/manifests/base.pp
     # @summary A short summary of the purpose of this class
@@ -147,14 +147,14 @@ timelimit: 3000
       }
     }
     ```
-4. Validate your code.
+3. Validate your code.
     ```
     pdk validate
     ```
     ✔️ **Result:** Your code passes validation.
 
 
-5. Commit and push your code to your feature branch.
+4. Commit and push your code to your feature branch.
     ```
     git add .
     git commit -m "Add base profile to roles"
@@ -162,16 +162,27 @@ timelimit: 3000
     ```
     ✔️ **Result:** Your code will be automatically deployed to the primary server.
 
-![switch tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.
 
-6. Trigger a Puppet run against your environment branch, and then inspect the report. If you don't recall the steps, refer back to the preceding section.<br><br>💡 **Tip:** You can also go to the **Jobs** page, click the **Puppet run** tab and click the most recent job. Then, click **Run again** > **All nodes** in the upper-right corner, and click **Run job** near the bottom of the page.
+5. Trigger a Puppet run against your environment branch, and then inspect the report. If you don't recall the steps, refer back to the preceding section.
+
+    💡 **Tip:** You can also go to the **Jobs** page, click the **Puppet run** tab and click the most recent job. Then, click **Run again** > **All nodes** in the upper-right corner, and click **Run job** near the bottom of the page.
 ---
 # See the change
 Follow the instructions for each OS below to verify that your changes took effect.
 
-|Windows             |Linux            |
-|--------------------|--------------------|
-|<ol><li>![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Windows Agent** tab.</li><br><li>Click the **Start** menu.</li><br><li>Click the user icon.</li><br><li>Select **Sign Out**.</li><br><li>When presented with the **Reconnect** option, click **Reconnect**.<br><br>✔️ **Result:** The message of the day appears on the login screen.</li></ol>|<ol><li>![swtich tabs](https://storage.googleapis.com/instruqt-images/Instruct%20Icons/icon_switch_tabs_white_32.png) Switch to the **Linux Agent** tab.</li><br><li>In the terminal, type the command `ssh root@localhost`.</li><br><li>Type `yes` when prompted.<br><br>✔️ **Result:** The message of the day appears.</li></ol><br><br><br><br><br>|
+🔀 Switch to the **Windows Agent** tab.
+1. Click the **Start** menu.
+2. Click the user icon.
+3. Select **Sign Out**.
+4. When presented with the **Reconnect** option, click **Reconnect**.
+
+✔️ **Result:** The message of the day appears on the login screen.
+
+🔀 Switch to the **Linux Agent** tab.
+1. In the terminal, type the command `ssh root@localhost`.
+2. Type `yes` when prompted.
+✔️ **Result:** The message of the day appears.
 
 🎈 **Congratulations!**
 Using the roles and profiles pattern, you built a base profile — a building block that defines a shared feature set across many nodes — to customize the login message of your nodes.
