@@ -107,7 +107,7 @@ timelimit: 3000
 	PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-7. 🔀 Switch to the **Primary Server** tab and lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.<br><br>
+7. Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.<br><br>
 
 	```
 	chmod 600 /etc/puppetlabs/puppet/psk
