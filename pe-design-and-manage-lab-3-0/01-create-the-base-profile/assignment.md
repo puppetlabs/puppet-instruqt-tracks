@@ -48,7 +48,8 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-# Create a control repo on your Windows development workstation
+Create a control repo on your Windows development workstation
+========
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
@@ -57,8 +58,9 @@ timelimit: 3000
 6. In the VS Code terminal window, run the following command:
 
         git clone git@gitea:puppet/control-repo.git
----
-# Include a base profile in your roles
+
+Include a base profile in your roles
+========
 1. Check out the **webapp** feature branch:
       ```
       cd control-repo
@@ -93,16 +95,17 @@ timelimit: 3000
     cd site-modules\role
     pdk validate
     ```
-    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.
-    ✔️ **Result:** PDK indicates that your code is valid.
+    💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.<br><br>
+    ✔️ **Result:** PDK indicates that your code is valid.<br><br>
 6. Commit and push your code to your feature branch.
     ```
     git add .
     git commit -m "Add base profile to roles"
     git push
     ```
----
-# Trigger a Puppet run against your environment branch
+
+Trigger a Puppet run against your environment branch
+========
 🔀 Switch to the **PE Console** tab.
 1. Log in with username `admin` and password `puppetlabs`.
 2. Navigate to the **Node groups** page; then, expand the **All Environments** group and click **Development environment**.
@@ -112,7 +115,7 @@ timelimit: 3000
     1. In the upper-right corner, click **Run** > **Puppet**. You will be redirected to the **Run Puppet** page.
     2. Under **Environment**, click **Select an environment for nodes to run in**.
     3. Select **webapp**.
-    4. Click **Run Job** at the lower right to kick off a Puppet run.
+    4. Click **Run Job** at the lower right to kick off a Puppet run.<br><br>
 6. When the jobs finish running, click any node's report link in the **Report** column.
 7. On the **Log** tab, notice the following error:
 
@@ -121,8 +124,9 @@ timelimit: 3000
     ```
 
     ❔ **Why did Puppet fail to compile the catalog?**<br>The base profile class you included in your roles doesn't exist yet.
----
-# Create a base profile
+
+Create a base profile
+========
 🔀 Switch to the **Windows Agent** tab.
 
 1. In the Visual Studio Code terminal, navigate to the `site-modules\profile` directory and create a base profile using PDK.
@@ -151,24 +155,22 @@ timelimit: 3000
     ```
     pdk validate
     ```
-    ✔️ **Result:** Your code passes validation.
-
-
+    ✔️ **Result:** Your code passes validation.<br><br>
 4. Commit and push your code to your feature branch.
     ```
     git add .
     git commit -m "Add base profile to roles"
     git push
     ```
-    ✔️ **Result:** Your code will be automatically deployed to the primary server.
-
-    🔀 Switch to the **PE Console** tab.
+    ✔️ **Result:** Your code will be automatically deployed to the primary server.<br><br>
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 5. Trigger a Puppet run against your environment branch, and then inspect the report. If you don't recall the steps, refer back to the preceding section.
 
     💡 **Tip:** You can also go to the **Jobs** page, click the **Puppet run** tab and click the most recent job. Then, click **Run again** > **All nodes** in the upper-right corner, and click **Run job** near the bottom of the page.
----
-# See the change
+
+See the change
+========
 Follow the instructions for each OS below to verify that your changes took effect.
 
 🔀 Switch to the **Windows Agent** tab.
@@ -184,7 +186,8 @@ Follow the instructions for each OS below to verify that your changes took effec
 2. Type `yes` when prompted.
 ✔️ **Result:** The message of the day appears.
 
-🎈 **Congratulations!**
+---
+## 🎈 **Congratulations!**
 Using the roles and profiles pattern, you built a base profile — a building block that defines a shared feature set across many nodes — to customize the login message of your nodes.
 
 To close this lab, click **Next**.

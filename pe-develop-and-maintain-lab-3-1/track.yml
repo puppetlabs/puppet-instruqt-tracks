@@ -24,6 +24,13 @@ description: |+
 
   [Refactor the apache web server profile](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-3-0)
 
+  **Technical requirements**
+
+  For the best lab experience, please use one of the following browsers:
+   - [Google Chrome](https://www.google.com/chrome/)
+   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+
   ---
 
   **Keep an eye on the clock**
@@ -45,4 +52,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "15571488142822247647"
+checksum: "1639495314971827823"

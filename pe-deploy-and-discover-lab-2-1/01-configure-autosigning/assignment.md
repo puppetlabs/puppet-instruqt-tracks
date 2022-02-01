@@ -38,18 +38,20 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-1. On the **Primary Server** tab, navigate to:<br><br>
+1. On the **Primary Server** tab, navigate to:
 	```
 	cd /etc/puppetlabs/puppet
 	```
 
-2. Create and edit the `autosign.rb` script:<br><br>
+2. Create and edit the `autosign.rb` script:
 
 	```
 	vim autosign.rb
 	```
 
-3. Copy the code below into the file.<br><br>💡 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.<br><br>
+3. Copy the code below into the file.
+
+    💡 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.
 
 	```
 	#!/opt/puppetlabs/puppet/bin/ruby
@@ -87,7 +89,9 @@ timelimit: 3000
 	end
 	```
 
-4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`. <br><br>💡 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:<br><br>
+4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`.
+
+    💡 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:
 	```
 	chmod 700 /etc/puppetlabs/puppet/autosign.rb
 	```
@@ -96,18 +100,22 @@ timelimit: 3000
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
 	```
 
-5. Create and edit the pre-shared key (PSK) file:<br><br>
+5. Create and edit the pre-shared key (PSK) file:
+
 	```
 	vim psk
 	```
+6. Copy the following pre-shared key into the file.
 
-6. Copy the following pre-shared key into the file.<br><br>💡 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.<br><br>
+    💡 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.
 
 	```
 	PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-7. 🔀 Switch to the **Primary Server** tab and lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.<br><br>
+    🔀 Switch to the **Primary Server**<br><br>
+
+7.  Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.
 
 	```
 	chmod 600 /etc/puppetlabs/puppet/psk
@@ -117,21 +125,22 @@ timelimit: 3000
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
 	```
 
-8. Configure the primary server to enable autosigning with `autosign.rb` by running:<br><br>
+8. Configure the primary server to enable autosigning with `autosign.rb` by running:
 
 	```
 	puppet config set autosign /etc/puppetlabs/puppet/autosign.rb --section server
 	```
 
-9. Restart the primary server:<br><br>
+9. Restart the primary server:
 
 	```
 	service pe-puppetserver restart
 	```
 
-10. 🔀 Switch to the **Linux Agent** tab.
+10. 🔀 Switch to the **Linux Agent** tab.<br><br>
 
-11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:<br><br>
+
+11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
 
 	```
 	uri='https://puppet:8140/packages/current/install.bash'
@@ -149,6 +158,8 @@ timelimit: 3000
 
 	3. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
 
-<br>🎈 **Congratulations!**  You installed the Puppet agent with autosigning enabled.
+---
+## 🎈 **Congratulations!**
+You installed the Puppet agent with autosigning enabled.
 
 <br>To continue, click **Next**.

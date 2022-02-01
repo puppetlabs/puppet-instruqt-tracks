@@ -32,6 +32,13 @@ description: |+
 
   [Abstract data from code by using Hiera](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-0)
 
+  **Technical requirements**
+
+  For the best lab experience, please use one of the following browsers:
+   - [Google Chrome](https://www.google.com/chrome/)
+   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+
   ---
 
   **Keep an eye on the clock**
@@ -54,4 +61,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "9143683543078770583"
+checksum: "14093573892087400080"

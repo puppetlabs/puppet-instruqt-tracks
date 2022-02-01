@@ -35,33 +35,31 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-## **First, let's break something.**
+First, let's break something.
+========
 **What can we break?** Out of the box, Puppet manages only itself. So let's break Puppet!
 
 Specifically, you'll cause drift on the agent node by making an unexpected change to one or more of the following components:
-
 | # | Type | Component |
 |:-:|:-:|-------|
 |**1**| Service | ` [pxp-agent] ` |
 |**2**| File | ` [pxp-agent.conf] ` |
 |**3**| File | ` [puppet-enterprise-uninstaller] ` |
 
-**Instructions**
+Choose one or more components to break. Then, cause drift on the Linux agent node by running one of the following commands:
 
-1. Choose one or more components to break. Then, cause drift on the Linux agent node by running one of the following commands:<br><br>
-     | # | How to cause drift |
-     |:-:|------- |
-     |**1**| Stop the service by running this command: <br> ``` service pxp-agent stop ```      |
-     |**2**| Add text to the config file by running this command: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
-     |**3**| Remove the uninstall script by running this command: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
+| # | How to cause drift |
+|:-:|------- |
+|**1**| Stop the service by running this command: <br> ``` service pxp-agent stop ```      |
+|**2**| Add text to the config file by running this command: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
+|**3**| Remove the uninstall script by running this command: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
 
-## **Next, let's see how Puppet would fix it.**
+Next, let's see how Puppet would fix it.
+========
 
 Run Puppet in no-op mode to simulate a Puppet run and understand what the Puppet agent would do.
 
-## Instructions
-
-1. Run the command you think would trigger a Puppet run in no-op mode. (Hint: Only one of these will work. You can run the `puppet agent --help` command to get clues.)<br><br>
+1. Run the command you think would trigger a Puppet run in no-op mode. (Hint: Only one of these will work. You can run the `puppet agent --help` command to get clues.)
      | # | Choose a command to run |
      |:-:|------- |
      |**1**| ```puppet agent run --noop``` |
@@ -70,13 +68,15 @@ Run Puppet in no-op mode to simulate a Puppet run and understand what the Puppet
 
 2. Examine the output for the mention of `noop` to see the changes Puppet would have made.<br><br>💡 **Tip:** Look for `/Stage[main]` in the output to quickly find the changes.
 
-## **Finally, let's run Puppet to fix it.**
+Finally, let's run Puppet to fix it.
+========
 
 1. Run Puppet normally:
     ```puppet agent -t```
 
 2. Examine the output to see the changes Puppet made to bring the node back into its desired state (all Puppet components fully functional).
-
-🎈 **Congratulations!** How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
+---
+## 🎈 **Congratulations!**
+How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
 
 To continue, click **Next**.

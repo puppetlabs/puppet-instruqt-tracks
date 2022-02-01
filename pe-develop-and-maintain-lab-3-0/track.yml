@@ -30,6 +30,13 @@ description: |+
 
   [Refactor the Base Profile](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-1)
 
+  **Technical requirements**
+
+  For the best lab experience, please use one of the following browsers:
+   - [Google Chrome](https://www.google.com/chrome/)
+   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+
   ---
   **Keep an eye on the clock**
 
@@ -51,4 +58,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "2875982662481779259"
+checksum: "12382337453351394787"

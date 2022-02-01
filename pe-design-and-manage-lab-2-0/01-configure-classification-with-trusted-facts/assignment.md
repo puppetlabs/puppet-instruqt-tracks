@@ -49,8 +49,8 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-# Create a local control repository and update site.pp in the **webapp** feature branch
-
+Create a local control repository and update site.pp in the webapp feature branch
+========
 1. Click the **Windows Agent** tab to go to the **Windows Agent** node. Then, click the **Start** menu and open **Visual Studio Code**.
 
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
@@ -110,11 +110,9 @@ timelimit: 3000
     git push -u origin webapp
     ```
 
----
-
-# Run Puppet using the <b>webapp</b> environment branch and inspect the reports <a name="run-puppet">
-
-🔀 Switch to the **PE Console** tab.
+Run Puppet using the webapp environment branch and inspect the reports
+========
+🔀 <a name="run-puppet"> Switch to the **PE Console** tab.</a>
 
 1. Navigate to the **Node groups** page; then, expand the **All Environments** group (click the plus sign (**+**) beside the group name) and click **Development environment**.
 
@@ -137,12 +135,15 @@ timelimit: 3000
 
 7. When the jobs finish running, click the **winagent** node's report link in the **Report** column.
 
-8. On the report page, click the **Log** tab to review the output contained in the error message: `Could not find class ::role::ecommerce`<br><br> ❔ **Question: Why did Puppet fail to compile the catalog?**<br>    The compiler tried to autoload the `role::ecommerce` class, but this class doesn't exist yet.<br><br>    To return to the job's report page (for example, to run the job again or explore errors on other nodes), click **Jobs** in the left navigation, and on the **Puppet run** tab, click the job in the **Job ID** column.
+8. On the report page, click the **Log** tab to review the output contained in the error message: `Could not find class ::role::ecommerce`
 
----
+❔ **Question: Why did Puppet fail to compile the catalog?**
+The compiler tried to autoload the `role::ecommerce` class, but this class doesn't exist yet.
 
-# Create the `role::<ROLE NAME>` classes
+To return to the job's report page (for example, to run the job again or explore errors on other nodes), click **Jobs** in the left navigation, and on the **Puppet run** tab, click the job in the **Job ID** column.
 
+Create the role::<ROLE NAME> classes
+========
 🔀 Switch to the **Windows Agent** tab.
 
 1. From the VS Code terminal, navigate to your role directory:
@@ -248,6 +249,7 @@ timelimit: 3000
 
 ---
 
-🎈 **Congratulations!** You created a local repo and updated the webapp feature branch. You then identified each node's `pp_role` trusted fact and modified the site.pp file to classify your nodes by using that fact. After running Puppet and reviewing the error messages in the reports, you created the `role::ecommerce` class and added placeholder code. Then, you created the `role::cmsweb` and `role::cmsloadbalancer` classes for the other servers in this simulated production environment.
+## 🎈 **Congratulations!**
+You created a local repo and updated the webapp feature branch. You then identified each node's `pp_role` trusted fact and modified the site.pp file to classify your nodes by using that fact. After running Puppet and reviewing the error messages in the reports, you created the `role::ecommerce` class and added placeholder code. Then, you created the `role::cmsweb` and `role::cmsloadbalancer` classes for the other servers in this simulated production environment.
 
 To continue, click **Next**.
