@@ -61,9 +61,9 @@ curl -XPOST -H "Content-Type: application/json" \
   -d "{\"type\": \"gitea\", \"config\": {\"content_type\": \"json\",\"url\": \"https://puppet:8170/code-manager/v1/webhook?type=github\u0026token=$(cat /root/.puppetlabs/token)\"},\"events\": [\"push\"],\"active\": true}" \
   http://gitea:3000/api/v1/repos/puppet/control-repo/hooks
 
-bolt file upload /tmp/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+bolt file upload /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 
-bolt file upload /tmp/id-control_repo.rsa C:\\users\\instruqt\\.ssh\\id_rsa --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+bolt file upload /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa C:\\users\\instruqt\\.ssh\\id_rsa --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 
 bolt command run 'git config --global user.email "noreply@puppet.com"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 

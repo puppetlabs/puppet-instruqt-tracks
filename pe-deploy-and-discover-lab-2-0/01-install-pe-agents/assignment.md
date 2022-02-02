@@ -39,8 +39,8 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-<a name="linux"><img src="https://storage.googleapis.com/instruqt-images/install-local-linux.png"></a>
-
+Local installation (Linux)
+========
 ## Run the agent installation script from the node’s command line.
 
 1. Log into the PE console with username `admin` and password `puppetlabs`.
@@ -78,13 +78,13 @@ timelimit: 3000
 
 1. On the **Facts** tab, inspect the facts about the `nixagent` node.
 
-🎈 **Congratulations!**  You installed Puppet agents locally from the command line on Linux. Continue below to learn how to install the agent from the PE console using Windows.
-
 ---
 
+## 🎈 **Congratulations!**
+You installed Puppet agents locally from the command line on Linux. Continue below to learn how to install the agent from the PE console using Windows.
 
-<a name="windows"><img src="https://storage.googleapis.com/instruqt-images/install-remote-windows.png"></a>
-
+Remote installation (Windows)
+========
 ## Install the agent from the PE console.
 
 1. 🔀 Switch to the **PE Console** tab if needed.
@@ -124,6 +124,9 @@ timelimit: 3000
 
 1. On the **Facts** tab, inspect the facts about the `winagent` node.
 
-🎈 **Congratulations!**  You installed Puppet agents remotely from the PE console on Windows.
+---
+
+## 🎈 **Congratulations!**
+You installed Puppet agents remotely from the PE console on Windows.
 
 To continue, click **Next**.

@@ -52,9 +52,9 @@ chmod 600 /root/.puppetlabs/token
 # puppet job run --query 'nodes {}'
 # puppet job run --query 'nodes {}'
 
-bolt file upload /tmp/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+bolt file upload  /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 
-bolt file upload /tmp/id-control_repo.rsa C:\\users\\instruqt\\.ssh\\id_rsa --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+bolt file upload /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa C:\\users\\instruqt\\.ssh\\id_rsa --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 
 bolt command run 'git config --global user.email "noreply@puppet.com"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 

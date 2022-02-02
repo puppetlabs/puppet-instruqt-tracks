@@ -45,9 +45,8 @@ tabs:
 - title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 - title: "Bug Zapper \U0001F99F⚡"
   type: website
@@ -56,18 +55,21 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-# Clone the control repo on your Windows development workstation
+Clone the control repo on your Windows development workstation
+============
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-    ✏️ **Note:**  If prompted, click **Accept** to trust code in this directory.
+
+    ✏️ **Note:**  If prompted, click **Accept** to trust code in this directory.<br><br>
 
 4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
 5. In the VS Code terminal window, run the following command:
 
         git clone git@gitea:puppet/control-repo.git
----
-# Add the apache module to the Puppetfile
+
+Add the apache module to the Puppetfile
+============
 1. Check out the `webapp` feature branch:
     ```
     cd control-repo
@@ -86,8 +88,9 @@ timelimit: 3600
     git push
     ```
 
----
-# Create a dedicated code deployment user
+
+Create a dedicated code deployment user
+============
 🔀 Switch to the **PE Console** tab.
 
 1. Log in with username `admin` and password `puppetlabs`.
@@ -101,8 +104,8 @@ timelimit: 3600
 7. Navigate to **Access Control** > **User roles** tab, and then click on the **Code Deployers** role.
 8. From the **User name** list, select `Code Deployer`, click **Add User**, and commit the changes (click **Commit** in the bottom-right corner).
 
----
-# Configure Code Manager
+Configure Code Manager
+============
 1. Navigate to the **Node Groups** page, expand the **PE Infrastructure** group, and then click **PE Master**.
 2. On the **Classes** tab, scroll to **Class: puppet_enterprise::profile::master**. From the **Parameter name** list, select the parameter shown, enter the relevant value, and then click **Add to node group**. Repeat for each parameter shown:
 
@@ -112,16 +115,16 @@ timelimit: 3600
       |  r10k_remote                   | "git@gitea:puppet/control-repo.git"                    |
       |  r10k_private_key              | "/etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa" |
 
+    💡 **Tip:** Make sure to enter the value `true` without quotes around since it is a boolean value and not a string.
+
 3. Commit the changes.
 
-    🔀 Switch to the **Primary Server** tab.
-
-
+    🔀 Switch to the **Primary Server** tab.<br><br>
 
 4. Run `puppet agent -t` to apply the changes and configure Code Manager. Run the agent until it no longer applies corrective or intentional changes.
 
----
-# Deploy with Code Manager
+Deploy with Code Manager
+============
 1. Test the connection to the control repository:
     ```
     puppet code deploy --dry-run
@@ -162,12 +165,12 @@ timelimit: 3600
     ls -lah /etc/puppetlabs/code/environments/webapp
     ```
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 7. Compare these contents with the `control-repo > Puppetfile` contents in the control repository on the Windows server. Note that the directory environment `webapp` branch has been deployed and the `modules` subdirectory now contains the Apache module because the new version of the Puppetfile has instructions to deploy it from your Git server.
 
----
-# Configure a webhook to deploy code automatically
+Configure a webhook to deploy code automatically
+============
   🔀 Switch to the **Primary Server** tab
 1. Use the command below to generate and show a login token for the code deployment user:
     ```
@@ -177,8 +180,9 @@ timelimit: 3600
     ```
     more /root/.puppetlabs/token
     ```
-   🔀 Switch to the **Git Server** tab
-3. Login with username `puppet` and password `puppetlabs`.  Once you are logged in, look for the **Repositories** sidebar on the right.  Click the link to go to the **puppetlabs/control-repo** repository.
+   🔀 Switch to the **Git Server** tab.<br><br>
+
+3. Login with username `puppet` and password `puppetlabs`.  Once you are logged in, look for the **Repositories** sidebar on the right.  Click the link to go to the **puppet/control-repo** repository.
 4. Click the **Settings** link on the upper right
 5. Click to open the **Webhooks** tab
 6. Click on the **Add Webhook** button on the upper right, and select **Gitea** in the dropdown menu
@@ -190,7 +194,10 @@ timelimit: 3600
 9. You will be taken to a list of webhooks; click on the URL for the webhook that you just added
 10. Click on **Test Delivery** at the bottom of the page.  After a few seconds, you should see an entry in the list with a green checkmark next to it.
 
-🎈 **Congratulations!** In this lab you created a dedicated code deployment user that you used to authenticate to deploy code. You then configured Code Manager to authenticate and download your control repo from the Git server. Next, you created a feature branch in your control repo, which allowed you to develop safely without affecting production. Then, to test a code deployment, you added a module to the Puppetfile on your feature branch Finally, you deployed code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
+---
+
+## 🎈 **Congratulations!**
+In this lab you created a dedicated code deployment user that you used to authenticate to deploy code. You then configured Code Manager to authenticate and download your control repo from the Git server. Next, you created a feature branch in your control repo, which allowed you to develop safely without affecting production. Then, to test a code deployment, you added a module to the Puppetfile on your feature branch Finally, you deployed code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
 
 To continue, click **Next**.
 

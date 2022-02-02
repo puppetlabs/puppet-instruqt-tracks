@@ -57,11 +57,12 @@ tabs:
 difficulty: basic
 timelimit: 3000
 ---
-# Verify that no websites are currently configured
+Verify that no websites are currently configured
+========
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.
 
-    ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.
+    ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
 4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
@@ -80,10 +81,8 @@ timelimit: 3000
 <br><br>
 ❔  **Why did this happen?** You did not receive a response from either web server because you haven't installed or configured anything yet.
 
----
-
-# Create your control repo locally on your Windows development workstation
-
+Create your control repo locally on your Windows development workstation
+========
 1. Clone the control repo. In the VS Code terminal window, run the following command:
 
     ```
@@ -95,9 +94,9 @@ timelimit: 3000
     cd control-repo
     git checkout webapp
     ```
----
 
-# Create the Apache and IIS profiles
+Create the Apache and IIS profiles
+========
 1. Navigate to the `site-modules/profile` directory:
     ```
     cd site-modules/profile
@@ -113,10 +112,8 @@ timelimit: 3000
 
 💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.
 
----
-
-# Update the the Apache and IIS manifest files
-
+Update the the Apache and IIS manifest files
+========
 1. Replace the content in the `apache.pp` file with the following code:
     ```
     # apache profile: site-modules/profile/manifests/apache.pp
@@ -179,8 +176,8 @@ timelimit: 3000
     }
     ```
 
----
-# Add the Apache and IIS profiles to the role files
+Add the Apache and IIS profiles to the role files
+========
 
 1. Open the **cmsweb.pp** file at `control-repo/site-modules/role/manifests/cmsweb.pp` and add the following line:
     ```
@@ -204,9 +201,8 @@ timelimit: 3000
     git push -u origin webapp
     ```
 
----
-
-# In the PE console, run Puppet in no-op mode and inspect the reports
+In the PE console, run Puppet in no-op mode and inspect the reports
+========
 🔀 Switch to the **PE Console** tab.
 1. Log into PE with username `admin` and password `puppetlabs`.
 2. In the console, run Puppet in no-op mode against your environment branch: <a name="run-in-noop">
@@ -288,7 +284,8 @@ Nixagent1:
 
   💡 **Tip:** Alternatively, you can minimize VS Code, open the Microsoft Edge browser and navigate to each web address.
 
-
-🎈 **Congratulations!** You created and updated the Apache and IIS manifest files and added the profiles to the roles. You then ran Puppet in no-op mode in the PE console and inspected the error messages in the reports. You then fixed the module dependencies, which resulted in creating a website on each of your nodes.
+---
+## 🎈 **Congratulations!**
+You created and updated the Apache and IIS manifest files and added the profiles to the roles. You then ran Puppet in no-op mode in the PE console and inspected the error messages in the reports. You then fixed the module dependencies, which resulted in creating a website on each of your nodes.
 
 To continue, click **Next**.

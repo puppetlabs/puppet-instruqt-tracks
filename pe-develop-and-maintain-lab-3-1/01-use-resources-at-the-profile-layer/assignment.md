@@ -43,9 +43,8 @@ tabs:
 - title: Linux Agent 5
   type: terminal
   hostname: nixagent5
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 - title: "Bug Zapper \U0001F99F⚡"
   type: website
@@ -54,11 +53,13 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-# Create a control repo on the Windows development workstation
+Create a control repo on the Windows development workstation
+========
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
+
+    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.<br><br>
 
 4. In Visual Studio Code, open a terminal. Click **Terminal** > **New Terminal**.
 5. In the Visual Studio Code terminal window, run the following command:
@@ -66,8 +67,9 @@ timelimit: 3600
     git clone git@gitea:puppet/control-repo.git
     ```
 
----
-# Edit the apache profile
+
+Edit the apache profile
+========
 1. Check out the **webapp** feature branch:
       ```
       cd control-repo
@@ -103,7 +105,7 @@ timelimit: 3600
     git push
     ```
 
-    🔀 Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 5. Log into the **PE console** with username `admin` and password `puppetlabs`.
 
@@ -116,7 +118,7 @@ timelimit: 3600
 
     ✔️ **Result:** The job fails because the filepath `var/web/cms` is not an absolute filepath. Nothing is misconfigured; Puppet just failed to compile a catalog.
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 7. Find and fix the data in Hiera. Update the content in the `common.yaml` file to the following:
     ```
@@ -137,39 +139,39 @@ timelimit: 3600
 
     ✔️ **Result:** Observe the failure. The apache class failed because the directory was not managed before the vhost.
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 
 10. Navigate to `site-modules/profile/manifests/apache.pp` and update your code to the following:
     ```
-    # site-modules/profile/manifests/apache.pp
-    class profile::apache (
-      Integer $port,
-      Stdlib::Absolutepath $docroot,
-    )
-    {
-      $index_html = "${docroot}/index.html"
-      $site_content = 'Hello world!'
-      include apache
-      apache::vhost { 'vhost.example.com':
-        port    => $port,
-        docroot => $docroot,
-        # Add a resource relationship, required before the vhost is managed.
-        require => File[$index_html],
+      # site-modules/profile/manifests/apache.pp
+      class profile::apache (
+        Integer $port,
+        Stdlib::Absolutepath $docroot,
+      )
+      {
+        $index_html = "${docroot}/index.html"
+        $site_content = 'Hello world!'
+        include apache
+        apache::vhost { 'vhost.example.com':
+          port    => $port,
+          docroot => $docroot,
+          # Add a resource relationship, required before the vhost is managed.
+          require => File[$index_html],
+        }
+        # Puppet only manages the specific resources that are declared. It will not automagically create parent directory of /var/web/cms!
+        file { '/var/web':
+          ensure => directory,
+        }
+        file { $docroot:
+          ensure => directory,
+        }
+        file { $index_html:
+          ensure  => file,
+          content => $site_content,
+        }
       }
-      # Puppet only manages the specific resources that are declared. It will not automagically create parent directory of /var/web/cms!
-      file { '/var/web':
-        ensure => directory,
-      }
-      file { $docroot:
-        ensure => directory,
-      }
-      file { $index_html:
-        ensure  => file,
-        content => $site_content,
-      }
-    }
-    ```
+      ```
 10. In the terminal, navigate to `control-repo/site-modules/profile` and run `pdk validate` to check your code.
     ```
     pdk validate
@@ -183,7 +185,7 @@ timelimit: 3600
     git push
     ```
 
-    🔀 Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 13. Run Puppet in your `webapp` environment on your **Development** node group:
     1. Navigate to the **Node Groups** page.
@@ -194,7 +196,7 @@ timelimit: 3600
 
     ✔️ **Result:** The job runs successfully.
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 14. Release your changes:
     1. Merge your feature branch to production:
@@ -210,7 +212,9 @@ timelimit: 3600
 
     ✔️ **Result:** The jobs succeed on nixagent4 and nixagent5.
 
-🎈 **Congratulations!** In this lab, you used file resources in your Apache profile to manage website content before deploying your code to production.
+---
+## 🎈 **Congratulations!**
+In this lab, you used file resources in your Apache profile to manage website content before deploying your code to production.
 
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**

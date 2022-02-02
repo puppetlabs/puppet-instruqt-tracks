@@ -43,9 +43,8 @@ tabs:
 - title: Linux Agent 5
   type: terminal
   hostname: nixagent5
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 - title: "Bug Zapper \U0001F99F⚡"
   type: website
@@ -54,7 +53,8 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-# Identify nodes in the **dc-west** data center
+Identify nodes in the dc-west data center
+========
 1. Log into the **PE console** with username `admin` and password `puppetlabs`.
 2. Retrieve the list of nodes with the trusted fact `pp_datacenter=dc-west`:
     1. Navigate to the **Nodes** page.
@@ -66,14 +66,15 @@ timelimit: 3600
     ```
 ✔️ **Result:** Observe which nodes are returned by the query. These nodes need their web service port configured to 8080.
 
-# Develop profiles to externalize node data
+Develop profiles to externalize node data
+========
 🔀 Switch to the **Windows Agent** tab.
 
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory, and click **Select Folder**.
 
-    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.
+    ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.<br><br>
 
 4. Open a new terminal. Click **Terminal** > **New Terminal**.
 5. In the VS Code terminal window, run the following command:
@@ -114,16 +115,18 @@ timelimit: 3600
     git commit -m "Extend the apache profile"
     git push
     ```
-# <a name="runpuppet">Run Puppet against the Development node group</a>
+
+Run Puppet against the Development node group
+========
 🔀 Switch to the **PE Console** tab.
 
-1. Run Puppet on your development node group:
+1. <a name="runpuppet">Run Puppet on your development node group:</a>
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments** and click **Development environment**.
     3. Click **Run** > **Puppet**.
     4. Under **Environment**, select **Select an environment for nodes to run in:**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
-    ✔️ **Result:** The job fails on all nixagent nodes.
+    ✔️ **Result:** The job fails on all nixagent nodes.<br><br>
 
 2. Click the report link for one of the nodes, and on the **Log** tab, find an error message similar to the following:
     ```
@@ -134,8 +137,8 @@ timelimit: 3600
     ```
     ✔️ **Result:** The catalog didn't compile because the Hiera data does not yet exist and there is no default value for the parameter.
 
-# Edit the Hiera data
-
+Edit the Hiera data
+========
 🔀 Switch to the **Windows Agent** tab.
 
 
@@ -176,14 +179,14 @@ timelimit: 3600
     git push
     ```
 
-    🔀 Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 
 4. Run Puppet on the **Development environment** node group again (if you need a refresher, [refer back to step 1](#runpuppet) in this section).
 
     ✔️ **Result:** Notice that the run is successful.
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 
 5. Test the port updates by running a web request on each node:
@@ -197,7 +200,7 @@ timelimit: 3600
     Invoke-WebRequest -URI http://nixagent3:80
     ```
 
-    🔀 Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 
 6. Create a one-time run exception group as a child of the **Production** group:
@@ -211,30 +214,31 @@ timelimit: 3600
     4. Enter a description.
     6. Click **Add**.
 
-# Pin a node and perform a canary release of the `webapp` branch to a Production node
+Pin a node and perform a canary release of the `webapp` branch to a Production node
+========
 1. Pin a production node to the agent-specified environment. Your choices are nixagent4 or nixagent5:
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments**, expand **Production environment**, and click **Production Agent-Specified One-Time Run**.
     3. In the **Certname** field, click **node name** and select either **nixagent4** or **nixagent5**.
-    4. Click **Pin node** and then commit your changes (click **Commit 1 change** in the bottom-right corner).
+    4. Click **Pin node** and then commit your changes (click **Commit 1 change** in the bottom-right corner).<br><br>
 
 2. Run Puppet in no-op mode, specifying the feature branch environment:
     1. Click **Run** > **Puppet**.
     2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list.
     3. Select the **No-op** checkbox and then click **Run job**.
-    ✔️ **Result:** Notice that the run was successful.
+    ✔️ **Result:** Notice that the run was successful.<br><br>
 
 3. Run Puppet in normal mode, specifying the feature branch environment:
    1. Click **Run** > **Puppet**.
    2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list. This time, **do not** select the **No-op** checkbox.
-    ✔️ **Result:** Notice that the run was successful.
+    ✔️ **Result:** Notice that the run was successful.<br><br>
 
 4. Unpin the node from the agent-specified environment:
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments**, and then expand **Production environment** and click **Production Agent-Specified One-Time Run**.
     3. Click **Unpin** (located at the right of page) and then click **Commit 1 change**.
 
-    🔀 Switch to the **Windows Agent** tab.
+    🔀 Switch to the **Windows Agent** tab.<br><br>
 
 5. Release your changes:
     1. Merge the `webapp` branch to the production branch.
@@ -244,7 +248,7 @@ timelimit: 3600
         git push
         ```
 
-    🔀 Switch to the **PE Console** tab.
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 6. Run Puppet on all the production nodes.
 
@@ -252,7 +256,7 @@ timelimit: 3600
     2. Expand **All Environments** and then click **Production environment**.
     3. Click **Run** > **Puppet**.
     4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
-    5. From the list, select **Production** and then click **Run job**.
+    5. From the list, select **Production** and then click **Run job**.<br><br>
 
 7. Both production nodes (nixagent4 and nixagent5) should return with a successful run. Run the following commands from a Powershell session on the Winagent to verify they ran successfully:
 
@@ -267,7 +271,9 @@ timelimit: 3600
 
     ✔️ **Result:** Nixagent4 and Nixagent5 ran successfully.
 
-🎈 **Congratulations!** In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
+---
+## 🎈 **Congratulations!**
+In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
 
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
