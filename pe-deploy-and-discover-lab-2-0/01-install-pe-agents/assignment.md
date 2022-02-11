@@ -28,13 +28,8 @@ tabs:
   hostname: guac
   path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  hostname: guac
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-puppet-agents
-- title: Practice Lab Help
-  type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000

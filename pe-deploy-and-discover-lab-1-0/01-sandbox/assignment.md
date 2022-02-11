@@ -18,12 +18,8 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-the-primary-server
-- title: Practice Lab Help
-  type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000

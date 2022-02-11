@@ -15,9 +15,6 @@ tabs:
   type: website
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
-- title: Practice Lab Help
-  type: website
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 710
 ---
@@ -29,12 +26,12 @@ In this lab, you:
  - Ran the script against a group of targets defined in the inventory file.
  - Tested your knowledge to make sure you've got it down.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
+
 Want to learn more about Bolt or Puppet? Check out these resources:
 - [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack channel](https://slack.puppet.com/)
-
-To access the commands used throughout this lab, check out the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/build-a-bolt-inventory-file-on-linux) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 

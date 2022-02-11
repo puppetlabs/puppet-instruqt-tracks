@@ -42,9 +42,8 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000

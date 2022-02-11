@@ -33,7 +33,7 @@ tabs:
   type: code
   hostname: puppet
   path: /etc/puppetlabs/code/environments/production/manifests/site.pp
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic

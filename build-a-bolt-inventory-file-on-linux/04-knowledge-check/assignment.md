@@ -15,9 +15,6 @@ tabs:
   type: website
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLScMVt6E0Q_tOTbASCNqMxfzgfv0yBs8h-wvZyW5HNzQkvUPJA/viewform?embedded=true
-- title: Practice Lab Help
-  type: website
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 720
 ---

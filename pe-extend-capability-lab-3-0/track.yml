@@ -1,0 +1,19 @@
+slug: pe-extend-capability-lab-3-0
+id: zhbvlcjwirhv
+type: track
+title: Develop A Module to Manage Configuration Files
+description: |-
+  In this lab you will:
+  Refactor a module to make it maintainable.
+  Use the template function with a file resource to manage content in the NGINX conf file for Windows and Linux operating systems.
+  Use a file resource to manage the directory for NGINX configuration.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "7386456199006283040"

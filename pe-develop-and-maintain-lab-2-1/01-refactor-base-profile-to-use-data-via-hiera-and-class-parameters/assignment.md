@@ -11,9 +11,9 @@ notes:
     In this lab you will:
      - Refactor the base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate the code.
 
-    You'll externalize the finance department's login message in Hiera by creating a **department** directory and **finance.yaml** file so that Hiera can find the parameterized login message. The .yaml file path maps to the pp_department="finance" trusted fact key-value pair.
+     - Externalize the finance department's login message in Hiera by creating a **department** directory and **finance.yaml** file so that Hiera can find the parameterized login message. The .yaml file path maps to the pp_department="finance" trusted fact key-value pair.
 
-    You'll run a PQL query to find out which servers have their **pp_department** trusted fact set to **finance**, so that you know which nodes are affected when you put the Hiera data in place.
+     - Run a PQL query to find out which servers have their **pp_department** trusted fact set to **finance**, so that you know which nodes are affected when you put the Hiera data in place.
 
     In this example, the nodes with pp_department="sales" get the login message defined in the common.yaml file because no sales.yaml file exists in the hierarchy.
 
@@ -41,12 +41,8 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: "Bug Zapper \U0001F99F⚡"
-  type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc9gX_SRoD-DfnM0cImAH2u7xIWv_FkyJPMJR1ECNyT6vN_xQ/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 Create a control repo on your Windows development workstation
 ========
@@ -228,8 +224,3 @@ Fix the Hiera data configuration
 ---
 ## 🎈 **Congratulations!**
 In this lab, you refactored the base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate the code.
-
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-

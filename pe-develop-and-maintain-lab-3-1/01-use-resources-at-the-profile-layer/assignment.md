@@ -46,12 +46,8 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: "Bug Zapper \U0001F99F⚡"
-  type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSeGjEHKd7D8KkhfGAIAv44KGVye5NVrVh2nIFZeNL83aFoZSA/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 Create a control repo on the Windows development workstation
 ========
@@ -215,6 +211,3 @@ Edit the apache profile
 ---
 ## 🎈 **Congratulations!**
 In this lab, you used file resources in your Apache profile to manage website content before deploying your code to production.
-
----
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**

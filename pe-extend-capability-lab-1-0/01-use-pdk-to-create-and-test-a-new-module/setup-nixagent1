@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+echo "Installing puppet bolt"
+yum -y install puppet-bolt
+
+sleep 30
+
+echo "Uploading keys to windows machine"
+bolt file upload /root/.ssh/id_rsa C:\\ProgramData\\ssh\\id_rsa --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent

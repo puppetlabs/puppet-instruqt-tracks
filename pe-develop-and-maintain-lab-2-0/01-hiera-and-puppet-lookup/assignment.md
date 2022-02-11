@@ -8,9 +8,7 @@ teaser: Discover how Hiera looks for data based on the hiera.yaml configuration 
 notes:
 - type: text
   contents: |-
-    In this lab you will:
-
-     - Use the `puppet lookup` command on your primary server to discover how Hiera looks for data based on your hiera.yaml configuration and your node facts.
+    In this lab you will use the `puppet lookup` command on your primary server to discover how Hiera looks for data based on your hiera.yaml configuration and your node facts.
 
     Click **Start** when you are ready to begin.
 tabs:
@@ -30,12 +28,8 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: "Bug Zapper \U0001F99F⚡"
-  type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSdK2AQaJ6Y96a8tP1WTf4r-03ihwDtV_MHfc0G__SbWfYUhfw/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 Clone the control repo on your Windows development workstation
 ========
@@ -117,9 +111,3 @@ Identify which facts affected the lookup
 ---
 ## 🎈 **Congratulations!**
 In this lab, you used the `puppet lookup` command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
-
----
-
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-

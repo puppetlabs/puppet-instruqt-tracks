@@ -4,12 +4,6 @@ type: sandbox
 title: Introducing Data Types and Class Parameters
 teaser: Use file resources in your Apache profile to manage website content.
 description: |+
-  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
-
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
-
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
-  ___
   This lab demonstrates using Hiera and class parameters to abstract the port value and docroot values in the apache profile.
 
   **What you'll learn**
@@ -26,10 +20,7 @@ description: |+
 
   **Technical requirements**
 
-  For the best lab experience, please use one of the following browsers:
-   - [Google Chrome](https://www.google.com/chrome/)
-   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
-  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
   ---
 
@@ -39,10 +30,11 @@ description: |+
 
   Click **Start track** when you're ready to begin.
 
-icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - BACKUP
+- PE301
 owner: puppet
 developers:
 - jain.waldrip@puppet.com
@@ -52,4 +44,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1639495314971827823"
+checksum: "10655026735402360950"

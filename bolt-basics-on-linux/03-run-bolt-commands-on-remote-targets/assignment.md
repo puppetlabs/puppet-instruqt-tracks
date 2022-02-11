@@ -22,7 +22,7 @@ tabs:
 - title: Target 2
   type: terminal
   hostname: target2
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic

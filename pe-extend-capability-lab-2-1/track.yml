@@ -1,0 +1,26 @@
+slug: pe-extend-capability-lab-2-1
+id: 7lqcmm1w2y6y
+type: track
+title: Use Hiera to extend Module capabilities
+description: |-
+  Uh oh! You get an unexpected email from the Dev Team
+  From: Dev Team
+  Subject: NGINX, Windows and install dir - we have a slight problem...
+  Hi SysAdmin,
+
+  Quick heads up: The NGINX Chocolatey package does not allow you to specify a
+  complete installation path. The installation directory is always created and named according to the NGINX version, for example: c:\tools\nginx-1.24.1\
+  ​
+  Thanks for working on this and let us know if there is anything else you need.
+
+  - Dev Team
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "12101578320495587909"

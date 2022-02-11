@@ -5,12 +5,6 @@ title: Refactor the Base Profile
 teaser: Refactor your base profile by moving variables to class parameters so that
   you can reuse the profile in another role without having to duplicate code.
 description: |+
-  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
-
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
-
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
-  ___
   Suppose you have a base profile that shows a login message across all the servers in your organization, but now you need to show a different login message for the servers owned by the finance department.
 
   To do this, you'll create class parameters in your manifests to abstract the data in the base profile that enables specific messaging. Abstracting data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
@@ -34,10 +28,7 @@ description: |+
 
   **Technical requirements**
 
-  For the best lab experience, please use one of the following browsers:
-   - [Google Chrome](https://www.google.com/chrome/)
-   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
-  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
   ---
 
@@ -47,7 +38,7 @@ description: |+
 
   Click **Start track** when you're ready to begin.
 
-icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - BACKUP
@@ -61,4 +52,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "14093573892087400080"
+checksum: "10023388350665110922"

@@ -14,10 +14,7 @@ description: |-
 
   **Technical requirements**
 
-  For the best lab experience, please use one of the following browsers:
-   - [Google Chrome](https://www.google.com/chrome/)
-   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
-  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help](https://puppet-kmo.gitbook.io/practice-lab-help/) guide for assistance.
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
   ---
 
@@ -41,4 +38,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7892528683822724904"
+checksum: "647705186385492507"

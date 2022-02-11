@@ -20,6 +20,9 @@ description: |-
   - Interpret the agent output during the Puppet run.
   - Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
 
+  **Technical requirements**
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
+
   ---
 
   **Keep an eye on the clock**
@@ -33,6 +36,7 @@ icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - BACKUP
+- PE
 owner: puppet
 developers:
 - bart.kliebert@puppet.com
@@ -41,4 +45,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "16223690077683820320"
+checksum: "2842514029464014965"

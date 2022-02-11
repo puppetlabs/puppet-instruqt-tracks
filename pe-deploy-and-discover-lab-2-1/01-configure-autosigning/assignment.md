@@ -27,13 +27,8 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  hostname: nixagent
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-agent-certificate-autosigning
-- title: Practice Lab Help
-  type: website
-  hostname: nixagent
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000
@@ -113,8 +108,6 @@ timelimit: 3000
 	PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-    🔀 Switch to the **Primary Server**<br><br>
-
 7.  Lock down the key file permissions and set the owner/group to `pe-puppet:pe-puppet`.
 
 	```
@@ -137,7 +130,7 @@ timelimit: 3000
 	service pe-puppetserver restart
 	```
 
-10. 🔀 Switch to the **Linux Agent** tab.<br><br>
+    🔀 Switch to the **Linux Agent** tab.<br><br>
 
 
 11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
@@ -150,13 +143,17 @@ timelimit: 3000
 	curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
 	```
 
-12. 🔀 Switch back to the **PE Console** tab when the agent installation is complete.
+    🔀 Switch back to the **PE Console** tab when the agent installation is complete.<br><br>
 
-	1. Log in with username `admin` and password `puppetlabs`.
 
-	2. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
+1. Log in with username `admin` and password `puppetlabs`.
 
-	3. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
+
+2. From the console sidebar, navigate to the **Nodes** page and confirm that the `nixagent` node is shown in the node list, which means that the agent's certificate was signed automatically and the node is now managed by PE.
+
+
+3. Click the `nixagent` node, and on the **Facts** tab, explore the facts about the machine, such as OS version, number of CPUs, and so on.
+
 
 ---
 ## 🎈 **Congratulations!**

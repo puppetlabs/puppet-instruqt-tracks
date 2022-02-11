@@ -20,13 +20,8 @@ tabs:
   hostname: puppet
   port: 443
   url: https://puppet-8443-INSTRUQT_PARTICIPANT_ID.env.play.instruqt.com
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  hostname: puppet
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-user-access
-- title: Practice Lab Help
-  type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000
