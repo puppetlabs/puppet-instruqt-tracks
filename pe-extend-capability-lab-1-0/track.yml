@@ -1,0 +1,25 @@
+slug: pe-extend-capability-lab-1-0
+id: sv482vi2qtit
+type: track
+title: Use PDK to create and test a new module
+description: |-
+  The app team have just developed a new piece of software called "NGINX" which is a webserver service. It has been deployed to some test nodes manually. You now need to begin to create a module to configure and manage it across the fleet.
+
+  In this lab, you will:
+
+  - Use the *puppet resource* command to explore the current state of your test nodes and produce Puppet code you will use to develop your module.
+
+  - Use *pdk new module* and *pdk new class* to automatically create a new module and a new class, along with a basic unit test, so that you can save time by not having to write any boiler plate code. Extend the unit tests to fail first before adding code to make them pass.
+
+  - Use *pdk validate* to validate your code for syntax and style, then run *pdk test unit* to run your unit tests to make sure your code compiles and the class behaves as expected.
+
+  - Add Puppet code you obtained from step one to manage the resources for the NGINX package and service. Then, run *pdk validate* to validate the code for syntax and style before running your unit test to ensure your code compiles and functions as expected.
+icon: ""
+tags:
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "6374728549162158184"

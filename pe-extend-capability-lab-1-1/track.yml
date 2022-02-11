@@ -1,0 +1,19 @@
+slug: pe-extend-capability-lab-1-1
+id: bmtalmhsqpro
+type: track
+title: Acceptance Testing New Modules
+description: |-
+  There are often dependencies between resources. For example, service and package, where a service will not exist until a package is installed. This can cause Puppet to fail on the first run, and then finally converge on the subsequent run, which is not an ideal situation. Resource relationships can be used to control the order in which resources are managed.
+  In this lab you will:
+  Run an acceptance test on the module you developed in the previous lab by applying it to a test node using Bolt, and then running commands locally to verify that it works as expected.
+  Develop the module to use resource relationships which will enable the Puppet agent to apply changes and converge in a single run.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "6917349513691410880"

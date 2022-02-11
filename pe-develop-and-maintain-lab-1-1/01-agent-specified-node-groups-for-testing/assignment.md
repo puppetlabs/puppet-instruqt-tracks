@@ -8,9 +8,7 @@ teaser: Configure PE so you can implement environment-based testing using a one-
 notes:
 - type: text
   contents: |-
-    In this lab you will:
-
-     - Configure PE so that you can implement environment-based testing using a one-time run exception environment group.
+    In this lab you will configure PE so that you can implement environment-based testing using a one-time run exception environment group.
 
     By making a breaking change to the one-time exception environment, you'll discover the relationship (through inheritance) between the development environment and the one-time exception environment.
 
@@ -46,12 +44,8 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: "Bug Zapper \U0001F99F⚡"
-  type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSeo-czG1caPBdnCu1IhVVKJgun91C41-1_EGHcvViZnuQflqQ/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 Create a control repo on your Windows development workstation
 ========
@@ -165,10 +159,3 @@ Pin the node with the missing fact to the Development environment group
 ---
 ## 🎈 **Congratulations!**
 In this lab you configured PE so that you could implement environment-based testing using a one-time run exception environment group.
-
----
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-To continue, click **Next**.
-
-

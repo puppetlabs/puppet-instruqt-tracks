@@ -25,12 +25,8 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/configure-additional-agent-package-platforms
-- title: Practice Lab Help
-  type: website
-  hostname: puppet
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000
@@ -44,13 +40,11 @@ timelimit: 3000
 
 2. In the output, notice the failure message:
     ```
-    The agent packages needed to support el-8-x86_64 are not present on your primary server.
-    To add them, apply the pe_repo::platform::el_8_x86_64 class to your master node, and then run Puppet.
-    The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.
+    The agent packages needed to support ubuntu-20.04-amd64 are not present are not present on your        primary  server. To add them, apply the pe_repo::platform::ubuntu_2004_amd64 class to your master node, and then run Puppet. The required agent packages should be retrieved when puppet runs on the master, after which you can run the install.bash script again.
     ```
 
-    💭 **Why did the installation fail?**<br>
-    The EL8 package isn't present on the primary server — the primary server isn't running EL8. To ensure that the packages are present, you must add the `pe_repo::platform:<AGENT_OS_VERSION_ARCHITECTURE>` classes to the primary server.
+    💭  **Why did the installation fail?**<br>
+    The Ubuntu 20.04 package isn't present on the primary server — the primary server isn't running Ubuntu. To ensure that the packages are present, you must add the `pe_repo::platform:<AGENT_OS_VERSION_ARCHITECTURE>` classes to the primary server.
 
     🔀  Switch to the **PE Console** tab.<br><br>
 1. Log in with username `admin` and password `puppetlabs`.
@@ -59,7 +53,7 @@ timelimit: 3000
 
 5. Add the repository class for the agent node OS that you want to support.
     1. On the **Classes** tab, in the **Add new class** field, enter `pe_repo`.
-    2. From the list of classes, select the `pe_repo::platform::el_8_x86_64` repo class.
+    2. From the list of classes, select the `pe_repo::platform::ubuntu_2004_amd64` repo class.
     3. Click **Add class**.<br><br>
 
 6. Commit your change: Click **Commit** in the bottom right of the page.
@@ -80,10 +74,7 @@ timelimit: 3000
     ```
     In the output, notice the success message. (You may need to scroll up).
     ```
-    Installed:
-      puppet-agent-6.22.1-1.el8.x86_64
-
-    Complete!
+    The following NEW packages will be installed: puppet-agent
     ```
 
 ## 🎈 **Congratulations!**

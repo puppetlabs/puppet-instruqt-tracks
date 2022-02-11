@@ -1,0 +1,15 @@
+slug: pe-extend-capability-lab-2-0
+id: yhswboi8dssf
+type: track
+title: Extend A Module to Support Different OS Platforms
+description: PLACEHOLDER
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "10453994213477802846"

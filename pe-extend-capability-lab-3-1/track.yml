@@ -1,0 +1,18 @@
+slug: pe-extend-capability-lab-3-1
+id: h3tmxxydrfkr
+type: track
+title: Use Defined Types to make Modules Dynamic
+description: |-
+  In this lab you will:
+  Use the contain function along with class relationships to split the module into separate classes and manifest files.
+  Create a defined type to manage separate website instances.
+icon: ""
+tags:
+- ""
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "5712073001234627113"

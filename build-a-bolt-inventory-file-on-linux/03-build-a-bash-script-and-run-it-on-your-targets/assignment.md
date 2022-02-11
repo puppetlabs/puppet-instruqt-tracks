@@ -23,7 +23,7 @@ tabs:
   type: code
   hostname: puppet
   path: /root
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic

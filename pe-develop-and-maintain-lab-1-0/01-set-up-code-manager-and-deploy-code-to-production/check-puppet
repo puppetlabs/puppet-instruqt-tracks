@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/Puppetfile ]; then
+  fail-message "The webapp code environment has not been deployed"
+  exit 1
+fi
+
+exit 0

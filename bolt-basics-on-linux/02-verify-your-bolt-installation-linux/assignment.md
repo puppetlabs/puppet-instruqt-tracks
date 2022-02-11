@@ -14,7 +14,7 @@ tabs:
 - title: Bolt
   type: terminal
   hostname: puppet
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic

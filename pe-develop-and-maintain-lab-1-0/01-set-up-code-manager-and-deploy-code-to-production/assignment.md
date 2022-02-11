@@ -48,12 +48,8 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: "Bug Zapper \U0001F99F⚡"
-  type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLScGEdG86t-YZ6nVXeC6pZbiCQ3htJZlTu4e1_V3Vr3J2u-vIw/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 3000
 ---
 Clone the control repo on your Windows development workstation
 ============
@@ -200,8 +196,3 @@ Configure a webhook to deploy code automatically
 In this lab you created a dedicated code deployment user that you used to authenticate to deploy code. You then configured Code Manager to authenticate and download your control repo from the Git server. Next, you created a feature branch in your control repo, which allowed you to develop safely without affecting production. Then, to test a code deployment, you added a module to the Puppetfile on your feature branch Finally, you deployed code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
 
 To continue, click **Next**.
-
----
-**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
-
-

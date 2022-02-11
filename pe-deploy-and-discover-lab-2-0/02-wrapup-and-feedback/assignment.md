@@ -24,11 +24,11 @@ timelimit: 600
 ---
 In this lab, you learned how to install the Puppet agent using two different methods: locally by using the agent installation script, and remotely from the PE console.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-puppet-agents).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)
-
-To access the commands used throughout this lab, visit the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/install-puppet-agents).
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-instruqt-tracks/tree/main/pe-deploy-and-discover-lab-2-0) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 

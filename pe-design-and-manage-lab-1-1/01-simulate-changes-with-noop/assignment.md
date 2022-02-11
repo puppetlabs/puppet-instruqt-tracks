@@ -28,9 +28,8 @@ tabs:
 - title: Primary Server
   type: terminal
   hostname: puppet
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
-  hostname: nixagent
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000

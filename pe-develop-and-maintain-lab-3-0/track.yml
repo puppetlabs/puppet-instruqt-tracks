@@ -4,12 +4,6 @@ type: sandbox
 title: Refactor the apache Web Server Profile
 teaser: Use Hiera and class parameters to abstract the port value in the apache profile.
 description: |+
-  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
-
-  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
-
-  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
-  ___
   In this scenario, you'll configure nodes whose pp_datacenter fact is set to "dc-west" to serve web server applications on port 8080 instead of port 80, which is the port specified in the organization's default apache.pp profile.
 
   To do this, you'll use Hiera and class parameters to abstract the port value in the apache profile.
@@ -32,10 +26,7 @@ description: |+
 
   **Technical requirements**
 
-  For the best lab experience, please use one of the following browsers:
-   - [Google Chrome](https://www.google.com/chrome/)
-   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
-  Mozilla Firefox and Apple Safari are not suitable for this lab. If you are not able to use one of the required browsers, refer to the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for assistance.
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
   ---
   **Keep an eye on the clock**
@@ -44,7 +35,7 @@ description: |+
 
   Click **Start track** when you're ready to begin.
 
-icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
 - BACKUP
@@ -58,4 +49,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "12382337453351394787"
+checksum: "3864829979677460353"

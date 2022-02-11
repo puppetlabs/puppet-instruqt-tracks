@@ -22,7 +22,7 @@ tabs:
 - title: Agent Node
   type: terminal
   hostname: linux-node
-- title: Practice Lab Help
+- title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic

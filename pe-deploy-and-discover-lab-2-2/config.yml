@@ -5,6 +5,6 @@ virtualmachines:
   shell: /bin/bash
   machine_type: n1-highcpu-8
 - name: nixagent1
-  image: centos-8-v20210701
+  image: ubuntu-os-cloud/ubuntu-2004-lts
   shell: /bin/bash
   machine_type: n1-standard-4

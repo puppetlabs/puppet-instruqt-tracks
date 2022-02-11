@@ -30,11 +30,11 @@ In this lab, you:
  - Ran Puppet in no-op mode to simulate a Puppet run across all nodes without actually making changes.
  - After successful testing, ran Puppet again to make sweeping changes — in this case, fast provisioning — across your data center at the snap of a finger.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe201-design-and-manage-labs/develop-web-server-profiles-that-consume-puppet-forge-modules).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)
-
-To access the commands used throughout this lab, visit the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe201-design-and-manage-labs/develop-web-server-profiles-that-consume-puppet-forge-modules).
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-instruqt-tracks/tree/main/pe-design-and-manage-lab-3-1) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 

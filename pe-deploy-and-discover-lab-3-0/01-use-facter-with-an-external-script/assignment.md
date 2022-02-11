@@ -44,13 +44,8 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: Lab Aid
+- title: Lab Help Guide
   type: website
-  hostname: guac
-  url: https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-your-nodes-by-using-external-facts
-- title: Practice Lab Help
-  type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3000
@@ -79,8 +74,8 @@ Create an external fact on a Linux node
 
     | Time Zone     | Data Center Name |
     |---------------|-------------|
-    | Eastern / EDT | dc-east     |
-    | Pacific / PDT | dc-west     |
+    | Eastern / EST | dc-east     |
+    | Pacific / PST | dc-west     |
 
 
 4. We've provided a simple external fact script below. To put it into place, create the Facter location directory and external fact script:
@@ -150,8 +145,8 @@ Create an external fact on a Windows node
     ✔️ **Result:** Puppet outputs the node's time zone. You will use this to create the `datacenter` fact in the coming steps.
     | Time Zone     | Data Center Name |
     |---------------|-------------|
-    | Eastern / EDT | dc-east     |
-    | Pacific / PDT | dc-west     |
+    | Eastern / EST | dc-east     |
+    | Pacific / PST | dc-west     |
 
 4. We've provided a simple external fact script below. To put it into place, create the following file:
 

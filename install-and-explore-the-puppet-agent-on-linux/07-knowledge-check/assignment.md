@@ -17,10 +17,6 @@ tabs:
   type: website
   hostname: linux
   url: https://docs.google.com/forms/d/e/1FAIpQLSf9HbjuXjCjfLeN28hqqv5f1VSKDgm-wPCc4cANv6CQQee4UQ/viewform?embedded=true
-- title: Practice Lab Help
-  type: website
-  hostname: linux
-  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 200
 ---
