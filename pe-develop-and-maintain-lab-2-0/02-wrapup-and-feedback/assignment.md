@@ -16,7 +16,7 @@ tabs:
   hostname: guac
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you used the puppet lookup command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
 

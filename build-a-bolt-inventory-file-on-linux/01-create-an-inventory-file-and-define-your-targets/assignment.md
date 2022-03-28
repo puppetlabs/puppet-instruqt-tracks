@@ -2,7 +2,7 @@
 slug: create-an-inventory-file-and-define-your-targets
 id: 69ibjvibsm9i
 type: challenge
-title: " Create an inventory file and define your targets \U0001F4C4"
+title: ' Create an inventory file and define your targets'
 teaser: Group targets by a common operating system or functional role to streamline
   orchestration tasks.
 notes:
@@ -26,7 +26,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 When you create a Bolt project by running the ```bolt project init``` command, Bolt creates an inventory file with placeholder content in the project directory. The project directory also contains configuration files, plans, and tasks.
 
@@ -84,7 +84,7 @@ On the **Bolt** tab, check that the targets are specified correctly. Run the fol
 bolt inventory show --targets all
 ```
 
-✔️ **Result:** If your inventory file is set up correctly, you'll see the following output, which includes the number of targets in the group and their names:
+✅ **Result:** If your inventory file is set up correctly, you'll see the following output, which includes the number of targets in the group and their names:
 
     Targets
       web1

@@ -85,3 +85,6 @@ EOF
 bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
 
 bolt command run 'Remove-Item -Path C:\Temp\VSCodeExtensions\*.* -Recurse' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://winagent
+
+# Needed for the check script to verify node group configuration
+puppet module install WhatsARanjit-node_manager --target-dir /opt/puppetlabs/puppet/modules

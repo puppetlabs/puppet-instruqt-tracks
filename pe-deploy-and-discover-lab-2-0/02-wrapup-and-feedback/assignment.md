@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: dbm00dmbcfq0
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you learned how to install the Puppet agent using two different methods: locally by using the agent installation script, and remotely from the PE console.
 

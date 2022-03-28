@@ -2,7 +2,7 @@
 slug: specify-a-desired-state
 id: zkwun505nnze
 type: challenge
-title: "Specify a desired state \U0001F4BB"
+title: Specify a desired state
 teaser: Specify how to keep the agent node in its desired state by adding a node definition
   and resource to the `site.pp` manifest.
 notes:
@@ -37,7 +37,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 900
+timelimit: 450
 ---
 # Step 1: Open the manifest file
 Switch to the **Editor** tab and click on the only item in the **FILES** list, your `site.pp` manifest file.
@@ -66,7 +66,7 @@ node 'linux-node.classroom.puppet.com' {
 # Step 4: Save your changes
 Click the disk icon: 💾
 
-✔️ **Result:** Now when the agent contacts the server, the server uses this node definition (among other things) to compile a catalog for this node.
+✅ **Result:** Now when the agent contacts the server, the server uses this node definition (among other things) to compile a catalog for this node.
 
 # Step 5: Trigger an agent run
 Now that you have some Puppet code for the server to parse, switch to the *Agent node* tab to the right and trigger a Puppet run:
@@ -76,7 +76,7 @@ puppet agent -t
 
 ✏️ **Note:**  In this example, the catalog includes only a `notify` resource type, which instructs the agent to display the message in the code when it applies the catalog on its next run. This code doesn't make any changes to the node.
 
-✔️ **Result:** The output from this Puppet run includes the following:
+✅ **Result:** The output from this Puppet run includes the following:
 
 ```
 Notice: Hello Puppet!

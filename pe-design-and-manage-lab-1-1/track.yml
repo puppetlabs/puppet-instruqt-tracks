@@ -5,28 +5,29 @@ title: Simulate Changes by Running in No-op Mode
 teaser: Simulate a Puppet run to understand how Puppet remediates drift and keeps
   your systems in their desired state.
 description: |-
-  In this lab, you will simulate a Puppet run to understand how Puppet remediates drift and keeps your systems in their desired state. You will:
+  ## Introduction
 
+  In this lab, you will simulate a Puppet run to understand how Puppet remediates drift and keeps your systems in their desired state. You will:
 
   - Cause drift by making a breaking change to a Puppet component (the `pxp-agent` or the uninstaller script).
   - Run Puppet with the `--noop` parameter to simulate a Puppet run without making changes to the system.
   - Run Puppet normally to fix the drift you caused.
 
-  **Prerequisites**
+  ## Prerequisites
 
   None
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![10 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/10min100.png) The virtual learning environment will stay up for 20 minutes, however, **this lab should only take about 10 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![10 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/10min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 10 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe201-design-and-manage-labs/simulate-changes-by-running-in-no-op-mode).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -42,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "15390300356729898759"
+checksum: "11519209715772622949"

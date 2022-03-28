@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Check if <envdir>/webapp/data/datacenter/dc-west.yaml has been deployed
+if [ ! -f /etc/puppetlabs/code/environments/webapp/data/datacenter/dc-west.yaml ]; then
+  fail-message "The data/datacenter/dc-west.yaml Hiera data file has not been deployed"
+  exit 1
+fi
+
+# Check if data/common.yaml has the Apache port setting in it
+if ! $(grep -q "^profile::apache::port" /etc/puppetlabs/code/environments/webapp/data/common.yaml); then
+  fail-message "The data/common.yaml file has not been updated with an Apache port setting yet"
+  exit 1
+fi
+
+if ! $(nc -z nixagent1 8080); then
+  fail-message "The Apache server on nixagent1 is not yet listening on port 8080"
+  exit 1
+fi
+
+if ! $(nc -z nixagent3 80); then
+  fail-message "The Apache server on nixagent3 machine is not yet listening on port 80"
+  exit 1
+fi
+
+if ! $(nc -z nixagent4 80); then
+  fail-message "The Apache server on nixagent4 is not yet listening on port 80"
+  exit 1
+fi
+
+if ! $(nc -z nixagent5 8080); then
+  fail-message "The Apache server on nixagent5 is not yet listening on port 8080"
+  exit 1
+fi
+
+exit 0

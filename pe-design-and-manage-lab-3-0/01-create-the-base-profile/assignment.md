@@ -45,7 +45,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create a control repo on your Windows development workstation
 ========
@@ -95,7 +95,7 @@ Include a base profile in your roles
     pdk validate
     ```
     💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.<br><br>
-    ✔️ **Result:** PDK indicates that your code is valid.<br><br>
+    ✅ **Result:** PDK indicates that your code is valid.<br><br>
 6. Commit and push your code to your feature branch.
     ```
     git add .
@@ -154,14 +154,14 @@ Create a base profile
     ```
     pdk validate
     ```
-    ✔️ **Result:** Your code passes validation.<br><br>
+    ✅ **Result:** Your code passes validation.<br><br>
 4. Commit and push your code to your feature branch.
     ```
     git add .
     git commit -m "Add base profile to roles"
     git push
     ```
-    ✔️ **Result:** Your code will be automatically deployed to the primary server.<br><br>
+    ✅ **Result:** Your code will be automatically deployed to the primary server.<br><br>
     🔀 Switch to the **PE Console** tab.<br><br>
 
 5. Trigger a Puppet run against your environment branch, and then inspect the report. If you don't recall the steps, refer back to the preceding section.
@@ -178,12 +178,12 @@ Follow the instructions for each OS below to verify that your changes took effec
 3. Select **Sign Out**.
 4. When presented with the **Reconnect** option, click **Reconnect**.
 
-✔️ **Result:** The message of the day appears on the login screen.
+✅ **Result:** The message of the day appears on the login screen.
 
 🔀 Switch to the **Linux Agent** tab.
 1. In the terminal, type the command `ssh root@localhost`.
 2. Type `yes` when prompted.
-✔️ **Result:** The message of the day appears.
+✅ **Result:** The message of the day appears.
 
 ---
 ## 🎈 **Congratulations!**

@@ -4,44 +4,39 @@ type: track
 title: Build a Bolt Inventory File on Linux
 teaser: Save time by running tasks across groups of targets.
 description: |-
+  ## Introduction
+
   The Bolt inventory file (inventory.yaml) enables you to simplify how you manage a large number of target nodes, or *targets*. You can define groups of targets in this file and then reference the group — instead of a list of individual targets — in Bolt commands. You can also define connection settings and store information about the targets.
 
   For example, suppose you need to run a Network Time Protocol (NTP) configuration script on the Linux targets in your environment. In the `inventory.yaml` file, you can define a group named **linux**, and then run the script against that group to update all the targets at once instead of syncing them one at a time or providing all the target names in the Bolt command that invokes the script.
 
+  You can use Bolt to make ad hoc changes to targets by including target names when you run commands. This might be easy for managing a handful of targets, but imagine if you have to change 50, 500, or even 5000 targets!
 
-  **What you will learn in this track**
+  By defining groups of targets (and other information such as connection parameters) in the `inventory.yaml` file, you can simplify your Bolt commands and ensure that commands are run against the correct targets each time.
+
+  In this lab you will:
+
    - First, you'll build an inventory file and assign targets to a group that you can run commands and scripts against.
    - Then, you'll run the `ntpdate` command to synchronize the date and time on the targets defined in the group.
    - Finally, you'll build a script that synchronizes the system clock and starts the NTP service on the targets in the group.
 
-
-
-   **Why complete this track?**
-
-  You can use Bolt to make ad hoc changes to targets by including target names when you run commands. This might be easy for managing a handful of targets, but imagine if you have to change 50, 500, or even 5000 targets!
-
-
-  By defining groups of targets (and other information such as connection parameters) in the `inventory.yaml` file, you can simplify your Bolt commands and ensure that commands are run against the correct targets each time.
-
-  **Prerequisites**
+  ## Prerequisites
    - Basic familiarity with [Bolt](https://puppet.com/open-source/bolt/)
      - If you are brand new to Bolt, start with the [Bolt Basics on Linux](https://play.instruqt.com/puppet/invite/jpbxwmbt8hdx) track.
    - Familiarity with [shell scripting](https://en.wikipedia.org/wiki/Shell_script)
    - Familiarity with [YAML](https://en.wikipedia.org/wiki/YAML)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
-
-   If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/bolt/build-a-bolt-inventory-file-on-linux).
 icon: https://storage.googleapis.com/instruqt-images/bolt-logo-icon.png
 tags:
 - ""
@@ -55,4 +50,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "6729478366794584443"
+checksum: "12960770470572645758"

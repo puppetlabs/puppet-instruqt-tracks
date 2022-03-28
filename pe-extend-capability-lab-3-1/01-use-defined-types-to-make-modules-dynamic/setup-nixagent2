@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+sleep 20
+
+yum -y install policycoreutils-python
+
+sleep 20 
+
+sudo setenforce 0
+
+sudo semanage port -a -t http_port_t -p tcp 81
+
+sudo semanage port -a -t http_port_t -p tcp 82

@@ -1,26 +1,38 @@
 slug: pe-extend-capability-lab-2-1
 id: 7lqcmm1w2y6y
 type: track
-title: Use Hiera to extend Module capabilities
-description: |-
-  Uh oh! You get an unexpected email from the Dev Team
-  From: Dev Team
-  Subject: NGINX, Windows and install dir - we have a slight problem...
-  Hi SysAdmin,
+title: Use Hiera to Extend Module Capabilities
+teaser: Move your data into Hiera and create a custom fact to determine the installation
+  directory location.
+description: |+
+  ## Introduction
+  In this lab, you will:
+   - Refactor your module by moving data into Hiera.
+   - Create a custom fact in the module to return the NGINX version so that it can be used to determine the installation directory location.
 
-  Quick heads up: The NGINX Chocolatey package does not allow you to specify a
-  complete installation path. The installation directory is always created and named according to the NGINX version, for example: c:\tools\nginx-1.24.1\
-  ​
-  Thanks for working on this and let us know if there is anything else you need.
+  ## Prerequisites
 
-  - Dev Team
-icon: ""
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png)
+  The virtual learning environment will stay up for 30 minutes, however, this lab should only take about **20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
-- ""
 - BACKUP
+- PE401
 owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
-published: false
-checksum: "12101578320495587909"
+published: true
+show_timer: true
+checksum: "13360860320411093858"

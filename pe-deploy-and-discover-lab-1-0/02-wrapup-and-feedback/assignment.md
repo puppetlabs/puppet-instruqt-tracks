@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: ekue8d9q5xwf
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: puppet
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you learned an easy and straightforward process for installing Puppet Enterprise (PE), enabling you to start automating your infrastructure on day one.
 

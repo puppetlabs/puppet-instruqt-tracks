@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: hptsp3uclgq9
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: nixagent
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you simulated a Puppet run to understand how Puppet remediates drift and keeps your systems in their desired state. You:
  - Caused drift by making a breaking change to a Puppet component (the `pxp-agent` or the uninstaller script).

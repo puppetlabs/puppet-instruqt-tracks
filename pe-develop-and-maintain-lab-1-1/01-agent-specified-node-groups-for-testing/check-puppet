@@ -1,0 +1,15 @@
+#!/bin/bash
+
+grep -q notify /etc/puppetlabs/code/environments/webapp/manifests/site.pp
+if [ $? -ne 0 ]; then
+  fail-message "The debug message has not been added to the site.pp file"
+  exit 1
+fi
+
+puppet resource node_group "Development environment" | grep -q nixagent3
+if [ $? -ne 0 ]; then
+  fail-message "The nixagent3 node has not been pinned to the Development environment node group"
+  exit 1
+fi
+
+exit 0

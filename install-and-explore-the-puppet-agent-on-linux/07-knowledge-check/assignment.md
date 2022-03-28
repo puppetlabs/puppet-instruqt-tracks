@@ -2,7 +2,7 @@
 slug: knowledge-check
 id: 1zqwtvtfvyhl
 type: challenge
-title: "Knowledge check \U0001F4A1"
+title: Knowledge check
 teaser: Test your knowledge to make sure you've got it down.
 notes:
 - type: text

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Check if data/common.yaml has the login message in it
+if ! $(grep -q "^profile::apache::docroot" /etc/puppetlabs/code/environments/webapp/data/common.yaml); then
+  fail-message "The data/common.yaml file has not been updated with the Apache docroot yet"
+  exit 1
+fi
+
+# Check if the webapp branch has been merged to production
+if ! $(grep -q "^profile::apache::docroot" /etc/puppetlabs/code/environments/production/data/common.yaml); then
+  fail-message "The webapp branch has not been merged to production yet"
+  exit 1
+fi
+
+exit 0

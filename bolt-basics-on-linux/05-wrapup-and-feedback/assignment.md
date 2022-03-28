@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: vor7wnab2oje
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -16,7 +16,7 @@ tabs:
   hostname: target1c
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 715
+timelimit: 360
 ---
 In this lab, you learned what Bolt is, how to install it, and how to verify your installation. In a simulated environment, you ran Bolt commands to check the status of the NTP service and start it on two targets. Then, you tested your knowledge to make sure you've got it down.
 

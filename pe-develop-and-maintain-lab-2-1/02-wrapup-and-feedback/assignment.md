@@ -16,7 +16,7 @@ tabs:
   hostname: guac
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab you refactored your base profile by moving variables to class parameters so that you could reuse the profile in another role without having to duplicate code.
 

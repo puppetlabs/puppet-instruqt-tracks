@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: nyd2wskqueys
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -16,7 +16,7 @@ tabs:
   hostname: linux
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 221
+timelimit: 170
 ---
 In this lab, you used Puppet’s command-line tools to interact directly with a node in the same way the agent would.
 You learned about the agent's role in the broader Puppet architecture and how the agent checks and modifies the state of a node that it’s installed on.

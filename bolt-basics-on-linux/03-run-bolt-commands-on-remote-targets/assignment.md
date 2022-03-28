@@ -2,7 +2,7 @@
 slug: run-bolt-commands-on-remote-targets
 id: xpxk4boeqvir
 type: challenge
-title: "Run Bolt commands on remote targets \U0001F469‍\U0001F4BB"
+title: Run Bolt commands on remote targets
 teaser: Run your first Bolt commands on remote targets.
 notes:
 - type: text
@@ -26,7 +26,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 Now that you've verified your Bolt installation, it's time to get some hands-on practice with Bolt by managing the Network Time Protocol (NTP) service on two target nodes.
 
@@ -52,7 +52,7 @@ The`--no-host-key-check` portion of the command is optional and is included here
 - Suppress a warning that would be shown if the target has never been remotely accessed before.
 - Eliminate the need for you to confirm the SSH fingerprint of the remote machine.
 
-✔️ **Result:**
+✅ **Result:**
 The ‘fail’ messages indicate that each target is inactive, which is expected at this point. Continue to step 2.
 
 
@@ -62,12 +62,12 @@ The NTP service does not start by default. Run the following command to remotely
 bolt command run '/bin/systemctl start ntpd.service' --no-host-key-check --targets target1,target2
 ```
 
-✔️ **Result:** Notice the “Successful on 2 targets: target1, target2” message. This means that you started the NTP service on both target nodes. Nice job.
+✅ **Result:** Notice the “Successful on 2 targets: target1, target2” message. This means that you started the NTP service on both target nodes. Nice job.
 
 # Step 3: Confirm that the NTP service is running
 Run the command from step 1 again to confirm that the NTP service has been started on both targets.
 
-✔️ **Result:** Now that you have started the NTP service on the targets, notice the detailed information and the message “Successful on 2 targets: target1, target2”.
+✅ **Result:** Now that you have started the NTP service on the targets, notice the detailed information and the message “Successful on 2 targets: target1, target2”.
 
 You can now add the targets to an existing infrastructure with additional configuration for their specific purposes.
 

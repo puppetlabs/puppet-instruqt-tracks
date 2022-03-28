@@ -31,7 +31,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 1. On the **Primary Server** tab, navigate to:
 	```

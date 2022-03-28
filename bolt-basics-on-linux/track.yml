@@ -3,36 +3,31 @@ id: diticbtrwatq
 type: track
 title: Bolt Basics on Linux
 teaser: Install Bolt and manage your first remote targets.
-description: |
-  Bolt is an open source orchestration tool that automates the manual work it takes to maintain your infrastructure, helping you to complete ad hoc tasks remotely on a large number of targets. For example, you can use Bolt to patch and update systems, troubleshoot servers, deploy applications, and stop and restart services.
-
-
-   **You'll learn:**
+description: |2-
+   # Introduction
+  Bolt is an open source orchestration tool that automates the manual work it takes to maintain your infrastructure, helping you to complete ad hoc tasks remotely on a large number of targets. For example, you can use Bolt to patch and update systems, troubleshoot servers, deploy applications, and stop and restart services. Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy apps across your infrastructure, this is the first step to take to get there. In this lab you'll learn:
     - What Bolt is and when to use it.
     - How to install Bolt.
     - How to verify that your installation works as expected.
     - How to run Bolt commands to update the NTP service on target nodes to keep their clocks synchronized.
 
 
-
-  **Why complete this track?**
-
-  If you're new to Bolt, start here. Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy apps across your infrastructure, this is the first step to take to get there.
-
-  **Prerequisites:**
+   ## Prerequisites
    - Linux command line experience is helpful but not required.
    - NTP service familiarity is helpful but not required.
 
-  **Technical requirements**
+  ## Technical recommendations
+
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+   ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![15 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/15min100.png)
+  The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 15 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/bolt/bolt-basics-on-linux).
 icon: https://storage.googleapis.com/instruqt-images/bolt-logo-icon.png
 tags:
 - ""
@@ -46,4 +41,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "11371314014220528247"
+checksum: "11088434355318493022"

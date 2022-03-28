@@ -2,7 +2,7 @@
 slug: run-a-command-on-your-targets
 id: aumjsw3ompmd
 type: challenge
-title: ' Run a command on your targets ✔️'
+title: ' Run a command on your targets'
 teaser: Run the `ntpdate` command to synchronize the system time on the targets defined
   in the **webservers** group.
 notes:
@@ -24,7 +24,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 To run a Bolt command against multiple targets *without* an inventory file, you need a comma-separated list of targets to run the command against, which looks like this:
 `bolt command run <command> --targets web1,web2`

@@ -2,7 +2,7 @@
 slug: explore-resource-syntax-by-using-the-puppet-agent
 id: zhyswco37bif
 type: challenge
-title: "Explore resource syntax by using the Puppet agent \U0001F4BB"
+title: Explore resource syntax by using the Puppet agent
 teaser: Request a description of a resource and review the output.
 notes:
 - type: text
@@ -21,14 +21,14 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 400
+timelimit: 200
 ---
 # Step 1
 Request a description of a file resource by running the following command:
 ```
 puppet resource file /tmp/test
 ```
-✔️ **Result:** The command returns a Puppet code representation of the resource.
+✅ **Result:** The command returns a Puppet code representation of the resource.
 
 ## Resource syntax
 Let’s break down the output into its basic components:

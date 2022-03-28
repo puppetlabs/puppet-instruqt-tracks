@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check if <envdir>/webapp/data/department/finance.yaml has been deployed
+if [ ! -f /etc/puppetlabs/code/environments/webapp/data/department/finance.yaml ]; then
+  fail-message "The data/department/finance.yaml Hiera data file has not been deployed"
+  exit 1
+fi
+
+# Find machine to satisfy query 'inventory[certname] { trusted.extensions.pp_department = "finance" }'
+CERTNAME=$(puppet query 'inventory[certname] { trusted.extensions.pp_department = "finance" }' | jq -r .[].certname)
+
+# Retrieve login message using "puppet lookup profile::base::login_message --node <CERTNAME> --environment webapp"
+MESSAGE=$(puppet lookup profile::base::login_message --node ${CERTNAME} --environment webapp)
+if [ -z ${MESSAGE} ]; then
+  fail-message "Unable to find login message for node ${CERTNAME} in Hiera data files"
+  exit 1
+fi
+
+# Check if data/common.yaml has the login message in it
+if ! $(grep -q "^profile::base::login_message" /etc/puppetlabs/code/environments/webapp/data/common.yaml); then
+  fail-message "The data/common.yaml file has not been updated with a login message yet"
+  exit 1
+fi
+
+exit 0

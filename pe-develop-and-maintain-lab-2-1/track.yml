@@ -5,6 +5,8 @@ title: Refactor the Base Profile
 teaser: Refactor your base profile by moving variables to class parameters so that
   you can reuse the profile in another role without having to duplicate code.
 description: |+
+  ## Introduction
+
   Suppose you have a base profile that shows a login message across all the servers in your organization, but now you need to show a different login message for the servers owned by the finance department.
 
   To do this, you'll create class parameters in your manifests to abstract the data in the base profile that enables specific messaging. Abstracting data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
@@ -15,28 +17,24 @@ description: |+
 
   At the end of the lab, you'll have configured the finance nodes to department-specific login message by externalizing data to the appropriate yaml configuration file. You'll compare this with the sales department nodes, which show a common login message.
 
-
-  **What you'll learn**
-
   In this lab you will:
    - Refactor your base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate code.
 
 
-  **Prerequisites**
+  ## Prerequisites
 
   [Abstract data from code by using Hiera](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-0)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  **Keep an eye on the clock**
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
-
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-base-profile).
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
@@ -52,4 +50,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "10023388350665110922"
+checksum: "5825973185234551570"

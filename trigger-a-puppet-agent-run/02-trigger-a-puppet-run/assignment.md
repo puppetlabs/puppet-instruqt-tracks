@@ -2,7 +2,7 @@
 slug: trigger-a-puppet-run
 id: xbnzl6tqkedg
 type: challenge
-title: "Trigger a Puppet run \U0001F4BB"
+title: Trigger a Puppet run
 teaser: Discover the high-level steps the agent takes during a Puppet run.
 notes:
 - type: text
@@ -26,7 +26,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 Now that the agent node's certificate is signed, on its next run the agent can request a catalog from the primary server. Here, you'll explore the high-level steps the agent completes during a Puppet run.
 
@@ -38,7 +38,7 @@ Run the following command to trigger another Puppet run. The output will be easi
 ```
 puppet agent -t
 ```
-✔️ **Result:** Because the certificate is signed, the agent has permission to retrieve the catalog from the primary server.
+✅ **Result:** Because the certificate is signed, the agent has permission to retrieve the catalog from the primary server.
 
 
 # Step 3: Analyze the output

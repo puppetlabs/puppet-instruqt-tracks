@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+echo "Installing puppet bolt"
+yum -y install puppet-bolt
+
+sleep 30
+
+echo "Uploading keys to windows machine"
+bolt file upload /root/.ssh/id_rsa C:\\ProgramData\\ssh\\id_rsa --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
+
+cat << 'EOF' > settings.json
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "open"
+}
+EOF
+
+echo "Uploading VSCode user settings file to windows machine"
+bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo "downloading starting state code from github to workstation machine"
+bolt command run "git clone -q https://github.com/puppetlabs/kmo-4-6-meta-repo.git C:\source" --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo: "pulling correct branch"
+bolt command run "Set-Location C:\source; git checkout -q pe-401-lab-3-1-start" --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo "moving code to CODE dir"
+bolt command run "Copy-Item C:\source\nginx C:\CODE\nginx -recurse" --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo "Set PDK analytics env var to false"
+bolt command run '[System.Environment]::SetEnvironmentVariable("PDK_DISABLE_ANALYTICS","true",[System.EnvironmentVariableTarget]::Machine)' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation

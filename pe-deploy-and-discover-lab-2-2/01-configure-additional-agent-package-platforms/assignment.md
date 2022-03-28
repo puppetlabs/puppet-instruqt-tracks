@@ -29,14 +29,14 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 1. On the Linux node, install an agent by running the installation script with the `custom_attributes:challengePassword` parameter:
     ```
     uri='https://puppet:8140/packages/current/install.bash'
     curl --insecure "$uri" | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT
     ```
-    ✔️ **Result:** The installation script will fail.<br><br>
+    ✅ **Result:** The installation script will fail.<br><br>
 
 2. In the output, notice the failure message:
     ```

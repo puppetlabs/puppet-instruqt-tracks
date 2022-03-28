@@ -45,7 +45,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create a control repo on your Windows development workstation
 ========
@@ -113,7 +113,7 @@ Make a breaking change to the Development one-time run group to show agent-speci
 
 10. Click **Run job** and wait for jobs to complete.
 
-✔️ **Result:** Notice that none of the jobs were successful. This is because the selection of an environment causes the nodes to "fall into" the **Development one-time run exception group** during the Puppet run. In this case, the rule that you introduced means that you can only apply the nonexistent **devapp** branch. In the next steps, you'll fix those rules.
+✅ **Result:** Notice that none of the jobs were successful. This is because the selection of an environment causes the nodes to "fall into" the **Development one-time run exception group** during the Puppet run. In this case, the rule that you introduced means that you can only apply the nonexistent **devapp** branch. In the next steps, you'll fix those rules.
 
 Fix the broken rule and then run Puppet against the development group, specifying the webapp branch
 ========
@@ -130,7 +130,7 @@ Fix the broken rule and then run Puppet against the development group, specifyin
 
 7. Click **Run job** and wait for jobs to complete.
 
-✔️ **Result:** Your infrastructure includes three Linux nodes and a Windows node. When the run is complete, notice that you have log entries for all nodes except Nixagent3. Next, you will explore why that is.
+✅ **Result:** Your infrastructure includes three Linux nodes and a Windows node. When the run is complete, notice that you have log entries for all nodes except Nixagent3. Next, you will explore why that is.
 
 Investigate missing facts on new nodes
 ========
@@ -141,7 +141,7 @@ Investigate missing facts on new nodes
     ```
     inventory[certname] { trusted.extensions.pp_environment = "development" }
     ```
-✔️ **Result:**  Notice that the nixagent3 node is missing from the results. Go to the **Status** page and then select and copy the full name of the nixagent3 node. This node isn't in the list because it's missing the pp_environment fact. You will fix this issue by pinning the node to the **Development environment** group.
+✅ **Result:**  Notice that the nixagent3 node is missing from the results. Go to the **Status** page and then select and copy the full name of the nixagent3 node. This node isn't in the list because it's missing the pp_environment fact. You will fix this issue by pinning the node to the **Development environment** group.
 
 Pin the node with the missing fact to the Development environment group
 ========
@@ -154,7 +154,7 @@ Pin the node with the missing fact to the Development environment group
 
 4. Click **Run job** and wait for jobs to complete.
 
-✔️ **Result:** When the run finishes, notice that you have a log and a successful run for the new node that was pinned to the **Development** node group.
+✅ **Result:** When the run finishes, notice that you have a log and a successful run for the new node that was pinned to the **Development** node group.
 
 ---
 ## 🎈 **Congratulations!**

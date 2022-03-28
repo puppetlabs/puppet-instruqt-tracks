@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: qtdixyyvudzp
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you ran Facter to retrieve a core fact value. Then, you used that value to define a simple external fact that set site-specific information about the node.
 

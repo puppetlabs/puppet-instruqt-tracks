@@ -5,13 +5,11 @@ title: Run Puppet Manually After Defining a Desired State
 teaser: Learn the basics of defining a node's desired state, and watch how the agent
   makes changes to achieve desired state during a Puppet run.
 description: |-
+  ## Introduction
+
   By default, Puppet runs every 30 minutes. But you can manually run Puppet, too - for example, when you simply want to observe what happens during a Puppet run or if you're developing code and want to observe the agent as it makes the required changes to the agent node.
 
-
   The Puppet agent is an application that manages configurations on your nodes by using a [*catalog*](https://puppet.com/docs/puppet/latest/glossary.html#catalog). After requesting and receiving the catalog from the primary Puppet server, the agent checks the current state of each [*resource*](https://puppet.com/docs/puppet/latest/glossary.html#resource) that the catalog describes, making changes as needed to get each resource into its desired state.
-
-
-  **Why complete this track?**
 
   In this track, you'll walk through what happens on the agent node during a Puppet run to understand how the agent communicates with the primary server.
 
@@ -20,18 +18,20 @@ description: |-
   - Interpret the agent output during the Puppet run.
   - Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
 
-  **Technical requirements**
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
-
-  If you prefer to try these steps in your own self-contained environment, you can use the companion [Lab Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/trigger-a-puppet-agent-run).
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/run-puppet-manually).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -45,4 +45,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "2842514029464014965"
+checksum: "2231795954188991080"
