@@ -32,7 +32,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Local installation (Linux)
 ========
@@ -48,11 +48,14 @@ Local installation (Linux)
 
 1. Copy the curl command shown in the ***nix nodes** field at the right of the console.
 
-    💡 **Tip:** Select the text and right-click to copy.<br><br>
+    💡 **Tip:** Select the text and right-click to copy.
 
-1. 🔀 Switch to the **Linux Agent** tab. Then, paste and run the curl command.<br><br>✔️ **Result:** This command installs the Puppet agent.<br><br>
+🔀 Switch to the **Linux Agent** tab.
+1. Paste and run the curl command.
 
-1. 🔀 Switch back to the **PE Console** tab when the installation is complete.
+    ✅ **Result:** This command installs the Puppet agent.
+
+🔀 Switch back to the **PE Console** tab when the installation is complete.
 
 1. Click **Refresh** at the top right of the console.
 
@@ -60,14 +63,14 @@ Local installation (Linux)
 
 1. In the list of nodes, find the node name containing `nixagent` and click **Accept**.
 
-1. 🔀 Switch back to the **Linux Agent** tab.
+🔀 Switch back to the **Linux Agent** tab.
 
 1. Trigger a Puppet run:
      ```
      puppet agent -t
      ```
 
-1. 🔀 Switch back to the **PE Console** tab.
+🔀 Switch back to the **PE Console** tab.
 
 1. From the console sidebar, navigate to the **Nodes** page. Click the node name containing `nixagent`.
 
@@ -82,7 +85,7 @@ Remote installation (Windows)
 ========
 ## Install the agent from the PE console.
 
-1. 🔀 Switch to the **PE Console** tab if needed.
+🔀 Switch to the **PE Console** tab if needed.
 
 2. From the console sidebar, navigate to the **Nodes** page. In the upper-right corner, click **Add Nodes**.
 
@@ -109,7 +112,7 @@ Remote installation (Windows)
 
 9. In the list of nodes, find the node name containing `winagent` and click **Accept**.
 
-10. 🔀 Switch to the **Windows Agent** tab.
+🔀 Switch to the **Windows Agent** tab.
 
 11. From the Windows Start Menu, click **Puppet**, and then click **Start Command Prompt with Puppet**. Then, trigger a Puppet run at the command prompt:
      ````
@@ -125,3 +128,7 @@ Remote installation (Windows)
 You installed Puppet agents remotely from the PE console on Windows.
 
 To continue, click **Next**.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>

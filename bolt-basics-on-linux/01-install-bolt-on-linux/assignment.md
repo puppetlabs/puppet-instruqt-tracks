@@ -2,7 +2,7 @@
 slug: install-bolt-on-linux
 id: eqmodrpl9ij4
 type: challenge
-title: "Install Bolt \U0001F4BB"
+title: Install Bolt
 teaser: Install Bolt in minutes and start using it right away.
 notes:
 - type: text
@@ -26,7 +26,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 # Install Bolt
 The best way to learn about Bolt is to try it out for yourself. Start by configuring the Bolt yum repository, also known as the Puppet package repository — by default, this isn't configured on standard Linux installations. Then, install Bolt.
@@ -55,6 +55,6 @@ yum install -y puppet-bolt
 ✏️ **Note:**
 There are many ways to install Bolt. For details, check out the [Bolt installation docs](https://puppet.com/docs/bolt/latest/bolt_installing.html).
 
-✔️ **Result:** Notice the Transaction Summary section in the output. If Bolt installed successfully, you'll see “Complete!” at the end of the summary.
+✅ **Result:** Notice the Transaction Summary section in the output. If Bolt installed successfully, you'll see “Complete!” at the end of the summary.
 
 To go to the next challenge, click **Check**.

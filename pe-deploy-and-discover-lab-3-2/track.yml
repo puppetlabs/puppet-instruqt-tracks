@@ -4,30 +4,29 @@ type: sandbox
 title: Establish Server Roles by Reinstalling Agents with Trusted Facts
 teaser: Purge the agent from your nodes and reinstall it with Puppet's trusted facts.
 description: |-
-  **What you'll learn**
+  ## Introduction
 
   In this lab, you'll purge the Puppet agent from your nodes, and then reinstall the agent on each node to include Puppet's pp_role and pp_datacenter trusted facts.
 
   Because trusted facts are extracted from the agent certificate, the data is immutable, providing a higher level of security for your nodes. You can use the data from facts to classify (group) nodes so that you can get configuration and performance data for a specific group of nodes.
 
-
-  **Prerequisites**
+  ## Prerequisites
 
   This lab builds on concepts introduced in other PE Deploy and Discover labs. You might find it helpful to complete these labs first:
    - [Identify Your Nodes Using External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
    - [Identify Server Roles by Using Package Data Collection](https://play.instruqt.com/puppet/invite/qbye99iuacew)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/establish-server-roles-by-reinstalling-agents-with-trusted-facts).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -42,4 +41,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "933711047843879858"
+checksum: "6955718687816021857"

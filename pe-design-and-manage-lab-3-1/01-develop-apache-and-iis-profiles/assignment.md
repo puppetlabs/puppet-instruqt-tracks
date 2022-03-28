@@ -54,7 +54,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Verify that no websites are currently configured
 ========
@@ -76,7 +76,7 @@ Verify that no websites are currently configured
     Invoke-WebRequest -URI http://nixagent1
     ```
 
-✔️ **Result:** The output will show a failure message for each node: `Unable to connect to the remote server`.
+✅ **Result:** The output will show a failure message for each node: `Unable to connect to the remote server`.
 <br><br>
 ❔  **Why did this happen?** You did not receive a response from either web server because you haven't installed or configured anything yet.
 
@@ -288,3 +288,8 @@ Nixagent1:
 You created and updated the Apache and IIS manifest files and added the profiles to the roles. You then ran Puppet in no-op mode in the PE console and inspected the error messages in the reports. You then fixed the module dependencies, which resulted in creating a website on each of your nodes.
 
 To continue, click **Next**.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>
+

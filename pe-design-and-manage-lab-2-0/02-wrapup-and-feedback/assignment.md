@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: o6hyzeuzixzm
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you:
  - Modified the `site.pp` file in your control repo to assign role classes to nodes (or classified them) by using trusted facts.

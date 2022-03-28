@@ -4,7 +4,9 @@ type: sandbox
 title: Abstract Data From Code by Using Hiera
 teaser: Discover how Hiera looks for data based on the hiera.yaml configuration and
   node facts by running the puppet lookup command on the primary server.
-description: |+
+description: |-
+  ## Introduction
+
   Suppose you have code, such as time synchronization code, that runs on both Windows and Linux. Rather than *duplicating* the code to run on different platforms, you can abstract the configuration settings into an external data source (such as .yaml files) so that you can *reuse* the code (roles, profiles, and modules) across platforms.
 
   By separating data from code, you're following the DRY principle, so that you … don't repeat yourself.
@@ -15,28 +17,23 @@ description: |+
 
   Separating data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
 
-
-  **What you'll learn**
-
   In this lab you will:
    - Use the **`puppet lookup`** command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
 
-  **Prerequisites**
+  ## Prerequisites
 
   [Testing Changes in an Agent-Specified Node Group](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-1-1)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  **Keep an eye on the clock**
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
-
-  Click **Start track** when you're ready to begin.
-
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/abstract-data-from-code-by-using-hiera).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -51,4 +48,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "14296660276722459733"
+checksum: "8621760382539866395"

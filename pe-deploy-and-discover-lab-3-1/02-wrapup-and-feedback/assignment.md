@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: kfitqbipchz6
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you learned how to enable the package data collection feature via the PE console to discover which packages are installed across your systems. Then, you used this information to identify the roles of the servers in your environment (web server, database server, and so on).
 

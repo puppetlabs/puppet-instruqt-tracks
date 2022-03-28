@@ -38,7 +38,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Uninstall Linux agents
 ========
@@ -63,7 +63,7 @@ Uninstall Linux agents
     ```
     ls /etc/puppetlabs
     ```
-    ✔️ **Result:** The output confirms that the agent no longer exists.
+    ✅ **Result:** The output confirms that the agent no longer exists.
 
     ✏️ **Note:** Remember to complete these steps on each Linux agent node before continuing to the next section.
 
@@ -79,7 +79,7 @@ Remove nodes from the primary server on Linux
     ```
     puppet node purge <CERTNAME>
     ```
-    ✔️ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`
+    ✅ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`
 
     ✏️ **Note:** Remember to run this command for each Linux node before continuing to the next section.
 
@@ -149,7 +149,7 @@ Remove the node from the primary server on Windows
     ```
     puppet node purge <CERTNAME>
     ```
-✔️ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`<br><br>
+✅ **Result:** In the output, notice the message: `Node <CERTNAME> was purged.`<br><br>
 
 
 Reinstall Windows agents with trusted facts and an autosign password

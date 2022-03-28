@@ -48,7 +48,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create an external fact on a Linux node
 ========
@@ -62,7 +62,7 @@ Create an external fact on a Linux node
     ```
     facter datacenter
     ```
-    ✔️ **Result:** Facter returns no value.
+    ✅ **Result:** Facter returns no value.
 
     Before creating the `datacenter` external fact, you need to know what value you're going to assign it. It can be anything of course, but for this example, you'll assign a data center name based on the node's time zone.<br><br>
 
@@ -70,7 +70,7 @@ Create an external fact on a Linux node
     ```
     facter timezone
     ```
-    ✔️ **Result:** Puppet outputs the node's time zone. You will use this to create the `datacenter` fact in the coming steps.
+    ✅ **Result:** Puppet outputs the node's time zone. You will use this to create the `datacenter` fact in the coming steps.
 
     | Time Zone     | Data Center Name |
     |---------------|-------------|
@@ -107,7 +107,7 @@ Create an external fact on a Linux node
 
 10. Run `facter datacenter` again and notice the new output.
 
-    ✔️ **Result:** Facter returns `dc-west`.<br><br>
+    ✅ **Result:** Facter returns `dc-west`.<br><br>
 
 11. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```
@@ -134,7 +134,7 @@ Create an external fact on a Windows node
     ```
     facter datacenter
     ```
-    ✔️ **Result:** Facter returns no value.
+    ✅ **Result:** Facter returns no value.
 
     Before creating the `datacenter` external fact, you need to know what value you're going to assign it. It can be anything of course, but for this example, you'll assign a data center name based on the node's time zone.<br><br>
 
@@ -166,7 +166,7 @@ Create an external fact on a Windows node
 
 7. In Powershell, run `facter datacenter` again and notice the new output.
 
-    ✔️ **Result:** : Facter should return `dc-east`.<br><br>
+    ✅ **Result:** : Facter should return `dc-east`.<br><br>
 
 1. Run Puppet to send all facts (built-in and external) to the primary Puppet server:
     ```

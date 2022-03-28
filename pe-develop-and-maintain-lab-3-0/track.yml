@@ -3,13 +3,12 @@ id: vavo214rpwgx
 type: sandbox
 title: Refactor the apache Web Server Profile
 teaser: Use Hiera and class parameters to abstract the port value in the apache profile.
-description: |+
+description: |-
+  ## Introduction
+
   In this scenario, you'll configure nodes whose pp_datacenter fact is set to "dc-west" to serve web server applications on port 8080 instead of port 80, which is the port specified in the organization's default apache.pp profile.
 
   To do this, you'll use Hiera and class parameters to abstract the port value in the apache profile.
-
-
-  **What you'll learn**
 
   In this lab, you will:
 
@@ -19,22 +18,20 @@ description: |+
   - Test your changes incrementally in a canary release. Within the subset of nodes in the canary release, you'll run Puppet in no-op mode and run it again normally.
   - Deploy code to the production environment.
 
-
-  **Prerequisites**
+  ## Prerequisites
 
   [Refactor the Base Profile](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-1)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
-  **Keep an eye on the clock**
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
-
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-apache-web-server-profile).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -49,4 +46,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "3864829979677460353"
+checksum: "13395389646606995561"

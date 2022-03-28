@@ -5,7 +5,7 @@ title: Identify Server Roles by Using Package Data Collection
 teaser: Use the package data that you collect to identify the roles of the servers
   in your environment.
 description: |-
-  **What you'll learn**
+  ## Introduction
 
   In this lab, you'll learn how to enable the package data collection feature via the PE console to discover which packages are installed across your systems. Then, you will use this information to identify the roles of the servers in your environment (web server, database server, and so on).
 
@@ -13,22 +13,21 @@ description: |-
   - You can identify which nodes are impacted by packages you know are eligible for maintenance updates, security patches, and license renewals.
   - You can define a **role** fact to group nodes and collect configuration and performance data about a specific node group.
 
-  **Prerequisites**
+  ## Prerequisites
 
   This lab builds on concepts introduced in other PE Deploy and Discover labs. You might find it helpful to complete:
   - [Identify Your Nodes Using External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  **Keep an eye on the clock**
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
-
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/identify-server-roles-by-using-package-data-collection).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -44,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "13145622938292686760"
+checksum: "16023110949454276994"

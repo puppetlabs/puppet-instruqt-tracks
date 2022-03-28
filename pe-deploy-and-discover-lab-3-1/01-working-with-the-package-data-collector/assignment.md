@@ -43,7 +43,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Enable package data collection
 ========
@@ -65,7 +65,7 @@ Enable package data collection
 
     ✏️ **Note:** This might take a few moments to complete (monitor the job status near the upper-right corner of the page).
 
-    ✔️ **Result:** On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.<br><br>
+    ✅ **Result:** On this Puppet run, Puppet enables package inventory collection. On subsequent Puppet runs, Puppet collects package data and reports it on the **Packages** page.<br><br>
 
 6. To start collecting and reporting package data, run Puppet a second time.
     1. In the upper right of the **Job details** page, click **Run again > All nodes**.

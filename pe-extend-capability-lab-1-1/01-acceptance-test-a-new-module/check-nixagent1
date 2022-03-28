@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if ! $(nc -z nixagent2 80); then
+  fail-message "The nginx server is not running on the nixagent2 node"
+  exit 1
+fi
+
+if ! $(nc -z nixagent3 80); then
+  fail-message "The nginx server is not running on the nixagent3 node"
+  exit 1
+fi
+
+exit 0

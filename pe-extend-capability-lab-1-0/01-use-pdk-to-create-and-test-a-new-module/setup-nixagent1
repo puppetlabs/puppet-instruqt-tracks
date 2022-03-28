@@ -14,4 +14,16 @@ yum -y install puppet-bolt
 sleep 30
 
 echo "Uploading keys to windows machine"
-bolt file upload /root/.ssh/id_rsa C:\\ProgramData\\ssh\\id_rsa --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+bolt file upload /root/.ssh/id_rsa C:\\ProgramData\\ssh\\id_rsa --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
+
+cat << 'EOF' > settings.json
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "open"
+}
+EOF
+
+echo "Uploading VSCode user settings file to windows machine"
+bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation

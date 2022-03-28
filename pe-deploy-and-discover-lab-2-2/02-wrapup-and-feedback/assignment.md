@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: c4lrdvuxclpt
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -20,7 +20,7 @@ tabs:
   hostname: puppet
   url: https://puppet-kmo.gitbook.io/practice-lab-help
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you learned how to configure the primary Puppet server to provide the packages needed to install agents on different operating systems, making agent deployment faster and easier across your infrastructure.
 

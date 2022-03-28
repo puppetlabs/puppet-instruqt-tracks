@@ -22,7 +22,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 1. On the **Primary Server** tab, download the installation tarball:
 
@@ -55,10 +55,6 @@ timelimit: 3000
 
 7. Log into the console with ID `admin` and password `puppetlabs` (the password you set in Step 4).
 
-8. On the **Status** page, click **Puppet Services status** near the top right. You should see output similar to the following:
+8. On the **Status** page, click **Puppet Services status** near the top right. Make sure that all the services in the list are running ("Operational").
 
-    ![Image](https://storage.googleapis.com/instruqt-images/PE-deploy-and-discover/1.0.pe-deploy-and-discover-status.png)
-
-9. Make sure that all the services in the list are running ("Operational").
-
-<br>🎈 **Congratulations!** You installed PE, and its basic configuration is now complete.
+🎈 **Congratulations!** You installed PE, and its basic configuration is now complete.

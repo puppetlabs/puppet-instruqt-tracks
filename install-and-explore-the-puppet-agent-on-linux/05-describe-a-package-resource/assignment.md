@@ -2,7 +2,7 @@
 slug: describe-a-package-resource
 id: 936x4nodyb0p
 type: challenge
-title: "Describe a package resource \U0001F469‍\U0001F4BB"
+title: Describe a package resource
 teaser: Use the `puppet resource` tool to describe a software package that doesn't
   yet exist on the node.
 notes:
@@ -24,7 +24,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 520
+timelimit: 260
 ---
 # Step 1
 Run the following command to request a description of the relationship between the node and the Apache HTTP Server software package:
@@ -33,7 +33,7 @@ Run the following command to request a description of the relationship between t
 puppet resource package httpd
 ```
 
-✔️ **Result:** Because this package doesn't exist on the node, Puppet shows the `ensure => purged` parameter value pair.
+✅ **Result:** Because this package doesn't exist on the node, Puppet shows the `ensure => purged` parameter value pair.
 
 The `purged` value is similar to the `absent` value. For a package resource, `purged` indicates that both the package and any configuration files typically installed by the package manager are both absent.
 

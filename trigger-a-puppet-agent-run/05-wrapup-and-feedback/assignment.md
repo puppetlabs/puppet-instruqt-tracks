@@ -2,7 +2,7 @@
 slug: wrapup-and-feedback
 id: tgxcnqzczuoo
 type: challenge
-title: "Wrap-up and feedback \U0001F4AC"
+title: Wrap-up and feedback
 teaser: Recap what you learned and tell us what you think.
 notes:
 - type: text
@@ -16,7 +16,7 @@ tabs:
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 721
+timelimit: 360
 ---
 In this lab, you learned how the primary server and agent communicate during a Puppet run.
 

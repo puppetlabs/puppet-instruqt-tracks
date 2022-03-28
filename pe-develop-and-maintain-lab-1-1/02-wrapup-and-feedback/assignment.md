@@ -16,7 +16,7 @@ tabs:
   hostname: guac
   url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 In this lab, you configured PE so that you could implement environment-based testing using a one-time run exception environment group.
 

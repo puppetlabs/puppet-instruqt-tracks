@@ -4,35 +4,33 @@ type: sandbox
 title: Introducing Data Types and Class Parameters
 teaser: Use file resources in your Apache profile to manage website content.
 description: |+
-  This lab demonstrates using Hiera and class parameters to abstract the port value and docroot values in the apache profile.
+  ## Introduction
 
-  **What you'll learn**
+  This lab demonstrates using Hiera and class parameters to abstract the port value and docroot values in the apache profile.
 
   In this lab, you will:
   - Refactor the apache profile to introduce a `$port` class parameter of data type `Integer`.
   - Add a common setting for all nodes running Apache HTTP Server to use the same docroot via `common.yaml` and Hiera.
   - Deploy your code to production.
 
-
-  **Prerequisites**
+  ## Prerequisites
 
   [Refactor the apache web server profile](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-3-0)
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/introducing-data-types-and-class-parameters).
 
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
-- ""
 - BACKUP
 - PE301
 owner: puppet
@@ -44,4 +42,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "10655026735402360950"
+checksum: "15184024831333331488"

@@ -24,7 +24,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 1. On the **PE Console** tab, log in with username `admin` and password `puppetlabs`.
 
@@ -37,7 +37,7 @@ timelimit: 3000
 
 4. Add the user's login info. In the **Login** field, enter a username, for example, `firstname.lastname`. Use a naming convention that easily maps to the user's actual name. Then, click **Add local user**.
 
-    ✔️ **Result:** The name is added to the list.<br><br>
+    ✅ **Result:** The name is added to the list.<br><br>
 
 5. Open the **User details** page by clicking the username.
 

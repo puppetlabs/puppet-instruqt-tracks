@@ -32,7 +32,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 900
 ---
 1. On the Linux agent tab, run Puppet to request the agent's catalog from the primary server:
     ```
@@ -43,7 +43,7 @@ timelimit: 3000
     ```
     puppet config print client_datadir
     ```
-    ✔️ **Result:** The output shows the catalog's location:
+    ✅ **Result:** The output shows the catalog's location:
 
        /opt/puppetlabs/puppet/cache/client_data
 

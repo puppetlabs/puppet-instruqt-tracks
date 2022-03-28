@@ -2,7 +2,7 @@
 slug: knowledge-check
 id: jgcl5sswpk3h
 type: challenge
-title: "Knowledge check \U0001F4A1"
+title: Knowledge check
 teaser: Test your knowledge to make sure you’ve got it down.
 notes:
 - type: text
@@ -18,7 +18,7 @@ tabs:
   hostname: puppet
   url: https://docs.google.com/forms/d/e/1FAIpQLScTVJ5O_HHQnQv4jX6KGzMS93YZMsWqaRRajBzvjgALaznoHQ/viewform?embedded=true
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 Answer the questions, click **Submit**, and then click **View accuracy** to see how you did. Your results will appear in a new browser tab.
 

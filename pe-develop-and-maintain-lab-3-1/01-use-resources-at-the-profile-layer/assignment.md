@@ -47,7 +47,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create a control repo on the Windows development workstation
 ========
@@ -112,7 +112,7 @@ Edit the apache profile
     4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
-    ✔️ **Result:** The job fails because the filepath `var/web/cms` is not an absolute filepath. Nothing is misconfigured; Puppet just failed to compile a catalog.
+    ✅ **Result:** The job fails because the filepath `var/web/cms` is not an absolute filepath. Nothing is misconfigured; Puppet just failed to compile a catalog.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -133,7 +133,7 @@ Edit the apache profile
     4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
-    ✔️ **Result:** Observe the failure. The apache class failed because the directory was not managed before the vhost.
+    ✅ **Result:** Observe the failure. The apache class failed because the directory was not managed before the vhost.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -190,7 +190,7 @@ Edit the apache profile
     4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
-    ✔️ **Result:** The job runs successfully.
+    ✅ **Result:** The job runs successfully.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -206,8 +206,12 @@ Edit the apache profile
         2. Expand **All Environments** and then click **Production environment**.
         3. Click **Run** > **Puppet**, and then click **Run job**.
 
-    ✔️ **Result:** The jobs succeed on nixagent4 and nixagent5.
+    ✅ **Result:** The jobs succeed on nixagent4 and nixagent5.
 
 ---
 ## 🎈 **Congratulations!**
 In this lab, you used file resources in your Apache profile to manage website content before deploying your code to production.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>

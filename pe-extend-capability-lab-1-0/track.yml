@@ -1,25 +1,41 @@
 slug: pe-extend-capability-lab-1-0
 id: sv482vi2qtit
 type: track
-title: Use PDK to create and test a new module
+title: Use PDK to Create and Test a New Module
+teaser: Use PDK to create, test, and validate a new module and a new class.
 description: |-
-  The app team have just developed a new piece of software called "NGINX" which is a webserver service. It has been deployed to some test nodes manually. You now need to begin to create a module to configure and manage it across the fleet.
+  ## Introduction
+
+  In this lab scenario, the app team at your company has just developed a web server service (software) called **NGINX**, which has been deployed manually to several test nodes. Now you must create a module to configure and manage it across your company's fleet.
 
   In this lab, you will:
 
-  - Use the *puppet resource* command to explore the current state of your test nodes and produce Puppet code you will use to develop your module.
+  - Explore the current state of your test nodes and produce Puppet code that will help you to develop your module.
 
-  - Use *pdk new module* and *pdk new class* to automatically create a new module and a new class, along with a basic unit test, so that you can save time by not having to write any boiler plate code. Extend the unit tests to fail first before adding code to make them pass.
+  - Create, test, and validate a new module and a new class by using **Puppet Development Kit (PDK)**. With PDK, you save time by not having to write any boilerplate code.
 
-  - Use *pdk validate* to validate your code for syntax and style, then run *pdk test unit* to run your unit tests to make sure your code compiles and the class behaves as expected.
+  - Use the Puppet code that you obtained to manage the resources for the NGINX package and service. Then, use PDK to validate the code's syntax and style before running a unit test to ensure your code compiles and functions as expected.
 
-  - Add Puppet code you obtained from step one to manage the resources for the NGINX package and service. Then, run *pdk validate* to validate the code for syntax and style before running your unit test to ensure your code compiles and functions as expected.
-icon: ""
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png)
+  The virtual learning environment will stay up for 30 minutes, however, this lab should only take about **20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - BACKUP
+- PE401
 owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
-published: false
-checksum: "6374728549162158184"
+published: true
+show_timer: true
+checksum: "9982828309005555653"

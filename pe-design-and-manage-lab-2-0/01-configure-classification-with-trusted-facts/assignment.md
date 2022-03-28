@@ -46,7 +46,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create a local control repository and update site.pp in the webapp feature branch
 ========
@@ -172,7 +172,7 @@ Create the role::<ROLE NAME> classes
     ```
 5. In the `site-modules\role` directory from your terminal, run the `pdk validate` command.
 
-    ✔️ **Result:** You'll receive an error message: `pdk (ERROR): puppet-lint: single quoted string containing a variable found`.
+    ✅ **Result:** You'll receive an error message: `pdk (ERROR): puppet-lint: single quoted string containing a variable found`.
 
     ❔ **Why did this happen?**<br>Remember, you must interpolate the string for the value of the `$trusted['extensions']['pp_role']` variable. Fix this by replacing the single quotes with double quotes and removing the backslashes so that your code looks like this example:
     ```
@@ -197,7 +197,7 @@ Create the role::<ROLE NAME> classes
 8. Run Puppet using your environment branch <b>webapp</b> again, and then inspect the node reports.
     💡 **Need a refresher?** Review the steps shown in the "[**Run Puppet ...**](#run-puppet)" section above.
 
-    ✔️ **Result:** The Windows agent succeeds but the two Linux agents still fail. Fix this by assigning roles to each of the nodes.
+    ✅ **Result:** The Windows agent succeeds but the two Linux agents still fail. Fix this by assigning roles to each of the nodes.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -252,3 +252,8 @@ Create the role::<ROLE NAME> classes
 You created a local repo and updated the webapp feature branch. You then identified each node's `pp_role` trusted fact and modified the site.pp file to classify your nodes by using that fact. After running Puppet and reviewing the error messages in the reports, you created the `role::ecommerce` class and added placeholder code. Then, you created the `role::cmsweb` and `role::cmsloadbalancer` classes for the other servers in this simulated production environment.
 
 To continue, click **Next**.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>
+

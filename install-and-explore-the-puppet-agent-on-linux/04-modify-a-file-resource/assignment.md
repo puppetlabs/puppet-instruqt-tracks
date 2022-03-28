@@ -2,7 +2,7 @@
 slug: modify-a-file-resource
 id: y7jzqqkgnqww
 type: challenge
-title: "Modify a file resource \U0001F469‍\U0001F4BB"
+title: Modify a file resource
 teaser: Use the `puppet resource` tool to add content to an empty file, and then view
   the file contents.
 notes:
@@ -17,7 +17,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 600
+timelimit: 300
 ---
 Running the `puppet resource` command with a `parameter=value` argument instructs Puppet to modify the resource to match that value.
 
@@ -30,7 +30,7 @@ Run the following command:
 puppet resource file /tmp/test content='Hello Puppet!'
 ```
 
-✔️ **Result** Notice the output as Puppet checks the hash of the existing content against the new content that you provided. When Puppet determines that the hashes don't match, it sets the file content to the value of the `content` parameter.
+✅ **Result** Notice the output as Puppet checks the hash of the existing content against the new content that you provided. When Puppet determines that the hashes don't match, it sets the file content to the value of the `content` parameter.
 
 # Step 2
 Show the file content:
@@ -38,7 +38,7 @@ Show the file content:
 ```
 cat /tmp/test
 ```
-✔️ **Result** The system shows the file contents: *Hello Puppet!*
+✅ **Result** The system shows the file contents: *Hello Puppet!*
 
 
 To go to the next challenge, click **Check**.

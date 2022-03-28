@@ -42,7 +42,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Create a control repo on your Windows development workstation
 ========
@@ -107,7 +107,7 @@ Run Puppet on nodes returned by a PQL query
     ```
 5. Click **Submit query**.
 
-    ✔️ **Result:** The query returns one node.<br><br>
+    ✅ **Result:** The query returns one node.<br><br>
 
 6. Click the node name link to open the node data page for the **finance** node.
 7. Click **Run > Puppet**.
@@ -117,7 +117,7 @@ Run Puppet on nodes returned by a PQL query
 
 9. Select the checkbox beside the node name to run the job on that node only.
 10. Click **Run job** and wait for the job to finish.
-✔️ **Result:** The job fails. Click the report link at the right of the page and go to the **Log** tab to find out why.
+✅ **Result:** The job fails. Click the report link at the right of the page and go to the **Log** tab to find out why.
 
 Troubleshoot using the puppet lookup command
 ========
@@ -134,7 +134,7 @@ Troubleshoot using the puppet lookup command
 
 3. Replace `<CERTNAME>` with the name of the failing node that you copied, and then run the command.
 
-    ✔️ **Result:** Read the failure message: The lookup command didn't find a login message in the base profile for the node.
+    ✅ **Result:** Read the failure message: The lookup command didn't find a login message in the base profile for the node.
 
 Fix the Hiera data configuration
 ========
@@ -170,7 +170,7 @@ Fix the Hiera data configuration
     5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for job to finish.
 
-        ✔️ **Result:** In the log, notice that the job completed successfully.<br><br>
+        ✅ **Result:** In the log, notice that the job completed successfully.<br><br>
 
 4. Run Puppet on the `sales` department node only:
     1. Navigate to the **Nodes** page.
@@ -188,7 +188,7 @@ Fix the Hiera data configuration
     5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for the job to finish.
 
-    ✔️ **Result:** In the log, notice that the job failed.
+    ✅ **Result:** In the log, notice that the job failed.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -219,8 +219,12 @@ Fix the Hiera data configuration
     5. Select the checkbox beside the node name to run the job on that node only.
     6. Click **Run job** and wait for the jobs to finish.
 
-    ✔️ **Result:** Notice that the jobs ran successfully.
+    ✅ **Result:** Notice that the jobs ran successfully.
 
 ---
 ## 🎈 **Congratulations!**
 In this lab, you refactored the base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate the code.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>

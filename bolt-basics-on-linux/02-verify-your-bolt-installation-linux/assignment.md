@@ -2,7 +2,7 @@
 slug: verify-your-bolt-installation-linux
 id: wvghomls1zpw
 type: challenge
-title: Verify your Bolt installation ✔️
+title: Verify your Bolt installation
 teaser: Make sure your Bolt installation works as expected.
 notes:
 - type: text
@@ -18,7 +18,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 720
+timelimit: 360
 ---
 You can quickly confirm Bolt is installed correctly by running some basic Bolt commands.
 
@@ -39,6 +39,6 @@ Bolt also shows help for each of its subcommands. For example, to get help for t
 bolt script --help
 ```
 
-✔️ **Result:** If Bolt is installed correctly, you'll see the output on the command line.
+✅ **Result:** If Bolt is installed correctly, you'll see the output on the command line.
 
 To continue, click **Check**.

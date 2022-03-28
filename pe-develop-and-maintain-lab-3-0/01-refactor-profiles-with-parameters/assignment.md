@@ -47,7 +47,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Identify nodes in the dc-west data center
 ========
@@ -60,7 +60,7 @@ Identify nodes in the dc-west data center
     ```
     inventory[certname] { trusted.extensions.pp_datacenter = "dc-west" }
     ```
-✔️ **Result:** Observe which nodes are returned by the query. These nodes need their web service port configured to 8080.
+✅ **Result:** Observe which nodes are returned by the query. These nodes need their web service port configured to 8080.
 
 Develop profiles to externalize node data
 ========
@@ -122,7 +122,7 @@ Run Puppet against the Development node group
     3. Click **Run** > **Puppet**.
     4. Under **Environment**, select **Select an environment for nodes to run in:**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
-    ✔️ **Result:** The job fails on all nixagent nodes.<br><br>
+    ✅ **Result:** The job fails on all nixagent nodes.<br><br>
 
 2. Click the report link for one of the nodes, and on the **Log** tab, find an error message similar to the following:
     ```
@@ -131,7 +131,7 @@ Run Puppet against the Development node group
     Error while evaluating a Function Call, Class[Profile::Apache]:
     expects a value for parameter 'port'
     ```
-    ✔️ **Result:** The catalog didn't compile because the Hiera data does not yet exist and there is no default value for the parameter.
+    ✅ **Result:** The catalog didn't compile because the Hiera data does not yet exist and there is no default value for the parameter.
 
 Edit the Hiera data
 ========
@@ -180,7 +180,7 @@ Edit the Hiera data
 
 4. Run Puppet on the **Development environment** node group again (if you need a refresher, [refer back to step 1](#runpuppet) in this section).
 
-    ✔️ **Result:** Notice that the run is successful.
+    ✅ **Result:** Notice that the run is successful.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -222,12 +222,12 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
     1. Click **Run** > **Puppet**.
     2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list.
     3. Select the **No-op** checkbox and then click **Run job**.
-    ✔️ **Result:** Notice that the run was successful.<br><br>
+    ✅ **Result:** Notice that the run was successful.<br><br>
 
 3. Run Puppet in normal mode, specifying the feature branch environment:
    1. Click **Run** > **Puppet**.
    2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list. This time, **do not** select the **No-op** checkbox.
-    ✔️ **Result:** Notice that the run was successful.<br><br>
+    ✅ **Result:** Notice that the run was successful.<br><br>
 
 4. Unpin the node from the agent-specified environment:
     1. Navigate to the **Node Groups** page.
@@ -265,8 +265,12 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
     Invoke-WebRequest -URI http://nixagent5:8080
     ```
 
-    ✔️ **Result:** Nixagent4 and Nixagent5 ran successfully.
+    ✅ **Result:** Nixagent4 and Nixagent5 ran successfully.
 
 ---
 ## 🎈 **Congratulations!**
 In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
+
+<style type="text/css" rel="stylesheet">
+ol { margin-left: 20px; }
+</style>

@@ -1,19 +1,40 @@
 slug: pe-extend-capability-lab-1-1
 id: bmtalmhsqpro
 type: track
-title: Acceptance Testing New Modules
+title: Acceptance Test New Modules
+teaser: Use acceptance tests and resource relationships to verify your module will
+  work as expected.
 description: |-
-  There are often dependencies between resources. For example, service and package, where a service will not exist until a package is installed. This can cause Puppet to fail on the first run, and then finally converge on the subsequent run, which is not an ideal situation. Resource relationships can be used to control the order in which resources are managed.
+  ## Introduction
+
+  There are often dependencies between resources. Consider service and package resources: A service doesn't exist until a package is installed. Resource dependencies can cause Puppet to fail on the first run and then converge on the subsequent run, which is not ideal. You can control the order in which Puppet manages resources by specifying resource relationships.
+
   In this lab you will:
-  Run an acceptance test on the module you developed in the previous lab by applying it to a test node using Bolt, and then running commands locally to verify that it works as expected.
-  Develop the module to use resource relationships which will enable the Puppet agent to apply changes and converge in a single run.
-icon: ""
+   - Run an acceptance test on a module by applying it to a test node using Bolt, and then run commands locally to verify that it works as expected.
+   - Develop the module to use resource relationships, which enables the Puppet agent to apply changes and converge in a single run.
+
+  ## Prerequisites
+
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png)
+  The virtual learning environment will stay up for 30 minutes, however, this lab should only take about **20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
-- ""
 - BACKUP
+- PE401
 owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
-published: false
-checksum: "6917349513691410880"
+published: true
+show_timer: true
+checksum: "11875188523999275583"

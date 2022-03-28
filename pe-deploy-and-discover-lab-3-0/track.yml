@@ -4,7 +4,7 @@ type: sandbox
 title: Identify Your Nodes Using External Facts
 teaser: You can use facts to help you write conditional expressions and reusable code.
 description: |-
-  **What you'll learn**
+  ## Introduction
 
   In this lab, you'll run Facter to retrieve a core fact value. Then, you'll use that value to define a simple external fact that sets site-specific information about the node.
 
@@ -12,23 +12,21 @@ description: |-
   * Using facts in a file template to configure different versions of a file based on the fact values that the agents send to the primary server — such as creating a web server config file for each agent, where the server hostname setting is dynamically set to the hostname fact value sent by the agent.
   * Defining facts to use in PuppetDB queries or to provide the primary server with additional information for building the agent node's catalog.
 
-
-
-  **Prerequisites**
+  ## Prerequisites
 
   None
 
-  **Technical requirements**
+  ## Technical recommendations
 
   For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
 
-  ---
+  ## Keep an eye on the clock
 
-  **Keep an eye on the clock**
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png) The virtual learning environment will stay up for 60 minutes, however, **this lab should only take about 30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-  Click **Start track** when you're ready to begin.
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/identify-your-nodes-using-external-facts).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - ""
@@ -44,4 +42,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "10107249426699212817"
+checksum: "1508138230184585599"

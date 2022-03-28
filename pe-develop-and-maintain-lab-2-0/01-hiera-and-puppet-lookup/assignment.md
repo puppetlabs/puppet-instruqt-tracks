@@ -29,7 +29,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3000
+timelimit: 1500
 ---
 Clone the control repo on your Windows development workstation
 ========
@@ -70,7 +70,7 @@ Run the puppet lookup command to identify the login message for each node
 
 6. Repeat steps 1-5, replacing `<NODENAME>` with the name of the other node.
 
-    ✔️ **Result:** Review the output. Notice how it differs from the output for the previous node.
+    ✅ **Result:** Review the output. Notice how it differs from the output for the previous node.
 
 Run the puppet lookup command to identify other information for each node
 ========
@@ -95,7 +95,7 @@ Run the puppet lookup command to identify other information for each node
      - **control-repo** > **data** > **datacenter**
      - **control-repo** > **data** > **department**
 
- ✔️ **Result:** Verify the hierarchy of the contents in these files against the `puppet lookup` command output.
+ ✅ **Result:** Verify the hierarchy of the contents in these files against the `puppet lookup` command output.
 
 Identify which facts affected the lookup
 ========
@@ -106,7 +106,7 @@ Identify which facts affected the lookup
     puppet query 'facts[certname,value] { name = "trusted" }'
     ```
 
-    ✔️ **Result:** Review the trusted facts and notice whether all facts are present on both nodes.
+    ✅ **Result:** Review the trusted facts and notice whether all facts are present on both nodes.
 
 ---
 ## 🎈 **Congratulations!**
