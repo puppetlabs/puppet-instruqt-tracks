@@ -85,7 +85,7 @@ jobs:
           # The commit message
           message: "Backup action"
           # The branch to push the changes back to, defaults to the current branch
-          branch: backup-test-branch
+          branch: main
           force: 1
 
 
