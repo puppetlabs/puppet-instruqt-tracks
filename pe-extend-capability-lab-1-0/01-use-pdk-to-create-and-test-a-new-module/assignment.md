@@ -137,7 +137,7 @@ Use PDK to create a new class
 
 3. From within the same directory, run `pdk validate`:
     ```
-    pdk validate
+    pdk validate --puppet-version=6
     ```
     ✏️ Note: Wait for the `pdk validate` command to finish before continuing.
 
