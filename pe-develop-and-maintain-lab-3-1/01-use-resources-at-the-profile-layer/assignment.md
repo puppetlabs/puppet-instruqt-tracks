@@ -211,7 +211,3 @@ Edit the apache profile
 ---
 ## 🎈 **Congratulations!**
 In this lab, you used file resources in your Apache profile to manage website content before deploying your code to production.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>

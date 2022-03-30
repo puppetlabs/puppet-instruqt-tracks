@@ -288,8 +288,3 @@ Nixagent1:
 You created and updated the Apache and IIS manifest files and added the profiles to the roles. You then ran Puppet in no-op mode in the PE console and inspected the error messages in the reports. You then fixed the module dependencies, which resulted in creating a website on each of your nodes.
 
 To continue, click **Next**.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>
-

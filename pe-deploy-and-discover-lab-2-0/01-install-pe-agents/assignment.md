@@ -128,7 +128,3 @@ Remote installation (Windows)
 You installed Puppet agents remotely from the PE console on Windows.
 
 To continue, click **Next**.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>

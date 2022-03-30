@@ -224,7 +224,3 @@ Fix the Hiera data configuration
 ---
 ## 🎈 **Congratulations!**
 In this lab, you refactored the base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate the code.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>

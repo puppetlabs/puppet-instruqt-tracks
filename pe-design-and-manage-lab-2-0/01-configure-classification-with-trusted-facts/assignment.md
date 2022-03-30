@@ -252,8 +252,3 @@ Create the role::<ROLE NAME> classes
 You created a local repo and updated the webapp feature branch. You then identified each node's `pp_role` trusted fact and modified the site.pp file to classify your nodes by using that fact. After running Puppet and reviewing the error messages in the reports, you created the `role::ecommerce` class and added placeholder code. Then, you created the `role::cmsweb` and `role::cmsloadbalancer` classes for the other servers in this simulated production environment.
 
 To continue, click **Next**.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>
-

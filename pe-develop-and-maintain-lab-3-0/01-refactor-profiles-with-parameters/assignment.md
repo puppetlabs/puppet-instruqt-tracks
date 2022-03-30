@@ -270,7 +270,3 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
 ---
 ## 🎈 **Congratulations!**
 In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
-
-<style type="text/css" rel="stylesheet">
-ol { margin-left: 20px; }
-</style>
