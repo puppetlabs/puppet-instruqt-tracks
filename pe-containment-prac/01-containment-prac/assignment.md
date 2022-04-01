@@ -20,6 +20,9 @@ tabs:
   hostname: guac2
   path: /#/client/c/winagent?username=instruqt&password=Passw0rd!
   port: 8080
+- title: cd4pe
+  type: terminal
+  hostname: cd4pe-install-test
 difficulty: basic
 timelimit: 7200
 ---
