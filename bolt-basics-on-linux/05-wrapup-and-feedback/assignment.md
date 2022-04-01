@@ -20,13 +20,13 @@ timelimit: 360
 ---
 In this lab, you learned what Bolt is, how to install it, and how to verify your installation. In a simulated environment, you ran Bolt commands to check the status of the NTP service and start it on two targets. Then, you tested your knowledge to make sure you've got it down.
 
-Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/not-tutorials/-MZKPjwKRKKFuXxxy7ge/).
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/bolt/bolt-basics-on-linux).
 
 Want to learn more about Bolt or Puppet? Check out these resources:
 - [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)
-- [Puppet Compass](https://learn.puppet.com/)
+- [Puppet Education](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/install-bolt-on-linux) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 
-To close this track, click **Check**.
+To close this track, click **Next**.
