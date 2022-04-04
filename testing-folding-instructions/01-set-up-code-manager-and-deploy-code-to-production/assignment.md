@@ -53,6 +53,9 @@ tabs:
   type: website
   hostname: guac
   url: https://docs.google.com/forms/d/e/1FAIpQLScGEdG86t-YZ6nVXeC6pZbiCQ3htJZlTu4e1_V3Vr3J2u-vIw/viewform?embedded=true
+- title: node1
+  type: terminal
+  hostname: node1
 difficulty: basic
 timelimit: 3600
 ---

@@ -12,10 +12,10 @@ containers:
   ports:
   - 8080
   memory: 2048
+- name: node1
+  image: docker.io/ubuntu:20.04
+  memory: 1024
 virtualmachines:
-- name: workstation
-  image: kmo-instruqt/workstation-pe401-lab-1-0
-  machine_type: n1-highcpu-8
 - name: nixagent1
   image: kmo-instruqt/nixagent1-pe401-lab-1-0
   shell: /bin/bash
@@ -26,6 +26,9 @@ virtualmachines:
   machine_type: n1-standard-8
 - name: winagent
   image: kmo-instruqt/winagent-pe401-lab-1-0
+  machine_type: n1-highcpu-8
+- name: workstation
+  image: kmo-instruqt/workstation-pe401-lab-1-0
   machine_type: n1-highcpu-8
 - name: cd4pe-install-test
   image: kmo-instruqt/cd4pe-installed

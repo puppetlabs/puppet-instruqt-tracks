@@ -6,14 +6,10 @@ containers:
   ports:
   - 8080
   memory: 1024
+- name: node1
+  image: docker.io/ubuntu:20.04
+  memory: 1024
 virtualmachines:
-- name: puppet
-  image: kmo-instruqt/puppet-pe301-lab-1-0
-  shell: /bin/bash
-  machine_type: n1-highcpu-16
-- name: winagent
-  image: kmo-instruqt/winagent-pe301-lab-1-0
-  machine_type: n1-standard-4
 - name: nixagent2
   image: kmo-instruqt/nixagent2-pe301-lab-1-0
   shell: /bin/bash
@@ -26,3 +22,10 @@ virtualmachines:
   image: kmo-instruqt/gitea-pe301-lab-1-0
   shell: /bin/bash
   machine_type: n1-standard-4
+- name: winagent
+  image: kmo-instruqt/winagent-pe301-lab-1-0
+  machine_type: n1-standard-4
+- name: puppet
+  image: kmo-instruqt/puppet-pe301-lab-1-0
+  shell: /bin/bash
+  machine_type: n1-highcpu-16
