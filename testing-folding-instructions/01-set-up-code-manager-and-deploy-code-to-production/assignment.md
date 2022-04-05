@@ -56,6 +56,9 @@ tabs:
 - title: node1
   type: terminal
   hostname: node1
+- title: pam-preload
+  type: terminal
+  hostname: pam-preload
 difficulty: basic
 timelimit: 3600
 ---
