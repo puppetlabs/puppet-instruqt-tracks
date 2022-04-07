@@ -59,6 +59,11 @@ tabs:
 - title: pam-preload
   type: terminal
   hostname: pam-preload
+- title: cd4pe
+  type: service
+  hostname: pam-preload
+  path: /cd4pe
+  port: 443
 difficulty: basic
 timelimit: 3600
 ---
