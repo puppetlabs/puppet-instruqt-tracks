@@ -1,0 +1,7 @@
+chmod +x /opt/reboot_k8s.sh
+
+sleep 10
+
+sudo ./opt/reboot_k8s.sh
+
+sleep 120
