@@ -58,10 +58,10 @@ tabs:
   hostname: node1
 - title: pam-preload
   type: terminal
-  hostname: pam-preload
+  hostname: pam-preload-v2
 - title: cd4pe
   type: service
-  hostname: pam-preload
+  hostname: pam-preload-v2
   path: /cd4pe/cd4pe
   port: 443
 difficulty: basic
