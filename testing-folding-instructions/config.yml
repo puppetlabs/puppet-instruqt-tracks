@@ -11,9 +11,6 @@ containers:
   shell: /bin/bash
   memory: 1024
 virtualmachines:
-- name: winagent
-  image: kmo-instruqt/winagent-pe301-lab-1-0
-  machine_type: n1-standard-4
 - name: nixagent2
   image: kmo-instruqt/nixagent2-pe301-lab-1-0
   shell: /bin/bash
@@ -25,6 +22,9 @@ virtualmachines:
 - name: gitea
   image: kmo-instruqt/gitea-pe301-lab-1-0
   shell: /bin/bash
+  machine_type: n1-standard-4
+- name: winagent
+  image: kmo-instruqt/winagent-pe301-lab-1-0
   machine_type: n1-standard-4
 - name: pam-preload
   image: kmo-instruqt/pam-preload
