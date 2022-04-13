@@ -83,7 +83,7 @@ jobs:
       - name: Git Commit/Push Changes
         # You may pin to the exact commit or the version.
         # uses: actions-x/commit@84e36ff61a04a105b21819f97ce91aba52bc6aab
-        uses: actions-x/commit@v2
+        uses: actions-x/commit@v2.9
         with:
           # The commit message
           message: "Backup action"
