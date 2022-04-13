@@ -71,6 +71,9 @@ jobs:
       - name: Print dir contents
         run: ls
         
+      - name: Fix git workspace directory settings
+        run: git config --global --add safe.directory '/github/workspace'
+        
       - name: Status and Add
         run: |
           git status
