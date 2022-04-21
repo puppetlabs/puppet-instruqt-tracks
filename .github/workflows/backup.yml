@@ -52,6 +52,9 @@ jobs:
         
       - name: Change to working dir
         run: cd working
+
+      - name: Print working dir
+        run: pwd
         
       - name: Test checking out repo
         uses: actions/checkout@v2
