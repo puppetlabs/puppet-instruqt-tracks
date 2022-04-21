@@ -86,9 +86,9 @@ jobs:
         uses: github-actions-x/commit@v2.9
         with:
           # The commit message
-          commit-message: "Backup action"
+          commit-message: 'Backup action'
           # The branch to push the changes back to, defaults to the current branch
-          push-branch: main
-          force-push: 1
+          push-branch: 'main'
+          force-push: 'true'
 
 
