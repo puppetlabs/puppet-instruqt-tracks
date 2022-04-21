@@ -80,18 +80,18 @@ jobs:
           git add .
           git status
         
-      - name: Git Commit/Push Changes
-        # You may pin to the exact commit or the version.
-        # uses: actions-x/commit@84e36ff61a04a105b21819f97ce91aba52bc6aab
-        uses: github-actions-x/commit@v2.9
-        with:
-          name: 'Education Team'
-          email: 'education@puppet.com'
-          # The commit message
-          commit-message: 'Backup action'
-          # The branch to push the changes back to, defaults to the current branch
-          push-branch: 'main'
-          force-push: 'true'
+      # - name: Git Commit/Push Changes
+      #   # You may pin to the exact commit or the version.
+      #   # uses: actions-x/commit@84e36ff61a04a105b21819f97ce91aba52bc6aab
+      #   uses: github-actions-x/commit@v2.9
+      #   with:
+      #     name: 'Education Team'
+      #     email: 'education@puppet.com'
+      #     # The commit message
+      #     commit-message: 'Backup action'
+      #     # The branch to push the changes back to, defaults to the current branch
+      #     push-branch: 'main'
+      #     force-push: 'true'
 
       - name: Actually Git Commit/Push Changes
         run: |
