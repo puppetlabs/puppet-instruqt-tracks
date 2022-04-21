@@ -91,4 +91,7 @@ jobs:
           push-branch: 'main'
           force-push: 'true'
 
-
+      - name: Actually Git Commit/Push Changes
+        run: |
+          git commit -m "Backup action"
+          git push origin main --force
