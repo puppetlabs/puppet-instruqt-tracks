@@ -85,6 +85,8 @@ jobs:
         # uses: actions-x/commit@84e36ff61a04a105b21819f97ce91aba52bc6aab
         uses: github-actions-x/commit@v2.9
         with:
+          name: 'Education Team'
+          email: 'education@puppet.com'
           # The commit message
           commit-message: 'Backup action'
           # The branch to push the changes back to, defaults to the current branch
@@ -93,5 +95,7 @@ jobs:
 
       - name: Actually Git Commit/Push Changes
         run: |
+          git config --global user.email "education@puppet.com"
+          git config --global user.name "Education Team"
           git commit -m "Backup action"
           git push origin main --force
