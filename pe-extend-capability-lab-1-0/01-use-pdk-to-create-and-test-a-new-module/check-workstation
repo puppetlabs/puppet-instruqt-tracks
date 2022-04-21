@@ -9,3 +9,23 @@ if ( !(Test-Path -Path "C:\code\nginx\manifests\init.pp" )) {
   Write-Output "FAIL: The nginx module main class has not been created"
   exit 1
 }
+
+if ( !(Get-History | Select-String -Pattern "pdk test unit" -Quiet)) {
+  Write-Output "FAIL: The unit tests have not been executed"
+  exit 1
+}
+
+if ( !(Select-String -Pattern "service" -Quiet -Path "C:\code\nginx\manifests\init.pp")) {
+  Write-Output "FAIL: Did not find the service resource in the main manifest"
+  exit 1
+}
+
+if ( !(Select-String -Pattern "package" -Quiet -Path "C:\code\nginx\manifests\init.pp")) {
+  Write-Output "FAIL: Did not find the package resource in the main manifest"
+  exit 1
+}
+
+if ( !(Get-History | Select-String -Pattern "pdk validate" -Quiet)) {
+  Write-Output "FAIL: The pdk validate command has not been executed"
+  exit 1
+}

@@ -1,0 +1,16 @@
+slug: pe-continuously-deliver-lab-3-0
+id: syzgolm1im5x
+type: track
+title: Configure a Control Repo Pipeline
+teaser: Configure a Control Repo Pipeline
+description: Configure a Control Repo Pipeline
+icon: ""
+tags:
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+show_timer: true
+checksum: "5190851565266071227"
