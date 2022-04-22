@@ -41,7 +41,7 @@ Create a Module Pipeline
 ========
 
 1. On the Windows Workstation desktop, double-click the CD4PE shortcut.
- - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.
+     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Enter username `puppet@puppet.com` and password `puppetlabs`.
 1. From the left-side navigation menu, navigate to **Code delivery** > **Modules** and then click **Add module**.
 1. For each field, enter the following:

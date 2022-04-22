@@ -3,10 +3,16 @@ slug: configure-a-control-repo-pipeline
 id: nchvmmpwwi6q
 type: challenge
 title: Configure a Control Repo Pipeline
-teaser: Configure a Control Repo Pipeline
+teaser: Set up a control repo, and then set up a main and regexp pipeline for the
+  control repo you built.
 notes:
 - type: text
-  contents: Configure a Control Repo Pipeline
+  contents: |-
+    In this lab you will:
+
+     - Set up a control repo to work with, and then set up a main and regexp pipeline for the control repo.
+
+     Click **Start** when you are ready to begin.
 tabs:
 - title: Windows Workstation
   type: service
@@ -27,29 +33,36 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 14400
+timelimit: 3600
 ---
-# Configure a Control Repo Pipeline
+Configure default control repo pipelines
+========
+1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
+    - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
+1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
+1. From the navigation menu, click **Control Repos**, and then click **Add control repo**.
+1. For each field, enter the following:
 
-In this lab you are going to configure pipelines for your control-repo in order to automate the syntax checks of your code changes and introduce a new job type to additionally run unit tests. You have already configured the integrations with PE and Source Control, now you can configure the some basic pipelines for a control-repo project.
+    <u>Select a source</u>
+      - Source: **Gitlab|puppet**
+      - Repository: **control-repo**
+    <u>Select deployment branch</u>
+      - Choose the **Create a main branch from an existing branch** option.
+      - Base new main branch on: **production**<br><br>
 
+1. Click **Add control repo** button.
+1. Make sure that **main** is selected in the **Pipelines** dropdown and then click **+ Add default pipeline**.
+1. Click **Manage pipelines**.
+1. In the modal that opens, deselect the **Commit** trigger checkbox, and then check the box for **PullRequest**. Click **Save Settings** and then click **Done**.
+1. On the main page, click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
+1. In the modal that opens, select the **Branch regex** radio button, click **Add pipeline** and then click **Done**.
+1. Click **+ Add default pipeline**.
+1. Click **Manage pipelines**. Make sure that the **Commit** trigger checkbox is selected and that the **PullRequest** checkbox is deselected. Click **Save Settings** and then click **Done**.
 
-## Configure default control-repo pipelines
-1. Double-click on the **CD4PE** shortcut on the desktop.
-1. Log in to CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
-1. Click **Control Repos** from the navigation menu and click the **Add control repo** button.
-1. Select **Gitlab | puppet** in the **SOURCE** dropdown.
-1. Select **control-repo** in the **REPOSITORY** dropdown.
-1. Select **Create a main branch...** in the **Select deployment branch** radio button group.
-1. Select **production** in the **BASE NEW MAIN BRANCH ON** dropdown.
-1. Click the **Add control repo** button.
-1. Make sure that **main** is selected in the **Pipelines** dropdown and click the **+ Add default pipeline** button.
-1. Click the **Manage pipelines** link, deselect the **Commit** trigger checkbox and select the **PullRequest** checkbox. Click **Save Settings** and **Done**.
-1. Click the `add pipeline` icon (plus sign), select the **Branch regex** radio button, click **Add pipeline** and click **Done**.
-1. Click the **+ Add default pipeline** button.
-1. Click the **Manage pipelines** link, make sure the **Commit** trigger checkbox is selected and the **PullRequest** checkbox is deselected. Click **Save Settings** and **Done**.
+✔️ **Result:** A default control repo pipeline is created.<br><br>
 
-## Test the default pipelines
+Test the default pipelines
+========
 1. From the **Start** menu, open **Visual Studio Code**.
 1. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
@@ -62,33 +75,60 @@ In this lab you are going to configure pipelines for your control-repo in order 
         cd control-repo
         git checkout -b feature_test
 
-1. Open the **control-repo** > **manifests** > **site.pp** file in VS Code and add a comment line to the file.
+1. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) in VS Code and add a comment line to the file.
 1. Commit your change and push to the remote repository:
     ```
     git add .
     git commit -m "Added some commenting to site.pp"
     git push origin feature_test
     ```
-1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control-repo. Click the **New Events** button if needed.
-1. The jobs may be in a **PENDING** state and you can click into any of them to view their progress after clicking the down arrow icon to expand the list.
-1. There may be a delay for the jobs to complete the first time they are executed, but eventually they should end in the **COMPLETED** state.
+1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control-repo. If nothing is happening, click the **New Events** button.
+1. The jobs may be in a **PENDING** state. Click the down-arrow icon to expand the list and then click into any of them to view their progress.
+1. There may be a delay for the jobs to complete the first time they are executed, but eventually they should end in the **SUCCEEDED** state.
+    ![code validation succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-code-validation-succeeded.png)
 
-## Add a unit test job type
-1. Click **Jobs** in the leftside navigation bar and click **New job**.
-1. Enter **control-repo-rspec-puppet** in the **NAME** field and the command **cd site-modules/profile && pdk test unit** in the **Job commands** text area.
-1. Select **Run on puppet hardware**, select **docker** until **Hardware capabilities** and click **Apply**.
-1. Select **Run this job in a Docker container** toggle button, keep the other defaults and click **Save job**.
-1. Click **Control Repos** in the leftside navigation bar and click **control-repo**.
-1. Select the **main** pipeline in the **Pipelines** dropdown and click the 3 dots next to the **Code Validation stage** header.
+✔️ **Result:** The jobs run successfully.<br><br>
+
+Add a unit test job type
+========
+1. In the left-hand navigation bar, click **Jobs** and then click **New job**.
+    - If the **New job** button isn't not showing up, expand the CD4PE browser window.
+1. Enter the following:
+    - **NAME**: **control-repo-onceover-show-puppetfile**
+    - **Job commands**: `bundle exec onceover init && bundle exec onceover show puppetfile`<br><br>
+1. Select **Run on puppet hardware**.
+1. For **Hardware capabilities**, select **docker** and then click **Apply**.
+1. Toggle the option for **Run this job in a Docker container**. Leave the other settings as-is and then click **Save job**.
+1. In the left-hand navigation bar, click **Control Repos** and then click **control-repo**.
+1. In the **Pipelines** dropdown, select the **main** pipeline:![main branch](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-main-branch.png)
+
+1. Click the 3 dots next to the **Code Validation stage** header:![3 dots](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-3-dots.png)
+
 1. Select **Add a stage after**.
-1. Enter **Run unit tests** in the **STAGE NAME** text box.
-1. Select **Jobs** in the **SELECT ITEM** dropdown. Select the **control-repo-rspec-puppet** job, click **Add stage** and click **Done**.
+1. In the **STAGE NAME** field enter **Run unit tests**.
+1. From the **SELECT ITEM** dropdown, select **Jobs**.
+1. Select the **control-repo-onceover-show-puppetfile** job, click **Add stage** and then click **Done**.
 1. Repeat the same steps for the **regex** pipeline.
 
-## Test the unit test job stage in your Regex Pipeline
-1. Switch back to the VS Code window
-1. Add basic unit tests in the control-repo code and push to the `feature_` branch
-1. Login to CD4PE
-1. Click the events button for the `control-repo`
+✔️ **Result:** A unit test job type is created.<br><br>
 
-Observe a new run of the Regex pipeline with successful syntax checking and unit tests
+Test the unit test job stage in your Regex Pipeline
+========
+1. Switch back to the VS Code window.
+1. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) and add a comment line somewhere in the file.
+1. Commit your change and push to the remote repository:
+    ```
+    git add .
+    git commit -m "Added some commenting to site.pp"
+    git push origin feature_test
+    ```
+1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control repo. Click the **New Events** button if needed.
+1. The jobs may be in a **PENDING** state. To view their progress, click the down-arrow icon to expand the list and then click into any of them.
+1. Observe a new run of the regex pipeline jobs with the new custom job that displays the Puppetfile module statuses.
+    ![unit tests successful](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-run-unit-tests.png)
+✔️ **Result:** The unit test jobs run successfully.<br><br>
+
+--------------
+🎈 **Congratulations!** You set up a control repo and then added main and regexp pipelines to it, before finally testing the pipelines to ensure they work as expected.
+
+To close this lab, click **Next**.

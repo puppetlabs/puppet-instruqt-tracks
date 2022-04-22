@@ -3,14 +3,32 @@ id: syzgolm1im5x
 type: track
 title: Configure a Control Repo Pipeline
 teaser: Configure a Control Repo Pipeline
-description: Configure a Control Repo Pipeline
-icon: ""
+description: |-
+  ## Introduction
+  A CI/CD pipeline allows you to automate the checks to perform on your code changes before they are deployed to production. In this lab you will work on a CD4PE instance where the necessary integrations are already configured. You will configure pipelines for your control repo in order to automate the syntax checks of your code changes, and then introduce a new job type to run unit tests.
+   You will:
+   - Set up a control repo to work with.
+   - Set up a main and regexp pipeline for the control repo.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - BACKUP
 owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
-published: false
+published: true
 show_timer: true
-checksum: "5190851565266071227"
+checksum: "13274189494126391603"
