@@ -93,14 +93,10 @@ Test your Module Pipeline
 Fix the module repo code to run the pipeline successfully
 ========
 
-1. Switch back to the VS Code window to fix unit and syntax tests. Open **nginx_spec.rb** and fix the code you broke by replacing it with the original content:
-    ```
-    paste code here
-    ```
-1. Open `init.pp` to fix the syntax bug by replacing the code with the original content:
-    ```
-    paste code here
-    ```
+1. Switch back to the VS Code window to fix unit and syntax tests. Open **nginx_spec.rb** and fix the code you broke earlier.
+    - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/spec/classes/nginx_spec.rb).
+1. Open `init.pp` and fix the syntax bug you created earlier.
+    - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/manifests/init.pp).
 1. In the VS Code terminal window, commit and push your code to your feature branch.
     ```
     git add .
