@@ -43,6 +43,7 @@ Create a Module Pipeline
 1. On the Windows Workstation desktop, double-click the CD4PE shortcut.
      - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Enter username `puppet@puppet.com` and password `puppetlabs`.
+    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
 1. From the left-side navigation menu, navigate to **Code delivery** > **Modules** and then click **Add module**.
 1. For each field, enter the following:
 
@@ -95,7 +96,7 @@ Fix the module repo code to run the pipeline successfully
 
 1. Switch back to the VS Code window to fix unit and syntax tests. Open **nginx_spec.rb** and fix the code you broke earlier.
     - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/spec/classes/nginx_spec.rb).
-1. Open `init.pp` and fix the syntax bug you created earlier.
+1. Open **init.pp** and fix the syntax bug you created earlier.
     - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/manifests/init.pp).
 1. In the VS Code terminal window, commit and push your code to your feature branch.
     ```

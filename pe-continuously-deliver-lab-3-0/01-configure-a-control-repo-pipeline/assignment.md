@@ -40,6 +40,7 @@ Configure default control repo pipelines
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
+    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
 1. From the navigation menu, click **Control Repos**, and then click **Add control repo**.
 1. For each field, enter the following:
 
