@@ -2,18 +2,18 @@
 slug: configure-cd4pe
 id: 5o3kmcd5aj3c
 type: challenge
-title: Configure CD4PE
+title: Configure Continuous Delivery for Puppet Enterprise
 teaser: Set up all the necessary integrations on a brand new CD4PE instance to prepare
   it for the configuration of your pipelines.
 notes:
 - type: text
   contents: |-
-    In this lab you will configure the CD4PE integrations required to start to build your pipelines. You will:
+    In this lab, you will configure the Continuous Delivery for Puppet Enterprise integrations you need to build your pipelines. You will:
 
-     - Create a new user and a new Workspace.
+     - Create a user and a workspace.
      - Configure integration with Puppet Enterprise.
      - Configure integration with source control.
-     - Add a Job Hardware node.
+     - Add a job hardware node.
 
      Click **Start** when you're ready to begin.
 tabs:

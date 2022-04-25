@@ -1,18 +1,18 @@
 slug: pe-continously-deliver-lab-1-0
 id: vsjxjarohory
 type: track
-title: Configure CD4PE
-teaser: Set up all necessary integrations on a brand new CD4PE instance in order to
-  prepare it for the configuration of your pipelines.
+title: Configure Continuous Delivery for Puppet Enterprise
+teaser: Before you can build your continuous delivery pipelines, you must configure
+  integrations with Puppet Enterprise and source control.
 description: |-
   ## Introduction
-  In order to work and automate Puppet code tests and deployments, CD4PE requires access to the APIs of Puppet Enterprise and your source control tool, so a list of prerequisite setups is needed before designing your workflows via CI/CD pipelines.
+  In order to work and automate Puppet code tests and deployments, CD4PE requires access to Puppet Enterprise APIs and your source control tool, so a list of prerequisite setups is needed before designing your workflows via CI/CD pipelines.
 
-  In this lab you will configure the CD4PE integrations required to start to build your pipelines. You will:
-   - Create a new user and a new workspace.
+  In this lab, you will configure the integrations you need to build your pipelines. You will:
+   - Create a user and a workspace.
    - Configure integration with Puppet Enterprise.
    - Configure integration with source control.
-   - Add a Job Hardware node.
+   - Add a job hardware node.
 
   ## Prerequisites
   None
@@ -36,4 +36,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "17390481325157680911"
+checksum: "15043423776726960131"
