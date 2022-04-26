@@ -1,0 +1,35 @@
+slug: pe-continuously-deliver-lab-3-1
+id: 6q0lsclicxlf
+version: 0.0.1
+type: track
+title: Configure a Deployment to a Test Environment
+teaser: Configure a Deployment to a Test Environment
+description: |-
+  ## Introduction
+  In this lab you will:
+   - Add a deployment step to a pipeline and ensure deployments to nodes (including test nodes) use a best practice approach.
+   - Add a trigger based on a merge request from the main branch of the control repo.
+
+  Completing these steps will result in a workflow that deploys changes to test nodes after pull requests to the main branch from a feature_ branch are successful.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+tags:
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "13868069564865648597"

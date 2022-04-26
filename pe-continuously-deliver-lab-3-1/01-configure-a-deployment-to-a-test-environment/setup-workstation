@@ -1,0 +1,31 @@
+# Automatically set Network profile to public to surpress desktop notice
+Get-NetConnectionProfile |  Set-NetConnectionProfile -NetworkCategory Public
+
+# Create registry key to surpress desktop network notification
+Set-Location HKLM:
+New-Item -Path "\System\CurrentControlSet\Control\Network\" -Name NewNetworkWindowOff
+
+# Ignore TLS and connect to http:\\cd4pe to get the self signed cert and import to the root trust store
+add-type @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+
+
+
+$webRequest = [Net.WebRequest]::Create("https://cd4pe")
+$webRequest.GetResponse()
+$cert = $webRequest.ServicePoint.Certificate
+$chain = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Chain
+$chain.build($cert)
+$chain.ChainElements.Certificate | % {set-content -value $($_.Export([Security.Cryptography.X509Certificates.X509ContentType]::Cert)) -encoding byte -path "C:\cd4pe.cer"}
+
+Import-Certificate -FilePath "C:\cd4pe.cer" -CertStoreLocation Cert:\LocalMachine\Root
