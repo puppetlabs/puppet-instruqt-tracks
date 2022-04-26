@@ -9,6 +9,11 @@ notes:
 - type: text
   contents: Configure A Deployment to a Test Environment
 tabs:
+- title: Windows Workstation
+  type: service
+  hostname: guac
+  path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
+  port: 8080
 - title: CD4PE-Host
   type: terminal
   hostname: cd4pe-host
@@ -22,59 +27,78 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
-- title: workstation
-  type: service
-  hostname: guac
-  path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
-  port: 8080
 difficulty: basic
 timelimit: 3600
 ---
-Add a Deployment to the ‘main’ pipeline for the control-repo
+Add a deployment to the main pipeline for the control repo
 ========
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
-1. From the navigation menu, click **Control Repos**.
+1. From the navigation menu, click **Control Repos** > **control-repo**.
 
-2. Edit the **main** pipeline to add a Pull Request trigger. Click...
-3. Edit the **main** pipeline to include a new deployment. Click...
-4. Edit the **Deployment** to use the **direct deployment** policy. Click...
-5. Select the **Development** environment
-6. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step. Click...
-7. Ensure the ‘Auto-Promote’ checkbox is NOT selected in the checkbox between the IA and Deployment
+2. Edit the **main** pipeline to add a Pull Request trigger. Click... (tech team to add specific steps here)
+3. Edit the **main** pipeline to include a new deployment. Click... (tech team to add specific steps here)
+4. Edit the **Deployment** to use the **direct deployment** policy. Click... (tech team to add specific steps here)
+5. Select the **Development** environment.
+6. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step. Click... (tech team to add specific steps here)
+7. Ensure the **Auto-Promote** checkbox is NOT selected in the checkbox between the IA and Deployment.
 
-Create a new feature branch and use a Gitlab MR to trigger the ‘main’ pipeline
+✔️ **Result:** tbd. <br><br>
+
+Create a new feature branch and use a Gitlab merge request to trigger the main pipeline
 ========
-1. Login to the workstation
-2. In VSCode in the ‘control-repo’ project run ‘git checkout -b feature_server
-3. Add a new role server.pp that includes only the profile::base
-4. Edit the base.pp profile to include a new notify resource
-5. Edit the site.pp file so all servers get the role::server
-6. Git add, commit and push the feature_server branch
-7. Login to CD4PE to observe a successful pipeline run for the Regex ‘feature_’ branch
+1. Log in to the Windows Workstation.
+1. From the **Start** menu, open **Visual Studio Code**.
+1. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+1. If prompted to trust the code in this directory, click **Accept**.
+1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+1. In the VS Code terminal window, in the **control-repo** project, run the following command:
+        ```
+        git checkout -b feature_server
+        ```
+3. Add a new role `server.pp` that includes only the `profile::base`. (add specific instructions here)
+4. Open `base.pp` (**control-repo** > **manifests** > **base.pp**) and edit the file to include a new notify resource. (tech team to add specific steps here)
+5. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) in VS Code and edit the file so all servers get the `role::server`. (tech team to add specific steps here)
+6. Git add, commit and push the `feature_server` branch:
+    ```
+    git add .
+    git commit -m "Add notify resource to base.pp and added server role to site.pp"
+    git push origin feature_server
+    ```
+7. Switch over to the CD4PE browser window and check the events for the regex pipeline on the control repo. If nothing is happening, click the **New Events** button.
 
-Create a Gitlab MR to run the Main pipeline
-========
-1. Login to Gitlab
-2. In the ‘control-repo’ project click Merge Requests
-3. Select the feature_server branch and create a MR to merge feature_server to main
-4. When prompted click the ‘Merge when pipeline completes’ button
+✔️ **Result:** tbd. <br><br>
 
-Inspect the ‘development’ environment impact analysis and promote pipeline to Deploy
+Create a Gitlab merge request to run the Main pipeline
 ========
-1. Login to CD4PE
-2. Select the ‘control-repo’ and click the New Events button
-3. Observe the ‘main’ pipeline runs the unit tests and syntax checks and then runs the Impact Analysis
-4. Once the IA runs notice the pipeline stops, it is waiting for a manual promotion to run the Deployment step
-5. Click to inspect the IA output
-6. Once satisfied with the output, click the Promote button next to the ‘main’ pipeline space between the IA step and the Deployment step
-7. Observe the Deployment runs
-8. Record the Job ID
-9. Login to PE and click the Jobs menu
-10. Look for the Job ID reported from CD4PE
-11. Observe the changes to the nodes in the Development node group
+1. Log into Gitlab. (tech team to add specific steps here)
+2. In the `control-repo` project click **Merge Requests**.
+3. Select the `feature_server` branch and then create a merge request to merge `feature_server` to main. (tech team to add specific steps here)
+4. When prompted, click **Merge when pipeline completes**.
+
+✔️ **Result:** tbd. <br><br>
+
+Inspect the development environment impact analysis and promote pipeline to Deploy
+========
+1. Navigate to **CD4PE** > **control-repo** branch.
+2. Click **New Events**.
+3. Observe the `main` pipeline as it runs the unit tests and syntax checks and then runs the Impact Analysis.
+4. Once Impact Analysis finishes running, notice that the pipeline stops. It is waiting for a manual promotion to run the Deployment step.
+5. Click to inspect the IA output (tech team to add specific steps here)
+6. Once satisfied with the output, click **Promote** (next to the `main` pipeline space between the IA step and the Deployment step).
+7. Observe the Deployment runs.
+8. Record the Job ID. (tech team to add specific steps here)
+
+Switch tabs
+9. Log in to PE.
+1. Navigate to **Jobs**.
+10. Look for the Job ID reported from CD4PE.
+11. Observe the changes to the nodes in the Development node group.
+
+✔️ **Result:** tbd. <br><br>
 
 --------
 🎈 **Congratulations!** In this lab you...
