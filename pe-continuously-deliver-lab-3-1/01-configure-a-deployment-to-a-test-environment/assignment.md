@@ -69,7 +69,6 @@ Create a new feature branch and use a Gitlab merge request to trigger the main p
 1. If prompted to trust the code in this directory, click **Accept**.
 1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**. Change directory to `C:\CODE`. Run the following command: `git clone git@gitlab:puppet/control-repo.git`. Change directory into the **control-repo**: `cd control-repo`.
 1. In the terminal window, in the **control-repo** project, run the following commands:
-
         ```
         git checkout -b feature_server
         ```
