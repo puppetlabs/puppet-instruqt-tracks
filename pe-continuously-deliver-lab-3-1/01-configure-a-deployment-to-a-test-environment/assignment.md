@@ -34,22 +34,29 @@ Add a deployment to the main pipeline for the control repo
 ========
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
-1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
+2. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
-1. From the navigation menu, click **Control Repos** > **control-repo**.
+3. From the navigation menu, click **Control Repos** > **control-repo**.
 
-2. Edit the **main** pipeline to include a new deployment:
+4. Edit the **main** pipeline to include a new deployment:
 - Click Add Stage
-- For Stage Name, Type in **Test**
+- For Stage Name, Type in **Test Deployment**
 - Under Select Item, choose **Deployment**
 - For Select a Puppet Enterprise Instance, leave **PE** selected
 - For Select a Node Group, choose **Development**
 - In the Select A Deployment Policy, select **Direct deployment policy**
 - Click **Add Stage** then click **Done**
 
-3. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step:
--
-4. Ensure the **Auto-Promote** checkbox is NOT selected in the checkbox between the IA and Deployment.
+
+**5.** Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step:
+- Click **Add Stage**
+- For Stage Name, type in **IA for Test Deployment**
+- In the Select Item pulldown menu, select Impact Analaysis
+- Click Add Stage, then click Done
+- Click on the ellipses icon for **IA for Test Deployment**. Select **Reorder Pipeline** from the popout
+- With the blue up arrow icon, move **IA for Test Deployment** before the **Test Deployment** Stage
+- Under the jobs list select the **Auto Promote** box on the first gate icon. Do not select **Auto Promote** on the gate icon directly below **IA for Test Deployment**
+- Click **Save Changes**, Click **Done**
 
 ✔️ **Result:** tbd. <br><br>
 
@@ -60,8 +67,9 @@ Create a new feature branch and use a Gitlab merge request to trigger the main p
 1. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
 1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
 1. If prompted to trust the code in this directory, click **Accept**.
-1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
-1. In the VS Code terminal window, in the **control-repo** project, run the following command:
+1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**. Change directory to `C:\CODE`. Run the following command: `git clone git@gitlab:puppet/control-repo.git`. Change directory into the **control-repo**: `cd control-repo`.
+1. In the terminal window, in the **control-repo** project, run the following commands:
+
         ```
         git checkout -b feature_server
         ```

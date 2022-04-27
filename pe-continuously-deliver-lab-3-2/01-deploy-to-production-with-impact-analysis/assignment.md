@@ -9,13 +9,11 @@ notes:
   contents: |-
     In this lab you will:
 
-     - Use impact analysis and deployment policies to carefully and thoughtfully control rolling out changes to Production.
-     - Add a new pipeline for the Production branch.
-     - Configure a new pipeline to require impact analysis and manual deployment to Production.
+     - Add and configure a new pipeline for the Production branch that requires impact analysis and manual deployment.
      - Configure the Development pipeline to deploy to Production.
      - Protect the Production environment and require privileged deployment step approval.
-     - Use a rolling deployment policy.
-     - Adjust the Main pipeline to automatically deploy to the Development branch from a commit.
+     - Adjust the Main pipeline to automatically deploy to the Development branch from a git commit.
+     - Use a rolling deployment policy that requries logic between each step.
 
     Click **Start** when you're ready to begin.
 tabs:
@@ -40,22 +38,27 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-Protect the Production environment
+Protect the production environment
 ========
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
 2. Navigate to **Settings** > **Puppet Enterprise**.
-3. In the **Protected Envs** column click the `0` and then select **Production environment** from the resulting modal. Choose **Administrators for the approval role.
+3. In the **Protected Envs** column click the `0`.
+    - You may need to expand the CD4PE browser window to see the columns clearly.<br><br>
+1. In the modal that opens, click **Add**. Then, select **Production environment** and toggle the switch to choose  **Administrators** for the approval role. ![designate approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-designate-approval.png)
+1. Click **Add**, and then click **Done**.
+1. Close the modal, return to the Puppet Enterprise settings page, and review the **Protected environments** column, which now shows one protected environment: ![protected environment](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-protectedenv.png)
 
-✔️ **Result:** tbd.<br><br>
+    ✔️ **Result:** The **production** environment is now protected.<br><br>
 
 Create a new pipeline to run on the Development environment
 ========
-1. In CD4PE, navigate to **Control Repo** > **control-repo**.
-2. Add a new pipeline to run on the **Development** environment. Click... (add steps here)
-3. Configure the pipeline to run triggered by a merge request. Click... (add steps here)
+1. In the left-hand sidebar, navigate to **Control Repos** > **control-repo**.
+2. Add a new pipeline to run on the **Development** environment. Click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
+1. In the modal that opens, select **Development**, click **Add pipeline**, and then click **Done**.
+3. Configure the pipeline to run triggered by a merge request. With the **development** pipeline showing in the dropdown list, click... (add steps here)
 4. Add the unit test step to the Code Validation stage. (add steps here)
 5. Add an Impact Analysis stage for the Production environment. (add steps here)
 6. Add a deployment step using the Eventual Consistency policy to the Production environment. (add steps here)

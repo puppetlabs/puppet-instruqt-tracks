@@ -51,7 +51,7 @@ Configure default control repo pipelines
       - Choose the **Create a main branch from an existing branch** option.
       - Base new main branch on: **production**<br><br>
 
-1. Click **Add control repo** button.
+1. Click **Add control repo**.
 1. Make sure that **main** is selected in the **Pipelines** dropdown and then click **+ Add default pipeline**.
 1. Click **Manage pipelines**.
 1. In the modal that opens, deselect the **Commit** trigger checkbox, and then check the box for **PullRequest**. Click **Save Settings** and then click **Done**.
