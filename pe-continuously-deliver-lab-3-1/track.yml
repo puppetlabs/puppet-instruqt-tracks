@@ -1,6 +1,5 @@
 slug: pe-continuously-deliver-lab-3-1
 id: 6q0lsclicxlf
-version: 0.0.1
 type: track
 title: Configure a Deployment to a Test Environment
 teaser: Configure a Deployment to a Test Environment
@@ -31,5 +30,6 @@ owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
-published: false
-checksum: "6500772499574992030"
+published: true
+show_timer: true
+checksum: "16651302065406419259"

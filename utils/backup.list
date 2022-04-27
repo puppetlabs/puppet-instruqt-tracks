@@ -5,6 +5,7 @@ puppet/bolt-basics-on-linux
 puppet/build-a-bolt-inventory-file-on-linux
 puppet/pe-continuously-deliver-lab-3-0
 puppet/pe-deploy-and-discover-lab-2-2
+puppet/pe-continuously-deliver-lab-3-1
 puppet/pe-deploy-and-discover-lab-2-1
 puppet/pe-continously-deliver-lab-2-0
 puppet/pe-develop-and-maintain-lab-1-0
@@ -12,6 +13,7 @@ puppet/pe-continously-deliver-lab-1-0
 puppet/pe-design-and-manage-lab-2-0
 puppet/pe-deploy-and-discover-lab-1-1
 puppet/pe-design-and-manage-lab-3-0
+puppet/pe-continuously-deliver-lab-3-2
 puppet/pe-extend-capability-lab-3-0
 puppet/pe-design-and-manage-lab-3-1
 puppet/pe-deploy-and-discover-lab-3-2
@@ -30,5 +32,4 @@ puppet/pe-design-and-manage-lab-1-1
 puppet/pe-develop-and-maintain-lab-1-1
 puppet/pe-extend-capability-lab-2-1
 puppet/pe-extend-capability-lab-1-0
-puppet/pe-continuously-deliver-lab-3-1
 puppet/testing-folding-instructions

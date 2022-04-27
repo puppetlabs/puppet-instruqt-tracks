@@ -94,7 +94,7 @@ Configure Code Manager in Puppet Enterprise
 
 5. In the icon menu at the left, click the upper key icon (for SSH keys). ![key icon](https://storage.googleapis.com/instruqt-images/key-top.png)
 
-6. Copy the contents of the `id_rsa.pub` file generated in the first step into the **Key** text area.
+6. Copy the contents of the `id_ed25519.pub` file generated in the first step into the **Key** text area.
     - To find the contents, return to the PE Server tab and run the following:
         ```
         cat /etc/puppetlabs/puppetserver/ssh/id_ed25519.pub

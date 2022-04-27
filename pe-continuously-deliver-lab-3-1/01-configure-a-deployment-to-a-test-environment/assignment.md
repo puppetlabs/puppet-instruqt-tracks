@@ -38,12 +38,17 @@ Add a deployment to the main pipeline for the control repo
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
 1. From the navigation menu, click **Control Repos** > **control-repo**.
 
-2. Edit the **main** pipeline to add a Pull Request trigger. Click... (tech team to add specific steps here)
-3. Edit the **main** pipeline to include a new deployment. Click... (tech team to add specific steps here)
-4. Edit the **Deployment** to use the **direct deployment** policy. Click... (tech team to add specific steps here)
-5. Select the **Development** environment.
-6. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step. Click... (tech team to add specific steps here)
-7. Ensure the **Auto-Promote** checkbox is NOT selected in the checkbox between the IA and Deployment.
+2. Edit the **main** pipeline to include a new deployment:
+- Click Add Stage
+- For Stage Name, Type in **Test**
+- Under Select Item, choose **Deployment**
+- For Select a Puppet Enterprise Instance, leave **PE** selected
+- For Select a Node Group, choose **Development**
+- In the Select A Deployment Policy, select **Direct deployment policy**
+- Click **Add Stage** then click **Done**
+
+3. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step. Click... (tech team to add specific steps here)
+4. Ensure the **Auto-Promote** checkbox is NOT selected in the checkbox between the IA and Deployment.
 
 ✔️ **Result:** tbd. <br><br>
 
