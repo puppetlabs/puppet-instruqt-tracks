@@ -5,14 +5,15 @@ title: Deploy to Production with Impact Analysis
 teaser: Deploy to Production with Impact Analysis
 description: |-
   ## Introduction
-  In this lab you will:
-   - Continue to learn how to use impact analysis and deployment policies to carefully and thoughtfully control rolling out changes to Production.
-   - Add a new pipeline for the production branch.
-   - Configure a new pipeline to require impact analysis and a manual deploy to Production.
-   - Configure the development pipeline to deploy to Production.
-   - Protect the Production environment and require privileged Deployment step approval.
+  Some company policies require approval before changes can be made to the software and infrastructure for certain environments. In this lab you will use Continuous Delivery for Puppet Enterprise to create a custom deployment policy that uses impact analysis to carefully and thoughtfully control rolling out changes to Production.
+
+  You will:
+
+   - Add and configure a new pipeline for the Production branch that requires impact analysis and manual deployment.
+   - Configure the Development pipeline to deploy to Production.
+   - Protect the Production environment and require privileged deployment step approval.
+   - Adjust the Main pipeline to automatically deploy to the Development branch from a git commit.
    - Use a rolling deployment policy.
-   - Adjust the main pipeline to automatically deploy to the development branch from a commit.
 
   ## Prerequisites
   None
@@ -35,4 +36,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "2742250639126918053"
+checksum: "16229905530072830660"

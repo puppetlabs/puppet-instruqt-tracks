@@ -47,7 +47,8 @@ Add a deployment to the main pipeline for the control repo
 - In the Select A Deployment Policy, select **Direct deployment policy**
 - Click **Add Stage** then click **Done**
 
-3. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step. Click... (tech team to add specific steps here)
+3. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment before the **deployment** step:
+-
 4. Ensure the **Auto-Promote** checkbox is NOT selected in the checkbox between the IA and Deployment.
 
 ✔️ **Result:** tbd. <br><br>

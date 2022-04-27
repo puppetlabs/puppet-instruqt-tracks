@@ -6,7 +6,18 @@ title: Deploy to Production with Impact Analysis
 teaser: Deploy to Production with Impact Analysis
 notes:
 - type: text
-  contents: Deploy to Production with Impact Analysis
+  contents: |-
+    In this lab you will:
+
+     - Use impact analysis and deployment policies to carefully and thoughtfully control rolling out changes to Production.
+     - Add a new pipeline for the Production branch.
+     - Configure a new pipeline to require impact analysis and manual deployment to Production.
+     - Configure the Development pipeline to deploy to Production.
+     - Protect the Production environment and require privileged deployment step approval.
+     - Use a rolling deployment policy.
+     - Adjust the Main pipeline to automatically deploy to the Development branch from a commit.
+
+    Click **Start** when you're ready to begin.
 tabs:
 - title: Windows Workstation
   type: service
@@ -40,7 +51,7 @@ Protect the Production environment
 
 ✔️ **Result:** tbd.<br><br>
 
-Create a new pipeline to on the Development environment
+Create a new pipeline to run on the Development environment
 ========
 1. In CD4PE, navigate to **Control Repo** > **control-repo**.
 2. Add a new pipeline to run on the **Development** environment. Click... (add steps here)
@@ -52,14 +63,14 @@ Create a new pipeline to on the Development environment
 
 ✔️ **Result:** tbd.<br><br>
 
-Edit the Main pipeline to automatically promote to Deploy to Development
+Edit the Main pipeline to automatically deploy to Development
 ========
 1. Edit the **main** pipeline. (add steps here)
 2. Select **Auto-Approve** (between the IA step and Deployment step).
 
 ✔️ **Result:** tbd.<br><br>
 
-Create a new change and merge request, merging feature_new_motd to main
+Merge the feature_new_motd branch to the main branch
 ========
 1. On the workstation in the **control-repo** project run
         ```
