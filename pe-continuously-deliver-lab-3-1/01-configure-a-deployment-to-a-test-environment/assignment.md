@@ -28,7 +28,7 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 3600
+timelimit: 10800
 ---
 Add a deployment to the main pipeline for the control repo
 ========

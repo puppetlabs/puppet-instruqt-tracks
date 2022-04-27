@@ -26,14 +26,14 @@ virtualmachines:
   image: kmo-instruqt/nixagent1-pe501-lab-2-0
   shell: /bin/bash
   machine_type: n1-standard-8
-- name: nixagent4
-  image: kmo-instruqt/nixagent2-pe501-lab-2-0
-  shell: /bin/bash
-  machine_type: n1-standard-8
 - name: cd4pe-host
   image: kmo-instruqt/cd4pe-host
   shell: /bin/bash
   machine_type: n1-highcpu-16
+- name: nixagent4
+  image: kmo-instruqt/nixagent2-pe501-lab-2-0
+  shell: /bin/bash
+  machine_type: n1-standard-8
 - name: puppet
   image: kmo-instruqt/puppet-pe501-lab-2-0
   shell: /bin/bash
