@@ -11,11 +11,11 @@ virtualmachines:
   image: kmo-instruqt/gitlab-base
   shell: bash
   machine_type: n1-highcpu-32
-- name: nixagent3
+- name: nixagent4
   image: kmo-instruqt/nixagent2-pe501-lab-2-0
   shell: /bin/bash
   machine_type: n1-standard-8
-- name: nixagent4
+- name: nixagent3
   image: kmo-instruqt/nixagent2-pe501-lab-2-0
   shell: /bin/bash
   machine_type: n1-standard-8
