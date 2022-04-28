@@ -36,7 +36,7 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 3600
+timelimit: 10800
 ---
 Protect the production environment
 ========

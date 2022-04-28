@@ -7,7 +7,14 @@ teaser: Add a deployment to a pipeline and then add a trigger based on a merge r
   from the main branch of the control repo.
 notes:
 - type: text
-  contents: Configure A Deployment to a Test Environment
+  contents: |-
+    In this lab you will:
+     - Add a deployment step to a pipeline and ensure deployments to nodes (including test nodes) use a best practice approach.
+     - Add a trigger based on a merge request from the main branch of the control repo.
+
+    Completing these steps will result in a workflow that deploys changes to test nodes after pull requests to the main branch from a feature_ branch are successful.
+
+    Click **Start** when you're ready to begin.
 tabs:
 - title: Windows Workstation
   type: service
@@ -28,7 +35,7 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 10800
+timelimit: 3600
 ---
 Add a deployment to the main pipeline for the control repo
 ========
