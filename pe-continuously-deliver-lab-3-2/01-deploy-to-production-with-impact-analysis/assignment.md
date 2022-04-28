@@ -66,21 +66,27 @@ Create a new pipeline to run on the Development environment
 
 Edit the Main pipeline to automatically deploy to Development
 ========
-1. Edit the **main** pipeline. (add steps here)
-2. Select **Auto-Approve** (between the IA step and Deployment step).
+1. Edit the **main** pipeline. In the **Pipelines** dropdown, change the pipeline from **development88 to **main**.
+2. In the auto promote gate, check the **Auto promote** box.
 
 ✔️ **Result:** tbd.<br><br>
 
 Merge the feature_new_motd branch to the main branch
 ========
-1. On the workstation in the **control-repo** project run
+1. Open VScode. Open Folder to C:\CODE. Open a New Terminal. Change directory to C:\CODE. Clone the `control-repo` repository with the following command:
+```
+git clone git@gitlab:puppet/control-repo.git
+```
+Change directory in the `control-repo` by running `cd control-repo`.
+
+On the workstation in the **control-repo** project run
         ```
         git checkout main
         ```
         ```
         git checkout -b feature_new_motd
         ```
-2. Open `common.yaml` file (filepath) and edit it to include a new string for message of the day.
+2. Open `common.yaml` file at **control-repo/data/common.yaml** and edit it to include a new string for message of the day. Copy the following code into the file:
 4. Git add, commit and push origin feature_new_motd:
         ```
         (insert command here)
