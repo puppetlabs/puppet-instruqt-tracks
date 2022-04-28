@@ -36,7 +36,7 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 10800
+timelimit: 3600
 ---
 Protect the production environment
 ========
@@ -58,11 +58,9 @@ Create a new pipeline to run on the Development environment
 1. In the left-hand sidebar, navigate to **Control Repos** > **control-repo**.
 2. Add a new pipeline to run on the **Development** environment. Click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
 1. In the modal that opens, select **Development**, click **Add pipeline**, and then click **Done**.
-3. Configure the pipeline to run triggered by a merge request. With the **development** pipeline showing in the dropdown list, click... (add steps here)
-4. Add the unit test step to the Code Validation stage. (add steps here)
-5. Add an Impact Analysis stage for the Production environment. (add steps here)
-6. Add a deployment step using the Eventual Consistency policy to the Production environment. (add steps here)
-7. Make sure the promotion to the deployment step requires manual promotion. (add steps here)
+3. Configure the pipeline to run triggered by a merge request. With the **development** pipeline showing in the dropdown list, click **Manage Pipelines**. In the modal, unselect **Commit** and selectn **Pull Request**.Click **Save Settings**, click **Done**.
+4. Click **Add default pipeline**.  Click on the ellipses next to **Code Validation Stage**. In the modal popup, click **Add item to stage**. In the next modal, in the Slect Item dropdown, select **Jobs**. Under the the **Select Job** dropdown, select **control-repo-onceover-show-puppetfile**. Click **Add jobs to stage**. Click **Done**.
+6. Add a deployment step by clicking **Add a deployment**. Under Select a Node group, select Production. Under **Select a deployment policy**, select the **Eventual Consistency policy**. Click **Add deployment to stage**. Click **Done**.
 
 ✔️ **Result:** tbd.<br><br>
 
