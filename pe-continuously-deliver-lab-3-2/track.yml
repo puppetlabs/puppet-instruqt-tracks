@@ -1,8 +1,8 @@
 slug: pe-continuously-deliver-lab-3-2
 id: wnfb5lqofexo
 type: track
-title: Deploy to Production with Impact Analysis
-teaser: Deploy to Production with Impact Analysis
+title: Deploy Changes to Production
+teaser: Deploy changes to Production
 description: |-
   ## Introduction
   Some company code deployment policies require approval before changes can be made to the software and infrastructure for certain environments. These policies can be customized for your company's specific needs. In this lab you will use Continuous Delivery for Puppet Enterprise to create a custom deployment policy that uses impact analysis to carefully and thoughtfully control rolling out changes to Production.
@@ -36,4 +36,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "15480707665537073929"
+checksum: "13921745825658093264"

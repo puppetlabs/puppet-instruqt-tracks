@@ -2,8 +2,8 @@
 slug: deploy-to-production-with-impact-analysis
 id: hhyo5oaxazf5
 type: challenge
-title: Deploy to Production with Impact Analysis
-teaser: Deploy to Production with Impact Analysis
+title: Deploy changes to Production
+teaser: Deploy changes to Production
 notes:
 - type: text
   contents: |-

@@ -2,7 +2,7 @@
 slug: configure-module-pipeline
 id: zh7rsvzlgxrc
 type: challenge
-title: Configure a Module Pipeline
+title: Create a Module Pipeline
 teaser: Put together a basic pipeline built for module testing and gain a familiarity
   with building pipelines.
 notes:

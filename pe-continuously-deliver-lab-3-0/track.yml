@@ -1,8 +1,8 @@
 slug: pe-continuously-deliver-lab-3-0
 id: syzgolm1im5x
 type: track
-title: Configure a Control Repo Pipeline
-teaser: Configure a Control Repo Pipeline
+title: Create a Control Repository Pipeline
+teaser: Create a control repository pipeline
 description: |-
   ## Introduction
   A CI/CD pipeline allows you to automate the checks to perform on your code changes before they are deployed to production. In this lab you will work on a CD4PE instance where the necessary integrations are already configured. You will configure pipelines for your control repo in order to automate the syntax checks of your code changes, and then introduce a new job type to run unit tests.
@@ -31,4 +31,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7692691601969854415"
+checksum: "5996144088453686321"

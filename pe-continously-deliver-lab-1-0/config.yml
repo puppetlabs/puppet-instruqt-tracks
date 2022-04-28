@@ -7,14 +7,14 @@ containers:
   - 8080
   memory: 2048
 virtualmachines:
-- name: gitlab
-  image: kmo-instruqt/gitlab-base
-  shell: bash
-  machine_type: n1-highcpu-32
 - name: puppet
   image: kmo-instruqt/puppet-pe-bolt
   shell: /bin/bash
   machine_type: n1-highcpu-16
+- name: gitlab
+  image: kmo-instruqt/gitlab-base
+  shell: bash
+  machine_type: n1-highcpu-32
 - name: cd4pe-host
   image: kmo-instruqt/cd4pe-host
   shell: /bin/bash

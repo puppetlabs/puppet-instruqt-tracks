@@ -1,8 +1,8 @@
 slug: pe-continuously-deliver-lab-3-1
 id: 6q0lsclicxlf
 type: track
-title: Configure a Deployment to a Test Environment
-teaser: Configure a Deployment to a Test Environment
+title: Deploy Changes to a Test Environment
+teaser: Deploy changes to a test environment
 description: |-
   ## Introduction
   In this lab you will:
@@ -32,4 +32,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "15949785064302400201"
+checksum: "9013460438986129413"

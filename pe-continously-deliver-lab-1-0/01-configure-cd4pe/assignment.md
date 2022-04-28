@@ -154,7 +154,7 @@ Integrate CD4PE with Puppet Enterprise
 <u>Integrate source control</u>
 
 1. Click **Integrate source control**.
-1. Click **GitLab**. In the **Host** field, enter **https://gitlab/**.
+1. Click **GitLab**. In the **Host** field, enter **http://gitlab/**.
 1. Switch to the **GitLab** tab in your browser and select **Settings** > **Access Tokens** from the left side navigation bar.
 1. Enter **CD4PE** in the **Token name** text box, choose an expiration date in the future, select **Maintainer** as the role and select all of the available scopes. Click **Create project access token**.
 1. The project access token will be shown on the next page. Copy it by clicking the clipboard copy icon.

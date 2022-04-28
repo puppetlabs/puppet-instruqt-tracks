@@ -1,8 +1,8 @@
 slug: pe-continously-deliver-lab-2-0
 id: scri5ofo6y9m
 type: track
-title: Configure a Module Pipeline
-teaser: Configure a Module Pipeline
+title: Create a Module Pipeline
+teaser: Create a Module Pipeline
 description: |-
   ## Introduction
   In this lab you will put together a basic pipeline built for module testing and gain a familiarity with building pipelines.
@@ -29,4 +29,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7145506126289611094"
+checksum: "16684791494788605860"
