@@ -36,14 +36,14 @@ tabs:
   type: terminal
   hostname: gitlab
 difficulty: basic
-timelimit: 3600
+timelimit: 10800
 ---
 Protect the production environment
 ========
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
+    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
 2. Navigate to **Settings** > **Puppet Enterprise**.
 3. In the **Protected Envs** column click the `0`.
     - You may need to expand the CD4PE browser window to see the columns clearly.<br><br>
@@ -74,24 +74,17 @@ Edit the Main pipeline to automatically deploy to Development
 Merge the feature_new_motd branch to the main branch
 ========
 1. Open VScode. Open Folder to C:\CODE. Open a New Terminal. Change directory to C:\CODE. Clone the `control-repo` repository with the following command:
+
 ```
 git clone git@gitlab:puppet/control-repo.git
 ```
 Change directory in the `control-repo` by running `cd control-repo`.
 
-On the workstation in the **control-repo** project run
-        ```
-        git checkout main
-        ```
-        ```
-        git checkout -b feature_new_motd
-        ```
+On the workstation in the **control-repo** project run `git checkout main` and then `git checkout -b feature_new_motd`.
+
 2. Open `common.yaml` file at **control-repo/data/common.yaml** and edit it to include a new string for message of the day. Copy the following code into the file:
-4. Git add, commit and push origin feature_new_motd:
-        ```
-        (insert command here)
-        ```
-5. Merge to main. (add steps here)
+4. Git add, commit and push origin feature_new_motd: `git add .` then `git commit -m "Adding message of the day"` then `git push origin feature_new_motd`
+5. Merge to main: `git merge main`.
 6. Switch over to the CD4PE browser to ensure your `feature_ pipeline` runs. Wait until the run completes successfully before you continue.
 
 Switch to Gitlab tab.
