@@ -37,14 +37,14 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-Create a Module Pipeline
+Create a module pipeline
 ========
 
 1. On the Windows Workstation desktop, double-click the CD4PE shortcut.
      - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Enter username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
-1. From the left-side navigation menu, navigate to **Code delivery** > **Modules** and then click **Add module**.
+    - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.<br><br>
+1. From the left navigation menu, navigate to **Code delivery** > **Modules**, and then click **Add module**.
 1. For each field, enter the following:
 
     <u>Select a source</u>
@@ -53,15 +53,15 @@ Create a Module Pipeline
     <u>Select deployment branch</u>
       - Use this branch for deployments: **main**<br><br>
 
-1. Give the module a display name of **module**.
+1. Assign the module a display name of **module**.
 1. Click **Add Module**.
 1. On the main Modules page, click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
-1. In the modal popup, choose **Branch Regex**. In **Configure regex**, keep the default of `feature_.*`:![modal screenshot](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-2-2.png)
-1. Click **Add pipeline** and then click **Done**. After returning to main modules page, observe that the branch name has changed to regex.![branch regex](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-3-2.png)
+1. In the modal pop-up, choose **Branch Regex**. In **Configure regex**, keep the default of `feature_.*`:![modal screenshot](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-2-2.png)
+1. Click **Add pipeline**, and then click **Done**. After returning to main modules page, observe that the branch name has changed to regex.![branch regex](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-3-2.png)
 1. Click **+Add default pipeline**.
 ✔️ **Result:** A pipeline is created.
 
-Test your Module Pipeline
+Test your module pipeline
 ========
 
 1. From the **Start** menu, open **Visual Studio Code**.<br><br>
@@ -91,7 +91,7 @@ Test your Module Pipeline
 
 ✔️ **Result:** The errors you intentionally added to the code have successfully (and temporarily!) broken the pipeline.
 
-Fix the module repo code to run the pipeline successfully
+Fix the module repository code to run the pipeline successfully
 ========
 
 1. Switch back to the VS Code window to fix unit and syntax tests. Open **nginx_spec.rb** and fix the code you broke earlier.
@@ -113,4 +113,4 @@ Fix the module repo code to run the pipeline successfully
 
 🎈 **Congratulations!**
 
-You created a module pipeline, intentionally broke the unit and syntax tests to show the pipeline executing, then fixed your code to run the pipeline successfully. Click **Next** to close out this lab.
+You created a module pipeline, intentionally broke the unit and syntax tests to show the pipeline executing, and then fixed your code to run the pipeline successfully. Click **Next** to close this lab.

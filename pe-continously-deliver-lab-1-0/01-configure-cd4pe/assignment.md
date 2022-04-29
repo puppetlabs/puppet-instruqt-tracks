@@ -8,7 +8,7 @@ teaser: Set up all the necessary integrations on a brand new CD4PE instance to p
 notes:
 - type: text
   contents: |-
-    In this lab, you will configure the Continuous Delivery for Puppet Enterprise integrations you need to build your pipelines. You will:
+    In this lab, you will configure the Continuous Delivery for PE integrations you need to build your pipelines. You will:
 
      - Create a user and a workspace.
      - Configure integration with Puppet Enterprise.
@@ -38,8 +38,9 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-Create a Continuous Delivery user in Puppet Enterprise
+Create a Continuous Delivery user and user role in Puppet Enterprise
 ========
+You'll use this user and role to generate the PE authentication token required during the setup process and to view a centralized log of the activities Continuous Delivery for PE completes on your behalf.
 
 1. Log into the console with username `admin` and password `puppetlabs`.
 1. Navigate to **Admin** > **Access Control**.
@@ -47,7 +48,7 @@ Create a Continuous Delivery user in Puppet Enterprise
 1. In the **Login** field, enter `cd4pe_user`, and then click **Add local user**.
 1. Click the new `CD4PE User` link in the list below.
 1. In the top right corner, click **Generate password reset**.
-1. Copy the password reset link and paste it into a new browser tab.
+1. Copy the password reset link into a new browser tab.
 1. Enter the password `puppetlabs` in the new password box and click **Reset password**.
 1. Close the tab, close the password reset box, and return to the PE console.
 1. Under the **User roles** tab, click **Manage roles**.
@@ -75,10 +76,11 @@ Create a Continuous Delivery user in Puppet Enterprise
     ```
 18. When prompted, enter the username `cd4pe_user` and password `puppetlabs`. Note that the password will not be shown on the command line.
 
-✅ **Result:** The system creates the CD4PE user.
+✅ **Result:** The system creates the CD4PE user and role.
 
 Configure Code Manager in Puppet Enterprise
 ========
+You must enable and configure Code Manager to enable Continuous Delivery for PE to initiate code deployments as part of a pipeline job run.
 
 1. On the **PE Server** tab, create an SSH key:
     ```
@@ -126,7 +128,7 @@ Configure Code Manager in Puppet Enterprise
 
 12. To configure Code Manager, run `puppet agent -t` twice. Each run should take about 1-2 minutes.
 
-✅ **Result:** Code Manager is configured.
+✅ **Result:** Code Manager is enabled and configured. CD4PE can now initiate code deployments as part of a pipeline job run.
 
 Integrate CD4PE with Puppet Enterprise
 ========
@@ -172,4 +174,4 @@ Integrate CD4PE with Puppet Enterprise
 
 ----------
 
-🎈 **Congratulations!** You've configured the necessary integrations for CD4PE! If you'd like to learn how to add a control repository and configure a pipeline for CD4PE, continue to the next lab. Otherwise, spend some time exploring this environment. When you are through with this lab, click **Next**.
+🎈 **Congratulations!** You configured the necessary integrations for Continuous Delivery for PE! To learn how to add a control repository and configure a pipeline, continue to the next lab. Or, you can spend some time exploring this environment. When you are finished with this lab, click **Next**.
