@@ -53,23 +53,28 @@ Protect the production environment
 
     ✔️ **Result:** The **production** environment is now protected.<br><br>
 
-Create a new pipeline to run on the Development environment
+Create a new Deployment to Deploy to Production with Admin approval and Impact Analysis
 ========
 1. In the left-hand sidebar, navigate to **Control Repos** > **control-repo**.
-2. Add a new pipeline to run on the **Development** environment. Click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
-1. In the modal that opens, select **Development**, click **Add pipeline**, and then click **Done**.
-3. Configure the pipeline to run triggered by a merge request. With the **development** pipeline showing in the dropdown list, click **Manage Pipelines**. In the modal, unselect **Commit** and selectn **Pull Request**.Click **Save Settings**, click **Done**.
-4. Click **Add default pipeline**.  Click on the ellipses next to **Code Validation Stage**. In the modal popup, click **Add item to stage**. In the next modal, in the Slect Item dropdown, select **Jobs**. Under the the **Select Job** dropdown, select **control-repo-onceover-show-puppetfile**. Click **Add jobs to stage**. Click **Done**.
-6. Add a deployment step by clicking **Add a deployment**. Under Select a Node group, select Production. Under **Select a deployment policy**, select the **Eventual Consistency policy**. Click **Add deployment to stage**. Click **Done**.
+2. Add a new deployment step to deploy to **Production** with **Impact Analysis** after a successful deployment to **Development** environment.
+3. Add a deployment step by clicking **Add a step** at the bottom of the pipeline.
+4. Enter a name of **Deploy to Prod** in the **Stage Name** field. Under **Select a Node group**, select Production. Under **Select a deployment policy**, select the **Eventual Consistency policy**. Click **Add deployment to stage**. Click **Done**.
+5. Add an **Impact Analysis** step
+1. In the modal that appears, enter the following for each field:
 
-✔️ **Result:** tbd.<br><br>
+    <u>Create stage</u>
+    - Stage Name: **IA for Deployment to Dev and Prod**
+    <u>Add to this stage</u>
+    - Select Item: **Impact Analaysis**
+    <u>Select environments to analyze</u>
+    - Leave as-is.
+    - Click **Add Impact Analysis**, and then click **Done**.<br><br>
 
-Edit the Main pipeline to automatically deploy to Development
-========
-1. Edit the **main** pipeline. In the **Pipelines** dropdown, change the pipeline from **development88 to **main**.
-2. In the auto promote gate, check the **Auto promote** box.
+1. Click the ellipses (**...**) to the right of **IA for Deployment to Dev and Prod**, and then click **Reorder Pipeline**.
+1. Click the blue arrows at the right to move **IA for Deployment to Dev and Prod** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
+1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Deployment to Dev and Prod**.)
 
-✔️ **Result:** tbd.<br><br>
+✔️ **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br>
 
 Merge the feature_new_motd branch to the main branch
 ========
