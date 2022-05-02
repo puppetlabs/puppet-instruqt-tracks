@@ -59,7 +59,7 @@ Create a new Deployment to Deploy to Production with Admin approval and Impact A
 2. Add a new deployment step to deploy to **Production** with **Impact Analysis** after a successful deployment to **Development** environment.
 3. Add a deployment step by clicking **Add a step** at the bottom of the pipeline.
 4. Enter a name of **Deploy to Prod** in the **Stage Name** field. Under **Select a Node group**, select Production. Under **Select a deployment policy**, select the **Eventual Consistency policy**. Click **Add deployment to stage**. Click **Done**.
-5. Add an **Impact Analysis** step
+5. Add an **Impact Analysis** step. Click the **Add a step** button at the bottom of the pipeline.
 1. In the modal that appears, enter the following for each field:
 
     <u>Create stage</u>
@@ -74,7 +74,7 @@ Create a new Deployment to Deploy to Production with Admin approval and Impact A
 1. Click the blue arrows at the right to move **IA for Deployment to Dev and Prod** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
 1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Deployment to Dev and Prod**.)
 
-✔️ **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br>
+✔️ **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br> **ADD SCREENSHOT**
 
 Merge the feature_new_motd branch to the main branch
 ========
@@ -88,31 +88,53 @@ Change directory in the `control-repo` by running `cd control-repo`.
 On the workstation in the **control-repo** project run `git checkout main` and then `git checkout -b feature_new_motd`.
 
 2. Open `common.yaml` file at **control-repo/data/common.yaml** and edit it to include a new string for message of the day. Copy the following code into the file:
+```
+# <control-repo>/data/common.yaml
+---
+profile::base::login_message: 'This is a Made-Up Company Server'
+profile::apache::port: 80
+```
 4. Git add, commit and push origin feature_new_motd: `git add .` then `git commit -m "Adding message of the day"` then `git push origin feature_new_motd`
 5. Merge to main: `git merge main`.
-6. Switch over to the CD4PE browser to ensure your `feature_ pipeline` runs. Wait until the run completes successfully before you continue.
+6. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_motd pipeline` runs. Wait until the run completes successfully before you continue.
 
-Switch to Gitlab tab.
+Create a new Gitlab merge request to run the Main pipeline
+========
+1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.
+1. Log in with username `puppet`and password `puppetlabs`.
+2. Navigate to the `control-repo` project, and then click the **Merge Requests** icon located in the left navigation bar: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/merge-requests2.png)
 
-1. Log in to Gitlab with username ___ and password ___ (add instructions here).
-1. Create a new merge request merging `feature_new_motd` to `main`.
-8. When prompted, choose `merge when pipeline succeeds`.
+3. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).
+1. Leave **Source branch** set to the `feature_new_motd`.
+1. For **Target branch**, choose `main`.
+1. Click **Compare branches and continue**. This will create a merge request to merge `feature_server` to `main`.
+4. Leave the title as-is and click **Create merge request**.
+
+✔️ **Result:** The `feature_server` branch was merged to `main` using a Gitlab merge request. <br><br>
+
 
 ✔️ **Result:** tbd.<br><br>
 
 Approve deployment to Production
 ========
 1. Switch to the CD4PE browser.
-2. Notice that the `main` pipeline does not automatically push changes and code to the Development node groups and development branch in Gitlab.
-3. Notice that the Development pipeline now runs triggered by the commit made from the `main` pipeline.
-4. Review the Impact Analysis, and then approve the deployment to Production.(add steps here)
+2. Notice that the `main` pipeline has automatically deployed to the **Development** node group but does not automatically push changes and code to the **Production** node groups.
+3. Review the Impact Analysis, by clicking the downward expansion arrow next to the latest **Main** pipeline run.
+5. Click the # hyperlink in the **IA for Prod** step to view the Impact Analysis result page
+6. Once you have reviewed the IA results return to the control repo main page by clicking `control-repo` link in the 'Control Repos\control-repo' breadcrumb trail
+7. Back at the **Main** pipeline click the **Promote** link between the **IA to Prod** and **Deploy to Prod** stages
+8. Click the **New Events** button when it appears
+9. Click the downard expanion arrow and notice the Deployment to production step has a **Pending approval** bagdge
+10. Click the # hyperlink under the text *Deployment pending approval* and then click the green **Approve** button on the next page
 
-    Switch to the PE tab.
 
-1. Log into Puppet Enterprise and navigate to (?).
+
+11. Switch to the PE tab.
+
+1. Log into Puppet Enterprise with username `admin` and password `puppetlabs` and navigate to the Jobs page.
 1. Notice that there is no Job ID, as Eventual Consistency relies on normal Puppet runs to deploy your changes.
 
-✔️ **Result:** tbd.<br><br>
+✔️ **Result:** You new code has been deployed to the PE server and will be automatically rolled out during the normal Puppet Agent run lifecycle<br><br>
 
 -------
-🎈 **Congratulations!** In this lab you...
+🎈 **Congratulations!** In this lab you introduced an additonal deployment step to your **Main** pipeline. This step continued to move your Puppet code along to the **Production** environment after a successful deployment to the **Development** environment. You also configured **Impact Analysis** to show the potential changes to your environments and proteced the **Production** environment by requiring adminstrative approval prior to deployment.
