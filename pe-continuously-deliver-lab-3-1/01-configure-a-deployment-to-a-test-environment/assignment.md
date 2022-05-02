@@ -89,36 +89,23 @@ Create a new feature branch and use Gitlab to trigger the Main pipeline
     ```
     cd control-repo
     ```
-1. Check out the **feature_server** branch:
+2. Check out the **feature_test_motd** branch:
     ```
-    git checkout -b feature_server
+    git checkout -b feature_test_motd
     ```
-3. Navigate to the **manifests** directory (**control-repo** > **site-modules** > **role** > **manifests**).
-1. Create a new file (**File** > **New File**) and name it `server.pp`.
-1. Copy the `profile::base` into the file:
+3. Navigate to the **data** directory (**control-repo** > **site-modules** > **role** > **manifests**).
+4. Edit `common.yaml` to contain the following:
     ```
-    class role::server {
-      class { 'profile::base':
-        login_message => 'Welcome to the server',
-      }
-    }
+    # <control-repo>/data/common.yaml
+    ---
+    profile::base::login_message: 'Welcome to a new test server!'
+    profile::apache::port: 80
     ```
-4. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) and update the node definition to the following, which states that all servers get the role of `server`:
-    ```
-    node default {
-      if $trusted['extensions']['pp_role'] {
-          include "role::${trusted['extensions']['pp_role']}"
-      }
-      else {
-        include role::server
-      }
-    }
-    ```
-5. In the VS Code terminal, add, commit, and push your changes to the `feature_server` branch:
+5. In the VS Code terminal, add, commit, and push your changes to the `feature_test_motd` branch:
     ```
     git add .
     git commit -m "Add server role to site.pp"
-    git push origin feature_server
+    git push origin feature_test_motd
     ```
 6. Switch to the CD4PE browser window and review events for the regex pipeline on the control repo. If nothing is happening, click the **New Events** button: ![new events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
 
@@ -133,12 +120,12 @@ Create a Gitlab merge request to run the Main pipeline
 2. Navigate to the `control-repo` project, and then click the **Merge Requests** icon located in the left navigation bar: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/merge-requests2.png)
 
 3. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).
-1. Leave **Source branch** set to the `feature_server`.
+1. Leave **Source branch** set to the `feature_test_motd`.
 1. For **Target branch**, choose `main`.
-1. Click **Compare branches and continue**. This will create a merge request to merge `feature_server` to `main`.
+1. Click **Compare branches and continue**. This will create a merge request to merge `feature_test_motd` to `main`.
 4. Leave the title as-is and click **Create merge request**.
 
-✔️ **Result:** The `feature_server` branch was merged to `main` using a Gitlab merge request. <br><br>
+✔️ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request. <br><br>
 
 Inspect the development environment impact analysis and promote pipeline to Deploy
 ========
