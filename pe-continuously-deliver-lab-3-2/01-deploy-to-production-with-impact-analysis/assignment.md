@@ -59,24 +59,24 @@ Create a new Deployment to Deploy to Production with Admin approval and Impact A
 2. Add a new deployment step to deploy to **Production** with **Impact Analysis** after a successful deployment to **Development** environment.
 3. Add a deployment step by clicking **Add a step** at the bottom of the pipeline.
 4. Enter a name of **Deploy to Prod** in the **Stage Name** field. Under **Select a Node group**, select Production. Under **Select a deployment policy**, select the **Eventual Consistency policy**. Click **Add deployment to stage**. Click **Done**.
-5. Add an **Impact Analysis** step. Click the **Add a step** button at the bottom of the pipeline.
+5. Edit the **main** pipeline to include an Impact Analysis step for the both the **developemt** and **production** environments <i>before</i> the **deployment** steps. First, click **Add Stage**.
 1. In the modal that appears, enter the following for each field:
 
     <u>Create stage</u>
-    - Stage Name: **IA for Deployment to Dev and Prod**
+    - Stage Name: **IA for Test Deployment**
     <u>Add to this stage</u>
     - Select Item: **Impact Analaysis**
     <u>Select environments to analyze</u>
     - Leave as-is.
     - Click **Add Impact Analysis**, and then click **Done**.<br><br>
 
-1. Click the ellipses (**...**) to the right of **IA for Deployment to Dev and Prod**, and then click **Reorder Pipeline**.
-1. Click the blue arrows at the right to move **IA for Deployment to Dev and Prod** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
-1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Deployment to Dev and Prod**.)
+1. Click the ellipses (**...**) to the right of **IA for Test Deployment**, and then click **Reorder Pipeline**.
+1. Click the blue arrows at the right to move **IA for Test Deployment** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
+1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Test Deployment**.) Your pipelines should now look like this:
 
 ✔️ **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br> **ADD SCREENSHOT**
 
-Merge the feature_new_motd branch to the main branch
+Merge the feature_new_config branch to the main branch
 ========
 1. Open VScode. Open Folder to C:\CODE. Open a New Terminal. Change directory to C:\CODE. Clone the `control-repo` repository with the following command:
 
@@ -85,18 +85,21 @@ git clone git@gitlab:puppet/control-repo.git
 ```
 Change directory in the `control-repo` by running `cd control-repo`.
 
-On the workstation in the **control-repo** project run `git checkout main` and then `git checkout -b feature_new_motd`.
+On the workstation in the **control-repo** project run `git checkout main` and then `git checkout -b feature_new_config`.
 
-2. Open `common.yaml` file at **control-repo/data/common.yaml** and edit it to include a new string for message of the day. Copy the following code into the file:
+2. Open `base.pp` file at **control-repo/site-modules/profile/manifests/base.pp** and edit it to include a new name for the config file. Copy the following code into the file:
 ```
-# <control-repo>/data/common.yaml
----
-profile::base::login_message: 'This is a Made-Up Company Server'
-profile::apache::port: 80
+class profile::base ($login_message){
+  class {'motd':content => $login_message,}
+
+  file {'/etc/new.config':
+    content => 'this is a new config file'
+  }
+}
 ```
-4. Git add, commit and push origin feature_new_motd: `git add .` then `git commit -m "Adding message of the day"` then `git push origin feature_new_motd`
+4. Git add, commit and push origin feature_new_motd: `git add .` then `git commit -m "Adding message of the day"` then `git push origin feature_new_config`
 5. Merge to main: `git merge main`.
-6. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_motd pipeline` runs. Wait until the run completes successfully before you continue.
+6. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_config pipeline` runs. Wait until the run completes successfully before you continue.
 
 Create a new Gitlab merge request to run the Main pipeline
 ========
@@ -105,20 +108,20 @@ Create a new Gitlab merge request to run the Main pipeline
 2. Navigate to the `control-repo` project, and then click the **Merge Requests** icon located in the left navigation bar: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/merge-requests2.png)
 
 3. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).
-1. Leave **Source branch** set to the `feature_new_motd`.
+1. Leave **Source branch** set to the `feature_new_config`.
 1. For **Target branch**, choose `main`.
 1. Click **Compare branches and continue**. This will create a merge request to merge `feature_server` to `main`.
 4. Leave the title as-is and click **Create merge request**.
 
-✔️ **Result:** The `feature_server` branch was merged to `main` using a Gitlab merge request. <br><br>
+✔️ **Result:** The `feature_new_config` branch was merged to `main` using a Gitlab merge request. <br><br>
 
 
-✔️ **Result:** tbd.<br><br>
+✔️ **Result:** The MR from Gitlab triggers the **Main** pipeline to run.<br><br>
 
 Approve deployment to Production
 ========
 1. Switch to the CD4PE browser.
-2. Notice that the `main` pipeline has automatically deployed to the **Development** node group but does not automatically push changes and code to the **Production** node groups.
+2. Notice that the `main` pipeline has automatically deployed to the **Development** node group but does not automatically push changes and code to the **Production** node groups. Ensure all steps have completed successfully.
 3. Review the Impact Analysis, by clicking the downward expansion arrow next to the latest **Main** pipeline run.
 5. Click the # hyperlink in the **IA for Prod** step to view the Impact Analysis result page
 6. Once you have reviewed the IA results return to the control repo main page by clicking `control-repo` link in the 'Control Repos\control-repo' breadcrumb trail

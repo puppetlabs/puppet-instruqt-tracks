@@ -57,20 +57,6 @@ Add a deployment to the Main pipeline for the control repo
       - Choose **Direct deployment policy**
       - Leave existing settings as-is.<br><br>
 1. Click **Add Stage** and then click **Done**.
-5. Edit the **main** pipeline to include an Impact Analysis step for the **development** environment <i>before</i> the **deployment** step. First, click **Add Stage**.
-1. In the modal that appears, enter the following for each field:
-
-    <u>Create stage</u>
-    - Stage Name: **IA for Test Deployment**
-    <u>Add to this stage</u>
-    - Select Item: **Impact Analaysis**
-    <u>Select environments to analyze</u>
-    - Leave as-is.
-    - Click **Add Impact Analysis**, and then click **Done**.<br><br>
-
-1. Click the ellipses (**...**) to the right of **IA for Test Deployment**, and then click **Reorder Pipeline**.
-1. Click the blue arrows at the right to move **IA for Test Deployment** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
-1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Test Deployment**.) Your pipelines should now look like this: ![pipelines result](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/pipelines-lesson1.png)
 
 ✔️ **Result:** A deployment has been added to the main pipeline for the control repo. <br><br>
 
@@ -111,7 +97,7 @@ Create a new feature branch and use Gitlab to trigger the Main pipeline
 
 1. The pipeline event will show as pending until the jobs finish running (which takes 1-2 minutes). Click the drop-down arrow at the right for a detailed look at the jobs as they run:![jobs running](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/jobs-running.png)
 
-✔️ **Result:**  Once the jobs finish running, the output shows that the **feature_server** branch has been added: ![regex events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/regex-events.png)
+✔️ **Result:**  Once the jobs finish running, the output shows that the **feature_test_motd** branch has been added: ![regex events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/regex-events.png)
 
 Create a Gitlab merge request to run the Main pipeline
 ========
@@ -130,22 +116,18 @@ Create a Gitlab merge request to run the Main pipeline
 Inspect the development environment impact analysis and promote pipeline to Deploy
 ========
 1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events**.
-3. Observe the `main` pipeline as it runs the unit tests and syntax checks, and then runs the Impact Analysis.
-4. Once Impact Analysis finishes running, notice that the pipeline stops. It is waiting for a manual promotion to run the Deployment step.
-5. Click to inspect the IA output: Click **6 Succeeded**, then click the blue **#1** analysis report: ![IA analysis #1](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/ia-done.png)
-
-1. Click **View Analysis** and review the output shown.
-6. Return to **Control Repos** > **control-repo** and then click **Promote** (to the right, under **IA for Test Deployment**). Click **Promote** and then click **Done**.
+3. Observe the `main` pipeline as it runs the unit tests and syntax checks
+4. Once the code verification stage has completed you may then click **Promote** (to the right, the jobs in the code verification step). Click **Promote** and then click **Done**.
 7. Click **New Events**, and then click the drop-down arrow to view the Deployment run progress.
-8. Record the Job ID: Click on the green **#1 Succeeded**, then click the blue job report under **Deployment Done**. [ID note: unable to complete this step, can't locate the job report - steps beyond here need reviewed]
+8. Record the Job ID: Click on the green **#1 Succeeded**, then click the blue job report under **Deployment Done**.
 1. Navigate to **Deployment Steps** > **Orchestration Task** and click **View Jobs**. The job ID will be revealed.
 
     🔀 Switch to the **PE Console** tab<br><br>
 9. Log in to PE with username `admin` and password `puppetlabs`.
 1. Navigate to **Jobs**, and then click on the Job ID reported from CD4PE.
-11. Review the changes to the nodes in the **Development** node group.
+11. Review the changes to the nodes in the **Development** node group by clicking a node name and then clicking the link for the latest log. Review the changes made to the node.
 
-✔️ **Result:** tbd. <br><br>
+✔️ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your Main pipeline. This deployment was triggered by a Merge Request made when changes from your feature_test_motd code branch flagged a Merge Request in Gitlab.<br><br>
 
 --------
 🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the Main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. You also inspected the Impact Analysis of the jobs that you ran and promoted a pipeline to deply. This is a best-practice workflow for deploying changes to test nodes.

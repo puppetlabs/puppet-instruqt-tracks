@@ -78,6 +78,9 @@ bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/pa
 
 bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2,nixagent3,nixagent4
 
+# deploy the production code branch so files exist that we can change later to show IA
+puppet code deploy production --wait
+
 # Now run Puppet twice on the nodes
 puppet job run --query 'nodes {}'
 puppet job run --query 'nodes {}'
