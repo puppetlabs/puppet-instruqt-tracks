@@ -25,7 +25,6 @@ description: |-
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/install-the-primary-server).
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
-- ""
 - PE101
 - BACKUP
 owner: puppet
@@ -37,4 +36,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1086696107964556496"
+checksum: "16033495331365555427"
