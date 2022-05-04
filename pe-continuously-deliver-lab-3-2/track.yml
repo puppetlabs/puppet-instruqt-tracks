@@ -13,7 +13,7 @@ description: |-
    - Configure the Development pipeline to deploy to Production.
    - Protect the Production environment and require privileged deployment step approval.
    - Adjust the Main pipeline to automatically deploy to the Development branch from a git commit.
-   - Use a rolling deployment policy that requries logic between each step.
+   - Use a rolling deployment policy that requires logic between each step.
 
   ## Prerequisites
   None
@@ -30,10 +30,11 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - BACKUP
+- PE501
 owner: puppet
 developers:
 - alex.williamson@puppet.com
 private: true
 published: true
 show_timer: true
-checksum: "1115846448723197930"
+checksum: "12584090695578625120"

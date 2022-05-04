@@ -29,6 +29,7 @@ description: |-
 icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
 tags:
 - BACKUP
+- PE501
 owner: puppet
 developers:
 - alex.williamson@puppet.com
@@ -36,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "2424445544346744552"
+checksum: "9073438164573880905"
