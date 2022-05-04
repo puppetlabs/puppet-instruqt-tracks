@@ -12,8 +12,10 @@ notes:
 
      - Create a user and a workspace.
      - Configure integration with Puppet Enterprise.
-     - Configure integration with source control.
-     - Add a job hardware node.
+     - Configure integration with source control:
+        - Integrate PE.
+        - Integrate source control.
+        - Add a job hardware node.
 
      Click **Start** when you're ready to begin.
 tabs:
@@ -35,6 +37,10 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
+- title: Lab Help Guide
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3600
 ---
@@ -42,6 +48,7 @@ Create a Continuous Delivery user and user role in Puppet Enterprise
 ========
 You'll use this user and role to generate the PE authentication token required during the setup process and to view a centralized log of the activities Continuous Delivery for PE completes on your behalf.
 
+<u>Create a Continuous Delivery user</u>
 1. Log into the console with username `admin` and password `puppetlabs`.
 1. Navigate to **Admin** > **Access Control**.
 1. In the **Full name** field, enter `CD4PE User`.
@@ -51,6 +58,8 @@ You'll use this user and role to generate the PE authentication token required d
 1. Copy the password reset link into a new browser tab.
 1. Enter the password `puppetlabs` in the new password box and click **Reset password**.
 1. Close the tab, close the password reset box, and return to the PE console.
+
+<u>Set the user's role and permissions</u>
 1. Under the **User roles** tab, click **Manage roles**.
 1. In the **Name** field, enter `CD4PE`. In the **Description** field, enter `CD4PE role`, and then click **Add role**.
 1. Click the new `CD4PE` link in the list of roles below.
@@ -138,6 +147,7 @@ Integrate CD4PE with Puppet Enterprise
 1. On the desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.
 1. From the CD4PE login screen, click **Create an account**, then enter your information (remember the username and password you enter - you will need it later on), then click **Sign Up**.
+    - To see the full CD4PE interface, expand the browser window to full-size.
 2. On the next screen, click **+ Add new workspace**. Call it **Puppet** and then click **Create workspace**.
 3. You'll be logged as your new user and will arrive at your main Workspace page. Under the **Set up Continuous Delivery for PE** header at the top, notice the steps listed. You we will complete those steps next.
 

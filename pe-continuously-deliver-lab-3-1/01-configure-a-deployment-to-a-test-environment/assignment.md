@@ -34,6 +34,10 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
+- title: Lab Help Guide
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3600
 ---
@@ -42,7 +46,8 @@ Add a deployment to the Main pipeline for the control repo
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 2. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
+    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
+    - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
 3. Navigate to **Control Repos** > **control-repo**.
 4. Add a new deployment to the main pipeline. First, ensure **main** is selected in the drop-down menu. Then, click **Add Stage**:![add stage](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/add-stage.png)
 1. In the modal that appears, enter the following for each field:
@@ -52,13 +57,13 @@ Add a deployment to the Main pipeline for the control repo
     <u>Add to this stage</u>
     - Select Item: **Deployment**
     - Select a Puppet Enterprise Instance: **PE**
-    - Select a Node Group: **Development**
+    - Select a Node Group: **Development environment**
     - Select a Deployment Policy: **Built-in deployment policies**
       - Choose **Direct deployment policy**
       - Leave existing settings as-is.<br><br>
 1. Click **Add Stage** and then click **Done**.
 
-✔️ **Result:** A deployment has been added to the main pipeline for the control repo. <br><br>
+✅ **Result:** A deployment has been added to the main pipeline for the control repo. <br><br>
 
 Create a new feature branch and use Gitlab to trigger the Main pipeline
 ========
@@ -79,7 +84,7 @@ Create a new feature branch and use Gitlab to trigger the Main pipeline
     ```
     git checkout -b feature_test_motd
     ```
-3. Navigate to the **data** directory (**control-repo** > **site-modules** > **role** > **manifests**).
+3. Navigate to the **data** directory (**control-repo** > **data**).
 4. Edit `common.yaml` to contain the following:
     ```
     # <control-repo>/data/common.yaml
@@ -90,14 +95,14 @@ Create a new feature branch and use Gitlab to trigger the Main pipeline
 5. In the VS Code terminal, add, commit, and push your changes to the `feature_test_motd` branch:
     ```
     git add .
-    git commit -m "Add server role to site.pp"
+    git commit -m "Updated base profile login message"
     git push origin feature_test_motd
     ```
-6. Switch to the CD4PE browser window and review events for the regex pipeline on the control repo. If nothing is happening, click the **New Events** button: ![new events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
+6. Switch to the CD4PE browser window, navigate to Control Repos > control-repo and review events for the regex pipeline on the control repo. If nothing is happening, click the **New Events** button: ![new events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
 
 1. The pipeline event will show as pending until the jobs finish running (which takes 1-2 minutes). Click the drop-down arrow at the right for a detailed look at the jobs as they run:![jobs running](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/jobs-running.png)
 
-✔️ **Result:**  Once the jobs finish running, the output shows that the **feature_test_motd** branch has been added: ![regex events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/regex-events.png)
+✅ **Result:**  Once the jobs finish running, the output shows that the **feature_test_motd** branch has been added: ![regex events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/regex-events.png)
 
 Create a Gitlab merge request to run the Main pipeline
 ========
@@ -111,7 +116,7 @@ Create a Gitlab merge request to run the Main pipeline
 1. Click **Compare branches and continue**. This will create a merge request to merge `feature_test_motd` to `main`.
 4. Leave the title as-is and click **Create merge request**.
 
-✔️ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request. <br><br>
+✅ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request. <br><br>
 
 Inspect the development environment impact analysis and promote pipeline to Deploy
 ========
@@ -127,7 +132,7 @@ Inspect the development environment impact analysis and promote pipeline to Depl
 1. Navigate to **Jobs**, and then click on the Job ID reported from CD4PE.
 11. Review the changes to the nodes in the **Development** node group by clicking a node name and then clicking the link for the latest log. Review the changes made to the node.
 
-✔️ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your Main pipeline. This deployment was triggered by a Merge Request made when changes from your feature_test_motd code branch flagged a Merge Request in Gitlab.<br><br>
+✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your Main pipeline. This deployment was triggered by a Merge Request made when changes from your feature_test_motd code branch flagged a Merge Request in Gitlab.<br><br>
 
 --------
 🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the Main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. You also inspected the Impact Analysis of the jobs that you ran and promoted a pipeline to deply. This is a best-practice workflow for deploying changes to test nodes.

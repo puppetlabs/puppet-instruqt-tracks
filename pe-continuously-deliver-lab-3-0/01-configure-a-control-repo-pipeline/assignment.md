@@ -32,6 +32,10 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
+- title: Lab Help Guide
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3600
 ---
@@ -40,7 +44,8 @@ Configure default control repo pipelines
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.<br><br>
+    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
+    - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
 1. From the navigation menu, click **Control Repos**, and then click **Add control repo**.
 1. For each field, enter the following:
 
@@ -60,7 +65,7 @@ Configure default control repo pipelines
 1. Click **+ Add default pipeline**.
 1. Click **Manage pipelines**. Make sure that the **Commit** trigger checkbox is selected and that the **PullRequest** checkbox is deselected. Click **Save Settings** and then click **Done**.
 
-✔️ **Result:** A default control repo pipeline is created.<br><br>
+✅ **Result:** A default control repo pipeline is created.<br><br>
 
 Test the default pipelines
 ========
@@ -88,7 +93,7 @@ Test the default pipelines
 1. There may be a delay for the jobs to complete the first time they are executed, but eventually they should end in the **SUCCEEDED** state.
     ![code validation succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-code-validation-succeeded.png)
 
-✔️ **Result:** The jobs run successfully.<br><br>
+✅  **Result:** The jobs run successfully.<br><br>
 
 Add a unit test job type
 ========
@@ -111,7 +116,7 @@ Add a unit test job type
 1. Select the **control-repo-onceover-show-puppetfile** job, click **Add stage** and then click **Done**.
 1. Repeat the same steps for the **regex** pipeline.
 
-✔️ **Result:** A unit test job type is created.<br><br>
+✅  **Result:** A unit test job type is created.<br><br>
 
 Test the unit test job stage in your Regex Pipeline
 ========
@@ -127,7 +132,7 @@ Test the unit test job stage in your Regex Pipeline
 1. The jobs may be in a **PENDING** state. To view their progress, click the down-arrow icon to expand the list and then click into any of them.
 1. Observe a new run of the regex pipeline jobs with the new custom job that displays the Puppetfile module statuses.
     ![unit tests successful](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-run-unit-tests.png)
-✔️ **Result:** The unit test jobs run successfully.<br><br>
+✅  **Result:** The unit test jobs run successfully.<br><br>
 
 --------------
 🎈 **Congratulations!** You set up a control repo and then added main and regexp pipelines to it, before finally testing the pipelines to ensure they work as expected.

@@ -34,6 +34,10 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
+- title: Lab Help Guide
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
 timelimit: 3600
 ---
@@ -43,7 +47,8 @@ Create a module pipeline
 1. On the Windows Workstation desktop, double-click the CD4PE shortcut.
      - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Enter username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.<br><br>
+    - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.
+    - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
 1. From the left navigation menu, navigate to **Code delivery** > **Modules**, and then click **Add module**.
 1. For each field, enter the following:
 
@@ -59,7 +64,7 @@ Create a module pipeline
 1. In the modal pop-up, choose **Branch Regex**. In **Configure regex**, keep the default of `feature_.*`:![modal screenshot](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-2-2.png)
 1. Click **Add pipeline**, and then click **Done**. After returning to main modules page, observe that the branch name has changed to regex.![branch regex](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-3-2.png)
 1. Click **+Add default pipeline**.
-✔️ **Result:** A pipeline is created.
+✅   **Result:** A pipeline is created.
 
 Test your module pipeline
 ========
@@ -89,7 +94,7 @@ Test your module pipeline
 
 1. Navigate to the CD4PE window and observe pipeline job and failure output as it appears in the Events section at the bottom of the page. (You may need to refresh the CD4PE window to see the changes.) ![pipeline failure](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-4.png)
 
-✔️ **Result:** The errors you intentionally added to the code have successfully (and temporarily!) broken the pipeline.
+✅   **Result:** The errors you intentionally added to the code have successfully (and temporarily!) broken the pipeline.
 
 Fix the module repository code to run the pipeline successfully
 ========
@@ -107,7 +112,7 @@ Fix the module repository code to run the pipeline successfully
 1. Switch back to the CD4PE browser window. (Refresh the window if needed.)
 1. Observe pipeline unit test and syntax success.![]()
 
-✔️ **Result:** You fixed the errors in the code and now the pipeline works as expected.
+✅   **Result:** You fixed the errors in the code and now the pipeline works as expected.
 
 ----------
 

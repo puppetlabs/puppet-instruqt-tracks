@@ -35,8 +35,12 @@ tabs:
 - title: Gitlab
   type: terminal
   hostname: gitlab
+- title: Lab Help Guide
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 10800
+timelimit: 3600
 ---
 Protect the production environment
 ========
@@ -44,6 +48,7 @@ Protect the production environment
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
+    - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
 2. Navigate to **Settings** > **Puppet Enterprise**.
 3. In the **Protected Envs** column click the `0`.
     - You may need to expand the CD4PE browser window to see the columns clearly.<br><br>
@@ -51,7 +56,7 @@ Protect the production environment
 1. Click **Add**, and then click **Done**.
 1. Close the modal, return to the Puppet Enterprise settings page, and review the **Protected environments** column, which now shows one protected environment: ![protected environment](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-protectedenv.png)
 
-    ✔️ **Result:** The **production** environment is now protected.<br><br>
+    ✅   **Result:** The **production** environment is now protected.<br><br>
 
 Create a new Deployment to Deploy to Production with Admin approval and Impact Analysis
 ========
@@ -74,7 +79,7 @@ Create a new Deployment to Deploy to Production with Admin approval and Impact A
 1. Click the blue arrows at the right to move **IA for Test Deployment** up the pipeline above **Test Deployment**. Click **Save changes** and then click **Done**.
 1. Under the list of jobs, choose **Auto Promote**. (Do not select **Auto Promote** on the gate icon directly below **IA for Test Deployment**.) Your pipelines should now look like this:
 
-✔️ **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br> **ADD SCREENSHOT**
+✅   **Result:** You have added a new Deployment step that will require Admin approval to deploy changes to Production.<br><br> **ADD SCREENSHOT**
 
 Merge the feature_new_config branch to the main branch
 ========
@@ -101,6 +106,8 @@ class profile::base ($login_message){
 5. Merge to main: `git merge main`.
 6. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_config pipeline` runs. Wait until the run completes successfully before you continue.
 
+✅   **Result:** The `feature_new_config` branch was merged to `main` using a Gitlab merge request. <br><br>
+
 Create a new Gitlab merge request to run the Main pipeline
 ========
 1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.
@@ -113,10 +120,7 @@ Create a new Gitlab merge request to run the Main pipeline
 1. Click **Compare branches and continue**. This will create a merge request to merge `feature_server` to `main`.
 4. Leave the title as-is and click **Create merge request**.
 
-✔️ **Result:** The `feature_new_config` branch was merged to `main` using a Gitlab merge request. <br><br>
-
-
-✔️ **Result:** The MR from Gitlab triggers the **Main** pipeline to run.<br><br>
+✅   **Result:** The MR from Gitlab triggers the **Main** pipeline to run.<br><br>
 
 Approve deployment to Production
 ========
@@ -129,15 +133,11 @@ Approve deployment to Production
 8. Click the **New Events** button when it appears
 9. Click the downard expanion arrow and notice the Deployment to production step has a **Pending approval** bagdge
 10. Click the # hyperlink under the text *Deployment pending approval* and then click the green **Approve** button on the next page
-
-
-
-11. Switch to the PE tab.
-
+       🔀 Switch to the PE tab.
 1. Log into Puppet Enterprise with username `admin` and password `puppetlabs` and navigate to the Jobs page.
 1. Notice that there is no Job ID, as Eventual Consistency relies on normal Puppet runs to deploy your changes.
 
-✔️ **Result:** You new code has been deployed to the PE server and will be automatically rolled out during the normal Puppet Agent run lifecycle<br><br>
+✅ **Result:** You new code has been deployed to the PE server and will be automatically rolled out during the normal Puppet Agent run lifecycle<br><br>
 
 -------
 🎈 **Congratulations!** In this lab you introduced an additonal deployment step to your **Main** pipeline. This step continued to move your Puppet code along to the **Production** environment after a successful deployment to the **Development** environment. You also configured **Impact Analysis** to show the potential changes to your environments and proteced the **Production** environment by requiring adminstrative approval prior to deployment.
