@@ -67,9 +67,9 @@ You'll use this user and role to generate the PE authentication token required d
 1. Click the **Permissions** tab and add the following required permissions to the role (after selecting the options, click **Add** to set each permission):
     - **Job orchestrator:** Start, stop and view jobs.
     - **Node groups:** Create, edit, and delete child groups, All.
-    - **Node groups:** View, All.
     - **Node groups:** Edit configuration data, All.
     - **Node groups:** Set environment, All.
+    - **Node groups:** View, All.
     - **Nodes:** View node data from PuppetDB.
     - **Puppet agent:** Run Puppet on agent nodes.
     - **Puppet environment:** Deploy code, All.
@@ -117,7 +117,7 @@ You must enable and configure Code Manager to enable Continuous Delivery for PE 
 
 9. Navigate to **Node groups**.
 9. Click the plus (**+**) icon to the left of **PE Infrastructure** to expand the group, and then click **PE Master**.
-9. Click the **Classes** tab and scroll to the bottom find the **puppet_enterprise::profile::master** class.
+9. Click the **Classes** tab and scroll to the bottom to find the **puppet_enterprise::profile::master** class.
 10. For this class, set the following (click **Add to node group** to set each parameter):<br>
     **code_manager_auto_configure**:
     ```
@@ -167,18 +167,20 @@ Integrate CD4PE with Puppet Enterprise
 
 1. Click **Integrate source control**.
 1. Click **GitLab**. In the **Host** field, enter **http://gitlab/**.
-1. Switch to the **GitLab** tab in your browser and select **Settings** > **Access Tokens** from the left side navigation bar.
-1. Enter **CD4PE** in the **Token name** text box, choose an expiration date in the future, select **Maintainer** as the role and select all of the available scopes. Click **Create project access token**.
-1. The project access token will be shown on the next page. Copy it by clicking the clipboard copy icon.
-1. Switch to the **CD4PE** browser tab and copy the new token into the **Token** text box.
-1. Select **Clone via HTTP(S)** and click **Add credentials**. After the credentials have been added, click **Done**.
+1. Switch to the **GitLab** tab in your browser and select **Settings** > **Access Tokens** from the left side navigation bar:![gitlab settings button](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/gitlab-settings-button.png)
+
+1. In the **Token name** text box, enter **CD4PE**.
+1. Choose an expiration date in the future, select **Maintainer** as the role, and then select all of the available scopes. Click **Create project access token**.
+1. The page will automatically refresh and the project access token will be shown on the next page. Copy it by clicking the clipboard copy icon.
+1. Switch to the **CD4PE** browser tab and paste the new token into the **Token** field.
+1. Select **Clone via HTTP(S)** and then click **Add credentials**. After the credentials have been added, click **Done**.
 ✅ **Result:** Source control is integrated.
 
 <u>Add a job hardware node</u>
 
 1. Click **Set up job hardware**.
 2. Click **+ Edit**.
-3. From the **Puppet Enterprise Server** list, select the server you previously added (Puppet-Server) and select the check box to the left of the node.
+3. From the **Puppet Enterprise Server** list, select the server you previously added (**Puppet-Server**) and then select the check box to the left of the node that begins with **CD4PE**.
 4. Click **Save**, and then click **Done**.
 ✅ **Result:** A job hardware node has been added.
 
