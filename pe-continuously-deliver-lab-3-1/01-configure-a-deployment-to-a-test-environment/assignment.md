@@ -115,6 +115,7 @@ Create a Gitlab merge request to run the Main pipeline
 1. For **Target branch**, choose `main`.
 1. Click **Compare branches and continue**. This will create a merge request to merge `feature_test_motd` to `main`.
 4. Leave the title as-is and click **Create merge request**.
+5. Click the **Merge** button to merge your change into the `main` branch.
 
 ✅ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request. <br><br>
 
@@ -122,9 +123,9 @@ Inspect the development environment impact analysis and promote pipeline to Depl
 ========
 1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events**.
 3. Observe the `main` pipeline as it runs the unit tests and syntax checks
-4. Once the code verification stage has completed you may then click **Promote** (to the right, the jobs in the code verification step). Click **Promote** and then click **Done**.
+4. Once the code verification stage has completed you may then click **Promote** (to the right of the jobs in the code verification stage of the pipeline). Click **Promote** and then click **Done**.
 7. Click **New Events**, and then click the drop-down arrow to view the Deployment run progress.
-8. Record the Job ID: Click on the green **#1 Succeeded**, then click the blue job report under **Deployment Done**.
+8. Record the Job ID: Click on the green **1 Succeeded**, then click the blue job report under **Deployment Done**.
 1. Navigate to **Deployment Steps** > **Orchestration Task** and click **View Jobs**. The job ID will be revealed.
 
     🔀 Switch to the **PE Console** tab<br><br>
