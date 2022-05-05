@@ -77,14 +77,6 @@ You'll use this user and role to generate the PE authentication token required d
     - **Tasks:** Run tasks, `cd4pe_jobs::run_cd4pe_job`.<br><br>
 16. Click **Commit 10 changes** at the bottom right.
 
-    🔀  Switch to the PE Server tab<br><br>
-
-17. Generate a token by running the following command on the command line:
-    ```
-    puppet access login
-    ```
-18. When prompted, enter the username `cd4pe_user` and password `puppetlabs`. Note that the password will not be shown on the command line.
-
 ✅ **Result:** The system creates the CD4PE user and role.
 
 Configure Code Manager in Puppet Enterprise

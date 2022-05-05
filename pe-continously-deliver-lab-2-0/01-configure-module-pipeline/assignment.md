@@ -64,7 +64,7 @@ Create a module pipeline
 1. In the modal pop-up, choose **Branch Regex**. In **Configure regex**, keep the default of `feature_.*`:![modal screenshot](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-2-2.png)
 1. Click **Add pipeline**, and then click **Done**. After returning to main modules page, observe that the branch name has changed to regex.![branch regex](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-3-2.png)
 1. Click **+Add default pipeline**.
-✅   **Result:** A pipeline is created.
+✅   **Result:** A pipeline is created: ![pipeline created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.0-pipeline-created.png)
 
 Test your module pipeline
 ========
@@ -76,6 +76,7 @@ Test your module pipeline
 1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
 1. In the VS Code terminal window, run the following command:
     ```
+    cd CODE
     git clone git@gitlab:puppet/module.git
     ```
 1. Check out a new feature branch `feature_test` to use with the new regex pipeline:
@@ -83,34 +84,32 @@ Test your module pipeline
     cd module
     git checkout -b feature_test
     ```
-1. Using VS Code Explorer, open **nginx_spec.rb** (**Local Disk** > **module** > **spec** > **classes** > **nginx_spec.rb**) and remove line 13 to intentionally and temporarily break the unit tests to show the pipeline executing.
-1. Using VS Code Explorer, open **init.pp** (**Local Disk** > **module** > **manifests** > **init.pp**) and remove the last line of the file to intentionally and temporarily break the syntax to show the pipeline executing.
-1. Commit and push your code to your feature branch.
+
+1. Push your new feature branch up to Gitlab.
     ```
-    git add .
-    git commit -m "Force a pipeline run with failed code"
-    git push origin feature_test
+    git commit --allow-empty -m "Initial branch commit"
+    git push -u origin feature_test
     ```
 
-1. Navigate to the CD4PE window and observe pipeline job and failure output as it appears in the Events section at the bottom of the page. (You may need to refresh the CD4PE window to see the changes.) ![pipeline failure](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-4.png)
+1. Navigate to the CD4PE window and observe the pipeline job and failure output as it appears in the **Events** section at the bottom of the page. If nothing is showing, click **New Events** to see the running jobs: ![new events button](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
 
-✅   **Result:** The errors you intentionally added to the code have successfully (and temporarily!) broken the pipeline.
+✅   **Result:** The errors in the code have successfully (and temporarily!) broken the pipeline. Click **1 Failed** to see details about the job failure. ![pipeline failure](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.0-job-failure.png)
 
 Fix the module repository code to run the pipeline successfully
 ========
 
-1. Switch back to the VS Code window to fix unit and syntax tests. Open **nginx_spec.rb** and fix the code you broke earlier.
-    - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/spec/classes/nginx_spec.rb).
-1. Open **init.pp** and fix the syntax bug you created earlier.
-    - Not sure how to fix it? Copy the original code from [here](https://github.com/puppetlabs/kmo-501-nginx/blob/production/manifests/init.pp).
+1. Switch back to the VS Code window to fix the syntax.  Run the following command in the terminal to automatically correct the syntax errors:
+    ```
+    pdk validate --auto-correct
+    ```
 1. In the VS Code terminal window, commit and push your code to your feature branch.
     ```
     git add .
-    git commit -m "Force a pipeline run with failed code"
+    git commit -m "Fix syntax errors"
     git push
     ```
-1. Switch back to the CD4PE browser window. (Refresh the window if needed.)
-1. Observe pipeline unit test and syntax success.![]()
+1. Switch back to the CD4PE browser window. Click **New Events** if needed.
+1. Observe pipeline success.
 
 ✅   **Result:** You fixed the errors in the code and now the pipeline works as expected.
 

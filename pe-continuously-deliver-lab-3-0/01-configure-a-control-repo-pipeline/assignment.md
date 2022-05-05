@@ -65,12 +65,14 @@ Configure default control repo pipelines
 1. Click **+ Add default pipeline**.
 1. Click **Manage pipelines**. Make sure that the **Commit** trigger checkbox is selected and that the **PullRequest** checkbox is deselected. Click **Save Settings** and then click **Done**.
 
-✅ **Result:** A default control repo pipeline is created.<br><br>
+✅ **Result:** A default control repo pipeline is created: ![pipeline created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.1-pipeline-created.png)
+
 
 Test the default pipelines
 ========
 1. From the **Start** menu, open **Visual Studio Code**.
-1. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+
+    💡 **Tip:** Enable VS Code autosave by clicking **File** > **Auto Save**. By enabling autosave, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
 1. If prompted to trust the code in this directory, click **Accept**.
 1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
@@ -81,16 +83,14 @@ Test the default pipelines
         cd control-repo
         git checkout -b feature_test
 
-1. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) in VS Code and add a comment line to the file.
 1. Commit your change and push to the remote repository:
     ```
-    git add .
-    git commit -m "Added some commenting to site.pp"
-    git push origin feature_test
+    git commit --allow-empty -m "Initial branch commit"
+    git push -u origin feature_test
     ```
 1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control-repo. If nothing is happening, click the **New Events** button.
 1. The jobs may be in a **PENDING** state. Click the down-arrow icon to expand the list and then click into any of them to view their progress.
-1. There may be a delay for the jobs to complete the first time they are executed, but eventually they should end in the **SUCCEEDED** state.
+1. There may be a delay for the jobs to complete the first time they are run, but after 2-3 minutes they should end in the **SUCCEEDED** state.
     ![code validation succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-code-validation-succeeded.png)
 
 ✅  **Result:** The jobs run successfully.<br><br>
@@ -98,35 +98,34 @@ Test the default pipelines
 Add a unit test job type
 ========
 1. In the left-hand navigation bar, click **Jobs** and then click **New job**.
-    - If the **New job** button isn't not showing up, expand the CD4PE browser window.
+    - If the **New job** button isn't not showing up, expand the CD4PE browser window.<br><br>
 1. Enter the following:
     - **NAME**: **control-repo-onceover-show-puppetfile**
     - **Job commands**: `bundle exec onceover init && bundle exec onceover show puppetfile`<br><br>
-1. Select **Run on puppet hardware**.
-1. For **Hardware capabilities**, select **docker** and then click **Apply**.
-1. Toggle the option for **Run this job in a Docker container**. Leave the other settings as-is and then click **Save job**.
+    - Select **Run on puppet hardware**.
+    - For **Hardware capabilities**, select **docker** and then click **Apply**.
+    - Toggle the option for **Run this job in a Docker container**. Leave the other settings as-is and then click **Save job**.<br><br>
 1. In the left-hand navigation bar, click **Control Repos** and then click **control-repo**.
 1. In the **Pipelines** dropdown, select the **main** pipeline:![main branch](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-main-branch.png)
 
 1. Click the 3 dots next to the **Code Validation stage** header:![3 dots](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-3-dots.png)
 
 1. Select **Add a stage after**.
-1. In the **STAGE NAME** field enter **Run unit tests**.
-1. From the **SELECT ITEM** dropdown, select **Jobs**.
-1. Select the **control-repo-onceover-show-puppetfile** job, click **Add stage** and then click **Done**.
-1. Repeat the same steps for the **regex** pipeline.
+1. Enter the following:
+    - In the **STAGE NAME** field enter **Run unit tests**.
+    - From the **SELECT ITEM** dropdown, select **Jobs**.
+    - Select the **control-repo-onceover-show-puppetfile** job, click **Add stage**, and then click **Done**.<br><br>
+1. Starting at step 4, repeat the same steps for the **regex** pipeline.
 
-✅  **Result:** A unit test job type is created.<br><br>
+✅  **Result:** A unit test job type is created for both the **main** and **regex** pipelines: ![unit tests created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.1-run-unit-tests-job.png)
 
 Test the unit test job stage in your Regex Pipeline
 ========
 1. Switch back to the VS Code window.
-1. Open `site.pp` (**control-repo** > **manifests** > **site.pp**) and add a comment line somewhere in the file.
 1. Commit your change and push to the remote repository:
     ```
-    git add .
-    git commit -m "Added some commenting to site.pp"
-    git push origin feature_test
+    git commit --allow-empty -m "Trigger unit test job"
+    git push
     ```
 1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control repo. Click the **New Events** button if needed.
 1. The jobs may be in a **PENDING** state. To view their progress, click the down-arrow icon to expand the list and then click into any of them.
