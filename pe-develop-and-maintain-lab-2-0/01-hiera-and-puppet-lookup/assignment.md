@@ -29,7 +29,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 1500
+timelimit: 2400
 ---
 Clone the control repo on your Windows development workstation
 ========

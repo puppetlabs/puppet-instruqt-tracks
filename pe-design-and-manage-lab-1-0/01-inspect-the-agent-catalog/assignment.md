@@ -32,7 +32,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 900
+timelimit: 1800
 ---
 1. On the Linux agent tab, run Puppet to request the agent's catalog from the primary server:
     ```

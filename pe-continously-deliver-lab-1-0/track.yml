@@ -36,5 +36,6 @@ developers:
 - thomas.chisholm@puppet.com
 private: true
 published: true
+maintenance: true
 show_timer: true
-checksum: "5458120477987542511"
+checksum: "8979322843806952415"

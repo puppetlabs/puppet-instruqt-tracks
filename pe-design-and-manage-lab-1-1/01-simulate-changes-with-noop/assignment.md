@@ -32,7 +32,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 900
+timelimit: 1800
 ---
 First, let's break something.
 ========

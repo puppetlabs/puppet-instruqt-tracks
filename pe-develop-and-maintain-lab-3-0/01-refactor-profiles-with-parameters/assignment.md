@@ -47,7 +47,7 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 1500
+timelimit: 2400
 ---
 Identify nodes in the dc-west data center
 ========
