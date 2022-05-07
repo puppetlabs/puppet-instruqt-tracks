@@ -32,6 +32,5 @@ developers:
 - alex.williamson@puppet.com
 private: true
 published: true
-maintenance: true
 show_timer: true
-checksum: "17265943544087469762"
+checksum: "15618238359080149234"
