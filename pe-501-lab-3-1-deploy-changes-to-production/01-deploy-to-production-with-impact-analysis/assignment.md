@@ -81,7 +81,7 @@ Deploy to Production with admin approval and IA
 
 1. Click the ellipses (**...**) to the right of **IA for Deployment**, and then click **Reorder Pipeline**.
 1. Click the blue arrows at the right two times to move **IA for Deployment** up the pipeline above **Deploy to Dev**. Click **Save changes** and then click **Done**.
-1. Under the list of jobs (**Pipeline stage 1**) and under **IA for Deployment**, click the checkbox for **Auto Promote**. Do not select **Auto Promote** for stages following **IA for Deployment**. Your pipelines should now look like this: ![pipelines auto promote](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-pipelines-set.png)
+1. Under the list of jobs (**Pipeline stage 1**) and under **IA for Deployment**, click the checkbox for **Auto Promote**. Do not select **Auto Promote** under **Deploy to Dev**. Your pipelines should now look like this: ![pipelines auto promote](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-pipelines-set.png)
 
 ✅   **Result:** You added a new deployment step that will require Admin approval to deploy changes to Production.<br><br>
 
