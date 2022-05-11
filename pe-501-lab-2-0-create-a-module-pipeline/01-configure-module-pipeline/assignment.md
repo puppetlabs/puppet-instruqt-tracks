@@ -83,7 +83,7 @@ Test your module pipeline
     cd module
     git checkout -b feature_test
     ```
-
+💡 **Tip:** Remember to hit enter to run the command.
 1. Push your new feature branch up to Gitlab:
     ```
     git commit --allow-empty -m "Initial branch commit"
@@ -107,6 +107,7 @@ Fix the module repository code to run the pipeline successfully
     git commit -m "Autocorrect syntax and style errors"
     git push
     ```
+💡 **Tip:** Remember to hit enter to run the command.
 1. Switch back to the CD4PE browser window. Click the **New Events** button if it appears.
 1. Observe pipeline success.
 

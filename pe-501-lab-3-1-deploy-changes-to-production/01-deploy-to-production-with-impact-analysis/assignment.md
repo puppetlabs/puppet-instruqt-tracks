@@ -150,7 +150,7 @@ Approve deployment to Production
 8. Click the downard expanion arrow to the right of the running job and notice the Deployment to production step has a **Pending approval** badge: ![pending approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/pending-approval.png)
 9. Under **Deployment pending approval**, click the blue link that starts with a #. ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-pending-approval.png)
 
-1. Click **Approve**: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/approve.png)
+1. Click the **Approve** button, and then in the confirmation modal that appears, click **Approve** and **Done**. ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/approve.png)
 
     🔀 Switch to the PE Console tab.<br><br>
 
