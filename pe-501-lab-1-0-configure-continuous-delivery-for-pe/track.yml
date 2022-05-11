@@ -1,0 +1,40 @@
+slug: pe-501-lab-1-0-configure-continuous-delivery-for-pe
+id: vsjxjarohory
+type: track
+title: 'PE501 Lab 1.0: Configure Continuous Delivery for Puppet Enterprise'
+teaser: Before you can build your continuous delivery pipelines, you must configure
+  integrations with Puppet Enterprise and source control.
+description: |-
+  ## Introduction
+  In order to work and automate Puppet code tests and deployments, CD4PE requires access to Puppet Enterprise APIs and your source control tool, so a list of prerequisite setups is needed before designing your workflows via CI/CD pipelines.
+
+  In this lab, you will configure the integrations you need to build your pipelines. You will:
+   - Create a user and a workspace.
+   - Configure integration with Puppet Enterprise.
+   - Configure integration with source control.
+   - Add a job hardware node.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+tags:
+- BACKUP
+- PE501
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+- thomas.chisholm@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "11853106337510815164"

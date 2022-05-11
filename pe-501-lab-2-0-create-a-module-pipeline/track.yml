@@ -1,0 +1,33 @@
+slug: pe-501-lab-2-0-create-a-module-pipeline
+id: scri5ofo6y9m
+type: track
+title: 'PE501 Lab 2.0: Create a Module Pipeline'
+teaser: Create a Module Pipeline
+description: |-
+  ## Introduction
+  In this lab you will put together a basic pipeline built for module testing and gain a familiarity with building pipelines.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+tags:
+- BACKUP
+- PE501
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- alex.williamson@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "11744210138005876904"

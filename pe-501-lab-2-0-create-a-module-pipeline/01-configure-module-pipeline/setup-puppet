@@ -1,0 +1,115 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+sleep 15
+
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+IPADDR=$(hostname -I)
+
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets gitlab,cd4pe-host
+
+# Get cd4pe service route IP into host files of puppet gitlab and cd4pe-host
+CD4PE_IPADDR=$(dig +short cd4pe-host.$INSTRUQT_PARTICIPANT_ID.svc.cluster.local | tail -n +2)
+bolt command run "echo $CD4PE_IPADDR cd4pe >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets gitlab,puppet,cd4pe-host
+# Add cd4pe service route IP to windows workstation hosts file
+bolt command run "Add-Content -Value '$CD4PE_IPADDR cd4pe' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
+
+/usr/local/bin/puppet agent -t
+
+sleep 10
+
+# Generate a token to use with puppet job run
+type_header='Content-Type: application/json'
+uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+data='{"login": "admin",
+       "password": "puppetlabs",
+       "lifetime": "180d"
+      }'
+
+while ! nc -z -w3 localhost 4433
+do
+  echo "Waiting for port 4433 to be reachable on localhost"
+done
+
+curl --insecure --header "$type_header" --request POST "$uri" --data "$data" > /tmp/token.json
+mkdir -p /root/.puppetlabs
+cat /tmp/token.json | jq -r .token > /root/.puppetlabs/token
+chmod 600 /root/.puppetlabs/token
+
+# Start in /root instead of /
+sed -i 's/WORKDIR=$/WORKDIR=\$HOME/' ~/.bashrc
+
+# Clone kmo_bolt_deployments into /opt
+cd /opt/
+
+git clone "https://$(cat ~/.token/gh_username):$(cat ~/.token/personal_access_token)@github.com/puppetlabs/kmo_bolt_deployments.git" /opt/kmo_bolt_deployments
+
+cd /opt/kmo_bolt_deployments
+
+git checkout feature/prep_session_2
+bolt module install --force
+
+bolt task run kmo_bolt_deployments::wait_on_instruqt --targets localhost,gitlab,cd4pe-host
+bolt plan run kmo_bolt_deployments::configure_gitlab instruqt_id=$INSTRUQT_PARTICIPANT_ID --targets gitlab
+bolt plan run kmo_bolt_deployments::configure_pe_for_gitlab instruqt_id=$INSTRUQT_PARTICIPANT_ID create_control_repo=true create_nginx_repo=true configure_git=true generate_ssh_key=true --targets localhost
+bolt plan run kmo_bolt_deployments::configure_pe_user_roles --targets localhost
+
+bolt task run cd4pe::create_user --targets localhost --params @/opt/kmo_bolt_deployments/files/cd4pe/cd4pe_create_user_params.json
+bolt task run cd4pe::create_workspace --targets localhost --params @/opt/kmo_bolt_deployments/files/cd4pe/cd4pe_create_workspace_params.json
+bolt task run cd4pe::discover_pe_credentials --targets localhost --params @/opt/kmo_bolt_deployments/files/cd4pe/cd4pe_pe_integration_params.json
+bolt task run cd4pe::add_vcs_integration --targets localhost --params @/opt/kmo_bolt_deployments/files/cd4pe/cd4pe_gitlab_integration_params.json
+# bolt task run cd4pe::add_repo --targets localhost --params @/opt/kmo_bolt_deployments/files/cd4pe/cd4pe_create_module_repo_params.json
+
+bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets cd4pe-host
+
+# Gitlab API to disable local webook prevention
+curl --request PUT --header "PRIVATE-TOKEN: puppetlabsapikey" "http://gitlab/api/v4/application/settings?allow_local_requests_from_web_hooks_and_services=true"
+
+# Now run Puppet twice on the nodes
+puppet job run --query 'nodes {}'
+puppet job run --query 'nodes {}'
+
+# run python client to configure job hardware
+python3 scripts/cd4pe.py --cd4pe_endpoint "https://cd4pe/cd4pe" --cd4pe_version "4.x" configure-hardware --user_email "puppet@puppet.com" --user_password "puppetlabs" --pe_creds_name "PE" --hardware_host "cd4pe-host.$INSTRUQT_PARTICIPANT_ID.svc.cluster.local"
+
+cat << 'EOF' > settings.json
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.cwd": "C:\\CODE"
+}
+EOF
+
+echo "Uploading VSCode user settings file to windows machine"
+bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo "Uploading ssh keys to window machine"
+bolt file upload /etc/puppetlabs/puppetserver/ssh/id_ed25519 C:\\users\\instruqt\\.ssh\\id_ed25519 --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
+bolt file upload /etc/puppetlabs/puppetserver/ssh/id_ed25519.pub C:\\users\\instruqt\\.ssh\\id_ed25519.pub --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
+
+echo "Set PDK analytics env var to false"
+bolt command run '[System.Environment]::SetEnvironmentVariable("PDK_DISABLE_ANALYTICS","true",[System.EnvironmentVariableTarget]::Machine)' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+echo "Configure git settings on workstation"
+bolt command run 'git config --global user.email "root@localhost"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+bolt command run 'git config --global user.name "puppet"' --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+echo "adding known hosts to workstation"
+ssh-keyscan -H gitlab >> known_hosts
+bolt file upload known_hosts C:\\users\\instruqt\\.ssh\\known_hosts --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
+
+cd /root
+
+# Uncomment this for real labs to remove the Github PAT
+# rm -rf /root/.token
+# cd /opt/kmo_bolt_deployments
+# git remote remove origin

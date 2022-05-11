@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+# cat > /usr/local/sbin/get_fqdn << EOF
+# # Prints the hostname of the sandbox host 
+# echo $HOSTNAME.$INSTRUQT_PARTICIPANT_ID.instruqt.io
+# EOF
+
+# chown root:root /usr/local/sbin/get_fqdn
+# chmod 700 /usr/local/sbin/get_fqdn
+
+# Update the Gitlab external URL
+# sed -i "s/external_url '.*'/external_url 'http:\/\/$(get_fqdn)'/" /etc/gitlab/gitlab.rb 
+# gitlab-ctl reconfigure
+
+# apt-get -y --quiet update
+# apt-get install -y --quiet net-tools

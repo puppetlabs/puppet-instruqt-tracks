@@ -1,0 +1,40 @@
+slug: pe-501-lab-3-1-deploy-changes-to-production
+id: wnfb5lqofexo
+type: track
+title: 'PE501 Lab 3.1: Deploy Changes to Production'
+teaser: Deploy changes to Production
+description: |-
+  ## Introduction
+  Some company code deployment policies require approval before changes can be made to the software and infrastructure for certain environments. These policies can be customized for your company's specific needs. In this lab you will use Continuous Delivery for Puppet Enterprise to create a custom deployment policy that uses impact analysis to carefully and thoughtfully control rolling out changes to Production.
+
+  You will:
+
+   - Add and configure a new pipeline for the Production branch that requires impact analysis and manual deployment.
+   - Configure the Development pipeline to deploy to Production.
+   - Protect the Production environment and require privileged deployment step approval.
+   - Adjust the Main pipeline to automatically deploy to the Development branch from a git commit.
+   - Use a rolling deployment policy that requires logic between each step.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+tags:
+- BACKUP
+- PE501
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "10943264662491732227"

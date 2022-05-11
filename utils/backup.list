@@ -6,14 +6,9 @@ puppet/build-a-bolt-inventory-file-on-linux
 puppet/pe-deploy-and-discover-lab-2-2
 puppet/pe-deploy-and-discover-lab-2-1
 puppet/pe-develop-and-maintain-lab-1-0
-puppet/pe-continously-deliver-lab-1-0
 puppet/pe-design-and-manage-lab-2-0
 puppet/pe-deploy-and-discover-lab-1-1
 puppet/pe-design-and-manage-lab-3-0
-puppet/pe-continuously-deliver-lab-3-0
-puppet/pe-continously-deliver-lab-2-0
-puppet/pe-continuously-deliver-lab-3-1
-puppet/pe-continuously-deliver-lab-3-2
 puppet/pe-extend-capability-lab-3-0
 puppet/pe-design-and-manage-lab-3-1
 puppet/pe-deploy-and-discover-lab-3-2
@@ -25,6 +20,11 @@ puppet/install-and-explore-the-puppet-agent-on-linux
 puppet/pe-deploy-and-discover-lab-2-0
 puppet/pe-deploy-and-discover-lab-1-0
 puppet/pe-develop-and-maintain-lab-3-1
+puppet/pe-501-lab-1-0-configure-continuous-delivery-for-pe
+puppet/pe-501-lab-2-0-create-a-module-pipeline
+puppet/pe-501-lab-2-1-create-a-control-repository-pipeline
+puppet/pe-501-lab-3-0-deploy-changes-to-a-test-environment
+puppet/pe-501-lab-3-1-deploy-changes-to-production
 puppet/pe-develop-and-maintain-lab-3-0
 puppet/pe-develop-and-maintain-lab-2-1
 puppet/trigger-a-puppet-agent-run
