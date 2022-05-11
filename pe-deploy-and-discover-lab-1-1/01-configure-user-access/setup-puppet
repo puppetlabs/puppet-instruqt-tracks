@@ -7,6 +7,7 @@ do
     echo "Waiting for Instruqt to finish booting the VM"
     sleep 1
 done
+
 sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
 
 while  ! nc -z -w3 localhost 443
@@ -21,12 +22,14 @@ sleep 30
 # Install some JSON manipulation tools
 # NB: For this track, these need to be installed no matter what so
 # we can generate an API token and use it in the check script
+# Node repo moved at some point
+curl -sL https://rpm.nodesource.com/setup_13.x | bash -
 yum install -y jq nodejs
 npm install -g json
 
 # Generate a token to use for querying the PE APIs
 type_header='Content-Type: application/json'
-uri="https://$(puppet config print server):4433/rbac-api/v1/auth/token"
+uri="https://puppet.c.kmo-instruqt.internal:4433/rbac-api/v1/auth/token"
 data='{"login": "admin",
        "password": "puppetlabs"}'
 
@@ -62,3 +65,5 @@ curl --max-time 10 -s -X POST \
 /usr/local/bin/puppet agent -t
 
 sleep 30
+
+

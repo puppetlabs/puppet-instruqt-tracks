@@ -23,6 +23,9 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
+- title: term
+  type: terminal
+  hostname: puppet
 difficulty: basic
 timelimit: 1500
 ---
