@@ -103,7 +103,7 @@ Create a new branch to test a code change
     git checkout main
     git checkout -b feature_new_config
     ```
-2. Open the `base.pp` file (**control-repo** > **site-modules** > **profile** > **manifests** > **base.pp**). Edit it to include a new name for the config file. Copy the following code into the file:
+2. Open the `base.pp` file (**control-repo** > **site-modules** > **profile** > **manifests** > **base.pp**). Edit it to point from `/etc/old.config` to `/etc/new.config` by replacing the code in the file with the following:
     ```
     class profile::base ($login_message){
       class {'motd':content => $login_message,}
@@ -117,7 +117,7 @@ Create a new branch to test a code change
     ```
     git add .
     git commit -m "Update base profile with new config file"
-    git push origin feature_new_config
+    git push -u origin feature_new_config
     ```
 4. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_config` pipeline runs.  You may need to click on the **New Events** button if it appears. Wait until the run completes successfully before you continue (about 2-3 minutes).
 
