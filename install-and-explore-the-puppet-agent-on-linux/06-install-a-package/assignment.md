@@ -75,4 +75,4 @@ Remember that in this training you are using these command-line tools manually. 
 
 So, for example, if you always want a specific package version to come from a specific provider, you must specify those parameters as part of the command in a script.
 
-To go to the next challenge, click **Check**.
+To go to the next challenge, click **Next**.

@@ -30,4 +30,4 @@ Want to learn more about Puppet Enterprise? Check out these resources:
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-practice-labs/tree/main/install-and-explore-the-puppet-agent-on-linux) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
 
-Click **Check** to close this track.
+Click **Next** to close this track.

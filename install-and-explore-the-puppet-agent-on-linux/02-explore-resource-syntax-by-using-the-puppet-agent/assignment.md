@@ -45,4 +45,4 @@ type { 'title':
 
 In this example, the agent reports that the file is absent, which means the file does not exist. Yet.
 
-To go to the next challenge, click **Check**.
+To go to the next challenge, click **Next**.

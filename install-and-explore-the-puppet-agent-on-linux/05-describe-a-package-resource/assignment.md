@@ -40,4 +40,4 @@ The `purged` value is similar to the `absent` value. For a package resource, `pu
 ## What do you think?
 What parameter could you add to the `puppet resource` command to instruct Puppet to *install* the package instead of just describing it? You’ll find out in the next challenge!
 
-To go to the next challenge, click **Check**.
+To go to the next challenge, click **Next**.

@@ -22,4 +22,4 @@ timelimit: 200
 ---
 Answer the questions, click **Submit**, and then click **View accuracy** to see how you did. Your results will appear in a new browser tab.
 
-When you've finished reviewing your results, click **Check** to continue the track.
+When you've finished reviewing your results, click **Next** to continue the track.
