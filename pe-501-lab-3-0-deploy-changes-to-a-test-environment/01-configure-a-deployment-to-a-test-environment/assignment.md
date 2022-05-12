@@ -140,6 +140,6 @@ Review the job run reports
 ✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your Main pipeline. This deployment was triggered by a merge request made when changes from your **feature_test_motd** code branch flagged a merge request in Gitlab.<br><br>
 
 --------
-🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the Main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. You also inspected the Impact Analysis of the jobs that you ran, and promoted a pipeline to deploy. This is a best-practice workflow for deploying changes to test nodes.
+🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the Main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. This is a best-practice workflow for deploying changes to test nodes.
 
 When you are finished with this lab, click **Next**.

@@ -49,8 +49,8 @@ Protect the production environment
 1. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
     - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
-2. Navigate to **Settings** > **Puppet Enterprise**.
-3. In the **Protected Environments** column, click the `0`.
+1. Navigate to **Settings** > **Puppet Enterprise**.
+1. In the **Protected Environments** column, click the `0`.
     - You may need to expand the CD4PE browser window to see the columns clearly.<br><br>
 1. In the modal that opens, click **Add**. Then, select **production** and toggle the switch to choose  **Administrators** for the approval role. ![designate approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-designate-approval.png)
 1. Click **Add**, and then click **Done**.
@@ -68,7 +68,7 @@ Deploy to Production with admin approval and IA
     - For **Select a Node group**, select **Production environment**.
     - Under **Select a deployment policy**, select the **Eventual Consistency policy**.
     - Click **Add stage** and then click **Done**.<br><br>
-1. Edit the **main** pipeline to include an Impact Analysis step for both the **developmentt** and **production** environments <i>before</i> the **deployment** steps. First, click **Add Stage**.
+1. Edit the **main** pipeline to include an Impact Analysis step for both the **development** and **production** environments <i>before</i> the **deployment** steps. First, click **Add Stage**.
 1. In the modal that appears, enter the following for each field:
 
     <u>Create stage</u>
