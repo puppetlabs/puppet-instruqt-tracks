@@ -3,8 +3,8 @@ slug: configure-cd4pe
 id: 5o3kmcd5aj3c
 type: challenge
 title: Configure Continuous Delivery for Puppet Enterprise
-teaser: Set up all the necessary integrations on a brand new CD4PE instance to prepare
-  it for the configuration of your pipelines.
+teaser: Before you can build your continuous delivery pipelines, you must configure
+  integrations with Puppet Enterprise and source control.
 notes:
 - type: text
   contents: |-
