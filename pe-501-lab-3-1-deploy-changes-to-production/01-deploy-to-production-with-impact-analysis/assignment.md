@@ -58,7 +58,7 @@ Protect the production environment
 
     ✅   **Result:** The **production** environment is now protected.<br><br>
 
-Deploy to Production with admin approval and IA
+Add a deployment step that requires admin approval and impact analysis
 ========
 1. In the left-hand sidebar, navigate to **Control Repos** > **control-repo**.
 1. Add a new deployment step to deploy to **Production** with **Impact Analysis** after a successful deployment to the **Development** environment. First, select the **main** pipeline from the **Pipelines** dropdown.
@@ -123,7 +123,7 @@ Create a new branch to test a code change
 
 ✅   **Result:** Code was pushed to a new `feature_new_config` branch and the regex pipeline tested the change: ![base profile job completed](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-base-profile-job-completed.png)
 
-Create a Gitlab MR to run the Main pipeline
+Create a Gitlab merge request to run the main pipeline
 ========
 1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.
 1. Log in with username `puppet`and password `puppetlabs`.
@@ -135,9 +135,9 @@ Create a Gitlab MR to run the Main pipeline
 1. Leave the title as-is and click **Create merge request**.
 1. After the page refreshes, click **Merge**. This will create a merge request to merge `feature_new_config` to `main`: ![base profile merged](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-base-profile-merged.png)
 
-✅   **Result:** The MR from Gitlab triggers the **Main** pipeline to run.<br><br>
+✅   **Result:** The merge request from Gitlab triggers the **Main** pipeline to run.<br><br>
 
-Approve deployment to Production
+Approve deployment to production
 ========
 1. Switch to the CD4PE browser.
 2. Notice that the `main` pipeline has automatically deployed to the **Development** environment but does not automatically push changes and code to the **Production** environment. Wait for all steps to complete before proceeding (2-3 minutes).
@@ -157,7 +157,7 @@ Approve deployment to Production
 1. Log into Puppet Enterprise with username `admin` and password `puppetlabs`, and then navigate to the **Jobs** page.
 2. Notice that there is no Job ID, as Eventual Consistency relies on normal Puppet runs to deploy your changes.
 
-✅ **Result:** You new code has been deployed to the PE server and will be automatically rolled out during the normal Puppet Agent run lifecycle<br><br>
+✅ **Result:** You new code has been deployed to the PE server and will be automatically rolled out during the normal Puppet Agent run lifecycle.<br><br>
 
 -------
 🎈 **Congratulations!** In this lab you introduced an additonal deployment step to your **Main** pipeline. This step continued to move your Puppet code along to the **Production** environment after a successful deployment to the **Development** environment. You also configured **Impact Analysis** to show the potential changes to your environments and protected the **Production** environment by requiring adminstrative approval prior to deployment.
