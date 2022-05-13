@@ -2,7 +2,7 @@
 slug: configure-cd4pe
 id: 5o3kmcd5aj3c
 type: challenge
-title: Configure Continuous Delivery for Puppet Enterprise
+title: Configure Continuous Delivery for PE
 teaser: Before you can build your continuous delivery pipelines, you must configure
   integrations with Puppet Enterprise and source control.
 notes:
@@ -11,7 +11,7 @@ notes:
     In this lab, you will configure the Continuous Delivery for PE integrations you need to build your pipelines. You will:
 
      - Create a user and a workspace.
-     - Configure integration with Puppet Enterprise.
+     - Configure integration with PE.
      - Configure integration with source control:
         - Integrate PE.
         - Integrate source control.
@@ -44,7 +44,7 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-Create a Continuous Delivery user and user role in Puppet Enterprise
+Create a Continuous Delivery user and user role in PE
 ========
 You'll use this user and role to generate the PE authentication token required during the setup process and to view a centralized log of the activities Continuous Delivery for PE completes on your behalf.
 
@@ -79,7 +79,7 @@ You'll use this user and role to generate the PE authentication token required d
 
 ✅ **Result:** The system creates the CD4PE user and role.
 
-Configure Code Manager in Puppet Enterprise
+Configure Code Manager in PE
 ========
 You must enable and configure Code Manager to enable Continuous Delivery for PE to initiate code deployments as part of a pipeline job run.
 
@@ -129,9 +129,9 @@ You must enable and configure Code Manager to enable Continuous Delivery for PE 
 
 12. To configure Code Manager, run `puppet agent -t` twice. Each run should take about 1-2 minutes.
 
-✅ **Result:** Code Manager is enabled and configured. CD4PE can now initiate code deployments as part of a pipeline job run.
+✅ **Result:** Code Manager is enabled and configured. Continuous Delivery for PE can now initiate code deployments as part of a pipeline job run.
 
-Integrate CD4PE with Puppet Enterprise
+Integrate Continuous Delivery for PE with Puppet Enterprise
 ========
 
 🔀 Switch to the Windows Workstation tab
@@ -139,9 +139,9 @@ Integrate CD4PE with Puppet Enterprise
 1. On the desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.
 1. From the CD4PE login screen, click **Create an account**, then enter your information (remember the username and password you enter - you will need it later on), then click **Sign Up**.
-    - To see the full CD4PE interface, expand the browser window to full-size.
+    - To see the full interface, maximize the browser window.
 2. On the next screen, click **+ Add new workspace**. Call it **Puppet** and then click **Create workspace**.
-3. You'll be logged as your new user and will arrive at your main Workspace page. Under the **Set up Continuous Delivery for PE** header at the top, notice the steps listed. You we will complete those steps next.
+3. You'll be logged as your new user and will arrive at your main Workspace page. Under the **Set up Continuous Delivery for PE** header at the top, notice the steps listed. You will complete those steps next.
 
 <u>Integrate Puppet Enterprise</u>
 
