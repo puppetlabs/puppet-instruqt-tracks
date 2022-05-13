@@ -3,7 +3,7 @@ slug: configure-a-deployment-to-a-test-environment
 id: egfifhvyjeaw
 type: challenge
 title: Deploy changes to a test environment
-teaser: Add a deployment to a pipeline and then add a trigger based on a merge request
+teaser: Add a deployment to a pipeline, and then add a trigger based on a merge request
   from the main branch of the control repo.
 notes:
 - type: text
@@ -41,16 +41,16 @@ tabs:
 difficulty: basic
 timelimit: 3600
 ---
-Add a test deployment to the Main pipeline
+Add a test deployment to the main pipeline
 ========
 1. On the **Windows Workstation** desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.<br><br>
-2. Log into CD4PE with username `puppet@puppet.com` and password `puppetlabs`.
-    - If the browser isn't recognizing your keyboard input, copy and paste the username and password from these instructions.
-    - To see the full CD4PE interface, expand the browser window to full-size.<br><br>
+2. Log into Continuous Delivery for PE with username `puppet@puppet.com` and password `puppetlabs`.
+    - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.
+    - To see the full Continuous Delivery for PE interface, maximize the browser window.<br><br>
 3. Navigate to **Control Repos** > **control-repo**.
 4. Add a new deployment to the main pipeline. First, ensure **main** is selected in the drop-down menu. Then, click **Add Stage**:![add stage](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/add-stage.png)
-1. In the modal that appears, enter the following for each field:
+1. In the modal that is shown, enter the following values:
 
     <u>Create stage</u>
     - Stage Name: **Test Deployment**
@@ -60,7 +60,7 @@ Add a test deployment to the Main pipeline
     - Select a Node Group: **Development environment**
     - Select a Deployment Policy: **Built-in deployment policies**
       - Choose **Direct deployment policy**
-      - Leave existing settings as-is.<br><br>
+      - Leave existing settings as is.<br><br>
 1. Click **Add Stage** and then click **Done**.
 
 ✅ **Result:** A test deployment has been added to the **main** pipeline for the control repo: ![test deployment created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-test-deployment-created.png)
@@ -96,35 +96,35 @@ Update the MOTD on a new feature test branch
     git commit -m "Update base profile login message"
     git push -u origin feature_test_motd
     ```
-6. Switch to the CD4PE browser window, navigate to **Control Repos** > **control-repo** and review events for the regex pipeline on the control repo. If nothing is happening, click the **New Events** button: ![new events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
+6. Switch to the CD4PE browser window, navigate to **Control Repos** > **control-repo**, and review events for the regex pipeline on the control repo. If nothing happens, click the **New Events** button: ![new events](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
 
 1. The pipeline event will show as pending until the jobs finish running (which should take about 2-3 minutes). Click the drop-down arrow at the right for a detailed look at the jobs as they run:![jobs running](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-updated-base-profile-message-pending.png)
 
 ✅ **Result:**  The job runs successfully to include the updated login message: ![updated motd](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-base-message-updated-complete.png)
 
-Create a Gitlab merge request to run the Main pipeline
+Create a Gitlab merge request to run the main pipeline
 ========
 1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.
 1. Log in with username `puppet`and password `puppetlabs`.
 2. Navigate to the `control-repo` project, and then click the **Merge Requests** icon located in the left navigation bar: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/merge-requests2.png)
 
 1. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).
-1. Leave **Source branch** set to the `feature_test_motd`.
-1. For **Target branch**, choose `main`.
+1. Leave **Source branch** set to `feature_test_motd`.
+1. For **Target branch**, select `main`.
 1. Click **Compare branches and continue**.
-1. Leave the title as-is and click **Create merge request**.
+1. Leave the title as is and click **Create merge request**.
 1. After the page refreshes, click the **Merge** button. This will merge your `feature_test_motd` change into the `main` branch.
 
 ✅ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request: ![Gitlab merge request](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-gitlab-merge.png)
 
-Promote Main pipeline to Deploy and locate the job ID
+Promote the main pipeline to Deploy and locate the job ID
 ========
-1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events** if it appears.
+1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events** if shown.
 3. Observe the `main` pipeline as it runs the unit tests and syntax checks.
-4. Once the code verification stage has completed you may then click **Promote** (to the right of the jobs in the code verification stage of the pipeline). Click **Promote** and then click **Done**.
-7. Click the **New Events** button if it appears, and then click the drop-down arrow to view the Deployment run progress: ![merge run progress](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-merge-branch-deploy-progress.png)
+4. After the code verification stage is complete, click **Promote** (to the right of the jobs in the code verification stage of the pipeline). Click **Promote** and then click **Done**.
+7. Click the **New Events** button if shown, and then click the drop-down arrow to view the Deployment run progress: ![merge run progress](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-merge-branch-deploy-progress.png)
 
-8. After the job completes, record the Job ID. Click on the green **1 Succeeded**, then click the blue job report link (**#1**) under **Deployment Done**: ![1 succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/1-succeeded.png) ![deployment done](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-done.png)
+8. After the job completes, record the Job ID. Click on the green **1 Succeeded**, and then click the blue job report link (**#1**) under **Deployment Done**: ![1 succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/1-succeeded.png) ![deployment done](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-done.png)
 1. Scroll down to **Deployment events** > **3. Orchestration task** and click **View jobs**: ![view jobs](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/view-jobs.png)
 
 ✅ **Result:** The job ID will appear under the job column at the left: ![job ID](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/job-id.png)
@@ -133,13 +133,13 @@ Review the job run reports
 =======
 🔀 Switch to the **PE Console** tab<br><br>
 
-9. Log in to PE with username `admin` and password `puppetlabs`.
-1. Navigate to **Jobs**, and then click on the Job ID reported from CD4PE. This shows you the jobs that ran on nodes in the **Development** node group.
+9. Log into PE with username `admin` and password `puppetlabs`.
+1. Navigate to **Jobs**, and then click on the Job ID reported from Continuous Delivery for PE. This shows you the jobs that ran on nodes in the **Development** node group.
 11. Under the **Report** column at the right, click one of the links shown, and then click the **Log** tab to review the changes.
 
-✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your Main pipeline. This deployment was triggered by a merge request made when changes from your **feature_test_motd** code branch flagged a merge request in Gitlab.<br><br>
+✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your main pipeline. This deployment was triggered by a merge request made when changes from your **feature_test_motd** code branch flagged a merge request in Gitlab.<br><br>
 
 --------
-🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the Main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. This is a best-practice workflow for deploying changes to test nodes.
+🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. This is a best-practice workflow for deploying changes to test nodes.
 
 When you are finished with this lab, click **Next**.

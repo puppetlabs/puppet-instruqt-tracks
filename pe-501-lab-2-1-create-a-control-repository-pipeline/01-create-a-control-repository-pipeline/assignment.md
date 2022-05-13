@@ -133,6 +133,6 @@ Test the unit test job stage in your Regex Pipeline
 ✅  **Result:** The unit test jobs run successfully.<br><br>
 
 --------------
-🎈 **Congratulations!** You set up a control repo and then added main and regexp pipelines to it, before finally testing the pipelines to ensure they work as expected.
+🎈 **Congratulations!** You set up a control repo and then added main and regex pipelines to it, before finally testing the pipelines to ensure they work as expected.
 
 When you are finished with this lab, click **Next**.

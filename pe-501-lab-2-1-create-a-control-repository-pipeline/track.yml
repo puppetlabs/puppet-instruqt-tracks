@@ -8,7 +8,7 @@ description: |-
   A CI/CD pipeline allows you to automate the checks to perform on your code changes before they are deployed to production. In this lab you will work on a CD4PE instance where the necessary integrations are already configured. You will configure pipelines for your control repo in order to automate the syntax checks of your code changes, and then introduce a new job type to run unit tests.
    You will:
    - Set up a control repo to work with.
-   - Set up a main and regexp pipeline for the control repo.
+   - Set up a main and regex pipeline for the control repo.
 
   ## Prerequisites
   None
@@ -32,4 +32,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "9005652129623014766"
+checksum: "9024328315789705602"
