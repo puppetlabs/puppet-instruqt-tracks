@@ -115,7 +115,7 @@ You must enable and configure Code Manager to enable Continuous Delivery for PE 
     ```
     true
     ```
-    **r10k_remote**:
+    **r10k_remote** (this is the SSH clone key you copied in step 8):
     ```
     git@gitlab:puppet/control-repo.git
     ```
@@ -138,7 +138,7 @@ Integrate Continuous Delivery for PE with Puppet Enterprise
 
 1. On the desktop, double-click the **CD4PE** shortcut.
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.
-1. From the CD4PE login screen, click **Create an account**, then enter your information (remember the username and password you enter - you will need it later on), then click **Sign Up**.
+1. From the CD4PE login screen, click **Create an account**. Enter your first name, last name, email, a memorable username, and password **puppetlabs**, then click **Sign Up**.
     - To see the full interface, maximize the browser window.
 2. On the next screen, click **+ Add new workspace**. Call it **Puppet** and then click **Create workspace**.
 3. You'll be logged as your new user and will arrive at your main Workspace page. Under the **Set up Continuous Delivery for PE** header at the top, notice the steps listed. You will complete those steps next.
