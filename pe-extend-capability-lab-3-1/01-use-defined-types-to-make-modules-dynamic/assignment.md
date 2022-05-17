@@ -2,7 +2,7 @@
 slug: use-defined-types-to-make-modules-dynamic
 id: cpbzjzbgew4z
 type: challenge
-title: Use Defined Types to make Modules Dynamic
+title: Use defined types to make modules dynamic
 teaser: Break your module class into smaller classes. Then, use class inclusion to
   make the code base more maintainable.
 notes:

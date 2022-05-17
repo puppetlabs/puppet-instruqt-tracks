@@ -71,7 +71,7 @@ Add the apache module to the Puppetfile
     cd control-repo
     git checkout webapp
     ```
-2. Navigate to the **Puppetfile** at the root of the **control-repo** directory and open it.  Add the apache module by copying the code below into the end of the Puppetfile:
+2. Navigate to the **Puppetfile** at the root of the **control-repo** directory and open it. Add the apache module by copying the code below into the end of the Puppetfile:
     ```
     mod 'puppetlabs-apache',
       :git => 'http://gitea:3000/puppet/apache.git',
@@ -95,7 +95,7 @@ Create a dedicated code deployment user
      - In the **Full name** field, enter `Code Deployer`.
      - In the **Login** field, enter `deployer`.
 4. Click the **Code Deployer** user, and then click the **Generate password reset** link in the upper-right corner.
-5. Copy and paste the generated link into a new browser tab. In the **NEW PASSWORD** field, enter the password `puppetlabs`, and then click **Reset password**.
+5. Copy the generated link into a new browser tab. In the **NEW PASSWORD** field, enter the password `puppetlabs`, and then click **Reset password**.
 6. Close the browser tab. On the **PE Console** tab, close the **Password Reset Link** window.
 7. Navigate to **Access Control** > **User roles** tab, and then click on the **Code Deployers** role.
 8. From the **User name** list, select `Code Deployer`, click **Add User**, and commit the changes (click **Commit** in the bottom-right corner).
@@ -141,7 +141,7 @@ Deploy with Code Manager
     ```
     The output indicates that Code Manager was able to connect to and read all the Git branches in the control repo.
 
-3. Check the contents of the Puppet code directory.  You can find the Puppet codedir with the command:
+3. Check the contents of the Puppet code directory. You can find the Puppet codedir with the command:
     ```
     puppet config print codedir
     ```
@@ -167,27 +167,27 @@ Deploy with Code Manager
 
 Configure a webhook to deploy code automatically
 ============
-  🔀 Switch to the **Primary Server** tab
-1. Use the command below to generate and show a login token for the code deployment user:
+  🔀 Switch to the **Primary Server** tab.
+1. Generate and show a login token for the code deployment user:
     ```
     puppet access login deployer --lifetime 180d
     ```
-2. Use the command below to show the access token, and save it to your notes:
+2. Show the access token, and then save it to your notes:
     ```
     more /root/.puppetlabs/token
     ```
    🔀 Switch to the **Git Server** tab.<br><br>
 
-3. Login with username `puppet` and password `puppetlabs`.  Once you are logged in, look for the **Repositories** sidebar on the right.  Click the link to go to the **puppet/control-repo** repository.
-4. Click the **Settings** link on the upper right
-5. Click to open the **Webhooks** tab
-6. Click on the **Add Webhook** button on the upper right, and select **Gitea** in the dropdown menu
+3. Log in with username `puppet` and password `puppetlabs`. After you log in, look for the **Repositories** sidebar on the right.  Click the link to go to the **puppet/control-repo** repository.
+4. Click the **Settings** link on the upper right.
+5. Click to open the **Webhooks** tab.
+6. Click on the **Add Webhook** button on the upper right, and select **Gitea** in the dropdown menu.
 7. Paste the following link into the **Target URL** field:
     ```
     https://puppet:8170/code-manager/v1/webhook?type=github&token=
     ```
-8. Paste the Puppet admin token that you copied earlier at the end of the link and click the **Add Webhook** button at the bottom of the screen
-9. You will be taken to a list of webhooks; click on the URL for the webhook that you just added
+8. Paste the Puppet admin token that you copied earlier at the end of the link and click the **Add Webhook** button at the bottom of the screen.
+9. You will be taken to a list of webhooks; click on the URL for the webhook that you just added.
 10. Click on **Test Delivery** at the bottom of the page.  After a few seconds, you should see an entry in the list with a green checkmark next to it.
 
 ---

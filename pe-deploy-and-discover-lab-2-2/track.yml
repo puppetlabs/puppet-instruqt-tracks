@@ -2,8 +2,8 @@ slug: pe-deploy-and-discover-lab-2-2
 id: yvrywfvwitpx
 type: sandbox
 title: Configure Additional Agent Package Platforms
-teaser: Learn how to configure PE to support agent installation on different operating
-  systems.
+teaser: Learn how to configure Puppet Enterprise to support agent installation on
+  different operating systems.
 description: |-
   ## Introduction
 
@@ -38,4 +38,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "2722548876123704707"
+checksum: "4525815425685720317"
