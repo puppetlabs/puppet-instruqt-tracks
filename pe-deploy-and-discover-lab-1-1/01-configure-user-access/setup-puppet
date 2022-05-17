@@ -15,13 +15,25 @@ do
     echo "Waiting for port 443 to be reachable on localhost"
 done
 
+while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]
+do 
+    echo "Waiting for agent.lock file to not exist for first agent run"
+    sleep 1
+done
+
 /usr/local/bin/puppet agent -t
 
-sleep 50
+sleep 25
+
+while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]
+do 
+    echo "Waiting for agent.lock file to not exist for second agent run"
+    sleep 1
+done
 
 /usr/local/bin/puppet agent -t
 
-sleep 40
+sleep 25
 
 # Install some JSON manipulation tools
 # NB: For this track, these need to be installed no matter what so

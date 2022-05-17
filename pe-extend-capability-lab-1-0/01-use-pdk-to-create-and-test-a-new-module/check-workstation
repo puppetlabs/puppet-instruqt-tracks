@@ -1,5 +1,7 @@
 $ErrorActionPreference = "Stop"
 
+$instruqt_user_history = "C:\Users\instruqt\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
+
 if ( !(Test-Path -Path "C:\code\nginx\manifests" )) {
   Write-Output "FAIL: The nginx module has not been created in the C:/CODE directory"
   exit 1
@@ -10,7 +12,7 @@ if ( !(Test-Path -Path "C:\code\nginx\manifests\init.pp" )) {
   exit 1
 }
 
-if ( !(Get-History | Select-String -Pattern "pdk test unit" -Quiet)) {
+if ( !(Select-String -Pattern "pdk test unit" -Quiet -Path $instruqt_user_history )) {
   Write-Output "FAIL: The unit tests have not been executed"
   exit 1
 }
@@ -25,7 +27,7 @@ if ( !(Select-String -Pattern "package" -Quiet -Path "C:\code\nginx\manifests\in
   exit 1
 }
 
-if ( !(Get-History | Select-String -Pattern "pdk validate" -Quiet)) {
+if ( !(Select-String -Pattern "pdk validate" -Quiet -Path $instruqt_user_history)) {
   Write-Output "FAIL: The pdk validate command has not been executed"
   exit 1
 }
