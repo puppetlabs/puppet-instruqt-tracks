@@ -72,10 +72,10 @@ Create an external fact on a Linux node
     ```
     ✅ **Result:** Puppet outputs the node's time zone. You will use this to create the `datacenter` fact in the coming steps.
 
-    | Time Zone     | Data Center Name |
-    |---------------|-------------|
-    | Eastern / EST | dc-east     |
-    | Pacific / PST | dc-west     |
+    | Time Zone            | Data Center Name |
+    |----------------------|-------------|
+    | Eastern (EST or EDT) | dc-east     |
+    | Pacific (PST or PDT) | dc-west     |
 
 
 4. We've provided a simple external fact script below. To put it into place, create the Facter location directory and external fact script:
@@ -143,10 +143,10 @@ Create an external fact on a Windows node
     facter timezone
     ```
     ✔️ **Result:** Puppet outputs the node's time zone. You will use this to create the `datacenter` fact in the coming steps.
-    | Time Zone     | Data Center Name |
-    |---------------|-------------|
-    | Eastern / EST | dc-east     |
-    | Pacific / PST | dc-west     |
+    | Time Zone            | Data Center Name |
+    |----------------------|-------------|
+    | Eastern (EST or EDT) | dc-east     |
+    | Pacific (PST or PDT) | dc-west     |
 
 4. We've provided a simple external fact script below. To put it into place, create the following file:
 
