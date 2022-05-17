@@ -28,7 +28,7 @@ description: |-
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/identify-server-roles-by-using-package-data-collection).
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe101-icon.png
 tags:
 - ""
 - BACKUP
@@ -43,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "16023110949454276994"
+checksum: "5726182964965863660"

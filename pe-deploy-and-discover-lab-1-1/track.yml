@@ -23,7 +23,7 @@ description: |-
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/configure-user-access).
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe101-icon.png
 tags:
 - ""
 - PE101
@@ -38,4 +38,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "16967864918195775627"
+checksum: "8814402830960243173"
