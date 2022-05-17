@@ -64,7 +64,7 @@ Run the puppet resource command to explore the state of resources on the system.
     }
     ```
 
-🔀 Switch to the **Linux Agent 2** tab.
+    🔀 Switch to the **Linux Agent 2** tab.
 
 1. Run the same commands on `Linux Agent 2` and compare the results to the previous output. First, explore the status of the nginx package:
     ```
