@@ -305,4 +305,4 @@ StatusDescription: OK
 ```
 ---
 🎈 **Congratulations!**
-In this lab, you enhanced your module to support Windows in addition to Red Hat by introducing logic to handle different package managers across the various operating systems running in your fleet. You also learned how to manage local module dependencies in the module `metadata.json` file and how to use Bolt to easily test changes during development.
+In this lab, you enhanced your module to support Windows in addition to Red Hat by introducing logic to handle different package managers across the various operating systems running in your fleet. In this case Windows does not ship with a default package manager capable of downloading installation media from the internet, and we extended our code base to use Chocolately on Windows nodes to solve that problem. You also learned how to manage local module dependencies in the module `metadata.json` file and how to use Bolt to easily test changes during development.
