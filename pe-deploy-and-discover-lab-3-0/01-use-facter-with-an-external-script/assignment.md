@@ -98,7 +98,7 @@ Create an external fact on a Linux node
 
 8. Save and exit vi by pressing `ESC` and typing `:wq`.
 
-9. Run the following command make the script executable:
+9. Make the script executable:
     ```
     chmod +x /etc/puppetlabs/facter/facts.d/datacenter.sh
     ```
