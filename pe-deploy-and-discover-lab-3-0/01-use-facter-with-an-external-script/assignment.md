@@ -94,7 +94,7 @@ Create an external fact on a Linux node
     echo "datacenter=<DATACENTER>"
     ```
 
-7. Using the information from the table above, replace `<DATACENTER>` with the ****Data Center Name**** that corresponds to the output of the node's `timezone` fact.
+7. Using the information from the table above, replace `<DATACENTER>` with the ****Data center name**** that corresponds to the output of the node's `timezone` fact.
 
 8. Save and exit vi by pressing `ESC` and typing `:wq`.
 
@@ -115,7 +115,7 @@ Create an external fact on a Linux node
     ```
     🔀 Switch to the **PE Console** tab.<br><br>
 
-12. Login using `admin` and `puppetlabs`. Then, navigate to the **Nodes** page.
+12. Log in using `admin` and `puppetlabs`. Then, navigate to the **Nodes** page.
 
 13. Click the Linux node (the name that contains `nixagent`).
 
@@ -156,7 +156,7 @@ Create an external fact on a Windows node
     notepad C:\ProgramData\PuppetLabs\facter\facts.d\datacenter.ps1
     ```
 
-5. Using the information from the table above, replace `<DATACENTER>` with the ****Data Center Name**** that corresponds to the output of the node's `timezone` fact.
+5. Using the information from the table above, replace `<DATACENTER>` with the ****Data center name**** that corresponds to the output of the node's `timezone` fact.
     ```
     write-host "datacenter=<DATACENTER>"
     ```
