@@ -1,0 +1,6 @@
+# Automatically set Network profile to public to surpress desktop notice
+Get-NetConnectionProfile |  Set-NetConnectionProfile -NetworkCategory Public
+
+# Create registry key to surpress desktop network notification
+Set-Location HKLM:
+New-Item -Path "\System\CurrentControlSet\Control\Network\" -Name NewNetworkWindowOff

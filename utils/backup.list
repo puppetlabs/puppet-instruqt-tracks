@@ -21,6 +21,7 @@ puppet/pe-deploy-and-discover-lab-2-0
 puppet/pe-deploy-and-discover-lab-1-0
 puppet/pe-develop-and-maintain-lab-3-1
 puppet/pe-501-lab-1-0-configure-continuous-delivery-for-pe
+puppet/pe-501-lab-1-0-configure-continuous-delivery-for-pe-hot-start
 puppet/pe-501-lab-2-0-create-a-module-pipeline
 puppet/pe-501-lab-2-1-create-a-control-repository-pipeline
 puppet/pe-501-lab-3-0-deploy-changes-to-a-test-environment
