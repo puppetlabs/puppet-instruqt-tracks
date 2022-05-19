@@ -103,7 +103,7 @@ You must enable and configure Code Manager to enable Continuous Delivery for PE 
         cat /etc/puppetlabs/puppetserver/ssh/id_ed25519.pub
         ```
     - Note the generated title, and select an expiration date in the future. Click **Add key**.<br><br>
-7. Navigate to **Menu** > **Projects** > **Your projects**, and then click **puppet/control-repo**. ![menu projects with outlines](https://storage.cloud.google.com/instruqt-images/menu-projects-your-projects-amber.png)
+7. Navigate to **Menu** > **Projects** > **Your projects**, and then click **puppet/control-repo**. ![menu projects with outlines](https://storage.googleapis.com/instruqt-images/menu-projects-your-projects-amber.png)
 8. Click the **Clone** dropdown, and then click the copy icon to the right of **Clone with SSH**. ![clone dropdown menu](https://storage.googleapis.com/instruqt-images/git-clone-amber-2.png)
  🔀 Switch to the PE Console tab<br><br>
 
