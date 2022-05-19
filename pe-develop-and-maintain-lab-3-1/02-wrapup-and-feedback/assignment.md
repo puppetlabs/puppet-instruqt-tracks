@@ -13,8 +13,7 @@ notes:
 tabs:
 - title: Feedback Survey
   type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?usp=pp_url&entry.1252824226=PE301+Lab+3.1:+Introducing+Data+Types+and+Class+Parameters
 difficulty: basic
 timelimit: 300
 ---

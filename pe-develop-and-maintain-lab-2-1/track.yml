@@ -36,7 +36,7 @@ description: |+
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-base-profile).
 
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe301-icon.png
 tags:
 - ""
 - BACKUP
@@ -50,4 +50,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "9305136386349620059"
+checksum: "15713190049282386055"

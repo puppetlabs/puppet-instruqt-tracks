@@ -126,6 +126,8 @@ Edit the apache profile
     git commit -m "Extend the apache profile"
     git push
     ```
+    🔀 Switch to the **PE Console** tab.<br><br>
+
 9. Run Puppet, applying the `webapp` feature branch to the **Development** node group:
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments** and click **Development environment**.
@@ -136,7 +138,6 @@ Edit the apache profile
     ✅ **Result:** Observe the failure. The apache class failed because the directory was not managed before the vhost.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
-
 
 10. Navigate to `site-modules/profile/manifests/apache.pp` and update your code to the following:
     ```
@@ -172,7 +173,7 @@ Edit the apache profile
     ```
     pdk validate
     ```
-11. Run cd `../..` to return to the top-level directory in the control repo.
+11. Run `cd ../..` to return to the top-level directory in the control repo.
 
 12. Commit and push your code.
     ```
@@ -201,6 +202,8 @@ Edit the apache profile
         git merge webapp
         git push
         ```
+    🔀 Switch to the **PE Console** tab.<br><br>
+
     2. Run Puppet on all the production nodes:
         1. Navigate to the **Node Groups** page.
         2. Expand **All Environments** and then click **Production environment**.

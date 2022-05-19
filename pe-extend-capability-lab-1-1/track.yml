@@ -27,7 +27,7 @@ description: |-
   The virtual learning environment will stay up for 30 minutes, however, this lab should only take about **20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe401-icon.png
 tags:
 - BACKUP
 - PE401
@@ -37,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "11875188523999275583"
+checksum: "6308619542155940526"

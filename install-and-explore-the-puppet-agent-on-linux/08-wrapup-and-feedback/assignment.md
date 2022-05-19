@@ -11,10 +11,9 @@ notes:
 
     Click **Start** to review what you learned and let us know what you thought of this track.
 tabs:
-- title: Feedback
+- title: Feedback Survey
   type: website
-  hostname: linux
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?usp=pp_url&entry.1252824226=Install+and+Explore+the+Puppet+Agent
 difficulty: basic
 timelimit: 170
 ---

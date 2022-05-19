@@ -43,7 +43,6 @@ icon: https://storage.googleapis.com/instruqt-images/bz-smallicon-1.png
 tags:
 - ""
 - BACKUP
-- PE301
 - CodeManager
 owner: puppet
 developers:
@@ -51,4 +50,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "8258767087789118093"
+checksum: "10373164844043420516"

@@ -13,12 +13,7 @@ notes:
 tabs:
 - title: Feedback Survey
   type: website
-  hostname: puppet
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?embedded=true
-- title: Practice Lab Help
-  type: website
-  hostname: puppet
-  url: https://puppet-kmo.gitbook.io/practice-lab-help
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?usp=pp_url&entry.1252824226=PE101+Lab+1.0:+Install+the+Primary+Server
 difficulty: basic
 timelimit: 300
 ---

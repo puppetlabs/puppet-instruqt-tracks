@@ -83,7 +83,7 @@ timelimit: 1500
 	  exit 2
 	end
 	```
-
+	💡 To learn more about autosigning certificate requests, visit [Puppet Docs](https://puppet.com/docs/puppet/6/ssl_autosign.html).<br><br>
 4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`.
 
     💡 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:

@@ -29,7 +29,7 @@ description: |
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/test-changes-in-an-agent-specified-node-group).
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe301-icon.png
 tags:
 - ""
 - BACKUP
@@ -43,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "12252902289008900296"
+checksum: "3251447822809406420"

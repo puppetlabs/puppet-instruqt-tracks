@@ -135,7 +135,7 @@ Create a base profile
     pdk new class profile::base
     ```
 
-2. Replace the code in the base profile (`site-modules/profile/manifests\base.pp`) with code that declares the motd class:
+2. Replace the code in the base profile (`site-modules/profile/manifests/base.pp`) with code that declares the motd class:
     ```
     # site-modules/profile/manifests/base.pp
     # @summary A short summary of the purpose of this class

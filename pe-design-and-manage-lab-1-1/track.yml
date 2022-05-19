@@ -28,7 +28,7 @@ description: |-
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe201-design-and-manage-labs/simulate-changes-by-running-in-no-op-mode).
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe201-icon.png
 tags:
 - ""
 - PE201
@@ -43,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "4844031454409102872"
+checksum: "12963407567798325343"

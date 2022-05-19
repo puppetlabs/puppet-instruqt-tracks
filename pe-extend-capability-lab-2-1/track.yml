@@ -25,7 +25,7 @@ description: |+
 
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
 
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe401-icon.png
 tags:
 - BACKUP
 - PE401
@@ -35,4 +35,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "13360860320411093858"
+checksum: "1324213066016166451"

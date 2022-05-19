@@ -190,6 +190,9 @@ Configure a webhook to deploy code automatically
 9. You will be taken to a list of webhooks; click on the URL for the webhook that you just added.
 10. Click on **Test Delivery** at the bottom of the page.  After a few seconds, you should see an entry in the list with a green checkmark next to it.
 
+
+✅ From now on pushing new code to the Git server will trigger an automatic deployment of that new code to the primary server via Code Manager.
+
 ---
 
 ## 🎈 **Congratulations!**

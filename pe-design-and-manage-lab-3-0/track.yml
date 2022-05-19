@@ -35,7 +35,7 @@ description: |+
 
   Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe201-design-and-manage-labs/create-a-base-profile).
 
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/puppet.png
+icon: https://storage.googleapis.com/instruqt-images/pe201-icon.png
 tags:
 - ""
 - PE201
@@ -51,4 +51,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7936703604673030040"
+checksum: "11577608750496612138"
