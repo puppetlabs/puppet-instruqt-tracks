@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -x
+set -euxo pipefail
 
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
@@ -22,3 +21,5 @@ done
 
 # apt-get -y --quiet update
 # apt-get install -y --quiet net-tools
+
+exit 0

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -x
+set -euxo pipefail
 
 while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
 do
@@ -8,37 +7,3 @@ do
     sleep 1
 done
 
-# cat > /usr/local/sbin/get_fqdn << EOF
-# # Prints the hostname of the sandbox host 
-# echo $HOSTNAME.$INSTRUQT_PARTICIPANT_ID.instruqt.io
-# EOF
-
-# chown root:root /usr/local/sbin/get_fqdn
-# chmod 700 /usr/local/sbin/get_fqdn
-
-# yum install -y --quiet wget git nc
-
-# Start in /root instead of /
-# sed -i 's/WORKDIR=$/WORKDIR=\$HOME/' ~/.bashrc
-
-chmod +x /opt/reboot_k8s.sh
-
-sleep 10
-
-sudo /opt/reboot_k8s.sh
-
-sleep 60
-
-# adding host alias for the master to the cd4pe and query deployment configurations
-MASTER_IP=$(getent hosts puppet | grep -wv '127.0.0.1' | awk '{print $1}')
-GITLAB_IP=$(getent hosts gitlab | grep -wv '127.0.0.1' | awk '{print $1}')
-read -r PATCH <<EOF
-{"spec":{"template":{"spec":{"hostAliases":[{"ip":"${MASTER_IP}","hostnames":["puppet","puppet.c.kmo-instruqt.internal"]},{"ip":"${GITLAB_IP}","hostnames":["gitlab"]}]}}}}
-EOF
-kubectl patch deployment cd4pe -n default --patch "${PATCH}"
-kubectl patch deployment query -n default --patch "${PATCH}"
-
-# SEP-67 Install Docker on the CD4PE host
-yum -y install docker
-systemctl enable docker
-systemctl start docker
