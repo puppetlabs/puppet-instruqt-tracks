@@ -93,11 +93,11 @@ Make a breaking change to the Development one-time run group to show agent-speci
 3. Expand the **All Environments** group, expand the **Development environment** group, and click **Development one-time run exception**.
 4. Make a breaking change to this group's rules. This will show you how runtime evaluation occurs during the Puppet run with an agent-specifed environment as a result of inheritance from the **Development** group. Add a new rule that has the following values, click **Add rule**, and commit your changes (click **Commit** at the bottom of the page):
 
-        |Fact                            |Operator    |Value      |
-        |--------------------------------|------------|-----------|
-        |`agent_specified_environment`   |     `= `   |`devapp`   |
+    |Fact                            |Operator    |Value      |
+    |--------------------------------|------------|-----------|
+    |`agent_specified_environment`   |     `= `   |`devapp`   |
 
-
+    <br>
 6. Return to the **Node groups** page and click **Development environment**.
 
 7. On the **Classes** tab, click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.
