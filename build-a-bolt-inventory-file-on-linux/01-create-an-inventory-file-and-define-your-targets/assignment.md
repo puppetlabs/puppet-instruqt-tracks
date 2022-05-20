@@ -31,7 +31,7 @@ timelimit: 360
 When you create a Bolt project by running the ```bolt project init``` command, Bolt creates an inventory file with placeholder content in the project directory. The project directory also contains configuration files, plans, and tasks.
 
 # Step 1: Create and navigate to your project directory
-At the command prompt on the Bolt tab to the left, type the following command (you can also copy it and paste it at the command prompt).
+At the command prompt on the Bolt tab to the left, type the following command (you can also copy it to the command prompt).
 
  ```
  mkdir myproject && cd myproject

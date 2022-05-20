@@ -28,7 +28,7 @@ In this lab, you:
 Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/build-a-bolt-inventory-file-on-linux).
 
 Want to learn more about Bolt or Puppet? Check out these resources:
-- [Bolt Docs](https://puppet.com/docs/bolt/latest/bolt.html)
+- [Bolt docs](https://puppet.com/docs/bolt/latest/bolt.html)
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack channel](https://slack.puppet.com/)
 

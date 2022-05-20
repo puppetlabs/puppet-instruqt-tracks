@@ -5,7 +5,9 @@ title: Bolt Basics on Linux
 teaser: Install Bolt and manage your first remote targets.
 description: |2-
    # Introduction
-  Bolt is an open source orchestration tool that automates the manual work it takes to maintain your infrastructure, helping you to complete ad hoc tasks remotely on a large number of targets. For example, you can use Bolt to patch and update systems, troubleshoot servers, deploy applications, and stop and restart services. Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy apps across your infrastructure, this is the first step to take to get there. In this lab you'll learn:
+  Bolt is an open source orchestration tool that automates the manual work it takes to maintain your infrastructure, helping you to complete ad hoc tasks remotely on a large number of targets. For example, you can use Bolt to patch and update systems, troubleshoot servers, deploy applications, and stop and restart services. Whether your goal is to quickly and easily troubleshoot ad hoc issues or deploy apps across your infrastructure, this is the first step to take to get there.
+
+  In this lab, you'll learn:
     - What Bolt is and when to use it.
     - How to install Bolt.
     - How to verify that your installation works as expected.
@@ -41,4 +43,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "15301555999663239084"
+checksum: "11553408778486814603"

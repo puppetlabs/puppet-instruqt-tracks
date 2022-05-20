@@ -12,17 +12,17 @@ description: |-
 
   You can use Bolt to make ad hoc changes to targets by including target names when you run commands. This might be easy for managing a handful of targets, but imagine if you have to change 50, 500, or even 5000 targets!
 
-  By defining groups of targets (and other information such as connection parameters) in the `inventory.yaml` file, you can simplify your Bolt commands and ensure that commands are run against the correct targets each time.
+  By defining groups of targets (and other information such as connection parameters) in the `inventory.yaml` file, you can simplify your Bolt commands and ensure that commands run against the correct targets each time.
 
-  In this lab you will:
+  In this lab, you will:
 
-   - First, you'll build an inventory file and assign targets to a group that you can run commands and scripts against.
-   - Then, you'll run the `ntpdate` command to synchronize the date and time on the targets defined in the group.
-   - Finally, you'll build a script that synchronizes the system clock and starts the NTP service on the targets in the group.
+   - Build an inventory file and assign targets to a group that you can run commands and scripts against.
+   - Run the `ntpdate` command to synchronize the date and time on the targets defined in the group.
+   - Build a script that synchronizes the system clock and starts the NTP service on the targets in the group.
 
   ## Prerequisites
    - Basic familiarity with [Bolt](https://puppet.com/open-source/bolt/)
-     - If you are brand new to Bolt, start with the [Bolt Basics on Linux](https://play.instruqt.com/puppet/invite/jpbxwmbt8hdx) track.
+     - If you're brand-new to Bolt, start with the [Bolt Basics on Linux](https://play.instruqt.com/puppet/invite/jpbxwmbt8hdx) track.
    - Familiarity with [shell scripting](https://en.wikipedia.org/wiki/Shell_script)
    - Familiarity with [YAML](https://en.wikipedia.org/wiki/YAML)
 
@@ -50,4 +50,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "15020067291077616764"
+checksum: "13616577003229846945"
