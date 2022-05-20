@@ -111,7 +111,7 @@ Add a unit test job type
 
 1. Select **Add a stage after**.
 1. Enter the following:
-    - In the **STAGE NAME** field enter **Run unit tests**.
+    - In the **STAGE NAME** field enter **Show Puppetfile module versions**.
     - From the **SELECT ITEM** dropdown, select **Jobs**.
     - Select the **control-repo-onceover-show-puppetfile** job, click **Add stage**, and then click **Done**.<br><br>
 1. Starting at step 4, repeat the same steps for the **regex** pipeline.
@@ -123,7 +123,7 @@ Test the unit test job stage in your Regex Pipeline
 1. Switch back to the VS Code window.
 1. Commit your change and push to the remote repository:
     ```
-    git commit --allow-empty -m "Trigger unit test job"
+    git commit --allow-empty -m "Trigger Puppetfile show modules job"
     git push
     ```
 1. Switch back to the CD4PE browser window and check the events for the regex pipeline on the control repo. Click the **New Events** button if it appears.

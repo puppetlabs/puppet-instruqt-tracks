@@ -110,19 +110,11 @@ You must enable and configure Code Manager to enable Continuous Delivery for PE 
 9. Navigate to **Node groups**.
 9. Click the plus (**+**) icon to the left of **PE Infrastructure** to expand the group, and then click **PE Master**.
 9. Click the **Classes** tab and scroll to the bottom to find the **puppet_enterprise::profile::master** class.
-10. For this class, set the following (click **Add to node group** to set each parameter):<br>
-    **code_manager_auto_configure**:
-    ```
-    true
-    ```
-    **r10k_remote** (this is the SSH clone URL you copied in step 8):
-    ```
-    git@gitlab:puppet/control-repo.git
-    ```
-    **r10k_private_key**:
-    ```
-    /etc/puppetlabs/puppetserver/ssh/id_ed25519
-    ```
+10. For this class, set the following (click **Add to node group** to set each parameter):
+    - **code_manager_auto_configure**: `true`
+    - **r10k_remote**: Paste the SSH clone URL you copied in step 8.
+    - **r10k_private_key**: `/etc/puppetlabs/puppetserver/ssh/id_ed25519`  <br><br>
+
 11. Click **Commit 3 changes**.
 
     🔀 Switch to the **PE Server** tab<br><br>
@@ -140,6 +132,8 @@ Integrate Continuous Delivery for PE with Puppet Enterprise
     - If the browser window shows a connection privacy warning, bypass it by clicking **Advanced** > **Continue to cd4pe (unsafe)**.
 1. From the CD4PE login screen, click **Create an account**. Enter your first name, last name, email, a memorable username, and the password **puppetlabs** (or another memorable password), then click **Sign Up**.
     - To see the full interface, maximize the browser window.
+    - Note: Your information is not retained after this lab environment expires.
+
 2. On the next screen, click **+ Add new workspace**. Call it **Puppet** and then click **Create workspace**.
 3. You'll be logged as your new user and will arrive at your main Workspace page. Under the **Set up Continuous Delivery for PE** header at the top, notice the steps listed. You will complete those steps next.
 
