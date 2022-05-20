@@ -37,7 +37,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3300
 ---
 Configure default control repo pipelines
 ========

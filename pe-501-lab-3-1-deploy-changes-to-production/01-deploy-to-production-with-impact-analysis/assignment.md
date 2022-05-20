@@ -40,7 +40,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 3300
 ---
 Protect the production environment
 ========
@@ -52,9 +52,9 @@ Protect the production environment
 1. Navigate to **Settings** > **Puppet Enterprise**.
 1. In the **Protected Environments** column, click the `0`.
     - You may need to expand the CD4PE browser window to see the columns clearly.<br><br>
-1. In the modal that opens, click **Add**. Then, select **production** and toggle the switch to choose  **Administrators** for the approval role. ![designate approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-designate-approval.png)
+1. In the **Add New Stage** window, click **Add**. Then, select **production** and toggle the switch to choose  **Administrators** for the approval role. ![designate approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-designate-approval.png)
 1. Click **Add**, and then click **Done**.
-1. Close the modal, return to the Puppet Enterprise settings page, and review the **Protected environments** column, which now shows one protected environment: ![protected environment](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-protectedenv.png)
+1. Close the **Add New Stage** window, return to the Puppet Enterprise settings page, and review the **Protected environments** column, which now shows one protected environment: ![protected environment](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/PE501-protectedenv.png)
 
     ✅   **Result:** The **production** environment is now protected.<br><br>
 
@@ -69,7 +69,7 @@ Add a deployment step that requires admin approval and impact analysis
     - Under **Select a deployment policy**, select the **Eventual Consistency policy**.
     - Click **Add stage** and then click **Done**.<br><br>
 1. Edit the **main** pipeline to include an Impact Analysis step for both the **development** and **production** environments <i>before</i> the **deployment** steps. First, click **Add Stage**.
-1. In the modal that appears, enter the following for each field:
+1. Enter the following for each field:
 
     <u>Create stage</u>
     - Stage Name: **IA for Deployment**
@@ -119,7 +119,7 @@ Create a new branch to test a code change
     git commit -m "Update base profile with new config file"
     git push -u origin feature_new_config
     ```
-4. Switch over to the CD4PE browser to ensure your **Regex** `feature_new_config` pipeline runs.  You may need to click on the **New Events** button if it appears. Wait until the run completes successfully before you continue (about 2-3 minutes).
+4. Switch over to the CD4PE browser window to ensure your **Regex** `feature_new_config` pipeline is running (jobs will show as **In Progress**). If nothing is showing, click **New Events**. Wait until the run completes successfully before you continue (about 2-3 minutes).
 
 ✅   **Result:** Code was pushed to a new `feature_new_config` branch and the regex pipeline tested the change: ![base profile job completed](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-base-profile-job-completed.png)
 
@@ -141,7 +141,7 @@ Approve deployment to production
 ========
 1. Switch to the CD4PE browser.
 2. Notice that the `main` pipeline has automatically deployed to the **Development** environment but does not automatically push changes and code to the **Production** environment. Wait for all steps to complete before proceeding (2-3 minutes).
-3. Review Impact Analysis. Click the downward expansion arrow next to right of the latest **Main** pipeline run.
+3. Review Impact Analysis. Click the downward arrow to the right of the latest **Main** pipeline run.
 4. In the **IA for Deployment** row, click the blue link that starts with a hash (#): ![IA link](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.1-ia-link.png)
 5. Review the Impact Analysis results. Once you are done, return to the control repo main page by clicking the `control-repo` link in the **Control Repos\control-repo** breadcrumb trail at the top of the page.
 6. Back at the **Main** pipeline, between the **Deploy to Dev** and **Deploy to Prod** stages, click **Promote**, then click **Promote** and **Done**: ![promote](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/promote.png)
@@ -150,7 +150,7 @@ Approve deployment to production
 8. Click the downard expanion arrow to the right of the running job and notice the Deployment to production step has a **Pending approval** badge: ![pending approval](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/pending-approval.png)
 9. Under **Deployment pending approval**, click the blue link that starts with a #. ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-pending-approval.png)
 
-1. Click the **Approve** button, and then in the confirmation modal that appears, click **Approve** and **Done**. ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/approve.png)
+1. Click the **Approve** button, and then click **Approve** and **Done**. ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/approve.png)
 
     🔀 Switch to the PE Console tab.<br><br>
 
