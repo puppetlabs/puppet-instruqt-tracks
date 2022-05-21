@@ -2,8 +2,8 @@
 slug: sandbox
 id: o7pfcncfzcua
 type: challenge
-title: Install PE
-teaser: Install PE and monitor its services in the console.
+title: Install Puppet Enterprise
+teaser: Install Puppet Enterprise and monitor its services in the console.
 notes:
 - type: text
   contents: |-
@@ -34,7 +34,7 @@ timelimit: 1500
     ```
     tar -xf puppet-enterprise-2019.8.6-el-7-x86_64.tar.gz
     ```
-3. Run the Puppet Enterprise installer. When prompted, enter ****Y**** to proceed:<br><br>✏️ **Note:** This step might take a few minutes to complete.
+3. Run the PE installer. When prompted, enter ****Y**** to proceed:<br><br>✏️ **Note:** This step might take a few minutes to complete.
     ```
     ./puppet-enterprise-2019.8.6-el-7-x86_64/puppet-enterprise-installer
     ```
@@ -57,4 +57,4 @@ timelimit: 1500
 
 8. On the **Status** page, click **Puppet Services status** near the top right. Make sure that all the services in the list are running ("Operational").
 
-🎈 **Congratulations!** You installed PE, and its basic configuration is now complete.
+🎈 **Congratulations!** You installed Puppet Enterprise, and its basic configuration is now complete.

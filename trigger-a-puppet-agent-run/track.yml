@@ -15,7 +15,7 @@ description: |-
 
   You'll learn how to:
   - List and sign agent certificates, required for secure communication between the primary server and agent.
-  - Interpret the agent output during the Puppet run.
+  - Interpret the output of a Puppet run.
   - Write code in the server's site.pp manifest to classify a node and begin defining its desired state.
 
   ## Prerequisites
@@ -45,4 +45,4 @@ private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "8095300916495670392"
+checksum: "6832939699431602288"

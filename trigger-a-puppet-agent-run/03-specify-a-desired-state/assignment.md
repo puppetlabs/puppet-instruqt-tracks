@@ -69,7 +69,7 @@ Click the disk icon: 💾
 ✅ **Result:** Now when the agent contacts the server, the server uses this node definition (among other things) to compile a catalog for this node.
 
 # Step 5: Trigger an agent run
-Now that you have some Puppet code for the server to parse, switch to the *Agent node* tab to the right and trigger a Puppet run:
+Now that you have some Puppet code for the server to parse, switch to the **Agent node** tab to the right and trigger a Puppet run:
 ```
 puppet agent -t
 ```
@@ -83,6 +83,6 @@ Notice: Hello Puppet!
 Notice: /Stage[main]/Main/Node[agent.puppet.vm]/Notify[Hello Puppet!]/message: defined 'message' as 'Hello Puppet!'
 ```
 
-Resource declarations define the desired state of that node. When a Puppet run is triggered, the server parses these declarations, builds the catalog, and sends it back to the agent. The agent makes the changes to achieve the desired state of the resources in its catalog.
+Resource declarations define the desired state of that node. When a Puppet run is triggered, the server parses these declarations, builds the catalog, and sends it back to the agent. If the agent finds any resources that are not in the desired state, the agent makes the necessary changes to bring the resource into the desired state.
 
 You can use multiple resource declarations to perform complex operations such as configuring a load balancer or defining hundreds of firewall rules - the sky's the limit.

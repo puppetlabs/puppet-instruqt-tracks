@@ -2,11 +2,12 @@ slug: pe-deploy-and-discover-lab-2-0
 id: rzm1rnl0at70
 type: sandbox
 title: Install Puppet Agents
-teaser: Learn how to install agents from both the command line and the PE console.
+teaser: Learn how to install agents from both the command line and the Puppet Enterprise
+  console.
 description: |-
   ## Introduction
 
-  In this lab, you'll install the Puppet agent via two different methods: locally by using the agent installation script and remotely from the PE console. Both methods enable you to install agents at scale.
+  In this lab, you'll install the Puppet agent via two different methods: locally by using the agent installation script and remotely from the Puppet Enterprise (PE) console. Both methods enable you to install agents at scale.
 
   Installing agents at scale prepares your infrastructure to quickly and automatically scale up the number of nodes managed and configured as Puppet manifests are written and deployed to the primary Puppet server.
 
@@ -42,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1337958060325340505"
+checksum: "15706744728574916413"

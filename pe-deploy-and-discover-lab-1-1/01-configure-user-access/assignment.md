@@ -33,7 +33,7 @@ timelimit: 1500
 
     ✏️ **Note:** If the console doesn't load correctly, refresh your browser window.<br><br>
 
-2. From the console sidebar, click **Access Control**.
+2. In the console navigation pane, click **Access Control**.
 3. Add the user. In the **Full name** field, enter the user's name using standard capitalization and spacing.
 
     ✏️ **Note:** Not sure what name to use? Feel free to use your own!<br><br>

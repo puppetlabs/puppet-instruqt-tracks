@@ -33,7 +33,7 @@ puppet resource package httpd ensure=present
 ✅ **Result:** Puppet installs the package, and the value of the `ensure` parameter now shows the version that's installed.
 
 ## How did Puppet know I specified a real package name?
-Puppet uses a default package provider such as `yum` or `apt`, depending on your OS. This package provider gets, installs, and manages packages by connecting to official Red Hat, Ubuntu, and third-party software repositories.
+Puppet uses a default package provider such as `yum` or `apt`, depending on your OS. This package provider retrieves, installs, and manages packages by connecting to official Red Hat, Ubuntu, and third-party software repositories.
 
 # Step 2
 Notice what happens when you run the command again with a bogus package:
@@ -71,7 +71,7 @@ puppet resource package colors ensure=0.0.6 provider=gem
 Puppet installs the version that you specify.
 
 # One final note
-Remember that in this training you are using these command-line tools manually. In an automated production environment, Puppet configures nodes based on the Puppet codebase on the primary Puppet server.
+Remember that in this training you are using these command-line tools manually. In an automated production environment, Puppet configures nodes based on the Puppet code base on the primary Puppet server.
 
 So, for example, if you always want a specific package version to come from a specific provider, you must specify those parameters as part of the command in a script.
 

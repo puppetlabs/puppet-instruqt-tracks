@@ -59,7 +59,7 @@ Local installation (Linux)
 
 1. Click **Refresh** at the top right of the console.
 
-1. Now you have to sign the agent's certificate. From the console sidebar, navigate to the **Certificates** page and click the **Unsigned certificates** tab.
+1. Sign the agent's certificate. From the console sidebar, navigate to the **Certificates** page and click the **Unsigned certificates** tab.
 
 1. In the list of nodes, find the node name containing `nixagent` and click **Accept**.
 
@@ -102,7 +102,7 @@ Remote installation (Windows)
 
 6. To check the status of the installation, navigate to the **Tasks** page, and then click the ID number of the **pe_bootstrap** task. When the installation is complete, you'll see a certname in the output at the bottom of the page.
 
-    ✏️ **Note:** The installation might take a few minutes to complete. Don't move on until step 6 has finished.<br><br>
+    ✏️ **Note:** The installation might take a few minutes to complete. Don't move on until this step has finished.<br><br>
 
 7. When the certificate is ready to sign, a blue decoration is shown on the **Certificates** page link.
 

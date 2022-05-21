@@ -38,13 +38,13 @@ timelimit: 1500
 	cd /etc/puppetlabs/puppet
 	```
 
-2. Create and edit the `autosign.rb` script:
+2. Create and edit the `autosign.rb` script.
 
 	```
 	vim autosign.rb
 	```
 
-3. Copy the code below into the file.
+3. Copy the code below into `autosign.rb` file.
 
     💡 **Tip:** To do this, type `:set paste`, press **Enter**, and then press `i`. Click the code below to copy it, and paste it from the clipboard. Then, save and exit by pressing `ESC` and typing `:wq`.
 
@@ -83,7 +83,7 @@ timelimit: 1500
 	  exit 2
 	end
 	```
-	💡 To learn more about autosigning certificate requests, visit [Puppet Docs](https://puppet.com/docs/puppet/6/ssl_autosign.html).<br><br>
+	💡 To learn more about autosigning certificate requests, visit the [Puppet docs](https://puppet.com/docs/puppet/6/ssl_autosign.html).<br><br>
 4. Make the script executable and set the owner/group to `pe-puppet:pe-puppet`.
 
     💡 **Tip:** To save time, click the code below to copy it, and then paste it on the command line:
@@ -95,7 +95,7 @@ timelimit: 1500
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/autosign.rb
 	```
 
-5. Create and edit the pre-shared key (PSK) file:
+5. Create and edit the pre-shared key (PSK) file.
 
 	```
 	vim psk
@@ -118,13 +118,13 @@ timelimit: 1500
 	chown pe-puppet:pe-puppet /etc/puppetlabs/puppet/psk
 	```
 
-8. Configure the primary server to enable autosigning with `autosign.rb` by running:
+8. Configure the primary server to enable autosigning with `autosign.rb`.
 
 	```
 	puppet config set autosign /etc/puppetlabs/puppet/autosign.rb --section server
 	```
 
-9. Restart the primary server:
+9. Restart the primary server.
 
 	```
 	service pe-puppetserver restart
@@ -133,7 +133,7 @@ timelimit: 1500
     🔀 Switch to the **Linux Agent** tab.<br><br>
 
 
-11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter:
+11. Install the Puppet agent by using the installation script with the `custom_attributes:challengePassword` parameter.
 
 	```
 	uri='https://puppet:8140/packages/current/install.bash'

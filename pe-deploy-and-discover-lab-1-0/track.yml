@@ -2,11 +2,12 @@ slug: pe-deploy-and-discover-lab-1-0
 id: mxxouyyo8i2z
 type: sandbox
 title: Install the Primary Server
-teaser: Learn how to install Puppet Enterprise and monitor its status in the PE console.
+teaser: Learn how to install Puppet Enterprise and monitor its status in the graphical
+  console.
 description: |-
   ## Introduction
 
-  In this lab, you'll learn an easy and straightforward process for installing Puppet Enterprise (PE), enabling you to start automating your infrastructure on day one.
+  In this lab, you'll learn a straightforward way to install Puppet Enterprise (PE), enabling you to start automating your infrastructure on day one.
 
   ## Prerequisites
 
@@ -36,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6657176861466542970"
+checksum: "1697226142127105985"
