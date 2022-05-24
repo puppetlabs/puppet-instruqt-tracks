@@ -2,7 +2,8 @@ slug: pe-deploy-and-discover-lab-3-0
 id: trd6dwmkdt6s
 type: sandbox
 title: Identify Your Nodes Using External Facts
-teaser: You can use facts to help you write conditional expressions and reusable code.
+teaser: In Puppet Enterprise, you can use facts to help you write conditional expressions
+  and reusable code.
 description: |-
   ## Introduction
 
@@ -42,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "3731956762131713856"
+checksum: "8723794674620736169"

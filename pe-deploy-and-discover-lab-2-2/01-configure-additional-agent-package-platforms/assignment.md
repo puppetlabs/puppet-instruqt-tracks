@@ -78,6 +78,6 @@ timelimit: 1500
     ```
 
 ## 🎈 **Congratulations!**
-You configured PE to support installing agents that run a different OS than the primary server.
+You configured Puppet Enterprise to support installing agents that run a different OS than the primary server.
 
 <br>To continue, click **Next**.
