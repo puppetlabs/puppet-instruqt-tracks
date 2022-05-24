@@ -90,7 +90,7 @@ Test your module pipeline
     git push -u origin feature_test
     ```
 
-1. Navigate to the CD4PE window and observe the pipeline job and failure output as it appears in the **Events** section at the bottom of the page. The first time you run these jobs, Docker downloads and builds the images on the back end. It will take a couple of minutes to get a full run. If nothing is showing, click **New Events** to see the running jobs: ![new events button](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
+1. Navigate to the CD4PE browser window and observe the pipeline job and failure output as it appears in the **Events** section at the bottom of the page. The first time you run these jobs, Docker downloads and builds the images on the back end. It will take a couple of minutes to get a full run. If nothing is showing, click **New Events** to see the running jobs: ![new events button](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/new-events.png)
 
 ✅   **Result:** The errors in the code have successfully (and temporarily!) broken the pipeline. Click **1 Failed** to see details about the job failure. ![pipeline failure](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.0-job-failure.png)
 

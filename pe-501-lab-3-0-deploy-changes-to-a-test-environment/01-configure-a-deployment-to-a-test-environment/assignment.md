@@ -49,18 +49,13 @@ Add a test deployment to the main pipeline
     - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.
     - To see the full Continuous Delivery for PE interface, maximize the browser window.<br><br>
 3. Navigate to **Control Repos** > **control-repo**.
-4. Add a new deployment to the main pipeline. First, ensure **main** is selected in the drop-down menu. Then, click **Add Stage**:![add stage](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/add-stage.png)
-1. In the modal that is shown, enter the following values:
+4. Add a new deployment to the main pipeline. First, ensure **main** is selected in the drop-down menu:![main pipeline](https://storage.googleapis.com/instruqt-images/pipelines-main.png) Then, click **Add Stage**:![add stage](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/add-stage.png)
+1. In the **Add new stage** window, enter the following:
 
-    <u>Create stage</u>
-    - Stage Name: **Test Deployment**
-    <u>Add to this stage</u>
-    - Select Item: **Deployment**
-    - Select a Puppet Enterprise Instance: **PE**
-    - Select a Node Group: **Development environment**
-    - Select a Deployment Policy: **Built-in deployment policies**
-      - Choose **Direct deployment policy**
-      - Leave existing settings as is.<br><br>
+    - In the **Stage Name** field, enter **Test Deployment**.
+    - For **Select a Node Group** choose **Development environment**.
+    - Under **Select a Deployment Policy** choose **Direct deployment policy**.
+    - Leave all other settings as is.<br><br>
 1. Click **Add Stage** and then click **Done**.
 
 ✅ **Result:** A test deployment has been added to the **main** pipeline for the control repo: ![test deployment created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-test-deployment-created.png)
@@ -71,12 +66,13 @@ Update the MOTD on a new feature test branch
 
     💡 **Tip:** Enable VS Code autosave by clicking **File** > **Auto Save**. By enabling autosave, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-1. If prompted to trust the code in this directory, click **Accept**.
+    - If prompted to trust the code in this directory, click **Accept**.<br><br>
 1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
 1. Clone the **control-repo** project:
     ```
     git clone git@gitlab:puppet/control-repo.git
     ```
+    💡 After pasting the code in the terminal, remember to click Enter.<br><br>
 1. Change directory into the **control-repo**:
     ```
     cd control-repo
@@ -121,8 +117,11 @@ Promote the main pipeline to Deploy and locate the job ID
 ========
 1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events** if shown.
 3. Observe the `main` pipeline as it runs the unit tests and syntax checks.
-4. After the code verification stage is complete, click **Promote** (to the right of the jobs in the code verification stage of the pipeline). Click **Promote** and then click **Done**.
-7. Click the **New Events** button if shown, and then click the drop-down arrow to view the Deployment run progress: ![merge run progress](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-merge-branch-deploy-progress.png)
+4. After the code verification stage is complete, click **Promote** (to the right of the page under **Pipeline stage 1**). ![promote](https://storage.googleapis.com/instruqt-images/promote.png)
+1. Click **Promote** and then click **Done**.
+7. Click the **New Events** button if shown, and then click the drop-down arrow to the right of the running pipeline: ![drop-down arrow](https://storage.googleapis.com/instruqt-images/downward-arrow-2.png)
+
+    Review the merge run progress: ![merge run progress](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-merge-branch-deploy-progress.png)
 
 8. After the job completes, record the Job ID. Click on the green **1 Succeeded**, and then click the blue job report link (**#1**) under **Deployment Done**: ![1 succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/1-succeeded.png) ![deployment done](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-done.png)
 1. Scroll down to **Deployment events** > **3. Orchestration task** and click **View jobs**: ![view jobs](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/view-jobs.png)

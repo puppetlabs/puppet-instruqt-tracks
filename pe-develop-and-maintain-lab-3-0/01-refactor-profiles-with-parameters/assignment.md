@@ -67,7 +67,8 @@ Develop profiles to externalize node data
 🔀 Switch to the **Windows Agent** tab.
 
 1. On the **Windows Agent** tab, from the **Start** menu, open **Visual Studio Code**.
-2. Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.
+
+    💡 **Tip**: Enable autosave so that you don't have to remember to save your changes. Click **File** > **Auto Save**.<br><br>
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory, and click **Select Folder**.
 
     ✏️ **Note:** If prompted to trust the code in this directory, click **Accept**.<br><br>
@@ -139,7 +140,7 @@ Edit the Hiera data
 
 
 1. Add Hiera data for both `dc-west.yaml` and `common.yaml` configurations. Create the `data/datacenter/` directory and relevant files:
-    1. Navigate to **control-repo** > **data**.
+    1. In the VS Code explorer, navigate to **control-repo** > **data**.
     2. Right-click the `data` directory and then click **New Folder**. Name the new folder `datacenter`.
     3. Right-click the `datacenter` directory and then click **New File**. Name the new file `dc-west.yaml` and paste in the following contents. Note the `port` value:
         ```
@@ -168,7 +169,7 @@ Edit the Hiera data
             - "datacenter/%{trusted.extensions.pp_datacenter}.yaml"
             - "common.yaml"
     ```
-3. Commit, push, and deploy the code:
+3. In the VS Code terminal, commit, push, and deploy the code:
     ```
     git add .
     git commit -m "Add Apache configuration YAML"
@@ -178,7 +179,7 @@ Edit the Hiera data
     🔀 Switch to the **PE Console** tab.<br><br>
 
 
-4. Run Puppet on the **Development environment** node group again (if you need a refresher, [refer back to step 1](#runpuppet) in this section).
+4. Run Puppet on the **Development environment** node group again (if you need a refresher, refer back to step 1 in the previous section.)
 
     ✅ **Result:** Notice that the run is successful.
 
@@ -254,7 +255,11 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
     4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
     5. From the list, select **Production** and then click **Run job**.<br><br>
 
-7. Both production nodes (nixagent4 and nixagent5) should return with a successful run. Run the following commands from a Powershell session on the Winagent to verify they ran successfully:
+    ✅ **Result:** Both production nodes (nixagent4 and nixagent5) return with a successful run.
+
+    🔀 Switch to the **Windows Agent** tab.<br><br>
+
+1. Open a Powershell session, and then run the following commands to verify they ran successfully:
 
     **dc-east**:
     ```
