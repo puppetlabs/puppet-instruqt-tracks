@@ -7,7 +7,7 @@ teaser: Use the package data that you collect to identify the roles of the serve
 description: |-
   ## Introduction
 
-  In this lab, you'll learn how to enable the package data collection feature via the PE console to discover which packages are installed across your systems. Then, you will use this information to identify the roles of the servers in your environment (web server, database server, and so on).
+  In this lab, you'll learn how to enable the package data collection feature via the Puppet Enterprise (PE) console to discover which packages are installed across your systems. Then, you will use this information to identify the roles of the servers in your environment (web server, database server, and so on).
 
   When you know which packages are installed on your systems:
   - You can identify which nodes are impacted by packages you know are eligible for maintenance updates, security patches, and license renewals.
@@ -15,7 +15,7 @@ description: |-
 
   ## Prerequisites
 
-  This lab builds on concepts introduced in other PE Deploy and Discover labs. You might find it helpful to complete:
+  This lab builds on concepts introduced in other Puppet Enterprise 101 Deploy & Discover labs. You might find it helpful to complete:
   - [Identify Your Nodes Using External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
 
   ## Technical recommendations
@@ -43,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7058486174608224556"
+checksum: "3170793262379059087"

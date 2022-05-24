@@ -36,9 +36,8 @@ developers:
 - thomas.chisholm@puppet.com
 - bart.kliebert@puppet.com
 - greg.larkin@puppet.com
-- wietse@instruqt.com
 private: true
 published: true
 show_timer: true
 skipping_enabled: true
-checksum: "6607137997825491181"
+checksum: "16981919903416230313"
