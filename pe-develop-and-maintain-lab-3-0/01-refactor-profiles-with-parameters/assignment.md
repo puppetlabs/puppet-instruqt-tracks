@@ -259,7 +259,7 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
-1. Open a Powershell session, and then run the following commands to verify they ran successfully:
+1. Open a Powershell session or open the VSCode terminal, and then run the following commands to verify they ran successfully:
 
     **dc-east**:
     ```
