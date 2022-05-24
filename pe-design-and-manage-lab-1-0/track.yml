@@ -6,7 +6,7 @@ teaser: Learn how to request, locate, and inspect the Puppet agent catalog.
 description: |-
   ## Introduction
 
-  In this lab you will:
+  In this lab, you will:
   * Explore the Puppet run lifecycle by kicking off a Puppet run.
   * Inspect an agent catalog — built during a Puppet run — to see what the Puppet agent manages out of the box.
 
@@ -42,4 +42,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "17655571616115362463"
+checksum: "8981733713045116694"

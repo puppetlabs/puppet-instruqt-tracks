@@ -46,13 +46,13 @@ Uninstall Linux agents
 
 ⚠️ **Important:** The ****Linux Agent 1**** and ****Linux Agent 2**** tabs represent Linux nodes. Complete the following steps ****on each Linux agent node****.
 
-1. Retrieve the nodes' `certname` by running the following command on each node:
+1. On each node, retrieve the node's `certname` by running the following command:
     ```
     puppet config print certname
     ```
-    🏆 **Extra credit:** Alternatively, see if you can find the certnames in the **PE Console**. Log in with user `admin` and password `puppetlabs`.<br><br>
+    🏆 **Extra credit:** Alternatively, see if you can find the certnames in the **PE console**. Log in with user `admin` and password `puppetlabs`.<br><br>
 
-2. Copy the certnames to a local text editor of your choice — you'll need them later in the lab.
+2. Copy each certname to a local text editor of your choice — you'll need them later in the lab.
 
 3. Retire the nodes by running the *nix agent uninstall script on each node:
     ```
@@ -75,7 +75,7 @@ Remove nodes from the primary server on Linux
 
 🔀 Switch to the **Primary Server** tab to run commands on the primary server.
 
-2. Purge both Linux nodes by running the following command ****twice****, each time replacing `<CERTNAME>` with the certnames you gathered in a previous step:
+2. Purge both Linux nodes by running the following command ****twice****, each time replacing `<CERTNAME>` with the certnames you gathered in the previous section:
     ```
     puppet node purge <CERTNAME>
     ```
@@ -88,7 +88,7 @@ Reinstall Linux agents with trusted facts and an autosign password
 ========
 In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted fact for each node:
 
-|   | Data Center | Role |
+|   | Data center | Role |
 |-| :-----------: | :---------------: |
 | ****Linux Agent 1**** | `dc-west` | `cmsweb`|
 | ****Linux Agent 2**** | `dc-west` | `cmsloadbalancer`|
@@ -105,7 +105,7 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
     ```
 1. 🔀 Switch to the ****Linux Agent 2**** tab and repeat step 1.
 1. 🔀 Switch to the ****PE Console**** tab and click refresh inside the PE Console tab to see attached nodes.
-1. Click on the Linux node names to view the trusted facts for each new node.
+1. Click the Linux node names to view the trusted facts for each new node.
 
 ---
 ## 🎈 **Congratulations!**
@@ -129,7 +129,7 @@ Uninstall Windows agents
     ```
     appwiz
     ```
-1. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts to uninstall. Click OK on the dialogue box that says a reboot is necessary, but do not reboot.
+1. Right-click __Puppet Agent (64-bit)__, select __Uninstall__, and follow the prompts to uninstall. Click OK on the dialog box that indicates a reboot is necessary, but do not reboot.
     ✏️ **Note:** Uninstalling the agent removes the Puppet program directory, the agent service, and all related registry keys. This might take a couple of minutes.
     ⚠️ **Important:** The `data` directory remains intact, including all SSL keys. Completely remove the agent from the node in the next step.<br><br>
 

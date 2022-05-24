@@ -8,11 +8,11 @@ description: |-
 
   In this lab, you'll purge the Puppet agent from your nodes, and then reinstall the agent on each node to include Puppet's pp_role and pp_datacenter trusted facts.
 
-  Because trusted facts are extracted from the agent certificate, the data is immutable, providing a higher level of security for your nodes. You can use the data from facts to classify (group) nodes so that you can get configuration and performance data for a specific group of nodes.
+  Because trusted facts are extracted from the agent certificate, the data is immutable, providing a higher level of security for your nodes. You can use the data from facts to *classify* — or, group — nodes so that you can get configuration and performance data for a specific group of nodes.
 
   ## Prerequisites
 
-  This lab builds on concepts introduced in other PE Deploy and Discover labs. You might find it helpful to complete these labs first:
+  This lab builds on concepts introduced in other Puppet Enterprise 101 Deploy & Discover labs. You might find it helpful to complete these labs first:
    - [Identify Your Nodes Using External Facts](https://play.instruqt.com/puppet/invite/7njh4szvazdy)
    - [Identify Server Roles by Using Package Data Collection](https://play.instruqt.com/puppet/invite/qbye99iuacew)
 
@@ -41,4 +41,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6050815473018457117"
+checksum: "6006762899162339718"
