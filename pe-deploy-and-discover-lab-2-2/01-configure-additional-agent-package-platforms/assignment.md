@@ -2,7 +2,7 @@
 slug: configure-additional-agent-package-platforms
 id: znr1665vsmzt
 type: challenge
-title: Configure PE to support additional agent platforms
+title: Configure Puppet Enterprise to support additional agent platforms
 teaser: Add agent packages for the platforms in your infrastructure.
 notes:
 - type: text
