@@ -10,7 +10,7 @@ notes:
   contents: |-
     In this lab you will:
 
-    - Add a base profile to existing roles. You'll discover how Puppet cannot build a catalog until you create the classes that you include in your `.pp` files!
+    - Add a base profile to existing roles. You'll discover how Puppet cannot build a catalog until you create the classes that you include in your `.pp` files.
     - Use Puppet Development Kit (PDK) to create a base profile class.
     - Add a class to the base profile to show a dynamic, role-specific message of the day (motd) based on information retrieved from the node's trusted facts.
     - Log into nodes that have different roles to see the dynamic login message.

@@ -18,7 +18,7 @@ description: |
   - Add the profiles to existing role classes.
   - Add the `apache` and `iis` modules and their dependencies to the Puppetfile in your control repo. The Puppetfile manages module dependencies.
   - Run Puppet in no-op mode to simulate a Puppet run across all nodes without actually making changes.
-  - After successful testing, Run Puppet again to make sweeping changes — in this case, fast provisioning — across your data center at the snap of a finger.
+  - After successful testing, run Puppet again to make sweeping changes — in this case, fast provisioning — across your data center.
 
   ## Prerequisites
 
@@ -47,4 +47,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "14679822514777310156"
+checksum: "12602479826053254866"

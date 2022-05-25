@@ -9,12 +9,12 @@ description: |+
 
   Your systems likely complete tasks that are common across all nodes, such as showing a login message, enabling network time synchronization, or setting up (or removing) access via ssh or remote desktop.
 
-  You can include these common configuration tasks in a *base profile*, which you can then include in all of your roles (web server, ecommerce server, and so on) to ensures that all systems, regardless of their role, have the same base configuration. As your business and technology needs change, you can easily update the base profile by including only the technology-specific profiles and classes that you need.
+  You can include these common configuration tasks in a *base profile*, which you can then include in all of your roles (web server, ecommerce server, and so on) to ensure that all systems, regardless of their role, have the same base configuration. As your business and technology needs change, you can easily update the base profile by including only the technology-specific profiles and classes that you need.
 
   Creating a base profile — a basic but important building block — means faster and consistent provisioning, less maintenance, and a sustainable code base.
 
   In this lab, you will:
-  - Add a base profile to existing roles. You'll discover that Puppet cannot build a catalog until you create the classes that you include in your `.pp` files!
+  - Add a base profile to existing roles. You'll discover that Puppet cannot build a catalog until you create the classes that you include in your `.pp` files.
   - Use Puppet Development Kit (PDK) to create a base profile class.
   - Add a class to the base profile to show a dynamic, role-specific login message based on information retrieved from trusted facts.
   - Log into nodes that have different roles to see the dynamic login message.
@@ -51,4 +51,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "11577608750496612138"
+checksum: "9985948998398845363"
