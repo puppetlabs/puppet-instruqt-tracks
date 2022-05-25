@@ -7,7 +7,11 @@ teaser: Simulate a Puppet run to understand how Puppet remediates drift and keep
 description: |-
   ## Introduction
 
-  In this lab, you will simulate a Puppet run to understand how Puppet remediates drift and keeps your systems in their desired state. You will:
+  In this lab, you will simulate a Puppet run by running Puppet in "no operation" (no-op) mode to understand how Puppet remediates drift and keeps your systems in their desired state.
+
+  Running Puppet in no-op mode is useful for reviewing your changes so that you can push your Puppet code and data to production in a safe, controlled, and manageable way.
+
+  You will:
 
   - Cause drift by making a breaking change to a Puppet component (the `pxp-agent` or the uninstaller script).
   - Run Puppet with the `--noop` parameter to simulate a Puppet run without making changes to the system.
@@ -43,4 +47,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "12963407567798325343"
+checksum: "18248014972604677316"

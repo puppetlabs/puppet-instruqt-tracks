@@ -50,8 +50,8 @@ Choose one or more components to break. Then, cause drift on the Linux agent nod
 | # | How to cause drift |
 |:-:|------- |
 |**1**| Stop the service by running this command: <br> ``` service pxp-agent stop ```      |
-|**2**| Add text to the config file by running this command: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
-|**3**| Remove the uninstall script by running this command: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
+|**2**| Add text to the config file: <br> ``` echo hello > /etc/puppetlabs/pxp-agent/pxp-agent.conf ``` |
+|**3**| Remove the uninstall script: <br> ``` rm /opt/puppetlabs/bin/puppet-enterprise-uninstaller ```|
 
 Next, let's see how Puppet would fix it.
 ========
@@ -65,7 +65,7 @@ Run Puppet in no-op mode to simulate a Puppet run and understand what the Puppet
      |**2**| ```puppet agent -t --noop``` |
      |**3**| ```puppet agent get_catalog --noop``` |
 
-2. Examine the output for the mention of `noop` to see the changes Puppet would have made.<br><br>💡 **Tip:** Look for `/Stage[main]` in the output to quickly find the changes.
+2. Examine the output for the mention of `noop` to see the changes Puppet would have made.<br><br>💡 **Tip:** To quickly find the changes, you can also look for `/Stage[main]` in the output.
 
 Finally, let's run Puppet to fix it.
 ========
@@ -76,6 +76,6 @@ Finally, let's run Puppet to fix it.
 2. Examine the output to see the changes Puppet made to bring the node back into its desired state (all Puppet components fully functional).
 ---
 ## 🎈 **Congratulations!**
-How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see the true power and potential of Puppet.
+How easy was that? Now imagine hundreds or thousands of these failures happening overnight — due to an automatic update, for instance — and you'll start to see how useful no-op mode is for reviewing your changes so that you can push your Puppet code and data to production in a safe, controlled, and manageable way.
 
 To continue, click **Next**.
