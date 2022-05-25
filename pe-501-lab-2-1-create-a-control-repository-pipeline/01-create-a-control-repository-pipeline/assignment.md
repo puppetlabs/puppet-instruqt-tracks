@@ -2,9 +2,9 @@
 slug: create-a-control-repository-pipeline
 id: nchvmmpwwi6q
 type: challenge
-title: Create a Control Repository Pipeline
-teaser: Set up a control repo, and then set up a main and regexp pipeline for the
-  control repo you built.
+title: Create a control repository pipeline
+teaser: Set up a control repo, and then set up a main and regexp pipeline for that
+  control repo.
 notes:
 - type: text
   contents: |-
@@ -118,7 +118,7 @@ Add a unit test job type
 
 ✅  **Result:** A unit test job type is created for both the **main** and **regex** pipelines: ![unit tests created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.1-run-unit-tests-job.png)
 
-Test the unit test job stage in your Regex Pipeline
+Test the unit test job stage in your regex pipeline
 ========
 1. Switch back to the VS Code window.
 1. Commit your change and push to the remote repository:
