@@ -64,7 +64,7 @@ timelimit: 1800
     ```
     jq '.resources[] | select(.type=="Service")' /opt/puppetlabs/puppet/cache/client_data/catalog/*.json
     ```
-    💡 This lab uses [jq](https://stedolan.github.io/jq/), a command-line JSON tool that is installed separately  to make the catalog more human readable. <br><br>
+    💡 This lab uses [jq](https://stedolan.github.io/jq/), a command-line JSON tool that is installed separately to make the catalog human-readable. <br><br>
 
 6. Inspect the catalog contents, and notice that the agent manages the `pxp-agent` service resource:
     ```
