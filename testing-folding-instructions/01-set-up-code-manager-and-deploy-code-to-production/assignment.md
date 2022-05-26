@@ -209,3 +209,27 @@ Configure a webhook to deploy code automatically
 🎈 **Congratulations!** In this lab you created a dedicated code deployment user that you used to authenticate to deploy code. You then configured Code Manager to authenticate and download your control repo from the Git server. Next, you created a feature branch in your control repo, which allowed you to develop safely without affecting production. Then, to test a code deployment, you added a module to the Puppetfile on your feature branch Finally, you deployed code from your feature branch to the primary server, enabling you to test changes on nodes in a separate Puppet environment.
 
 To continue, click **Next**.
+
+<style>
+.lightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  max-height: 100%
+}
+</style>
