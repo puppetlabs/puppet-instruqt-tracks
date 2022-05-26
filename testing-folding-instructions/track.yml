@@ -1,7 +1,7 @@
 slug: testing-folding-instructions
 id: ivirqanqqu5m
 type: sandbox
-title: testing-folding-instructions
+title: testing-folding-instructions and lightbox
 teaser: Create a dedicated code deployment user that you will use to authenticate
   to deploy code.
 description: |-
@@ -50,4 +50,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "10373164844043420516"
+checksum: "7698627834801895554"
