@@ -2,12 +2,18 @@ slug: pe-develop-and-maintain-lab-1-0
 id: svc4osqv2ysp
 type: sandbox
 title: Configure Code Manager and Deploy Code
-teaser: Create a dedicated code deployment user that you will use to authenticate
-  to deploy code.
+teaser: Deploy code faster and with fewer errors by pushing it automatically from
+  source control to the primary server.
 description: |-
   ## Introduction
 
-  Manually moving code from one place to another — from source control to the primary Puppet server — can be a time-consuming and error-prone process. You can automate this workflow by creating a dedicated Code Deployment user and configuring Code Manager to automatically push code from your source control to the primary server. This automation makes code deployment faster and reduces deployment errors. It also provides an audit trail — you can tell which team or individual delivered which code — and reduces the security footprint limiting access to the primary server to only users that are assigned the dedicated Code Deployment role. In this lab, you will:
+  Manually moving code from one place to another — from source control to the primary Puppet server — can be a time-consuming and error-prone process.
+
+  You can automate this workflow by creating a dedicated Code Deployment user and configuring Code Manager to automatically push code from your source control to the primary server. This automation makes code deployment faster and reduces deployment errors.
+
+  This automation also provides an audit trail — you can tell which team or individual delivered which code — and reduces the security footprint limiting access to the primary server to only users that are assigned the dedicated Code Deployment role.
+
+  In this lab, you will:
   - Create a dedicated code deployment user that you will use to authenticate to deploy code.
   - Configure Code Manager to authenticate and download your control repo from the Git server.
   - Create a feature branch in your control repo from the main branch. This enables you to develop safely without affecting production.
@@ -45,4 +51,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6217857803022078051"
+checksum: "11861682778632683065"

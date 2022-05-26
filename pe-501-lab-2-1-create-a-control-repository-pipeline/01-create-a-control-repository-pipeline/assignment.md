@@ -59,7 +59,7 @@ Configure default control repo pipelines
 1. Click **Add control repo**.
 1. Make sure that **main** is selected in the **Pipelines** dropdown and then click **+ Add default pipeline**.
 1. Click **Manage pipelines**.
-1. In the modal that opens, deselect the **Commit** trigger checkbox, and then check the box for **PullRequest**. Click **Save Settings** and then click **Done**.
+1. In the modal that opens, deselect the **Commit** trigger checkbox, and then select **PullRequest**. Click **Save Settings** and then click **Done**.
 1. On the main page, click the **Add Pipeline** icon:![add pipeline icon](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab2.0-1-1.png)
 1. In the modal that opens, select the **Branch regex** radio button, click **Add pipeline** and then click **Done**.
 1. Click **+ Add default pipeline**.
@@ -105,16 +105,17 @@ Add a unit test job type
     - For **Hardware capabilities**, select **docker** and then click **Apply**.
     - Toggle the option for **Run this job in a Docker container**. Leave the other settings as-is and then click **Save job**.<br><br>
 1. In the left-hand navigation bar, click **Control Repos** and then click **control-repo**.
-1. In the **Pipelines** dropdown, select the **main** pipeline:![main branch](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-main-branch.png)
+1. In the **Pipelines** dropdown, select the **regex** pipeline:![regex pipeline](https://storage.googleapis.com/instruqt-images/regex-pipeline.png)
 
-1. Click the 3 dots next to the **Code Validation stage** header:![3 dots](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-3-dots.png)
+
+1. Click the ellipsis beside the **Code Validation stage** header:![3 dots](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-3-dots.png)
 
 1. Select **Add a stage after**.
 1. Enter the following:
-    - In the **STAGE NAME** field enter **Show Puppetfile module versions**.
+    - In the **STAGE NAME** field, enter **Show Puppetfile module versions**.
     - From the **SELECT ITEM** dropdown, select **Jobs**.
     - Select the **control-repo-onceover-show-puppetfile** job, click **Add stage**, and then click **Done**.<br><br>
-1. Starting at step 4, repeat the same steps for the **regex** pipeline.
+1. Repeat steps 4-7 for the **main** pipeline. Even though you won't trigger the main pipeline in this lab, other PE501 labs need this job in the main pipeline.
 
 ✅  **Result:** A unit test job type is created for both the **main** and **regex** pipelines: ![unit tests created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab2.1-run-unit-tests-job.png)
 
@@ -133,6 +134,6 @@ Test the unit test job stage in your regex pipeline
 ✅  **Result:** The unit test jobs run successfully.<br><br>
 
 --------------
-🎈 **Congratulations!** You set up a control repo and then added main and regex pipelines to it, before finally testing the pipelines to ensure they work as expected.
+🎈 **Congratulations!** You set up a control repo and added the main and regex pipelines to it. Then, you tested the pipelines to make sure they work as expected.
 
 When you are finished with this lab, click **Next**.

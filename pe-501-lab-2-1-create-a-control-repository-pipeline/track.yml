@@ -2,12 +2,15 @@ slug: pe-501-lab-2-1-create-a-control-repository-pipeline
 id: syzgolm1im5x
 type: track
 title: 'PE501 Lab 2.1: Create a Control Repository Pipeline'
-teaser: Create a control repository pipeline
+teaser: Create a control repository pipeline.
 description: |-
   ## Introduction
-  A CI/CD pipeline allows you to automate the checks to perform on your code changes before they are deployed to production. In this lab you will work on a CD4PE instance where the necessary integrations are already configured. You will configure pipelines for your control repo in order to automate the syntax checks of your code changes, and then introduce a new job type to run unit tests.
+  A continuous integration/continuous delivery pipeline enables you to automate the checks to perform on your code changes before they are deployed to production.
+
+  In this lab, you will work on a Continuous Delivery for Puppet Enterprise instance where the required integrations are already configured. You will configure pipelines for your control repo to automate the syntax checks of your code changes, and then introduce a new job type to run unit tests.
+
    You will:
-   - Set up a control repo to work with.
+   - Set up a control repo.
    - Set up a main and regex pipeline for the control repo.
 
   ## Prerequisites
@@ -21,7 +24,7 @@ description: |-
   ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
   The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
-  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
 icon: https://storage.googleapis.com/instruqt-images/pe501-icon.png
 tags:
 - BACKUP
@@ -32,4 +35,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "14048932126851395656"
+checksum: "7691538830368306963"
