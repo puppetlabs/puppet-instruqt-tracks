@@ -1,0 +1,12 @@
+CATALOG=/opt/puppetlabs/puppet/cache/client_data/catalog/nixagent*.json
+
+if test -f $CATALOG; then
+    CATALOGEXISTS=1
+fi
+
+if [ "${CATALOGEXISTS}" ]; then
+  exit 0
+else
+  fail-message "The catalog does not exist on the linux agent"
+  exit 1
+fi

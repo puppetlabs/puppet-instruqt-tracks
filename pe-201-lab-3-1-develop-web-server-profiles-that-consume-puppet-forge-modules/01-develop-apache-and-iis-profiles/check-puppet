@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ ! -e /etc/puppetlabs/code/environments/webapp ]; then
+  fail-message "The webapp environment has not been deployed to the PE server"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/apache.pp ]; then
+  fail-message "The profile::apache manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/apache.pp; then
+  fail-message "The profile::apache manifest does not compile"
+  exit 1
+fi
+
+if [ ! -f /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/iis.pp ]; then
+  fail-message "The profile::iis manifest has not been deployed to the PE server"
+  exit 1
+fi
+
+if ! puppet parser validate /etc/puppetlabs/code/environments/webapp/site-modules/profile/manifests/iis.pp; then
+  fail-message "The profile::iis manifest does not compile"
+  exit 1
+fi
+
+exit 0

@@ -4,12 +4,8 @@ puppet/pe-extend-capability-lab-3-1
 puppet/bolt-basics-on-linux
 puppet/build-a-bolt-inventory-file-on-linux
 puppet/pe-develop-and-maintain-lab-1-0
-puppet/pe-design-and-manage-lab-2-0
-puppet/pe-design-and-manage-lab-3-0
 puppet/pe-extend-capability-lab-3-0
-puppet/pe-design-and-manage-lab-3-1
 puppet/pe-extend-capability-lab-2-0
-puppet/pe-design-and-manage-lab-1-0
 puppet/install-and-explore-the-puppet-agent-on-linux
 puppet/pe-develop-and-maintain-lab-3-1
 puppet/pe-101-lab-1-0-install-the-primary-server
@@ -20,6 +16,11 @@ puppet/pe-101-lab-2-2-configure-additional-agent-package-platforms
 puppet/pe-101-lab-3-0-identify-your-nodes-using-external-facts
 puppet/pe-101-lab-3-1-identify-server-roles-by-using-package-data-collection
 puppet/pe-101-lab-3-2-establish-server-roles-by-reinstalling-agents-with-trusted-facts
+puppet/pe-201-lab-1-0-inspect-the-agent-catalog
+puppet/pe-201-lab-1-1-simulate-changes-by-running-in-noop-mode
+puppet/pe-201-lab-2-0-configure-node-classification-by-using-trusted-facts
+puppet/pe-201-lab-3-0-create-a-base-profile
+puppet/pe-201-lab-3-1-develop-web-server-profiles-that-consume-puppet-forge-modules
 puppet/pe-501-lab-1-0-configure-continuous-delivery-for-pe
 puppet/pe-501-lab-1-0-configure-continuous-delivery-for-pe-hot-start
 puppet/pe-501-lab-2-0-create-a-module-pipeline
@@ -29,7 +30,6 @@ puppet/pe-501-lab-3-1-deploy-changes-to-production
 puppet/pe-develop-and-maintain-lab-3-0
 puppet/pe-develop-and-maintain-lab-2-1
 puppet/trigger-a-puppet-agent-run
-puppet/pe-design-and-manage-lab-1-1
 puppet/pe-develop-and-maintain-lab-1-1
 puppet/pe-extend-capability-lab-2-1
 puppet/pe-extend-capability-lab-1-0
