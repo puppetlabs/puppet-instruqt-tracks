@@ -115,7 +115,9 @@ Uninstall Windows agents
 ========
 1. 🔀 Switch to the **Windows Agent** tab.
 
-1. Open a PowerShell terminal: **Start** —> **Windows Powershell** —> **Windows Powershell**
+1. Open a PowerShell terminal: **Start** —> **Windows Powershell** —> **Windows Powershell 5.1**
+
+    💡 Make sure you are using the correct version of Windows Powershell (version 5.1).<br><br>
 
 1. Retrieve the node's `certname` by running the following command:
     ```
