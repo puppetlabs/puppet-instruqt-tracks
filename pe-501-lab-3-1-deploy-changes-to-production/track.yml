@@ -1,6 +1,6 @@
 slug: pe-501-lab-3-1-deploy-changes-to-production
 id: wnfb5lqofexo
-type: track
+type: sandbox
 title: 'PE501 Lab 3.1: Deploy Changes to Production'
 teaser: Deploy changes to Production
 description: |-
@@ -37,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1185867090171142151"
+checksum: "12176670295635558236"

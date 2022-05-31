@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Export the token value to the environment for API use
+export TOKEN=$(cat /tmp/token.json | jq -r .token)
+
+SERVER=$(puppet config print server)
+
+# Check if new user has been created
+URI="https://${SERVER}:4433/rbac-api/v1/users?token=${TOKEN}"
+if [ "`curl -s --insecure $URI | jq -r '.[].display_name' | sort -u | tr '\n' ',' | md5sum | awk '{ print $1 }'`" = "65a66ca4520f68adacc8714f267656d2" ]; then
+  fail-message "New user has not been created yet"
+  exit 1
+fi
+
+URI="https://${SERVER}:4433/rbac-api/v1/roles?token=${TOKEN}"
+if [ "`curl -s --insecure $URI | jq -r '.[] | select(.display_name=="Viewers").user_ids[]'`" = "" ]; then
+  fail-message "User has not been assigned to the Viewers role"
+  exit 1
+fi
+
+exit 0

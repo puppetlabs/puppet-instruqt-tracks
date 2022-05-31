@@ -1,0 +1,30 @@
+---
+slug: wrapup-and-feedback
+id: kfitqbipchz6
+type: challenge
+title: Wrap-up and feedback
+teaser: Recap what you learned and tell us what you think.
+notes:
+- type: text
+  contents: |
+    # Excellent! You’re nearly done!
+
+    Click **Start** to review what you learned and let us know what you thought of this track.
+tabs:
+- title: Feedback Survey
+  type: website
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform?usp=pp_url&entry.1252824226=PE101+Lab+3.1:+Identify+Server+Roles+by+Using+Package+Data+Collection
+difficulty: basic
+timelimit: 300
+---
+In this lab, you learned how to enable the package data collection feature via the PE console to discover which packages are installed across your systems. Then, you used this information to identify the roles of the servers in your environment (web server, database server, and so on).
+
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/pe101/identify-packages-and-server-roles-by-using-package-data-collection).
+
+Want to learn more about Puppet? Check out these resources:
+- [Puppet Compass](https://learn.puppet.com/)
+- [Puppet Community Slack](https://slack.puppet.com/)
+
+Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-instruqt-tracks/tree/main/pe-deploy-and-discover-lab-3-1) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.
+
+To close this track, click **Next**.

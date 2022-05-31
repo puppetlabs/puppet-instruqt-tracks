@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-3-1
 id: h3tmxxydrfkr
-type: track
+type: sandbox
 title: Add Defined Types to a Module to Support Virtual Hosts
 teaser: Break your module class into smaller classes, and then use class inclusion
   to make the code base more maintainable.
@@ -35,4 +35,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "3171044283548212892"
+checksum: "10703082905870975431"

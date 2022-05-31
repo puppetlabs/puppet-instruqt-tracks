@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-2-1
 id: 7lqcmm1w2y6y
-type: track
+type: sandbox
 title: Use Hiera to Extend Module Capabilities
 teaser: Move your data into Hiera and create a custom fact to determine the installation
   directory location.
@@ -35,4 +35,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1324213066016166451"
+checksum: "12315583631492992360"

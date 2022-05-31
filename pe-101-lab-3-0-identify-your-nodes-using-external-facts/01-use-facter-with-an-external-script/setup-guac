@@ -1,0 +1,25 @@
+#!/bin/bash
+
+cat <<'EOF' > /config/guacamole/user-mapping.xml
+<user-mapping>
+    <authorize
+        username="instruqt"
+        password="Passw0rd!">
+        <connection name="winagent">
+            <protocol>rdp</protocol>
+            <param name="hostname">winagent</param>
+            <param name="port">3389</param>
+            <param name="username">Administrator</param>
+            <param name="password">Puppetlabs!</param>
+            <param name="ignore-cert">true</param>
+            <param name="resize-method">display-update</param>
+        </connection>
+    </authorize>
+</user-mapping>
+EOF
+
+# Wait until RDP is available
+while ! nc -z winagent 3389; do
+  echo "Waiting for RDP to be available"
+  sleep 1
+done

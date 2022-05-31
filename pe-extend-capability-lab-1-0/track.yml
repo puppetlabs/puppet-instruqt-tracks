@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-1-0
 id: sv482vi2qtit
-type: track
+type: sandbox
 title: Use PDK to Create and Test a New Module
 teaser: Use PDK to create, test, and validate a new module and a new class.
 description: |-
@@ -38,4 +38,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "905274983370983933"
+checksum: "12977434615855863462"

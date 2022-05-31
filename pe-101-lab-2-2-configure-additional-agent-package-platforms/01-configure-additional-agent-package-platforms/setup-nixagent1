@@ -1,0 +1,3 @@
+PUPPET_IP=$(ping puppet -c1 | head -1 | grep -Eo '[0-9.]{4,}')
+
+echo $PUPPET_IP puppet puppet.c.kmo-instruqt.internal >> /etc/hosts

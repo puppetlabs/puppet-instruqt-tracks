@@ -1,0 +1,40 @@
+slug: pe-101-lab-1-0-install-the-primary-server
+id: mxxouyyo8i2z
+type: sandbox
+title: 'PE101 Lab 1.0: Install the Primary Server'
+teaser: Learn how to install Puppet Enterprise and monitor its status in the graphical
+  console.
+description: |-
+  ## Introduction
+
+  In this lab, you'll learn a straightforward way to install Puppet Enterprise (PE), enabling you to start automating your infrastructure on day one.
+
+  ## Prerequisites
+
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
+
+  ## Keep an eye on the clock
+
+  ![15 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/15min100.png) The virtual learning environment will stay up for 30 minutes, however, **this lab should only take about 15 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe101/install-the-primary-server).
+icon: https://storage.googleapis.com/instruqt-images/pe101-icon.png
+tags:
+- PE101
+- BACKUP
+owner: puppet
+developers:
+- greg.larkin@puppet.com
+- tara.swenson@puppet.com
+- thomas.chisholm@puppet.com
+- catherine.trinkwon@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "5758164512719009981"

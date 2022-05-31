@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$(puppet query 'package_inventory[certname, package_name, version]{ package_name = "httpd"}' --urls http://localhost:8080 | jq -r .[])" = '' ]; then
+  fail-message "Package data collection has not been configured"
+  exit 1
+fi
+
+exit 0

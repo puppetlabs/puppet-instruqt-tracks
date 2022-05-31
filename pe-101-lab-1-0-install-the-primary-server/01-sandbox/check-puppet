@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if  !  puppet infrastructure status | grep -q '11 of 11'; then
+   fail-message "Puppet Enterprise has not been successfully installed"
+   exit 1
+fi

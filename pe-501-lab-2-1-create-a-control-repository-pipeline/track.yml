@@ -1,6 +1,6 @@
 slug: pe-501-lab-2-1-create-a-control-repository-pipeline
 id: syzgolm1im5x
-type: track
+type: sandbox
 title: 'PE501 Lab 2.1: Create a Control Repository Pipeline'
 teaser: Create a control repository pipeline.
 description: |-
@@ -35,4 +35,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7691538830368306963"
+checksum: "15146985550074587208"

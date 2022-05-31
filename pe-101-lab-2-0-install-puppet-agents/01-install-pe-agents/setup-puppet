@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+while  ! nc -z -w3 localhost 443 
+do
+    echo "Waiting for port 443 to be reachable on localhost"
+   
+done
+
+sleep 20
+
+IPADDR=$(hostname -I)
+
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal  >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent
+
+bolt command run "Add-Content -Value '$IPADDR puppet puppet.c.kmo-instruqt.internal' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
+
+sleep 10
+
+/usr/local/bin/puppet agent -t
+
+sleep 30
+
+/usr/local/bin/puppet agent -t
+
+sleep 20
+
+

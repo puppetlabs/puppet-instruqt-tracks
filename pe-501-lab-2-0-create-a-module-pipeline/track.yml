@@ -1,6 +1,6 @@
 slug: pe-501-lab-2-0-create-a-module-pipeline
 id: scri5ofo6y9m
-type: track
+type: sandbox
 title: 'PE501 Lab 2.0: Create a Module Pipeline'
 teaser: Create a Module Pipeline
 description: |-
@@ -30,4 +30,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "3612052516251828512"
+checksum: "9991698031510904443"

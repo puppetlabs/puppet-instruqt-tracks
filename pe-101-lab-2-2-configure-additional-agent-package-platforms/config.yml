@@ -1,0 +1,10 @@
+version: "3"
+virtualmachines:
+- name: puppet
+  image: kmo-instruqt/puppet-pe101-lab-2-2
+  shell: /bin/bash
+  machine_type: n1-highcpu-8
+- name: nixagent1
+  image: ubuntu-os-cloud/ubuntu-2004-lts
+  shell: /bin/bash
+  machine_type: n1-standard-4

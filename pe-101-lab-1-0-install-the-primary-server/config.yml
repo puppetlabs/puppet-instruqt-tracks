@@ -1,0 +1,6 @@
+version: "3"
+virtualmachines:
+- name: puppet
+  image: centos-7-v20220303
+  shell: /bin/bash
+  machine_type: n1-highcpu-16

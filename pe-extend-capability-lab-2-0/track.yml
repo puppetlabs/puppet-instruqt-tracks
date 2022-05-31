@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-2-0
 id: yhswboi8dssf
-type: track
+type: sandbox
 title: Extend a Module to Support Different OS Platforms
 teaser: Enhance your module to support Windows and Red Hat.
 description: |
@@ -33,4 +33,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "9548745695715864202"
+checksum: "4326489563984654801"

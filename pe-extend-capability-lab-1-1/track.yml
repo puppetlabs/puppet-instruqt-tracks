@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-1-1
 id: bmtalmhsqpro
-type: track
+type: sandbox
 title: Acceptance Test New Modules
 teaser: Use acceptance tests and resource relationships to verify your module will
   work as expected.
@@ -37,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6308619542155940526"
+checksum: "17223324937441807861"

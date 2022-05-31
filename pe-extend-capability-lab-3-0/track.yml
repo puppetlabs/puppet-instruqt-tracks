@@ -1,6 +1,6 @@
 slug: pe-extend-capability-lab-3-0
 id: zhbvlcjwirhv
-type: track
+type: sandbox
 title: Develop a Module to Manage Configuration Files
 teaser: Refactor a module to make it maintainable and easier to manage your configuration
   files.
@@ -34,4 +34,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6419008117126459097"
+checksum: "16257386711275385218"

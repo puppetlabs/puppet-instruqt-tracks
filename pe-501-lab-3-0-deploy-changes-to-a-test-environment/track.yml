@@ -1,6 +1,6 @@
 slug: pe-501-lab-3-0-deploy-changes-to-a-test-environment
 id: 6q0lsclicxlf
-type: track
+type: sandbox
 title: 'PE501 Lab 3.0: Deploy Changes to a Test Environment'
 teaser: Deploy changes to a test environment
 description: |-
@@ -33,4 +33,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6357154348377303480"
+checksum: "16190463720735487715"

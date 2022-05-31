@@ -1,6 +1,6 @@
 slug: pe-501-lab-1-0-configure-continuous-delivery-for-pe-hot-start
 id: kdct107rdjls
-type: track
+type: sandbox
 title: 'PE501 Lab 1.0: Configure Continuous Delivery for Puppet Enterprise (Hot Start)'
 teaser: Before you can build your continuous delivery pipelines, you must configure
   integrations with Puppet Enterprise and source control.
@@ -36,4 +36,4 @@ developers:
 private: false
 published: true
 show_timer: true
-checksum: "1784048070647643485"
+checksum: "11550330681603006982"

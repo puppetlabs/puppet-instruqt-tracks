@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /etc/hosts  # TODO: Move to bootstrap?
+
+while  ! nc -z -w3 localhost 443 
+do
+    echo "Waiting for port 443 to be reachable on localhost"
+   
+done
+
+sleep 20
+
+# Wait for any running agent to finish
+while [ -f /opt/puppetlabs/puppet/cache/state/agent_catalog_run.lock ]; do
+  sleep 1
+done
+
+/usr/local/bin/puppet agent -t
+
+
