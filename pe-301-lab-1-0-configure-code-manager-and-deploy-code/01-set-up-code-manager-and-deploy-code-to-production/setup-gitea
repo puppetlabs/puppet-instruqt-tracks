@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+set -x
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while ! nc -z -w3 localhost 3000
+do
+  echo "Waiting for port 3000 to be reachable on localhost"
+done
+
+: ${RSA_KEY:="/etc/keys/id-control_repo.rsa"}                               # Set this to the location of the Gitea private key
+: ${META_REPO:="https://github.com/puppetlabs/kmo-meta-control-repo.git"}   # Set this to the repo containing control repos for each lab
+: ${BRANCH_PREFIX:="pe_301_lab_1_0_"}                                       # Set this to the prefix for the current lab
+BRANCH_FILTER="meta/$BRANCH_PREFIX*"                                        # Don't set this; we rename the meta control repo to "meta"
+
+# Create an empty control repo on Gitea
+printf "Creating empty Gitea control repo with CURL\n"
+curl -XPOST -H "Content-Type: application/json" \
+    -u puppet:puppetlabs \
+    \-d '{"auto_init":false,"default_branch":"production","description":"Puppet Enterprise Control Repo","name":"control-repo","private":false,"template":false,"trust_model":"default"}' \
+    http://gitea:3000/api/v1/user/repos
+
+# Save Gitea pub key to known hosts
+# - Suppresses "are you sure you want to add Gitea to known hosts?" dialogue
+ssh-keyscan gitea >> ~/.ssh/known_hosts
+
+# Add Gitea private key to all Git SSH commands
+git config --global core.sshCommand "ssh -i $RSA_KEY -F /dev/null"
+
+# Clone the meta control repo down to local
+printf "Cloning control repo to Gitea server\n"
+git clone $META_REPO control-repo
+cd control-repo
+
+# Repoint origin to control repo on Gitea
+printf "Gathering branches that match $BRANCH_FILTER\n"
+git remote remove origin
+git remote add origin git@gitea:puppet/control-repo.git
+git remote add meta $META_REPO
+git fetch meta
+mapfile -t BRANCHES < <( git branch -r --list $BRANCH_FILTER )
+
+# Check out each matching branch and push to origin
+# For each branch found
+# - use name substitution to correct the branch name (e.g., "meta/pe_201_lab_3_1_production" -> "production")
+# - checkout that branch as a new local branch (e.g., git checkout -b meta/pe_201_lab_3_1_production production)
+# - push that branch to origin as a new branch (e.g., git push --set-upstream origin production)
+printf "Pushing ${#BRANCHES[@]} branches to Gitea server\n"
+for i in "${BRANCHES[@]}"
+do
+    git checkout -b ${i//meta\/$BRANCH_PREFIX/} $i
+    git push --set-upstream origin ${i//meta\/$BRANCH_PREFIX/}
+done
+
+# Clean up the local copy of the control repo
+cd ../
+rm -rf control-repo
+printf "Successfully initialized Gitea control repository\n"
+
+printf "Creating an empty repo for Apache module\n"
+curl -XPOST -H "Content-Type: application/json" \
+    -u puppet:puppetlabs \
+    \-d '{"auto_init":false,"default_branch":"production","description":"Puppetlabs Apache Module","name":"apache","private":false,"template":false,"trust_model":"default"}' \
+    http://gitea:3000/api/v1/user/repos
+
+printf "Cloning and pushing Apache module repo\n"
+git clone https://github.com/puppetlabs/puppetlabs-apache.git
+cd puppetlabs-apache
+git remote remove origin
+git remote add origin git@gitea:puppet/apache.git
+git push -u origin main
+cd ../
+rm -rf puppetlabs-apache
+printf "Done with Gitea setup\n"

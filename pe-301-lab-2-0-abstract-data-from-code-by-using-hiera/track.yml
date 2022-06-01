@@ -1,0 +1,51 @@
+slug: pe-301-lab-2-0-abstract-data-from-code-by-using-hiera
+id: 2xirfylhwwjm
+type: sandbox
+title: 'PE301 Lab 2.0: Abstract Data From Code by Using Hiera'
+teaser: Discover how Hiera looks for data based on the hiera.yaml configuration and
+  node facts by running the puppet lookup command on the primary server.
+description: |-
+  ## Introduction
+
+  Suppose you have code, such as time synchronization code, that runs on both Windows and Linux. Rather than *duplicating* the code to run on different platforms, you can abstract the configuration settings into an external data source (such as .yaml files) so that you can *reuse* the code (roles, profiles, and modules) across platforms.
+
+  By separating data from code, you're following the DRY principle, so that you … don't repeat yourself.
+
+  How does Puppet reconcile the externalized data with the rest of your code? It uses Hiera, a built-in key-value lookup tool. When Puppet compiles node catalogs, it invokes Hiera to search for and retrieve the data it needs.
+
+  Hiera looks up data by using the `puppet lookup` command. You can run this command from the command line when you want to explore and test your data.
+
+  Separating data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
+
+  In this lab you will:
+   - Use the **`puppet lookup`** command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
+
+  ## Prerequisites
+
+  [Testing Changes in an Agent-Specified Node Group](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-1-1)
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
+
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 45 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/abstract-data-from-code-by-using-hiera).
+icon: https://storage.googleapis.com/instruqt-images/pe301-icon.png
+tags:
+- ""
+- BACKUP
+- PE301
+owner: puppet
+developers:
+- thomas.chisholm@puppet.com
+- greg.larkin@puppet.com
+- alex.williamson@puppet.com
+- jain.waldrip@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "120919089701800344"

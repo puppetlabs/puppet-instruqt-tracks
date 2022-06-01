@@ -1,0 +1,49 @@
+slug: pe-301-lab-3-0-refactor-the-apache-web-server-profile
+id: vavo214rpwgx
+type: sandbox
+title: 'PE301 Lab 3.0: Refactor the apache Web Server Profile'
+teaser: Use Hiera and class parameters to abstract the port value in the apache profile.
+description: |-
+  ## Introduction
+
+  In this scenario, you'll configure nodes whose pp_datacenter fact is set to "dc-west" to serve web server applications on port 8080 instead of port 80, which is the port specified in the organization's default apache.pp profile.
+
+  To do this, you'll use Hiera and class parameters to abstract the port value in the apache profile.
+
+  In this lab, you will:
+
+  - Run a PQL query to get the list of nodes in the dc-west data center.
+  - Extend the apache profile by using a class parameter to abstract port information.
+  - Test your changes by running Puppet against a specific node group.
+  - Test your changes incrementally in a canary release. Within the subset of nodes in the canary release, you'll run Puppet in no-op mode and run it again normally.
+  - Deploy code to the production environment.
+
+  ## Prerequisites
+
+  [Refactor the Base Profile](https://play.instruqt.com/puppet/tracks/pe-develop-and-maintain-lab-2-1)
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the [Lab Help Guide](https://puppet-kmo.gitbook.io/practice-lab-help/) for workarounds.
+
+  ## Keep an eye on the clock
+  ![20 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/20min100.png) The virtual learning environment will stay up for 45 minutes, however, **this lab should only take about 20 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (appears at the top of this page after the lab starts).
+
+  Want to try these steps in your own environment? Check out the [job aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-apache-web-server-profile).
+icon: https://storage.googleapis.com/instruqt-images/pe301-icon.png
+tags:
+- ""
+- BACKUP
+- PE301
+owner: puppet
+developers:
+- jain.waldrip@puppet.com
+- alex.williamson@puppet.com
+- greg.larkin@puppet.com
+- thomas.chisholm@puppet.com
+private: true
+published: true
+show_timer: true
+checksum: "10394352723212569849"
