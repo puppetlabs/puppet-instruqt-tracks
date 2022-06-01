@@ -86,7 +86,7 @@ Remove nodes from the primary server on Linux
 
 Reinstall Linux agents with trusted facts and an autosign password
 ========
-In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted fact for each node:
+Now, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted fact for each node:
 
 |   | Data center | Role |
 |-| :-----------: | :---------------: |
@@ -104,7 +104,7 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
     curl --insecure "$uri" | sudo bash -s custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
 1. 🔀 Switch to the ****Linux Agent 2**** tab and repeat step 1.
-1. 🔀 Switch to the ****PE Console**** tab and click refresh inside the PE Console tab to see attached nodes.
+1. 🔀 Switch to the ****PE Console**** tab and click refresh inside the tab to see the attached nodes.
 1. Click the Linux node names to view the trusted facts for each new node.
 
 ---
@@ -115,9 +115,9 @@ Uninstall Windows agents
 ========
 1. 🔀 Switch to the **Windows Agent** tab.
 
-1. Open a PowerShell terminal: **Start** —> **Windows Powershell** —> **Windows Powershell 5.1**
+1. Open a PowerShell terminal: **Start** —> **Windows PowerShell** —> **Windows PowerShell 5.1**
 
-    💡 Make sure you are using the correct version of Windows Powershell (version 5.1).<br><br>
+    💡 Make sure you are using the correct version of Windows PowerShell (version 5.1).<br><br>
 
 1. Retrieve the node's `certname` by running the following command:
     ```
@@ -156,7 +156,7 @@ Remove the node from the primary server on Windows
 
 Reinstall Windows agents with trusted facts and an autosign password
 ========
-In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted fact for the Windows node:
+Now, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted fact for the Windows node:
 
 |   | Data Center | Role |
 |-| :-----------: | :---------------: |
@@ -186,7 +186,7 @@ In the following steps, replace `<DATACENTER>` and `<ROLE>` in the script with t
     .\install.ps1 custom_attributes:challengePassword=PASSWORD_FOR_AUTOSIGNER_SCRIPT extension_requests:pp_role=<ROLE> extension_requests:pp_datacenter=<DATACENTER>
     ```
 
-    ✏️ **Note:** A rescue command is built into the Windows image; as an alternative to running steps 1-3, you can run the following in a new Powershell prompt:
+    ✏️ **Note:** A rescue command is built into the Windows image; as an alternative to running steps 1-3, you can run the following in a new PowerShell prompt:
     ```
     Get-PuppetInstallerScript
     ```
