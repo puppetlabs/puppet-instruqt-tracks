@@ -2,17 +2,17 @@ slug: pe-301-lab-1-1-test-changes-in-an-agent-specified-node-group
 id: l2silpxi4szv
 type: sandbox
 title: 'PE301 Lab 1.1: Test Changes in an Agent-Specified Node Group'
-teaser: Configure PE to enable environment-based testing using a one-time run exception
-  environment group.
+teaser: Configure Puppet Enterprise to enable environment-based testing using a one-time
+  run exception environment group.
 description: |
   ## Introduction
 
-  Reduce the risk in code deployment by enabling the testing of changes in a safe environment - often referred to as *canary testing*. For example, you can assign nodes to node groups that simulate your development, staging, and production environments. As you develop features, you can test your code in any of these environments.
+  Reduce the risk in code deployment by enabling the testing of changes in a safe environment — often referred to as *canary testing*. For example, you can assign nodes to node groups that simulate your development, staging, and production environments. As you develop features, you can test your code in any of these environments.
 
   You'll use both dynamic (via trusted facts) and static (manual) methods to assign nodes to node groups to build the test environments that you need.
 
-  In this lab you will:
-   - Configure PE so that you can implement environment-based testing using a one-time run exception environment group.
+  In this lab, you will:
+   - Configure Puppet Enterprise (PE) so that you can implement environment-based testing using a one-time run exception environment group.
 
   ## Prerequisites
 
@@ -43,4 +43,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "6022054024585979115"
+checksum: "12433509506363539203"

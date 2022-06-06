@@ -7,11 +7,11 @@ teaser: Deploy code faster and with fewer errors by pushing it automatically fro
 description: |-
   ## Introduction
 
-  Manually moving code from one place to another — from source control to the primary Puppet server — can be a time-consuming and error-prone process.
+  Manually moving code from one place to another — from source control to the primary Puppet server — can be time-consuming and error prone.
 
   You can automate this workflow by creating a dedicated Code Deployment user and configuring Code Manager to automatically push code from your source control to the primary server. This automation makes code deployment faster and reduces deployment errors.
 
-  This automation also provides an audit trail — you can tell which team or individual delivered which code — and reduces the security footprint limiting access to the primary server to only users that are assigned the dedicated Code Deployment role.
+  This automation also provides an audit trail so you can tell which team or individual delivered which code. It also reduces the security footprint by limiting access to the primary server to only users that are assigned the dedicated Code Deployment role.
 
   In this lab, you will:
   - Create a dedicated code deployment user that you will use to authenticate to deploy code.
@@ -51,4 +51,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "1336620301273662280"
+checksum: "8253011283727876843"
