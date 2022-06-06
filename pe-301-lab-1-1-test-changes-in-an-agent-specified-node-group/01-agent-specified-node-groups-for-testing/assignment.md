@@ -158,4 +158,4 @@ Pin the node with the missing fact to the Development environment group
 
 ---
 ## 🎈 **Congratulations!**
-In this lab you configured PE so that you could implement environment-based testing using a one-time run exception environment group.
+In this lab, you configured PE so that you can implement environment-based testing using a one-time run exception environment group.
