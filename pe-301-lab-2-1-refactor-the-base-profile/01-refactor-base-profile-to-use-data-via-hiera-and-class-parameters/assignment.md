@@ -77,7 +77,7 @@ Create and move a variable in your base profile to a parameter block
     }
     }
     ```
-3. Externalize the data in Hiera for the `finance` department:
+3. Externalize the data in Hiera for the finance department:
    1. Navigate to **control-repo** > **data**.
    2. Right-click the **data** directory, click **New Folder**, and name the new folder **department**.
    3. Right-click the **department** folder, click **New File**, and name the new file **finance.yaml**.
@@ -117,9 +117,9 @@ Run Puppet on nodes returned by a PQL query
 
 9. Select the checkbox beside the node name to run the job on that node only.
 10. Click **Run job** and wait for the job to finish.
-✅ **Result:** The job fails. Click the report link at the right of the page and go to the **Log** tab to find out why.
+✅ **Result:** The job fails. To find out why, click the report link at the right of the page and go to the **Log** tab.
 
-Troubleshoot using the puppet lookup command
+Troubleshoot using the `puppet lookup` command
 ========
 🔀 Switch to the **Primary Server** tab.
 1. Troubleshoot the failure by running the `puppet lookup` command. Copy (but don't run) the following command to the Primary Server tab. Again, **do not run it yet**:
@@ -134,7 +134,7 @@ Troubleshoot using the puppet lookup command
 
 3. Replace `<CERTNAME>` with the name of the failing node that you copied, and then run the command.
 
-    ✅ **Result:** Read the failure message: The lookup command didn't find a login message in the base profile for the node.
+    ✅ **Result:** Read the failure message: The lookup command didn't find a login message in the node's base profile.
 
 Fix the Hiera data configuration
 ========
@@ -207,7 +207,7 @@ Fix the Hiera data configuration
     🔀 Switch to the **PE Console** tab.<br><br>
 
 7. Run Puppet on the `sales` department node only:
-    1. From the PE Console, navigate to the **Nodes** page.
+    1. In the PE Console, navigate to the **Nodes** page.
     2. Click the node name link to open the node data page for the `sales` node.
         💡 **Tip:** You can find the `sales` department node by modifying the PQL query you ran previously:
         ```

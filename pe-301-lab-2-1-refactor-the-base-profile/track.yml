@@ -17,8 +17,7 @@ description: |+
 
   At the end of the lab, you'll have configured the finance nodes to department-specific login message by externalizing data to the appropriate yaml configuration file. You'll compare this with the sales department nodes, which show a common login message.
 
-  In this lab you will:
-   - Refactor your base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate code.
+  In this lab, you will refactor your base profile by moving variables to class parameters so that you can reuse the profile in another role without having to duplicate code.
 
 
   ## Prerequisites
@@ -50,4 +49,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "2105091965689716216"
+checksum: "1891883719292061449"

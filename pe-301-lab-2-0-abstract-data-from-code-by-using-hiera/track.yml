@@ -17,8 +17,7 @@ description: |-
 
   Separating data from code enables code reuse, which ensures consistency in your code base and means that you spend less time developing and maintaining code.
 
-  In this lab you will:
-   - Use the **`puppet lookup`** command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
+  In this lab, you will use the **`puppet lookup`** command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
 
   ## Prerequisites
 
@@ -48,4 +47,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "120919089701800344"
+checksum: "8446507297004537904"

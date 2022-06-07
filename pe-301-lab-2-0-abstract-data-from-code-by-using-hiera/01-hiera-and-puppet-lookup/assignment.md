@@ -110,4 +110,4 @@ Identify which facts affected the lookup
 
 ---
 ## 🎈 **Congratulations!**
-In this lab, you used the `puppet lookup` command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
+In this lab, you used the `puppet lookup` command on the primary server to discover how Hiera looks for data based on the `hiera.yaml` configuration and node facts.
