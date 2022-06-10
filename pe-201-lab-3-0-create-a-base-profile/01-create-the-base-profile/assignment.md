@@ -180,7 +180,7 @@ Follow the instructions for each OS below to verify that your changes took effec
 
 ✅ **Result:** The message of the day appears on the login screen.
 
-🔀 Switch to the **Linux Agent** tab.
+🔀 Switch to either **Linux Agent** tab.
 1. In the terminal, type the command `ssh root@localhost`.
 2. Type `yes` when prompted.
 ✅ **Result:** The message of the day appears.
