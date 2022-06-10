@@ -30,20 +30,20 @@ tabs:
 - title: PE Terminal
   type: terminal
   hostname: puppet
-- title: winagent1
+- title: Winagent1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
-- title: gitea
+- title: Gitea
   type: service
   hostname: gitea
   path: /
   port: 3000
-- title: nixagent1
+- title: Nixagent1
   type: terminal
   hostname: nixagent1
-- title: nixagent2
+- title: Nixagent2
   type: terminal
   hostname: nixagent2
 - title: Bug Zapper
@@ -119,7 +119,7 @@ Edit the Bolt task and JSON file
     ```
     pdk validate
     ```
-    💡 **Tip:** It may take a minute or two for the validation to complete.<br><br>
+    ✏️ **Note:** It may take a minute or two for the validation to complete.<br><br>
 5. Now, run your Bolt task against `nixagent1` to confirm that it works:
     ```
     bolt task run nginx::backup_logs --targets nixagent1
@@ -129,26 +129,14 @@ Edit the Bolt task and JSON file
 
 Modify the Bolt task to accept Bolt-supplied parameters
 ========
-1. In the VS Code window, return to `backup_logs.sh` and replace the `source_dir` and `target_dir` values with Bolt-supplied parameters. You can copy and paste the code block below:
+1. In the VS Code window, return to `backup_logs.sh` and replace the values for `source_dir` (line 3) and `target_dir` (line 4) with Bolt-supplied parameters:
     ```
-    #!/bin/bash
-    # Sites backup script
     source_dir=$PT_source_dir
-    target_dir=$PT_target_dir
-
-    # Target directory using a timestamp
-    day=$(date +%Y%m%d-%H%M%S)
-    target_dir_bkp="$target_dir/$day"
-    mkdir -p $target_dir_bkp
-
-    # Backup the files
-    echo "$(date) Backing up $source_dir to $target_dir_bkp"
-    cp -aR $source_dir/* $target_dir_bkp
-    echo "$(date) Backup finished"
-
-    # Diff to verify (diff returns a non-zero exit code if it finds any differences
-    diff --recursive $source_dir $target_dir_bkp
     ```
+    ```
+    target_dir=$PT_target_dir
+    ```
+
 2. Now, open `backup_logs.json`. Replace the previous contents with the following, which supplies default parameters for the Bolt task:
     ```
     {
@@ -186,9 +174,8 @@ Run the new Bolt task and push it to the Git server
     git commit -m "Add a task to backup logs"
     git push
     ```
-    In the Git Credential Manager window that opens, enter Username `puppet` and password `puppetlabs`.
 
-    ✔️ **Result:** The Bolt task to backup logs was pushed to the Git server.
+    ✔️ **Result:** The output that follows the `git push` command indicates that the Bolt task to backup logs was successfully pushed to the Git server: ![git push output](https://storage.googleapis.com/instruqt-images/git-push-output.png)
 
 ----------
 
