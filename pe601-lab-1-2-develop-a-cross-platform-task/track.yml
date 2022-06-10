@@ -1,0 +1,33 @@
+slug: pe601-lab-1-2-develop-a-cross-platform-task
+id: cjnn3b2j734u
+type: track
+title: 'PE601 Lab 1.2: Develop a Cross Platform  Task'
+description: |-
+  ## Introduction
+  Puppet makes it easy to design tasks to work in a cross-platform environment.
+
+  In this lab, you will expand the nginx backup task code to enable the following:
+   - Run task code on Windows machines.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+tags:
+- PE601
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+checksum: "6872768659739832053"
