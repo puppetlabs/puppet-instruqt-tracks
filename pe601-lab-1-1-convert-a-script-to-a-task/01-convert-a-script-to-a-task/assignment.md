@@ -74,18 +74,18 @@ Pull down NGINX code and create a Bolt task
     ```
     cd .\nginx
     ```
-7. Now, use Puppet Development Kit (PDK) to create a Bolt task to back up the logs:
+7. Use Puppet Development Kit (PDK) to create a Bolt task to back up the logs:
     ```
     pdk new task backup_logs
     ```
     ✏️ **Note:** When prompted whether you consent to PDK collecting anonymous usage information, choose whichever option you prefer. This information is not stored after the lab expires.
 
-    ✔️ **Result:** You created two files needed to setup the initial Bolt task: `backup_logs.sh` and `backup_logs.json`. ![cli output that shows files added](https://storage.googleapis.com/instruqt-images/files-added.png)
+    ✔️ **Result:** You created two files needed to set up the initial Bolt task: `backup_logs.sh` and `backup_logs.json`. ![cli output that shows files added](https://storage.googleapis.com/instruqt-images/files-added.png)
 
 Edit the Bolt task and JSON file
 ========
 
-1. In VS Code, open `backup_logs.sh` (**File** > **Open File...** > **CODE** > **nginx** > **tasks** > **backup_logs.sh**). Replace the contents of this backup script with the following script, which copies logs from `/var/log/nginx` to a subdirectory of `/var/backup` using the current timestamp as the directory name:
+1. In VS Code, open `backup_logs.sh` (**File** > **Open File...** > **CODE** > **nginx** > **tasks** > **backup_logs.sh**). Replace the contents of this backup script with the following script, which copies logs from `/var/log/nginx` to a target subdirectory under `/var/backup`, using the current timestamp as the directory name:
 
     ```
     #!/bin/bash
@@ -106,7 +106,7 @@ Edit the Bolt task and JSON file
     # Diff to verify (diff returns a non-zero exit code if it finds any differences
     diff --recursive $source_dir $target_dir_bkp
     ```
-3. In the same directory location, open `backup_logs.json`. Replace the contents of the file with the following JSON code, which includes a description of the Bolt task, no-op settings, and parameters:
+3. In the same directory location, open the `backup_logs.json` metadata file. Replace the contents of the file with the following JSON code, which includes a description of the Bolt task, no-op settings, and parameters:
 
     ```
     {
@@ -179,7 +179,7 @@ Run the new Bolt task and push it to the Git server
 
 ----------
 
-🎈 **Congratulations!** You took a backup script written for NGINX in Bash and converted it to a Bolt task. You provided parameters via the command line and added defaults in the JSON metadata file for the new Bolt task. If you want to, you can spend some time exploring this environment.
+🎈 **Congratulations!** You took a backup script written for NGINX in Bash and converted it into a Bolt task. You provided parameters via the command line and added defaults in the JSON metadata file for the new Bolt task. If you want to, you can spend some time exploring this environment.
 
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
