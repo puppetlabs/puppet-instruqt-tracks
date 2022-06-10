@@ -186,7 +186,11 @@ Configure a webhook to deploy code automatically
     ```
     https://puppet:8170/code-manager/v1/webhook?type=github&token=
     ```
-8. Copy the Puppet admin token that you copied earlier to the end of the link; then, click **Add Webhook** at the bottom of the page.
+8. Copy the Puppet admin token that you copied earlier to the end of the link; then, click **Add Webhook** at the bottom of the page. Your final webhook config should look like:
+    ```
+    https://puppet:8170/code-manager/v1/webhook?type=github&token=YOURTOKENVALUEHERE
+    ```
+
 9. In the list of webhooks, click the URL for the webhook that you just added.
 10. At the bottom of the page, click **Test Delivery**.  After a few seconds, you should see an entry in the list with a green checkmark next to it.
 
