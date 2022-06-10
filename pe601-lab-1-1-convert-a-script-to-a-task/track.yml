@@ -1,8 +1,8 @@
 slug: pe601-lab-1-1-convert-a-script-to-a-task
 id: inboly15ooli
 type: track
-title: 'PE601 Lab 1.1: Convert a Script to a Task'
-teaser: Convert a Bash script to a Bolt task.
+title: 'PE601 Lab 1.1: Convert a script into a task'
+teaser: Convert a Bash script into a Bolt task.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -12,14 +12,14 @@ description: |-
   ___
 
   ## Introduction
-  The first step in creating a Bolt task is to convert a script into a format Puppet knows how to work with. Here, you will use a Bash script to backup the log files on an NGINX installation.
+  The first step in creating a Bolt task is to convert a script into a format that Puppet can work with. Here, you will use a Bash script to back up the log files of an NGINX installation.
 
   In this lab, you will:
-   - Checkout NGINX code from source control.
-   - Use the Puppet Development Kit (PDK) to create a new Bolt task.
-   - Add a pre-written Bash script to the Bolt tasks folder, which will backup the NGINX logs on the target.
+   - Check out NGINX code from source control.
+   - Use Puppet Development Kit (PDK) to create a Bolt task.
+   - Add a pre-written Bash script to the Bolt tasks folder, which will back up the NGINX logs on the target.
    - Use a metadata JSON file to describe the parameters in the backup script.
-   - Run acceptance against a development node.
+   - Run acceptance tests against a development node.
 
   ## Prerequisites
   None
@@ -44,4 +44,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "1531080108748458772"
+checksum: "4768494147975591948"
