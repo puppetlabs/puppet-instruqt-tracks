@@ -13,6 +13,10 @@ containers:
   - 8080
   memory: 2048
 virtualmachines:
+- name: gitea
+  image: kmo-instruqt/gitea-pe601
+  shell: /bin/bash
+  machine_type: n1-standard-8
 - name: puppet
   image: kmo-instruqt/puppet-pe601
   shell: /bin/bash
@@ -27,7 +31,3 @@ virtualmachines:
 - name: winagent1
   image: kmo-instruqt/winagent-pe601
   machine_type: n1-highcpu-4
-- name: gitea
-  image: kmo-instruqt/gitea-pe601
-  shell: /bin/bash
-  machine_type: n1-standard-8

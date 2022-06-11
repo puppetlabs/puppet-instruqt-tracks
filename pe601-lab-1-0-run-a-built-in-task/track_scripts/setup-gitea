@@ -91,7 +91,7 @@ cd ../
 rm -rf control_repo
 printf "Successfully initialized Gitea control_repo repository\n"
 
-#sleep 25
+sleep 25
 # Creating extra branches in control_repo in Gitea via REST API
 # Creating main branch
 curl -v -X POST -H 'Content-Type: application/json' \
