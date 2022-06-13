@@ -54,7 +54,7 @@ Identify nodes in the dc-west data center
 1. Log into the **PE console** with username `admin` and password `puppetlabs`.
 2. Retrieve the list of nodes with the trusted fact `pp_datacenter=dc-west`:
     1. Navigate to the **Nodes** page.
-    2. From the **Filter by** list, choose **PQL Query**.
+    2. From the **Filter by** list, select **PQL Query**.
     3. From the **Common queries** list, choose **Nodes with a specific fact and fact value**.
     4. Copy the following code into the query box and click **Submit query** to get the list of nodes:
     ```
@@ -121,7 +121,7 @@ Run Puppet against the Development node group
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments** and click **Development environment**.
     3. Click **Run** > **Puppet**.
-    4. Under **Environment**, select **Select an environment for nodes to run in:**.
+    4. Under **Environment**, select **Select an environment for nodes to run in**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
     ✅ **Result:** The job fails on all nixagent nodes.<br><br>
 
@@ -142,13 +142,13 @@ Edit the Hiera data
 1. Add Hiera data for both `dc-west.yaml` and `common.yaml` configurations. Create the `data/datacenter/` directory and relevant files:
     1. In the VS Code explorer, navigate to **control-repo** > **data**.
     2. Right-click the `data` directory and then click **New Folder**. Name the new folder `datacenter`.
-    3. Right-click the `datacenter` directory and then click **New File**. Name the new file `dc-west.yaml` and paste in the following contents. Note the `port` value:
+    3. Right-click the `datacenter` directory and then click **New File**. Name the new file `dc-west.yaml` and copy the following code into the file. Note the `port` value:
         ```
         # <control-repo>/data/datacenter/dc-west.yaml
         ---
         profile::apache::port: 8080
         ```
-    4. Open `common.yaml` and append the following code to the end of the file:
+    4. Open `common.yaml` and add the following code to the end of the file:
         ```
         # <control-repo>/data/common.yaml
         profile::apache::port: 80
@@ -211,17 +211,17 @@ Edit the Hiera data
     4. Enter a description.
     6. Click **Add**.
 
-Pin a node and perform a canary release of the `webapp` branch to a Production node
+Pin a node and perform a canary release of the `webapp` branch to a production node
 ========
 1. Pin a production node to the agent-specified environment. Your choices are nixagent4 or nixagent5:
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments**, expand **Production environment**, and click **Production Agent-Specified One-Time Run**.
     3. In the **Certname** field, click **node name** and select either **nixagent4** or **nixagent5**.
-    4. Click **Pin node** and then commit your changes (click **Commit 1 change** in the bottom-right corner).<br><br>
+    4. Click **Pin node** and then commit your changes (click **Commit** in the bottom-right corner).<br><br>
 
 2. Run Puppet in no-op mode, specifying the feature branch environment:
     1. Click **Run** > **Puppet**.
-    2. Choose **Select an environment for nodes to run in:** and then choose **webapp** from the list.
+    2. Choose **Select an environment for nodes to run in** and then choose **webapp** from the list.
     3. Select the **No-op** checkbox and then click **Run job**.
     ✅ **Result:** Notice that the run was successful.<br><br>
 
@@ -233,7 +233,7 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
 4. Unpin the node from the agent-specified environment:
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments**, and then expand **Production environment** and click **Production Agent-Specified One-Time Run**.
-    3. Click **Unpin** (located at the right of page) and then click **Commit 1 change**.
+    3. Click **Unpin** (located at the right of page) and then click **Commit**.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
@@ -247,19 +247,19 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
 
     🔀 Switch to the **PE Console** tab.<br><br>
 
-6. Run Puppet on all the production nodes.
+6. Run Puppet on the production nodes.
 
     1. Navigate to the **Node Groups** page.
     2. Expand **All Environments** and then click **Production environment**.
     3. Click **Run** > **Puppet**.
-    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    4. For **Environment**, select **Select an environment for nodes to run in**.
     5. From the list, select **Production** and then click **Run job**.<br><br>
 
     ✅ **Result:** Both production nodes (nixagent4 and nixagent5) return with a successful run.
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
-1. Open a Powershell session or open the VSCode terminal, and then run the following commands to verify they ran successfully:
+1. Open a PowerShell session or open the VSCode terminal, and then run the following commands to verify they ran successfully:
 
     **dc-east**:
     ```
@@ -274,4 +274,4 @@ Pin a node and perform a canary release of the `webapp` branch to a Production n
 
 ---
 ## 🎈 **Congratulations!**
-In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode and then ran it again normally.
+In this lab, you ran a PQL query to get the list of nodes in the **dc-west** data center. Next, you extended the apache profile by using a class parameter to abstract port information. You tested your changes by running Puppet against a specific node group. You then tested your changes incrementally in a canary release. Finally, within the subset of nodes in the canary release, you ran Puppet in no-op mode to see the changes Puppet would make, and then you ran Puppet again normally.
