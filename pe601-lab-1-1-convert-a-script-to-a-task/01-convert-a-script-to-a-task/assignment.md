@@ -3,7 +3,7 @@ slug: convert-a-script-to-a-task
 id: 15gorgy0lbfm
 type: challenge
 title: Convert a script into a task
-teaser: Convert a Bash script to a Bolt task.
+teaser: Convert a Bash script into a Bolt task.
 notes:
 - type: text
   contents: |-
