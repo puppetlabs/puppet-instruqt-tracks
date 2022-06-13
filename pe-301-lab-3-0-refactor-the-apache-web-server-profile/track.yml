@@ -6,14 +6,14 @@ teaser: Use Hiera and class parameters to abstract the port value in the apache 
 description: |-
   ## Introduction
 
-  In this scenario, you'll configure nodes whose pp_datacenter fact is set to "dc-west" to serve web server applications on port 8080 instead of port 80, which is the port specified in the organization's default apache.pp profile.
+  In this scenario, you'll configure nodes whose pp_datacenter fact is set to "dc-west" to serve web server applications on port 8080 instead of port 80 (which is the port specified in the organization's default apache.pp profile).
 
-  To do this, you'll use Hiera and class parameters to abstract the port value in the apache profile.
+  To do this, you'll use Hiera and class parameters to externalize the port value in the apache profile. Moving data out of your profiles enables you to easily reuse them.
 
   In this lab, you will:
 
   - Run a PQL query to get the list of nodes in the dc-west data center.
-  - Extend the apache profile by using a class parameter to abstract port information.
+  - Extend the apache profile by using a class parameter to externalize port information.
   - Test your changes by running Puppet against a specific node group.
   - Test your changes incrementally in a canary release. Within the subset of nodes in the canary release, you'll run Puppet in no-op mode and run it again normally.
   - Deploy code to the production environment.
@@ -46,4 +46,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "7295166077429766450"
+checksum: "5741647664004120533"

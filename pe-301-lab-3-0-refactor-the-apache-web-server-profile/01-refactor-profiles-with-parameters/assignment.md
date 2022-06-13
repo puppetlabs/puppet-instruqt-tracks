@@ -3,15 +3,15 @@ slug: refactor-profiles-with-parameters
 id: w2ebaevntvrz
 type: challenge
 title: Refactor the apache web server profile
-teaser: Extend the apache profile by using a class parameter to abstract port information.
-  Then, deploy your code to production.
+teaser: Extend the apache profile by using a class parameter to externalize the port
+  information. Then, deploy your code to production.
 notes:
 - type: text
   contents: |-
     In this lab you will:
 
     - Run a PQL query to get the list of nodes in the dc-west data center.
-    - Extend the apache profile by using a class parameter to abstract port information.
+    - Extend the apache profile by using a class parameter to externalize the port information.
     - Test your changes by running Puppet against a specific node group.
     - Test your changes incrementally in a canary release. Within the subset of nodes in the canary release, you'll run Puppet in no-op mode and run it again normally.
     - Deploy code to the production environment.
