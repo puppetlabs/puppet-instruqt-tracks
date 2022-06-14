@@ -36,7 +36,7 @@ tabs:
   type: terminal
   hostname: nixagent2
 difficulty: basic
-timelimit: 3600
+timelimit: 10800
 ---
 Clone the NGINX module to your workstation
 ========
