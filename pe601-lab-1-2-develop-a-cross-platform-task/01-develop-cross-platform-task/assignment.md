@@ -16,6 +16,11 @@ tabs:
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
+- title: Winagent1
+  type: service
+  hostname: guac2
+  path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
+  port: 8080
 - title: PE Console
   type: service
   hostname: puppet
@@ -23,11 +28,6 @@ tabs:
 - title: PE Terminal
   type: terminal
   hostname: puppet
-- title: Winagent1
-  type: service
-  hostname: guac2
-  path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
-  port: 8080
 - title: Gitea
   type: service
   hostname: gitea
@@ -151,7 +151,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-8. Open **backup_logs.sh** (**File** > **Open File...** > **backup_logs.sh**). Rename the file to **backup_linux_logs.sh** so that it will match the implementation records in the **backup_logs.json** metadata file.
+8. Update the **backup_logs.sh** filename so that it matches the implementation records in the **backup_logs.json** metadata file. In the VS Code finder, locate **backup_logs.sh** and rename it to **backup_linux_logs.sh** (right-click > **Rename**).
 
 9. In the VS Code terminal, run another syntax check using PDK:
 ```
@@ -169,19 +169,19 @@ The task currently has defaults for the Linux node written into the main metadat
     ```
 🔀 Switch to the **Winagent1** tab.
 
-1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**C:\temp\** > **site_backup_< TIMESTAMP >**). Inside this directory you'll see a successful backup of the `access` and `error` logs.
+1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). Inside this directory you'll see a successful backup of the `access` and `error` logs.
 
 ✔️ **Result:** Great work! Your Windows task has been executed successfully. Now it's time to execute the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults inside the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories from the command line.
 
 🔀 Switch to the **Windows Workstation** tab.
 
-1.  In the VS Code terminal window, run task against the Linux node using Bolt:
+1.  In the VS Code terminal window, run the task against the Linux node using Bolt:
     ```
     bolt task run nginx::backup_logs --target nixagent1
     ```
 🔀 Switch to the **Nixagent1** tab.
 
-1. Change to the target directory by running `cd /var/backup`. Then, reveal the directory contents by running `ls`.
+1. Change to the target directory by running `cd /var/backup`, then reveal the directory contents by running `ls`.
 2. Locate and open a time-stamped directory, and then run `cat access.log` or `cat error.log`.
 
 ✔️ **Result:** Your Linux task has been successfully executed.
