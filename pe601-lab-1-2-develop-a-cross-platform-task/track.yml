@@ -1,13 +1,17 @@
 slug: pe601-lab-1-2-develop-a-cross-platform-task
 id: cjnn3b2j734u
 type: track
-title: 'PE601 Lab 1.2: Develop a Cross Platform  Task'
+title: 'PE601 Lab 1.2: Develop a Cross-Platform Task'
+teaser: Develop a task that will run on different operating systems.
 description: |-
-  ## Introduction
-  Puppet makes it easy to design tasks to work in a cross-platform environment.
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
-  In this lab, you will expand the nginx backup task code to enable the following:
-   - Run task code on Windows machines.
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+  ## Introduction
+  Puppet makes it easy to design tasks to work in a cross-platform environment. In this lab, you will expand the NGINX backup task code to enable the task code to run on Windows machines.
 
   ## Prerequisites
   None
@@ -30,4 +34,5 @@ developers:
 - alex.williamson@puppet.com
 private: true
 published: false
-checksum: "10674606770206532846"
+show_timer: true
+checksum: "4878641312379384563"
