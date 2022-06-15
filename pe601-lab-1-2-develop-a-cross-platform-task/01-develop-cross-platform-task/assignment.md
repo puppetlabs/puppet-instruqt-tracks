@@ -184,7 +184,7 @@ The task currently has defaults for the Linux node written into the main metadat
 1. Change to the target directory by running `cd /var/backup`, then reveal the directory contents by running `ls`.
 2. Locate and open a time-stamped directory, and then run `cat access.log` or `cat error.log`.
 
-✔️ **Result:** Your Linux task has been successfully executed.
+✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task was successfully executed.
 
 🎈 **Congratulations!** You extended the `nginx::backup_logs` task's functionality to include NGINX installations on the Windows platform. If you want to, you can spend some time exploring this environment.
 
