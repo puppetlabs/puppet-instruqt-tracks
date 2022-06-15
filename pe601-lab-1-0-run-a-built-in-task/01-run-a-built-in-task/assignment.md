@@ -82,7 +82,7 @@ Run tasks from the command line
     ```
     puppet task run facts --nodes <winagent>
     ```
-1. Scroll through the output and observe the returned facts from your Windows node, including IP address, OS, and kernel.
+1. Scroll through the output and observe the returned facts from your Windows node, including IP address, OS, kernel, and uptime. Note that the uptime is changed by the reboot.
 
 ✔️ **Result:** Congratulations! You ran a task from the command line to reboot and return facts about the Windows node. Continue below to learn how to run a task from the PE console.
 
