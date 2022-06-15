@@ -110,7 +110,8 @@ Extend the NGINX task
 
     This task failed because the task script `backup_windows_logs.ps1` and accompanying metadata file don't yet exist. The Bash script for Linux also needs to be renamed. In the next steps you will resolve this issue.<br><br>
 
-5. In VS Code, navigate to the **/tasks** directory and create a new file called **backup_windows_logs.ps1**. Add the following content to the file, which creates date and time stamps...:
+5. In VS Code, you should already be in the **tasks** directory. If not, navigate there first, then create a new file (**File** > **New File**).
+1. Add the following content to the file, which creates date and time stamps. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**).:
 
     ```
     [CmdletBinding()]
@@ -134,7 +135,7 @@ Extend the NGINX task
     Write-Output "Copying items from $source_dir to full backup path $full_target_backup_path"
     Copy-Item -Recurse -Path $source_dir -Destination $full_target_backup_path
     ```
-6. In the same **/tasks** directory, create a metadata JSON file for the Windows task called **backup_windows_logs.json**. Add the following content to the file, which provides a name, description, and privacy settings for the Windows task:
+6. In the same **tasks** directory, create a new file for the Windows task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Windows task. Then, save the metadata file as **backup_windows_logs.json**:
     ```
     {
       "name": "Windows backup",
@@ -142,7 +143,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-7. In the same **/tasks** directory, create a metadata JSON file for the Linux task called **backup_linux_logs.json**. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task:
+7. In the same **tasks** directory, create a new file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**. :
     ```
     {
       "name": "Linux backup",
@@ -150,17 +151,17 @@ Extend the NGINX task
       "private": true
     }
     ```
-8. Open **backup_logs.sh** and rename it to **backup_linux_logs.sh** so that it will match the implementation records in the **backup_logs.json** metadata file.
+8. Open **backup_logs.sh** (**File** > **Open File...** > **backup_logs.sh**). Rename the file to **backup_linux_logs.sh** so that it will match the implementation records in the **backup_logs.json** metadata file.
 
-9. In the VS Code terminal, run a syntax check using PDK:
+9. In the VS Code terminal, run another syntax check using PDK:
 ```
 pdk validate
 ```
-
+✔️ **Result:** Nice job! The required task script and metadata files were created, the **backup_linux_logs.sh** file was renamed to match the implementation records in the **backup_logs.json** metadata file, and a syntax check ran successfully using PDK. Now it's time to run the tasks against the Windows and Linux nodes.
 
 Execute tasks against the Windows and Linux nodes
 ========
-The task currently has defaults for the Linux node written into the main metadata file, **backup_logs.json**. When running the task against Windows nodes you must provide source and directory values at the command line.
+The task currently has defaults for the Linux node written into the main metadata file, **backup_logs.json**. To run the task against Windows nodes you must provide source and directory values at the command line, which you'll do next.
 
 1. In the VS Code terminal, run the task against the Windows node using Bolt:
     ```
@@ -168,7 +169,7 @@ The task currently has defaults for the Linux node written into the main metadat
     ```
 🔀 Switch to the **Winagent1** tab.
 
-1. Use **File Explorer** to navigate to `site_backup_<TIMESTAMP>` (in the **C:\temp\** directory)`. Inside this directory you'll see a successful backup of the `access` and `error` logs.
+1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**C:\temp\** > **site_backup_< TIMESTAMP >**). Inside this directory you'll see a successful backup of the `access` and `error` logs.
 
 ✔️ **Result:** Great work! Your Windows task has been executed successfully. Now it's time to execute the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults inside the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories from the command line.
 
