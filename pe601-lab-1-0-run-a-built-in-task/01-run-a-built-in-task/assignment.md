@@ -89,7 +89,7 @@ Run tasks from the command line
 Run tasks from the PE console
 ========
 
-🔀 Switch to the **Primary Server** tab.
+🔀 Switch to the **PE Console** tab.
 
 1. Login with username `admin` and password `puppetlabs`.
 2. Navigate to the **Tasks** page (**Orchestration** > **Tasks**).
@@ -113,7 +113,7 @@ Run tasks from the PE console
     ```
     💡 In the terminal output, under the **Status** header, notice that the node is **Running**.
 
-    🔀 Switch to the **Primary Server** tab.<br><br>
+    🔀 Switch to the **PE Consoler** tab.<br><br>
 
 11. Click **Run task**. When the task run is complete, the page refreshes to show the task **Status** as **Stopped**. ![PE console task status stopped](https://storage.googleapis.com/instruqt-images/status-stopped.png)
 
@@ -121,7 +121,7 @@ Run tasks from the PE console
 
 12. Run the PowerShell command again. Notice that the Status output in the terminal indicates **Stopped**.
 
-    🔀 Switch to the **Primary Server** tab.<br><br>
+    🔀 Switch to the **PE Console** tab.<br><br>
 
 13. In the upper-right corner, click **Run again** > **All nodes**.
 14. In the **action parameter** list, select **start** and then click **Run task**.
@@ -131,7 +131,7 @@ Run tasks from the PE console
 
 1. Run the PowerShell command again. The service is now started.
 
-    🔀 Switch to the **Primary Server** tab.<br><br>
+    🔀 Switch to the **PE Console** tab.<br><br>
 16. Go back to the **Tasks** page (**Orchestration** > **Tasks**) and click **Run a task**.
 1. Leave **Code environment** set to `production`.
 17. In the **Tasks** field, choose `pe_install::get_postgresql_info`.

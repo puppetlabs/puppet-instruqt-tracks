@@ -75,24 +75,29 @@ Extend the NGINX task
 2. Replace the existing code with the following, which adds implementation requirements for the task starting on line 16:
     ```
     {
-    "description": "Backs up nginx logs",
-    "supports_noop": false,
-    "parameters": {
-        "source_dir": {
-        "description": "Source directory to backup.",
-        "type": "String",
-        "default": "/var/log/nginx"
+        "description": "Backs up nginx logs",
+        "supports_noop": false,
+        "parameters": {
+            "source_dir": {
+                "description": "Source directory to backup.",
+                "type": "String",
+                "default": "/var/log/nginx"
+            },
+            "target_dir": {
+                "description": "Target directory to save backup to.",
+                "type": "String",
+                "default": "/var/backup"
+            }
         },
-        "target_dir": {
-        "description": "Target directory to save backup to.",
-        "type": "String",
-        "default": "/var/backup"
-        }
-    },
-    "implementations": [
-    {"name": "backup_linux_logs.sh", "requirements": ["shell"]},
-    {"name": "backup_windows_logs.ps1", "requirements": ["powershell"]}
-    ]
+        "implementations": [{
+                "name": "backup_linux_logs.sh",
+                "requirements": ["shell"]
+            },
+            {
+                "name": "backup_windows_logs.ps1",
+                "requirements": ["powershell"]
+            }
+        ]
     }
     ```
 3. In the VS Code terminal, run a syntax check using PDK:
