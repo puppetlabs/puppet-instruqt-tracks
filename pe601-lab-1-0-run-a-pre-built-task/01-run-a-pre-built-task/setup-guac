@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+
+# Wait until RDP is available
+while ! nc -z workstation 3389; do
+  echo "Waiting for RDP to be available"
+  sleep 1
+done
+
+exit 0

@@ -1,0 +1,47 @@
+slug: pe601-lab-1-0-run-a-pre-built-task
+id: 0aujbjnxzslr
+type: track
+title: 'PE601 Lab 1.0: Run a Pre-Built Task'
+teaser: Run a Puppet Enterprise pre-built task from the command line and the Puppet
+  Enterprise console.
+description: |-
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+  ___
+
+
+  ## Introduction
+  Puppet Enterprise (PE) ships with several pre-built tasks and plans that you can run from both the command line and the PE console.
+
+  In this lab, you will run pre-built tasks to accomplish the following goals:
+   - Reboot a node under enforcement.
+   - Gather facts on a specific node.
+   - Stop and start the time service.
+   - Gather system information about the PuppetDB PostgreSQL installation.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
+  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
+icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+tags:
+- pe601
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+show_timer: true
+checksum: "8702776834997916232"
