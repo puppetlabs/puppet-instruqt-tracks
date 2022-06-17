@@ -63,7 +63,7 @@ Create a Plan in your Module project
 8. Open the ../nginx/plans/backup_all_logs.pp plan file in the editor to see the placeholder code created by Bolt.
 9. Run the sample plan against your test nodes:
     ```
-    bolt plan run nginx::backup_all_logs -targets nixagent1,winagent1
+    bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
 Create new tasks to pause and restart the nginx service during log backups
