@@ -106,10 +106,10 @@ Edit the apache profile
 5. Log into the **PE console** with username `admin` and password `puppetlabs`.
 
 6. Run Puppet, applying the `webapp` feature branch to the **Development** node group:
-    1. Navigate to the **Node Groups** page.
+    1. Navigate to the **Node groups** page.
     2. Expand **All Environments** and click **Development environment**.
     3. Click **Run** > **Puppet**.
-    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    4. For **Environment**, select **Select an environment for nodes to run in**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
     ✅ **Result:** The job fails because the filepath `var/web/cms` is not an absolute filepath. Nothing is misconfigured; Puppet just failed to compile a catalog.
@@ -129,10 +129,10 @@ Edit the apache profile
     🔀 Switch to the **PE Console** tab.<br><br>
 
 9. Run Puppet, applying the `webapp` feature branch to the **Development** node group:
-    1. Navigate to the **Node Groups** page.
+    1. Navigate to the **Node groups** page.
     2. Expand **All Environments** and click **Development environment**.
     3. Click **Run** > **Puppet**.
-    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    4. For **Environment**, select **Select an environment for nodes to run in**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
     ✅ **Result:** Observe the failure. The apache class failed because the directory was not managed before the vhost.
@@ -156,7 +156,7 @@ Edit the apache profile
           # Add a resource relationship, required before the vhost is managed.
           require => File[$index_html],
         }
-        # Puppet only manages the specific resources that are declared. It will not automagically create parent directory of /var/web/cms!
+        # Puppet manages only the resources that are declared. It will not automagically create parent directory of /var/web/cms!
         file { '/var/web':
           ensure => directory,
         }
@@ -185,10 +185,10 @@ Edit the apache profile
     🔀 Switch to the **PE Console** tab.<br><br>
 
 13. Run Puppet in your `webapp` environment on your **Development** node group:
-    1. Navigate to the **Node Groups** page.
+    1. Navigate to the **Node groups** page.
     2. Expand **All Environments** and click **Development environment**.
     3. Click **Run** > **Puppet**.
-    4. For **Environment**, select the radio button for **Select an environment for nodes to run in:**.
+    4. For **Environment**, select **Select an environment for nodes to run in**.
     5. From the list, select `webapp` and then click **Run job** in the bottom-right corner.
 
     ✅ **Result:** The job runs successfully.
@@ -205,11 +205,11 @@ Edit the apache profile
     🔀 Switch to the **PE Console** tab.<br><br>
 
     2. Run Puppet on all the production nodes:
-        1. Navigate to the **Node Groups** page.
-        2. Expand **All Environments** and then click **Production environment**.
-        3. Click **Run** > **Puppet**, and then click **Run job**.
+        1. Navigate to the **Node groups** page.
+        2. Expand **All Environments** and click **Production environment**.
+        3. Click **Run** > **Puppet** and then click **Run job**.
 
-    ✅ **Result:** The jobs succeed on nixagent4 and nixagent5.
+    ✅ **Result:** The jobs succeed on the production nodes nixagent4 and nixagent5.
 
 ---
 ## 🎈 **Congratulations!**
