@@ -2,7 +2,7 @@
 slug: develop-cross-platform-task
 id: yebihva7cdsn
 type: challenge
-title: Develop a Cross-Platform Task
+title: Develop a cross-platform task
 teaser: Develop your task to run on Windows machines.
 notes:
 - type: text
@@ -52,12 +52,12 @@ timelimit: 3600
 ---
 Clone the NGINX module to your workstation
 ========
-1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.
+1. On the **Windows Workstation** tab, go to the **Start** menu and open **Visual Studio Code**.
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.
 
     ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 
-3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory, and click **Select Folder**.
 4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
 5. In the terminal window, run the following command to clone the NGINX module:
     ```
@@ -72,19 +72,19 @@ Extend the NGINX task
 ========
 
 1. In VS Code, open **backup_logs.json** (**nginx** > **tasks** > **backup_logs.json**).
-2. Replace the existing code with the following, which adds implementation requirements for the task starting on line 16:
+2. Replace the code with the following code, which adds implementation requirements for the task, starting on line 16:
     ```
     {
         "description": "Backs up nginx logs",
         "supports_noop": false,
         "parameters": {
             "source_dir": {
-                "description": "Source directory to backup.",
+                "description": "Source directory to back up.",
                 "type": "String",
                 "default": "/var/log/nginx"
             },
             "target_dir": {
-                "description": "Target directory to save backup to.",
+                "description": "Target directory to save back up to.",
                 "type": "String",
                 "default": "/var/backup"
             }
@@ -109,14 +109,14 @@ Extend the NGINX task
     ```
     bolt task run nginx::backup_logs --target winagent1
     ```
-    ✏️ **Note:** In the command line output, notice the execution failure:
+    ✏️ **Note:** In the command-line output, notice the run failure:
 
     `Task metadata for task nginx::backup_logs specifies missing implementation backup_linux_logs.sh`
 
-    This task failed because the task script `backup_windows_logs.ps1` and accompanying metadata file don't yet exist. The Bash script for Linux also needs to be renamed. In the next steps you will resolve this issue.<br><br>
+    This task failed because the task script `backup_windows_logs.ps1` and accompanying metadata file don't exist yet. The Bash script for Linux also needs to be renamed. You'll resolve these issues in the next steps.<br><br>
 
-5. In VS Code, you should already be in the **tasks** directory. If not, navigate there first, then create a new file (**File** > **New File**).
-1. Add the following content to the file, which creates date and time stamps. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**).:
+5. In VS Code, you should already be in the **tasks** directory. If not, navigate there first, then create a file (**File** > **New File**).
+1. Add the following content, which creates date stamps and timestamps, to the file. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**):
 
     ```
     [CmdletBinding()]
@@ -130,17 +130,17 @@ Extend the NGINX task
     $target_dir
     )
 
-    # Create date stamp for backup sub directory
+    # Create a date stamp for backup subdirectory
     $date_stamp = Get-Date -UFormat "+%Y%m%d-%H%M%S"
 
-    # Create subdir with timestamp in target backup dir
+    # Create a subdirectory with a timestamp in the target backup directory
     $full_target_backup_path = Join-Path -Path $target_dir -ChildPath "site_backup_$date_stamp"
 
-    # Copy contents of source dir to full backup path target
+    # Copy the contents of source directory to full backup path target
     Write-Output "Copying items from $source_dir to full backup path $full_target_backup_path"
     Copy-Item -Recurse -Path $source_dir -Destination $full_target_backup_path
     ```
-6. In the same **tasks** directory, create a new file for the Windows task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Windows task. Then, save the metadata file as **backup_windows_logs.json**:
+6. In the same **tasks** directory, create a file for the Windows task metadata and add the following content, which provides a name, description, and privacy settings for the Windows task. Then, save the metadata file as **backup_windows_logs.json**:
     ```
     {
       "name": "Windows backup",
@@ -148,7 +148,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-7. In the same **tasks** directory, create a new file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**. :
+7. In the same **tasks** directory, create a new file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**:
     ```
     {
       "name": "Linux backup",
@@ -156,7 +156,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-8. Update the **backup_logs.sh** filename so that it matches the implementation records in the **backup_logs.json** metadata file. In the VS Code finder, locate **backup_logs.sh** and rename it to **backup_linux_logs.sh** (right-click > **Rename**).
+8. Update the **backup_logs.sh** filename to match the implementation records in the **backup_logs.json** metadata file. In the VS Code finder, locate **backup_logs.sh** and rename it to **backup_linux_logs.sh** (right-click > **Rename**).
 
 9. In the VS Code terminal, run another syntax check using PDK:
 ```
@@ -174,9 +174,9 @@ The task currently has defaults for the Linux node written into the main metadat
     ```
 🔀 Switch to the **Winagent1** tab.
 
-1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). Inside this directory you'll see a successful backup of the `access` and `error` logs.
+1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
 
-✔️ **Result:** Great work! Your Windows task has been executed successfully. Now it's time to execute the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults inside the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories from the command line.
+✔️ **Result:** Great work! Your Windows task ran successfully. Now it's time to run the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults in the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories on the command line.
 
 🔀 Switch to the **Windows Workstation** tab.
 
@@ -186,10 +186,10 @@ The task currently has defaults for the Linux node written into the main metadat
     ```
 🔀 Switch to the **Nixagent1** tab.
 
-1. Change to the target directory by running `cd /var/backup`, then reveal the directory contents by running `ls`.
-2. Locate and open a time-stamped directory, and then run `cat access.log` or `cat error.log`.
+1. Change to the target directory by running `cd /var/backup` and list the directory contents by running `ls`.
+2. Locate and open a timestamped directory and then run `cat access.log` or `cat error.log`.
 
-✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task was successfully executed.
+✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task ran successfully.
 
 🎈 **Congratulations!** You extended the `nginx::backup_logs` task's functionality to include NGINX installations on the Windows platform. If you want to, you can spend some time exploring this environment.
 

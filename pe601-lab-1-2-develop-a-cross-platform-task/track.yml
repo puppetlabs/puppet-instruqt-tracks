@@ -11,7 +11,7 @@ description: |-
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
   ___
   ## Introduction
-  Puppet makes it easy to design tasks to work in a cross-platform environment. In this lab, you will expand the NGINX backup task code to enable the task code to run on Windows machines.
+  Puppet makes it easy to design tasks to work in a cross-platform environment. In this lab, you will expand the NGINX backup task code so that the task can run on Windows machines.
 
   ## Prerequisites
   None
@@ -35,4 +35,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "15121546355821875431"
+checksum: "5967589433659774124"
