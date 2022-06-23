@@ -3,7 +3,7 @@ slug: develop-cross-platform-task
 id: yebihva7cdsn
 type: challenge
 title: Develop a cross-platform task
-teaser: Develop your task to run on Windows machines.
+teaser: Extend your task (which runs on Linux nodes) to also run on Windows nodes.
 notes:
 - type: text
   contents: |-
@@ -84,7 +84,7 @@ Extend the NGINX task
                 "default": "/var/log/nginx"
             },
             "target_dir": {
-                "description": "Target directory to save back up to.",
+                "description": "Target directory to save backup to.",
                 "type": "String",
                 "default": "/var/backup"
             }
@@ -149,11 +149,11 @@ Extend the NGINX task
       "private": true
     }
     ```
-7. In the same **tasks** directory, create a new file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**:
+7. In the same **tasks** directory, create a file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**:
     ```
     {
       "name": "Linux backup",
-      "description": "A task to perform web site log backups on Linux targets",
+      "description": "A task to perform website log backups on Linux targets",
       "private": true
     }
     ```
@@ -165,7 +165,7 @@ pdk validate
 ```
 ✔️ **Result:** Nice job! The required task script and metadata files were created, the **backup_linux_logs.sh** file was renamed to match the implementation records in the **backup_logs.json** metadata file, and a syntax check ran successfully using PDK. Now it's time to run the tasks against the Windows and Linux nodes.
 
-Execute tasks against the Windows and Linux nodes
+Run tasks against the Windows and Linux nodes
 ========
 The task currently has defaults for the Linux node written into the main metadata file, **backup_logs.json**. To run the task against Windows nodes you must provide source and directory values at the command line, which you'll do next.
 
