@@ -63,7 +63,7 @@ Clone the NGINX module to your workstation
     ```
     git clone git@gitea:puppet/nginx.git
     ```
-6. Change directories into the NGINX module:
+6. Go to the NGINX module directory:
     ```
     cd .\nginx
     ```
@@ -157,7 +157,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-8. Update the **backup_logs.sh** filename to match the implementation records in the **backup_logs.json** metadata file. In the VS Code finder, locate **backup_logs.sh** and rename it to **backup_linux_logs.sh** (right-click > **Rename**).
+8. Change the **backup_logs.sh** filename to match the implementation records in the **backup_logs.json** metadata file. In the VS Code explorer, find **backup_logs.sh** and rename it to **backup_linux_logs.sh** (right-click > **Rename**).
 
 9. In the VS Code terminal, run another syntax check using PDK:
 ```
@@ -167,7 +167,7 @@ pdk validate
 
 Run tasks against the Windows and Linux nodes
 ========
-The task currently has defaults for the Linux node written into the main metadata file, **backup_logs.json**. To run the task against Windows nodes you must provide source and directory values at the command line, which you'll do next.
+The task currently has defaults for only the Linux node written into the main metadata file, **backup_logs.json**. To run the task against Windows nodes, you must provide source and directory values at the command line, which you'll do next.
 
 1. In the VS Code terminal, run the task against the Windows node using Bolt:
     ```
@@ -192,7 +192,7 @@ The task currently has defaults for the Linux node written into the main metadat
 
 ✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task ran successfully.
 
-🎈 **Congratulations!** You extended the `nginx::backup_logs` task's functionality to include NGINX installations on the Windows platform. If you want to, you can spend some time exploring this environment.
+🎈 **Congratulations!** You extended the `nginx::backup_logs` task functionality to include NGINX installations on the Windows platform. If you want to, you can spend some time exploring this environment.
 
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
