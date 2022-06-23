@@ -72,7 +72,7 @@ Extend the NGINX task
 ========
 
 1. In VS Code, open **backup_logs.json** (**nginx** > **tasks** > **backup_logs.json**).
-2. Replace the code with the following code, which adds implementation requirements for the task, starting on line 16:
+2. Replace the code with the following code, which adds implementation requirements for the task (starting on line 16):
     ```
     {
         "description": "Backs up nginx logs",
@@ -115,8 +115,9 @@ Extend the NGINX task
 
     This task failed because the task script `backup_windows_logs.ps1` and accompanying metadata file don't exist yet. The Bash script for Linux also needs to be renamed. You'll resolve these issues in the next steps.<br><br>
 
-5. In VS Code, you should already be in the **tasks** directory. If not, navigate there first, then create a file (**File** > **New File**).
-1. Add the following content, which creates date stamps and timestamps, to the file. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**):
+5. In the VS Code explorer, you should already be in the **tasks** directory. If not, navigate there first, then create a file (**File** > **New File**).
+
+1. Add the following content (which creates date stamps and timestamps) to the file. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**):
 
     ```
     [CmdletBinding()]
