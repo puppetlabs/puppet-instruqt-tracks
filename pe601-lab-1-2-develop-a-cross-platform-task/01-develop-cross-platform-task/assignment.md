@@ -71,7 +71,7 @@ Clone the NGINX module to your workstation
 Extend the NGINX task
 ========
 
-1. In VS Code, open **backup_logs.json** (**nginx** > **tasks** > **backup_logs.json**).
+1. In VS Code, open the task metadata file, **backup_logs.json** (**nginx** > **tasks** > **backup_logs.json**).
 2. Replace the code with the following code, which adds implementation requirements for the task (starting on line 16):
     ```
     {
@@ -84,7 +84,7 @@ Extend the NGINX task
                 "default": "/var/log/nginx"
             },
             "target_dir": {
-                "description": "Target directory to save backup to.",
+                "description": "Target directory to save the backup to.",
                 "type": "String",
                 "default": "/var/backup"
             }
