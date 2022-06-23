@@ -3,7 +3,7 @@ slug: develop-cross-platform-task
 id: yebihva7cdsn
 type: challenge
 title: Develop a cross-platform task
-teaser: Extend your task (which runs on Linux nodes) to also run on Windows nodes.
+teaser: Extend a task that runs on Linux nodes to also run on Windows nodes.
 notes:
 - type: text
   contents: |-
@@ -100,7 +100,7 @@ Extend the NGINX task
         ]
     }
     ```
-3. In the VS Code terminal, run a syntax check using PDK:
+3. In the VS Code terminal, run a syntax check using Puppet Development Kit (PDK):
     ```
     pdk validate
     ```
