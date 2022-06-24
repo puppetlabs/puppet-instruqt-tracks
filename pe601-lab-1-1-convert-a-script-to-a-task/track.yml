@@ -1,7 +1,7 @@
 slug: pe601-lab-1-1-convert-a-script-to-a-task
 id: inboly15ooli
 type: track
-title: 'PE601 Lab 1.1: Convert a script into a task'
+title: 'PE601 Lab 1.1: Convert a Script Into a Task'
 teaser: Convert a Bash script into a Bolt task.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -44,4 +44,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "2124316984625229893"
+checksum: "12898966077314536038"

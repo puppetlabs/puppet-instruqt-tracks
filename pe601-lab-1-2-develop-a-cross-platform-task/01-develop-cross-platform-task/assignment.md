@@ -171,7 +171,7 @@ The task currently has defaults for only the Linux node written into the main me
 
 1. In the VS Code terminal, run the task against the Windows node using Bolt:
     ```
-    bolt task run nginx::backup_logs --target winagent1 "source_dir=c:\\tools\\nginx-1.21.6\\logs" "target_dir=c:\\temp\\"
+    bolt task run nginx::backup_logs --target winagent1 "source_dir=c:\\tools\\nginx-1.23.0\\logs" "target_dir=c:\\temp\\"
     ```
 🔀 Switch to the **Winagent1** tab.
 
