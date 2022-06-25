@@ -1,0 +1,16 @@
+slug: pe601-lab-3-0-schedule-plans-in-production-with-orchestrator
+id: xf2psuz45f9m
+type: track
+title: 'PE601 Lab 3.0: Schedule Plans in Production with Orchestrator'
+description: PLACEHOLDER
+icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+tags:
+- pe601
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+show_timer: true
+checksum: "9021772232461952628"
