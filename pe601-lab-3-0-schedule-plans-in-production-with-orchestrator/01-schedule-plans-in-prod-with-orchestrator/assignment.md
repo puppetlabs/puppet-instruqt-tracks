@@ -11,7 +11,7 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: PE terminal
+- title: Primary Server
   type: terminal
   hostname: puppet
 - title: Windows Workstation
@@ -24,17 +24,17 @@ tabs:
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Git Server
-  type: service
-  hostname: gitea
-  path: /
-  port: 3000
 - title: Linux Agent 1
   type: terminal
   hostname: nixagent1
 - title: Linux Agent 2
   type: terminal
   hostname: nixagent2
+- title: Git Server
+  type: service
+  hostname: gitea
+  path: /
+  port: 3000
 difficulty: basic
 timelimit: 7200
 ---
@@ -141,6 +141,7 @@ Use PQL and an access token to schedule a plan run for production with the Orche
 
 8. Switch to the **PE Console** and click the **Plans** link
 9. Click the **Scheduled Plans** link to view your scheduled plan
+10. Wait 5 minutes until the scheduled plan runs and disappears from the scheduled plans list
 
 Verify the backup directories have been created on the production node
 ========
