@@ -38,13 +38,13 @@ tabs:
 difficulty: basic
 timelimit: 7200
 ---
-Create a Plan in your Module project
+Create a plan in your module project
 ========
 
 1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.
 
-    ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
+    ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work. This ensures your edits won't be lost.<br><br>
 
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
 4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
@@ -52,15 +52,15 @@ Create a Plan in your Module project
     ```
     git clone git@gitea:puppet/nginx.git
     ```
-6. Change directories into the NGINX module:
+6. Go to the NGINX module directory:
     ```
     cd .\nginx
     ```
-7. Create a Plan to orchestrate our tasks:
+7. Create a plan to orchestrate our tasks:
    ```
    bolt plan new nginx::backup_all_logs --pp
    ```
-8. Open the ../nginx/plans/backup_all_logs.pp plan file in the editor to see the placeholder code created by Bolt.
+8. Open the ../nginx/plans/backup_all_logs.pp plan file in the editor to see the placeholder code that Bolt created.
 
 9. Replace the placeholder code in **backup_all_logs.pp** with the code block below:
 
@@ -91,7 +91,7 @@ plan nginx::backup_all_logs (
   }
 }
 ```
-10. Navigate to **/nginx/tasks/backup_logs.json** and open the file. Replace the code in the file with the following block:
+10. Open **/nginx/tasks/backup_logs.json** and replace the code in the file with the following block:
 
 ```
 {
@@ -99,11 +99,11 @@ plan nginx::backup_all_logs (
     "supports_noop": false,
     "parameters": {
         "source_dir": {
-            "description": "Source directory to backup.",
+            "description": "Source directory to back up.",
             "type": "String"
         },
         "target_dir": {
-            "description": "Target directory to save backup to.",
+            "description": "Target directory to save the backup to.",
             "type": "String"
         }
     },
@@ -124,7 +124,7 @@ plan nginx::backup_all_logs (
 }
 ```
 
-11. Navigate to **/nginx/tasks/backup_windows_logs.ps1**. Replace the code in the file with the block below:
+11. Open **/nginx/tasks/backup_windows_logs.ps1** and replace the code in the file with the block below:
 
 ```
 [CmdletBinding()]
@@ -154,7 +154,7 @@ Copy-Item -Recurse -Path "c:\tools\nginx-1.23.0\logs\" -Destination $full_target
 Start-Service nginx
 ```
 
-12. Navigate to **/nginx/tasks/backup_windows_logs.json**. Replace the code in the file with the code block below:
+12. Open **/nginx/tasks/backup_windows_logs.json** and replace the code in the file with the code block below:
 ```
 {
   "name": "Windows backup",
@@ -163,16 +163,16 @@ Start-Service nginx
   "private": true
 }
 ```
-13. Navigate to **/nginx/tasks/backup_linux_logs.json**. Replace the code in the file with the code block below:
+13. Open **/nginx/tasks/backup_linux_logs.json** and replace the code in the file with the code block below:
 ```
 {
   "name": "Linux backup",
-  "description": "A task to perform web site log backups on Linux targets",
+  "description": "This task performs website log backups on Linux targets",
   "input_method": "both",
   "private": true
 }
 ```
-14. Lastly, navigate to **/nginx/tasks/backup_linux_logs.sh** and replace the code there with the following block:
+14. Lastly, open **/nginx/tasks/backup_linux_logs.sh** and replace the code with the following block:
 ```
 #!/bin/bash
 # Sites backup script
@@ -186,7 +186,7 @@ mkdir -p $target_dir_bkp
 # Stop nginx service
 systemctl stop nginx
 ​
-# Backup the files
+# Back up the files
 echo "$(date) Backing up $source_dir to $target_dir_bkp"
 cp -aR $source_dir/* $target_dir_bkp
 echo "$(date) Backup finished"
@@ -196,12 +196,12 @@ diff --recursive $source_dir $target_dir_bkp
 # Start nginx service
 systemctl start nginx
 ```
-15. Run the the new backup plan with the following code:
+15. Run the the new backup plan:
 ```
 bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
 ```
 
-At the command line, you will see output similar to the block below as the plan completes:
+On the command line, you will see output similar to the block below as the plan completes:
 ```
 Starting: plan nginx::backup_all_logs
 Starting: plan facts
