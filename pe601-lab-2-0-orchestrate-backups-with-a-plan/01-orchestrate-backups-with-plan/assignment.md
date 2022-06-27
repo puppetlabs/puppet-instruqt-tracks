@@ -216,11 +216,11 @@ Finished: plan nginx::backup_all_logs in 33.03 sec
 ```
 Verification
 ========
-1. (Windows) Switch to the **winagent1** tab. Run the following command to see your nginx backup folder: `Get-ChildItem -Path C:\backups\`. Change directory into the time-stamped backup folder the `access` and `error` logs have been backed up successfully.
-2. To see the nginx service stopped and started, type `eventvwr` at the command line and enter.
-3. This will open the Event Viewer application. In the left-hand pane, click **Windows Logs**, then **Application**. In the **Source** column, look for entries that have `nssm` value (nginx service). Verify that the service has been stopped and started.
-4. (Linux) Switch to the **nixagent1** tab. To verify that a successful backup has been made, run the following command `ls /var/backup`, where you will see a timestamped folder. To verify the logs have been backed up successfully, change directories into the timestamped folder and `cat` either the `error` or the `access` log.
-5. To verify that the nginx service was stopped and started, run the following command: `systemctl show nginx`. In the output, look for the value `ExecStartPre=`. This will show the service successfully stopped and restarted.
+1. **Windows:** Switch to the **winagent1** tab. Run `Get-ChildItem -Path C:\backups\` to see your `nginx` backup folder. Go to the timestamped backup folder the `access` and `error` logs have been backed up successfully.
+2. To verify that the nginx service stopped and started, type `eventvwr` at the command line and enter. This command opens the Event Viewer.
+3. In the left-hand pane of the Event Viewer, click **Windows Logs** > **Application**. In the **Source** column, look for entries that have `nssm` value (nginx service). Verify that the service has been stopped and started.
+4. **Linux:** Switch to the **nixagent1** tab. Run `ls /var/backup` and notice the timestamped folder. To verify the logs were backed up successfully, go into the timestamped folder and `cat` either the `error` or the `access` log.
+5. To verify that the nginx service was stopped and started, run `systemctl show nginx`. In the output, look for the value `ExecStartPre=`. This indicates that the service successfully stopped and restarted.
 
 🎈 **Congratulations!** You built a Puppet plan! If you want to, you can spend some time exploring this environment.
 
