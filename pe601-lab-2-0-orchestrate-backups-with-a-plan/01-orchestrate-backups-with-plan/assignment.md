@@ -2,7 +2,7 @@
 slug: orchestrate-backups-with-plan
 id: 3fyn29shttcx
 type: challenge
-title: Orchestrate Backups with a Plan
+title: Orchestrate backups with a plan
 notes:
 - type: text
   contents: PLACEHOLDER
