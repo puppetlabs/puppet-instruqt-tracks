@@ -84,7 +84,7 @@ Run tasks from the command line
     ```
 1. Scroll through the output and observe the returned facts from your Windows node, including IP address, OS, kernel, and uptime. Note that the uptime was reset by the reboot.
 
-✔️ **Result:** Congratulations! You ran two tasks from the command line: one to reboot the Windows node and one to return facts about the Windows node. Continue below to learn how to run a task from the PE console.
+    ✔️ **Result:** Congratulations! You ran two tasks from the command line: one to reboot the Windows node and one to return facts about the Windows node. Continue below to learn how to run a task from the PE console.
 
 Run tasks from the PE console
 ========
@@ -93,16 +93,16 @@ Run tasks from the PE console
 
 In this section, you'll run a task to stop and restart the time service on a Windows node in the development environment. In this lab, there's only one Windows node provisioned for development.
 
-1. Login with username `admin` and password `puppetlabs`.
-2. Navigate to the **Tasks** page (**Orchestration** > **Tasks**).
-3. Notice that the two previous tasks that you ran on the command line are shown. These tasks have been recorded by the console.
+1. Login with username `admin` and password `puppetlabs`.<br><br>
+2. Navigate to the **Tasks** page (**Orchestration** > **Tasks**).<br><br>
+3. Notice that the two previous tasks that you ran on the command line are shown. These tasks have been recorded by the console.<br><br>
 4. In the upper-right corner, click **Run a task**. ![run a task button](https://storage.googleapis.com/instruqt-images/run-a-task.png)
-5. From the **Code environment** list, select `development`.
-6. In the **Task** field, scroll and select `service`.
+5. From the **Code environment** list, select `development`.<br><br>
+6. In the **Task** field, scroll and select `service`.<br><br>
 7. In the **Task parameters** section, enter the following:
     - For **action**, choose **stop**.
-    - For **name**, enter `w32time`<br><br>.
-8. In the **Select targets** section, from the **Select a target type** list, select **Node group**.
+    - For **name**, enter `w32time`.<br><br>
+8. In the **Select targets** section, from the **Select a target type** list, select **Node group**.<br><br>
 1. In the **Choose a node group** field, select **Development environment (development)** and then click **Select**. Do not run the task yet.
 
     ✔️ **Result:** The name of your Windows node populates in the space below. This shows you the Windows node that's in the development environment node group.
@@ -125,26 +125,25 @@ In this section, you'll run a task to stop and restart the time service on a Win
 
     🔀 Switch to the **PE Console** tab.<br><br>
 
-13. In the upper-right corner, click **Run again** > **All nodes** to restart the w32time service.
-14. In the **action parameter** list, select **start** and then click **Run task**.
+13. In the upper-right corner, click **Run again** > **All nodes** to restart the w32time service.<br><br>
+14. In the **action parameter** list, select **start** and then click **Run task**.<br><br>
 15. After the task completes, the page refreshes to show the task status as **Started**. ![PE console task status started](https://storage.googleapis.com/instruqt-images/status-started.png)
 
     🔀 Switch to the **Windows Agent 1** tab.<br><br>
 
 1. Run the PowerShell command again. The service is now started.
 
-    🔀 Switch to the **PE Console** tab.<br><br>
+    🔀 Switch to the **PE Console** tab.
 
-By running this next task, you will get system information about the underlying database in the PuppetDB service, PostgreSQL. This task provides valuable operational information about the PostgreSQL installation.
-
-16. Go back to the **Tasks** page (**Orchestration** > **Tasks**) and click **Run a task**.
-1. Leave **Code environment** set to `production`.
-17. In the **Tasks** field, choose `pe_install::get_postgresql_info`.
-18. From the **Select a target type** list, select **Node group**.
-1. In the **Choose a node group** field, select `PE Master (production)` and then click **Select**.
-19. The primary Puppet server populates in the space below. Click **Run task**.
-20. After the task finishes, notice that the output provides details about the node run at a sysadmin level.
-
+By running this next task, you will get system information about the underlying database in the PuppetDB service, PostgreSQL. This task provides valuable operational information about the PostgreSQL installation.<br><br>
+1. Go back to the **Tasks** page (**Orchestration** > **Tasks**) and click **Run a task**.<br><br>
+1. Leave **Code environment** set to `production`.<br><br>
+1. In the **Tasks** field, choose `pe_install::get_postgresql_info`.<br><br>
+1. From the **Select a target type** list, select **Node group**.<br><br>
+1. In the **Choose a node group** field, select `PE Master (production)` and then click **Select**.<br><br>
+1. The primary Puppet server populates in the space below. Click **Run task**.<br><br>
+1. After the task finishes, notice that the output provides details about the node run at a sysadmin level.<br><br>
+---
 🎈 **Congratulations!** In this lab, you ran pre-built PE tasks against the Windows node from both the command line and the PE console. You rebooted the Windows node under enforcement, retrieved Windows node facts, stopped and started the **w32time** service, and gathered system information about the PuppetDB PostgreSQL installation.
 
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**

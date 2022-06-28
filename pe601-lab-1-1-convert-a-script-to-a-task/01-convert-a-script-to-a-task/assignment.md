@@ -59,13 +59,10 @@ timelimit: 3600
 ---
 Pull down NGINX code and create a Bolt task
 ========
-1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.
-2. Enable VS Code autosave by clicking **File** > **Auto Save**.
-
-    ✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
-
-3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.<br><br>
+2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.<br><br>
+4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.<br><br>
 5. In the terminal window, run the following command to clone the NGINX module:
     ```
     git clone git@gitea:puppet/nginx.git
