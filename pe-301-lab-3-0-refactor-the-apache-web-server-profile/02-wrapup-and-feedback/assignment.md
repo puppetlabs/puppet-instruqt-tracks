@@ -24,6 +24,8 @@ In this lab, you:
  - Tested your changes incrementally in a canary release.
  - Deployed code to the production environment.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-apache-web-server-profile).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)

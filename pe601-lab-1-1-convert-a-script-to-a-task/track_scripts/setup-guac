@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+
+cat <<'EOF' > /config/guacamole/user-mapping.xml
+<user-mapping>
+    <authorize
+        username="instruqt"
+        password="Passw0rd!">
+        <connection name="workstation">
+            <protocol>rdp</protocol>
+            <param name="hostname">workstation</param>
+            <param name="port">3389</param>
+            <param name="username">instruqt</param>
+            <param name="password">Passw0rd!</param>
+            <param name="ignore-cert">true</param>
+        </connection>
+    </authorize>
+</user-mapping>
+EOF
+
+exit 0

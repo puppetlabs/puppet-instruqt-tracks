@@ -19,6 +19,7 @@ timelimit: 300
 ---
 In this lab you refactored your base profile by moving variables to class parameters so that you could reuse the profile in another role without having to duplicate code.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/refactor-the-base-profile).
 
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)

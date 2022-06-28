@@ -19,6 +19,8 @@ timelimit: 300
 ---
 In this lab, you used the puppet lookup command on the primary server to discover how Hiera looks for data based on the hiera.yaml configuration and node facts.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/abstract-data-from-code-by-using-hiera).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)

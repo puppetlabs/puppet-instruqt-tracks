@@ -24,6 +24,8 @@ In this lab, you:
  - Added a module in your Puppetfile on your feature branch to test a code deployment.
  - Deployed code from your feature branch to the primary server to enable you to later test changes on nodes in a separate Puppet environment.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/configure-code-manager-and-deploy-code).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Education](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)

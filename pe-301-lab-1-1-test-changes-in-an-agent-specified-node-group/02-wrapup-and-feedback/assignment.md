@@ -19,6 +19,8 @@ timelimit: 300
 ---
 In this lab, you configured PE so that you could implement environment-based testing using a one-time run exception environment group.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/test-changes-in-an-agent-specified-node-group).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)

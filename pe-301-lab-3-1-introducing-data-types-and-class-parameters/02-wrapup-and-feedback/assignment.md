@@ -22,6 +22,8 @@ In this lab, you:
  - Added a common setting for all nodes running Apache HTTP Server to use the same docroot via common.yaml and Hiera.
  - Deployed your code to production.
 
+Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/job-aids/pe301-develop-and-maintain-labs/introducing-data-types-and-class-parameters).
+
 Want to learn more about Puppet? Check out these resources:
 - [Puppet Compass](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)

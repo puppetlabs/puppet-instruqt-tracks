@@ -4,11 +4,11 @@
 # exit code when it successfully applies changes to the machine
 set -uxo pipefail
 
-#while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
-#do
-#    echo "Waiting for Instruqt to finish booting the VM"
-#    sleep 1
-#done
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
 
 sleep 30
 
@@ -18,11 +18,11 @@ sed -i 's/ puppet  # Added by Google/ puppet puppet.c.kmo-instruqt.internal/' /e
 
 IPADDR=$(hostname -I)
 
-bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
+bolt command run "echo $IPADDR puppet puppet.c.kmo-instruqt.internal >> /etc/hosts" --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
 
 bolt command run "Add-Content -Value '$IPADDR puppet puppet.c.kmo-instruqt.internal' -Path C:\Windows\System32\drivers\etc\hosts" --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent1
 
-bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1
+bolt command run 'curl --insecure https://puppet.c.kmo-instruqt.internal:8140/packages/current/install.bash | bash -s' --no-host-key-check -u root --private-key /root/.ssh/id_rsa --targets nixagent1,nixagent2
 
 bolt command run 'Restart-Service puppet' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent1
 
@@ -50,14 +50,11 @@ mkdir -p /root/.puppetlabs
 cat /tmp/token.json | jq -r .token > /root/.puppetlabs/token
 chmod 600 /root/.puppetlabs/token
 
-# Now run Puppet twice on the nodes
-puppet job run --query 'nodes {}'
-puppet job run --query 'nodes {}'
 
 curl -XPOST -H "Content-Type: application/json" \
   -u puppet:puppetlabs \
   -d "{\"type\": \"gitea\", \"config\": {\"content_type\": \"json\",\"url\": \"https://puppet:8170/code-manager/v1/webhook?type=github\u0026token=$(cat /root/.puppetlabs/token)\"},\"events\": [\"push\"],\"active\": true}" \
-  http://gitea:3000/api/v1/repos/puppet/nginx/hooks
+  http://gitea:3000/api/v1/repos/puppet/control-repo/hooks
 
 bolt file upload /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa.pub C:\\users\\instruqt\\.ssh\\id_rsa.pub --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
 
@@ -73,6 +70,10 @@ bolt file upload known_hosts C:\\users\\instruqt\\.ssh\\known_hosts --no-ssl-ver
 
 puppet code deploy --all --wait  
 
+# Now run Puppet twice on the nodes
+puppet job run --query 'nodes {}'
+puppet job run --query 'nodes {}'
+
 cat << 'EOF' > settings.json
 {
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -82,10 +83,12 @@ cat << 'EOF' > settings.json
     "terminal.integrated.cwd": "C:\\CODE"
 }
 EOF
+echo "Setting up puppetserver bin path"
+export PATH=$PATH:/opt/puppetlabs/bin
+
+echo "Uploading cluster key to windows machine for bolt runs"
+bolt file upload /root/.ssh/id_rsa C:\\ProgramData\\ssh\\id_rsa --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://workstation
 
 bolt file upload settings.json C:\\users\\instruqt\\appdata\\roaming\\Code\\user\\settings.json --no-ssl-verify --user instruqt --password Passw0rd! --targets winrm://workstation
-
-echo "Setting up puppetserver bin path"
-echo 'export PATH=/opt/puppetlabs/server/apps/puppetserver/bin/:$PATH' >> ~/.bashrc
 
 exit 0
