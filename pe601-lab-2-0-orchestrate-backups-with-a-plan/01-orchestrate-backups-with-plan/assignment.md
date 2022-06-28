@@ -6,36 +6,39 @@ title: Orchestrate backups with a plan
 teaser: Expand the NGINX backup task code so that it includes a Puppet plan.
 notes:
 - type: text
-  contents: PLACEHOLDER
+  contents: |-
+    In this lab, you will further expand the NGINX backup task code so that it includes a Puppet plan.
+
+    Click **Start** when you're ready to begin.
 tabs:
-- title: PE Console
-  type: service
-  hostname: puppet
-  port: 443
-- title: PE terminal
-  type: terminal
-  hostname: puppet
-- title: Workstation
+- title: Windows Workstation
   type: service
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
-- title: winagent1
+- title: Winagent1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
-- title: gitea
+- title: Nixagent1
+  type: terminal
+  hostname: nixagent1
+- title: Nixagent2
+  type: terminal
+  hostname: nixagent2
+- title: PE Console
+  type: service
+  hostname: puppet
+  port: 443
+- title: PE Terminal
+  type: terminal
+  hostname: puppet
+- title: Gitea
   type: service
   hostname: gitea
   path: /
   port: 3000
-- title: nixagent1
-  type: terminal
-  hostname: nixagent1
-- title: nixagent2
-  type: terminal
-  hostname: nixagent2
 difficulty: basic
 timelimit: 3600
 ---
@@ -54,22 +57,21 @@ Create a plan in your module project
     ```
     cd .\nginx
     ```
-7. Create a plan to orchestrate the tasks:
+7. Use Bolt to create a plan to orchestrate the tasks:
    ```
    bolt plan new nginx::backup_all_logs --pp
    ```
-8. From the VS Code editor, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.
 
-9. Replace the placeholder code in **backup_all_logs.pp** with the code block below:
+Replace the existing code that Bolt created
+========
 
+8. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.
+
+9. Replace the placeholder code in **backup_all_logs.pp** with the code block below, which contains the structure for a simple plan:
     ```
-    # This is the structure of a simple plan. To learn more about writing
-    # Puppet plans, see the documentation: http://pup.pt/bolt-puppet-plans
-    # The summary sets the description of the plan that will appear
-    # in 'bolt plan show' output. Bolt uses puppet-strings to parse the
-    # summary and parameters from the plan.
     # @summary A plan created with bolt plan new.
     # @param targets The targets to run on.
+
     plan nginx::backup_all_logs (
       TargetSpec $targets
     ) {
@@ -89,7 +91,8 @@ Create a plan in your module project
       }
     }
     ```
-10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the code in the file with the following block:
+
+10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the existing code with the following metadata, which includes information about the task description, no-op settings, parameters, and implementations:
 
     ```
     {
@@ -122,7 +125,7 @@ Create a plan in your module project
     }
     ```
 
-11. Open `backup_windows_logs.ps1` (**nginx** > **tasks** > **backup_windows_logs.ps1**) and replace the code in the file with the block below:
+11. Open `backup_windows_logs.ps1` (**nginx** > **tasks** > **backup_windows_logs.ps1**) and replace the code in the file with the script code below, which pauses the NGINX service and then restarts it after after the `backup_logs` task completes:
 
     ```
     [CmdletBinding()]
@@ -152,7 +155,7 @@ Create a plan in your module project
     Start-Service nginx
     ```
 
-12. Open `backup_windows_logs.json` (**nginx** > **tasks** > **backup_windows_logs.json**) and replace the code in the file with the code block below:
+12. Open `backup_windows_logs.json` (**nginx** > **tasks** > **backup_windows_logs.json**) and replace the existing metadata in the file with the content below, which includes information for the task name, description, input method and privacy settings:
     ```
     {
       "name": "Windows backup",
@@ -161,7 +164,7 @@ Create a plan in your module project
       "private": true
     }
     ```
-13. Open **/nginx/tasks/backup_linux_logs.json** and replace the code in the file with the code block below:
+13. Open `backup_linux_logs.json` (**nginx** > **tasks** > **backup_linux_logs.json**) and replace the existing metadata in the file with the content below, which includes information for the task name, description, input method and privacy settings:
     ```
     {
       "name": "Linux backup",
@@ -170,7 +173,7 @@ Create a plan in your module project
       "private": true
     }
     ```
-14. Lastly, open `backup_linux_logs.sh` (**nginx** > **tasks** > **backup_linux_logs.sh**) and replace the code with the following block:
+14. Lastly, open `backup_linux_logs.sh` (**nginx** > **tasks** > **backup_linux_logs.sh**) and replace the existing code with the following Bash script which identifies source and target directories, pauses the NGINX service while the `backup_logs` task runs, and runs a diff to identify any changes since it last ran before restarting the NGINX service:
     ```
     #!/bin/bash
     # Sites backup script
@@ -181,6 +184,7 @@ Create a plan in your module project
     day=$(date +%Y%m%d-%H%M%S)
     target_dir_bkp="$target_dir/$day"
     mkdir -p $target_dir_bkp
+
     # Stop nginx service
     systemctl stop nginx
     ​
@@ -189,17 +193,18 @@ Create a plan in your module project
     cp -aR $source_dir/* $target_dir_bkp
     echo "$(date) Backup finished"
     ​
-    # Diff to verify (diff returns a non-zero exit code if it finds a4ny differences
+    # Diff to verify (diff returns a non-zero exit code if it finds any differences)
     diff --recursive $source_dir $target_dir_bkp
+
     # Start nginx service
     systemctl start nginx
     ```
-15. Run the the new backup plan:
+15. In the VS Code terminal, run the the new backup plan:
     ```
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-On the command line, you will see output similar to the block below as the plan completes:
+    Once the plan completes, you will see similar output to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts
@@ -212,16 +217,26 @@ On the command line, you will see output similar to the block below as the plan 
     Finished: task nginx::backup_logs with 0 failures in 4.72 sec
     Finished: plan nginx::backup_all_logs in 33.03 sec
     ```
-Verification
+Verify the NGINX service stopped and restarted on Windows
 ========
-1. **Windows:** Switch to the **winagent1** tab. Run `Get-ChildItem -Path C:\backups\` to see your `nginx` backup folder. Go to the timestamped backup folder the `access` and `error` logs have been backed up successfully.
-2. To verify that the nginx service stopped and started, type `eventvwr` at the command line and enter. This command opens the Event Viewer.
-3. In the left-hand pane of the Event Viewer, click **Windows Logs** > **Application**. In the **Source** column, look for entries that have `nssm` value (nginx service). Verify that the service has been stopped and started.
-4. **Linux:** Switch to the **nixagent1** tab. Run `ls /var/backup` and notice the timestamped folder. To verify the logs were backed up successfully, go into the timestamped folder and `cat` either the `error` or the `access` log.
-5. To verify that the nginx service was stopped and started, run `systemctl show nginx`. In the output, look for the value `ExecStartPre=`. This indicates that the service successfully stopped and restarted.
+🔀 Switch to the **Winagent1** tab.
+
+1. To see your `nginx` backup folder, run `Get-ChildItem -Path C:\backups\`
+1. Change directories into the timestamped backup folder to verify that the `access` and `error` logs have been backed up successfully.
+2. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer**.
+3. In the left-hand pane of the **Event Viewer**, click **Windows Logs** > **Application**. In the **Source** column, look for entries that have `nssm` value (NGINX service). Verify that the service has been stopped and started.
+
+Verify the NGINX service stopped and restarted on Linux
+========
+🔀  Switch to the **Nixagent1** tab.
+
+1. Run `ls /var/backup` and notice the timestamped folder.
+1. To verify the logs were backed up successfully, change directories into the timestamped folder and then run `cat` into either the `error` or the `access` log.
+5. To verify that the NGINX service was stopped and started, run `systemctl show nginx`.
+1. In the output, look for the value `ExecStartPre=`. This indicates that the service successfully stopped and restarted.
 
 🎈 **Congratulations!** You built a Puppet plan! If you want to, you can spend some time exploring this environment.
-
+To learn more about writing Puppet plans, visit the Puppet [documentation](http://pup.pt/bolt-puppet-plans).
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
