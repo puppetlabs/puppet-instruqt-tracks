@@ -37,5 +37,6 @@ puppet/pe601-lab-1-0-run-a-pre-built-task
 puppet/pe601-lab-1-1-convert-a-script-to-a-task
 puppet/pe601-lab-1-2-develop-a-cross-platform-task
 puppet/pe601-lab-2-0-orchestrate-backups-with-a-plan
+puppet/pe601-lab-2-1-run-multiple-tasks-with-a-plan
 puppet/pe601-lab-3-0-schedule-plans-in-production-with-orchestrator
 puppet/testing-folding-instructions

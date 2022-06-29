@@ -52,7 +52,7 @@ timelimit: 3600
 ---
 Clone the NGINX module to your workstation
 ========
-1. On the **Windows Workstation** tab, go to the **Start** menu and open **Visual Studio Code**.<br><br>
+1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.<br><br>
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>
 3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory, and click **Select Folder**.<br><br>
 4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.<br><br>
@@ -60,7 +60,7 @@ Clone the NGINX module to your workstation
     ```
     git clone git@gitea:puppet/nginx.git
     ```
-6. Go to the NGINX module directory:
+6. Change directories into the NGINX module directory:
     ```
     cd .\nginx
     ```
@@ -116,7 +116,7 @@ Extend the NGINX task
 
 5. In the VS Code explorer, you should already be in the **tasks** directory. If not, navigate there first, then create a file (**File** > **New File**).<br><br>
 
-1. Add the following content (which creates date stamps and timestamps) to the file. Then, save the file as **backup_windows_logs.ps1** (**File** > **Save As...**):
+1. Create a new file called **backup_windows_logs.ps1** and then add the following content, which creates date stamps and timestamps:
 
     ```
     [CmdletBinding()]
@@ -140,7 +140,7 @@ Extend the NGINX task
     Write-Output "Copying items from $source_dir to full backup path $full_target_backup_path"
     Copy-Item -Recurse -Path $source_dir -Destination $full_target_backup_path
     ```
-6. In the same **tasks** directory, create a file for the Windows task metadata and add the following content, which provides a name, description, and privacy settings for the Windows task. Then, save the metadata file as **backup_windows_logs.json**:
+6. In the same **tasks** directory, create a file for the Windows task metadata called **backup_windows_logs.json**. Add the following content to the file, which provides a name, description, and privacy settings for the Windows task:
     ```
     {
       "name": "Windows backup",
@@ -148,7 +148,7 @@ Extend the NGINX task
       "private": true
     }
     ```
-7. In the same **tasks** directory, create a file for the Linux task metadata. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task. Then, save the metadata file as  **backup_linux_logs.json**:
+7. In the same **tasks** directory, create a file for the Linux task metadata called **backup_linux_logs.json**. Add the following content to the file, which provides a name, description, and privacy settings for the Linux task:
     ```
     {
       "name": "Linux backup",
@@ -172,22 +172,24 @@ The task currently has defaults for only the Linux node written into the main me
     ```
     bolt task run nginx::backup_logs --target winagent1 "source_dir=c:\\tools\\nginx-1.23.0\\logs" "target_dir=c:\\temp\\"
     ```
-🔀 Switch to the **Winagent1** tab.
+    ✏️ **Note:** Wait until the task run completes before you continue.
+
+    🔀 Switch to the **Winagent1** tab.<br><br>
 
 1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
 
     ✔️ **Result:** Great work! Your Windows task ran successfully. Now it's time to run the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults in the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories on the command line.
 
-🔀 Switch to the **Windows Workstation** tab.
+    🔀 Switch to the **Windows Workstation** tab.<br><br>
 
 1.  In the VS Code terminal window, run the task against the Linux node using Bolt:
     ```
     bolt task run nginx::backup_logs --target nixagent1
     ```
-🔀 Switch to the **Nixagent1** tab.
+    🔀 Switch to the **Nixagent1** tab.<br><br>
 
 1. Change to the target directory by running `cd /var/backup` and list the directory contents by running `ls`.<br><br>
-2. Locate and open a timestamped directory and then run `cat access.log` or `cat error.log`.
+2. Locate and open the timestamped directory and then run `cat access.log` or `cat error.log`.
 
     ✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task ran successfully.
 ---

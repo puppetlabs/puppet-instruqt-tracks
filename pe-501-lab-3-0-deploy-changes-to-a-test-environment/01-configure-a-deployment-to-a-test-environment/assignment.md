@@ -48,7 +48,7 @@ Add a test deployment to the main pipeline
 2. Log into Continuous Delivery for PE with username `puppet@puppet.com` and password `puppetlabs`.
     - If the browser doesn't recognize your keyboard input, copy the username and password from these instructions.
     - To see the full Continuous Delivery for PE interface, maximize the browser window.<br><br>
-3. Navigate to **Control Repos** > **control-repo**.
+3. Navigate to **Control Repos** > **control-repo**.<br><br>
 4. Add a new deployment to the main pipeline. First, ensure **main** is selected in the drop-down menu:![main pipeline](https://storage.googleapis.com/instruqt-images/pipelines-main.png) Then, click **Add Stage**:![add stage](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/add-stage.png)
 1. In the **Add new stage** window, enter the following:
 
@@ -58,16 +58,14 @@ Add a test deployment to the main pipeline
     - Leave all other settings as is.<br><br>
 1. Click **Add Stage** and then click **Done**.
 
-✅ **Result:** A test deployment has been added to the **main** pipeline for the control repo: ![test deployment created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-test-deployment-created.png)
+    ✅ **Result:** A test deployment has been added to the **main** pipeline for the control repo: ![test deployment created](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/Lab3.0-test-deployment-created.png)
 
 Update the MOTD on a new feature test branch
 ========
-1. From the **Start** menu, open **Visual Studio Code**.
-
-    💡 **Tip:** Enable VS Code autosave by clicking **File** > **Auto Save**. By enabling autosave, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
+1. From the **Start** menu, open **Visual Studio Code**.<br><br>
 1. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
     - If prompted to trust the code in this directory, click **Accept**.<br><br>
-1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+1. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.<br><br>
 1. Clone the **control-repo** project:
     ```
     git clone git@gitlab:puppet/control-repo.git
@@ -81,7 +79,7 @@ Update the MOTD on a new feature test branch
     ```
     git checkout -b feature_test_motd
     ```
-3. Navigate to the **data** directory (**control-repo** > **data**).
+3. Navigate to the **data** directory (**control-repo** > **data**).<br><br>
 4. Edit `common.yaml` and replace the login message with the following:
     ```
     'Welcome to a new test server!'
@@ -96,29 +94,29 @@ Update the MOTD on a new feature test branch
 
 1. The pipeline event will show as pending until the jobs finish running (which should take about 2-3 minutes). Click the drop-down arrow at the right for a detailed look at the jobs as they run:![jobs running](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-updated-base-profile-message-pending.png)
 
-✅ **Result:**  The job runs successfully to include the updated login message: ![updated motd](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-base-message-updated-complete.png)
+    ✅ **Result:**  The job rus successfully to include the updated login message: ![updated motd](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-base-message-updated-complete.png)
 
 Create a Gitlab merge request to run the main pipeline
 ========
-1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.
-1. Log in with username `puppet`and password `puppetlabs`.
+1. On the **Windows Workstation** desktop, double-click the **Gitlab** desktop icon.<br><br>
+1. Log in with username `puppet`and password `puppetlabs`.<br><br>
 2. Navigate to the `control-repo` project, and then click the **Merge Requests** icon located in the left navigation bar: ![](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/merge-requests2.png)
 
-1. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).
-1. Leave **Source branch** set to `feature_test_motd`.
-1. For **Target branch**, select `main`.
-1. Click **Compare branches and continue**.
-1. Leave the title as is and click **Create merge request**.
+1. Click **Create merge request**, and then click **Change branches** (next to `production` in the header).<br><br>
+1. Leave **Source branch** set to `feature_test_motd`.<br><br>
+1. For **Target branch**, select `main`.<br><br>
+1. Click **Compare branches and continue**.<br><br>
+1. Leave the title as is and click **Create merge request**.<br><br>
 1. After the page refreshes, click the **Merge** button. This will merge your `feature_test_motd` change into the `main` branch.
 
-✅ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request: ![Gitlab merge request](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-gitlab-merge.png)
+    ✅ **Result:** The `feature_test_motd` branch was merged to `main` using a Gitlab merge request: ![Gitlab merge request](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-gitlab-merge.png)
 
 Promote the main pipeline to Deploy and locate the job ID
 ========
-1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events** if shown.
-3. Observe the `main` pipeline as it runs the unit tests and syntax checks.
+1. Return to the CD4PE browser window (which may be a tab of the Gitlab browser), scroll down, and click **New Events** if shown.<br><br>
+3. Observe the `main` pipeline as it runs the unit tests and syntax checks.<br><br>
 4. After the code verification stage is complete, click **Promote** (to the right of the page under **Pipeline stage 1**). ![promote](https://storage.googleapis.com/instruqt-images/promote.png)
-1. Click **Promote** and then click **Done**.
+1. Click **Promote** and then click **Done**.<br><br>
 7. Click the **New Events** button if shown, and then click the drop-down arrow to the right of the running pipeline: ![drop-down arrow](https://storage.googleapis.com/instruqt-images/downward-arrow-2.png)
 
     Review the merge run progress: ![merge run progress](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/lab3.0-merge-branch-deploy-progress.png)
@@ -126,17 +124,17 @@ Promote the main pipeline to Deploy and locate the job ID
 8. After the job completes, record the Job ID. Click on the green **1 Succeeded**, and then click the blue job report link (**#1**) under **Deployment Done**: ![1 succeeded](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/1-succeeded.png) ![deployment done](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/deployment-done.png)
 1. Scroll down to **Deployment events** > **3. Orchestration task** and click **View jobs**: ![view jobs](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/view-jobs.png)
 
-✅ **Result:** The job ID will appear under the job column at the left: ![job ID](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/job-id.png)
+    ✅ **Result:** The job ID will appear under the job column at the left: ![job ID](https://storage.googleapis.com/instruqt-images/PE501-Continuously%20Deliver/job-id.png)
 
 Review the job run reports
 =======
 🔀 Switch to the **PE Console** tab<br><br>
 
-9. Log into PE with username `admin` and password `puppetlabs`.
-1. Navigate to **Jobs**, and then click on the Job ID reported from Continuous Delivery for PE. This shows you the jobs that ran on nodes in the **Development** node group.
-11. Under the **Report** column at the right, click one of the links shown, and then click the **Log** tab to review the changes.
+1. Log into PE with username `admin` and password `puppetlabs`.<br><br>
+1. Navigate to **Jobs**, and then click on the Job ID reported from Continuous Delivery for PE. This shows you the jobs that ran on nodes in the **Development** node group.<br><br>
+1. Under the **Report** column at the right, click one of the links shown, and then click the **Log** tab to review the changes.
 
-✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your main pipeline. This deployment was triggered by a merge request made when changes from your **feature_test_motd** code branch flagged a merge request in Gitlab.<br><br>
+    ✅ **Result:** New code was deployed directly to the Development environment by means of a Direct Deployment stage in your main pipeline. This deployment was triggered by a merge request made when changes from your **feature_test_motd** code branch flagged a merge request in Gitlab.<br><br>
 
 --------
 🎈 **Congratulations!** In this lab you added a deployment step to the main pipeline for the control repo. You used Gitlab to trigger the main pipeline. You then added a trigger based on a merge request from the main branch of the control repo. This is a best-practice workflow for deploying changes to test nodes.

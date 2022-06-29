@@ -61,13 +61,14 @@ Create a plan in your module project
    ```
    bolt plan new nginx::backup_all_logs --pp
    ```
+✔️ **Result:** Notice that a new **plans** folder appears in the VS Code explorer at the left.
 
-Replace the existing code that Bolt created
+Update the placeholder code
 ========
 
 8. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.
 
-9. Replace the placeholder code in **backup_all_logs.pp** with the code block below, which contains the structure for a simple plan:
+9. Replace the placeholder code in **backup_all_logs.pp** with the plan code below. This plan looks for facts on the targets, and uses the fact's OS name to determine whether the OS is Windows or Linux. If the target is Windows, it applies the Windows values specified. Otherwise, if the target is Linux, it receives the default values. This is an example of how plans combine logic and tasks:
     ```
     # @summary A plan created with bolt plan new.
     # @param targets The targets to run on.
@@ -155,7 +156,7 @@ Replace the existing code that Bolt created
     Start-Service nginx
     ```
 
-12. Open `backup_windows_logs.json` (**nginx** > **tasks** > **backup_windows_logs.json**) and replace the existing metadata in the file with the content below, which includes information for the task name, description, input method and privacy settings:
+12. Open `backup_windows_logs.json` (**nginx** > **tasks** > **backup_windows_logs.json**) and replace the existing metadata in the file with the content below, which adds a line to use Powershell as the input method:
     ```
     {
       "name": "Windows backup",
@@ -164,7 +165,7 @@ Replace the existing code that Bolt created
       "private": true
     }
     ```
-13. Open `backup_linux_logs.json` (**nginx** > **tasks** > **backup_linux_logs.json**) and replace the existing metadata in the file with the content below, which includes information for the task name, description, input method and privacy settings:
+13. Open `backup_linux_logs.json` (**nginx** > **tasks** > **backup_linux_logs.json**) and replace the existing metadata in the file with the content below, which adds a line to use both input methods:
     ```
     {
       "name": "Linux backup",
@@ -199,12 +200,14 @@ Replace the existing code that Bolt created
     # Start nginx service
     systemctl start nginx
     ```
-15. In the VS Code terminal, run the the new backup plan:
+Run the new backup plan against Windows and Linux nodes
+========
+1. In the VS Code terminal, run the the new backup plan against both the Linux and Windows nodes:
     ```
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-    Once the plan completes, you will see similar output to the following on the command line:
+    ✔️ **Result:** Once the plan completes, you will see similar output to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts
@@ -221,22 +224,38 @@ Verify the NGINX service stopped and restarted on Windows
 ========
 🔀 Switch to the **Winagent1** tab.
 
-1. To see your `nginx` backup folder, run `Get-ChildItem -Path C:\backups\`
-1. Change directories into the timestamped backup folder to verify that the `access` and `error` logs have been backed up successfully.
-2. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer**.
-3. In the left-hand pane of the **Event Viewer**, click **Windows Logs** > **Application**. In the **Source** column, look for entries that have `nssm` value (NGINX service). Verify that the service has been stopped and started.
+✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
+
+1. From the **Start** menu, open **Windows Powershell**.
+2. In the Powershell terminal window, run the following command to locate the `nginx` backup folder:
+    ```
+    Get-ChildItem -Path C:\backups\
+    ```
+    ✔️ **Result:** In the output, notice the backup folder, `site_backup_<date-time>`. This verifies that a backup was made.<br><br>
+    💡 **Tip:** To verify that the `access` and `error` logs have been backed up successfully, you can navigate to the timestamped backup folder to view the logs. <br><br>
+3. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer** interface.
+4. Click the square in the top right of the interface header to enlarge the Event Viewer to full size.
+5. In the left-hand pane of the **Event Viewer**, navigate to **Windows Logs** > **Application**.
+
+✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. This verifies that the service was successfully stopped and restarted.
 
 Verify the NGINX service stopped and restarted on Linux
 ========
 🔀  Switch to the **Nixagent1** tab.
 
-1. Run `ls /var/backup` and notice the timestamped folder.
-1. To verify the logs were backed up successfully, change directories into the timestamped folder and then run `cat` into either the `error` or the `access` log.
-5. To verify that the NGINX service was stopped and started, run `systemctl show nginx`.
-1. In the output, look for the value `ExecStartPre=`. This indicates that the service successfully stopped and restarted.
+1. Run `ls /var/backup` and notice the timestamped folder in the output.
+    ```
+    ls /var/backup
+    ```
+    💡 **Tip:** To verify that the logs were backed up successfully, you can navigate to the timestamped folder and then run `cat` into either the `error` or the `access` log.<br><br>
+5. Verify that the NGINX service was stopped and started:
+    ```
+    systemctl show nginx
+    ```
+1. In the output, locate the lines with the value `ExecStartPre=`. These lines show `stop_time=` which indicates that the service successfully stopped and restarted.
 
 🎈 **Congratulations!** You built a Puppet plan! If you want to, you can spend some time exploring this environment.
-To learn more about writing Puppet plans, visit the Puppet [documentation](http://pup.pt/bolt-puppet-plans).
+To learn more about writing Puppet plans, visit [Puppet documentation](http://pup.pt/bolt-puppet-plans).
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 

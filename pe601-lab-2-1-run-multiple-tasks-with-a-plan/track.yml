@@ -1,0 +1,16 @@
+slug: pe601-lab-2-1-run-multiple-tasks-with-a-plan
+id: kyxeit5nazle
+type: track
+title: 'PE601 Lab 2.1: Run Multiple Tasks  With a Plan'
+description: PLACEHOLDER
+icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+tags:
+- pe601
+- BACKUP
+owner: puppet
+developers:
+- alex.williamson@puppet.com
+private: true
+published: false
+show_timer: true
+checksum: "81519513836053989"

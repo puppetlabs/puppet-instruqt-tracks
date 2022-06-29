@@ -19,15 +19,15 @@ tabs:
 - title: Primary Server
   type: terminal
   hostname: puppet
-- title: PE Console
-  type: service
-  hostname: puppet
-  port: 443
 - title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
+- title: PE Console
+  type: service
+  hostname: puppet
+  port: 443
 - title: Workstation
   type: service
   hostname: guac
@@ -59,13 +59,13 @@ Run tasks from the command line
     puppetserver ca list --all
     ```
 
-    💡 Note the `winagent` machine name. You'll use this name when you run your first task.<br><br>
+    💡 Copy the `winagent` machine name to a temporary notes file or Google doc. You'll need to paste this name when you run your first task.<br><br>
 
 1. Run the `task show` command to see a list of available tasks:
     ```
     puppet task show --all
     ```
-    💡 Notice the **reboot** task. You'll run this task first.<br><br>
+    💡 At this point, you haven't yet written any tasks, so only pre-built tasks are listed. You'll run the **reboot** task first. <br><br>
 
 1. Reboot the `winagent` node by running the **reboot** command, replacing `<winagent>` with the actual name of the node that appeared in the output for step 1:
     ```
@@ -75,7 +75,7 @@ Run tasks from the command line
 
 1. When you see the **Reconnect** button (after approximately 30 seconds), click it to reconnect to the **Windows Agent 1** node and complete the reboot. ![reconnect button](https://storage.googleapis.com/instruqt-images/reconnect-100.png)
 
-    ✔️ **Result:** Congratulations! You just ran a pre-built task — in this case, the task rebooted a specific node.
+    ✔️ **Result:** Congratulations! You just ran a pre-built task that rebooted the Windows node.
 
     🔀 Switch to the **Primary Server** tab.<br><br>
 1. Now let's run another task — this time, to return facts about the Windows node. Remember to replace `<winagent>` with the name of the Windows node you used earlier:
@@ -109,7 +109,7 @@ In this section, you'll run a task to stop and restart the time service on a Win
 
     🔀 Switch to the Windows Agent 1 tab.<br><br>
 
-1. Open a PowerShell window and run the following command to show the status of the w32time service:
+1. From the **Windows Start** menu, open a **PowerShell** window and run the following command to show the status of the `w32time` service:
     ```
     Get-Service -Name "w32time"
     ```
@@ -131,18 +131,18 @@ In this section, you'll run a task to stop and restart the time service on a Win
 
     🔀 Switch to the **Windows Agent 1** tab.<br><br>
 
-1. Run the PowerShell command again. The service is now started.
+1. Run the PowerShell command again. The service is now running.
 
     🔀 Switch to the **PE Console** tab.
 
 By running this next task, you will get system information about the underlying database in the PuppetDB service, PostgreSQL. This task provides valuable operational information about the PostgreSQL installation.<br><br>
 1. Go back to the **Tasks** page (**Orchestration** > **Tasks**) and click **Run a task**.<br><br>
 1. Leave **Code environment** set to `production`.<br><br>
-1. In the **Tasks** field, choose `pe_install::get_postgresql_info`.<br><br>
+1. In the **Task** field, choose `pe_install::get_postgresql_info`.<br><br>
 1. From the **Select a target type** list, select **Node group**.<br><br>
 1. In the **Choose a node group** field, select `PE Master (production)` and then click **Select**.<br><br>
 1. The primary Puppet server populates in the space below. Click **Run task**.<br><br>
-1. After the task finishes, notice that the output provides details about the node run at a sysadmin level.<br><br>
+1. After the task finishes, notice the sysadmin-level details about the node run.<br><br>
 ---
 🎈 **Congratulations!** In this lab, you ran pre-built PE tasks against the Windows node from both the command line and the PE console. You rebooted the Windows node under enforcement, retrieved Windows node facts, stopped and started the **w32time** service, and gathered system information about the PuppetDB PostgreSQL installation.
 
