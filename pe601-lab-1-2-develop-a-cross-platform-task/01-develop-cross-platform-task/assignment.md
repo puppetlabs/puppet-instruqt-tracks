@@ -16,7 +16,7 @@ tabs:
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Winagent1
+- title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
@@ -33,10 +33,10 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: Nixagent1
+- title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: Nixagent2
+- title: Linux Agent 2
   type: terminal
   hostname: nixagent2
 - title: Lab Help
@@ -174,7 +174,7 @@ The task currently has defaults for only the Linux node written into the main me
     ```
     ✏️ **Note:** Wait until the task run completes before you continue.
 
-    🔀 Switch to the **Winagent1** tab.<br><br>
+    🔀 Switch to the **Windows Agent 1** tab.<br><br>
 
 1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
 
@@ -186,7 +186,7 @@ The task currently has defaults for only the Linux node written into the main me
     ```
     bolt task run nginx::backup_logs --target nixagent1
     ```
-    🔀 Switch to the **Nixagent1** tab.<br><br>
+    🔀 Switch to the **Linux Agent 1** tab.<br><br>
 
 1. Change to the target directory by running `cd /var/backup` and list the directory contents by running `ls`.<br><br>
 2. Locate and open the timestamped directory and then run `cat access.log` or `cat error.log`.

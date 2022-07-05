@@ -16,15 +16,15 @@ tabs:
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Winagent1
+- title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Nixagent1
+- title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: Nixagent2
+- title: Linux Agent 2
   type: terminal
   hostname: nixagent2
 - title: PE Console
@@ -222,7 +222,7 @@ Run the new backup plan against Windows and Linux nodes
     ```
 Verify the NGINX service stopped and restarted on Windows
 ========
-🔀 Switch to the **Winagent1** tab.
+🔀 Switch to the **Windows Agent 1** tab.
 
 ✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
 
@@ -241,7 +241,7 @@ Verify the NGINX service stopped and restarted on Windows
 
 Verify the NGINX service stopped and restarted on Linux
 ========
-🔀  Switch to the **Nixagent1** tab.
+🔀  Switch to the **Linux Agent 1** tab.
 
 1. Run `ls /var/backup` and notice the timestamped folder in the output.
     ```

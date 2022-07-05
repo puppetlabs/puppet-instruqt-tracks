@@ -28,7 +28,7 @@ tabs:
   type: service
   hostname: puppet
   port: 443
-- title: Workstation
+- title: Windows Workstation
   type: service
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
@@ -107,7 +107,7 @@ In this section, you'll run a task to stop and restart the time service on a Win
 
     ✔️ **Result:** The name of your Windows node populates in the space below. This shows you the Windows node that's in the development environment node group.
 
-    🔀 Switch to the Windows Agent 1 tab.<br><br>
+    🔀 Switch to the **Windows Agent 1** tab.<br><br>
 
 1. From the **Windows Start** menu, open a **PowerShell** window and run the following command to show the status of the `w32time` service:
     ```

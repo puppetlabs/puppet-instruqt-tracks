@@ -30,7 +30,7 @@ tabs:
 - title: PE Terminal
   type: terminal
   hostname: puppet
-- title: Winagent1
+- title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
@@ -40,10 +40,10 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: Nixagent1
+- title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: Nixagent2
+- title: Linux Agent 2
   type: terminal
   hostname: nixagent2
 - title: Bug Zapper
