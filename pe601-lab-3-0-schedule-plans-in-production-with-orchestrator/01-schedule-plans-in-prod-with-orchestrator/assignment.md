@@ -45,14 +45,12 @@ tabs:
   port: 3000
 - title: Bug Zapper
   type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform
-- title: Practice Lab Help
+  url: https://docs.google.com/forms/d/e/1FAIpQLSdNqjFgi9Acryyoz6swH7oKx2EaC6cbD57bg2LCYb9K1TMjzw/viewform?embedded=true
+- title: Lab Help
   type: website
-  hostname: guac
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 7200
+timelimit: 3600
 ---
 Use PQL to identify development nodes from the console
 ========

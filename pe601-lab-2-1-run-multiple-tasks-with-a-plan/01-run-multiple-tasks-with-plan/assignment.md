@@ -40,14 +40,12 @@ tabs:
 - title: nixagent2
   type: terminal
   hostname: nixagent2
+- title: Lab Help
+  type: website
+  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 - title: Bug Zapper
   type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform
-- title: Practice Lab Help
-  type: website
-  hostname: guac
-  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+  url: https://docs.google.com/forms/d/e/1FAIpQLSd_z5iIJUvLrAwYCwDchDoF3ncy5TsCCDSiA_7SWFOPrFbKog/viewform?embedded=true
 difficulty: basic
 timelimit: 3600
 ---

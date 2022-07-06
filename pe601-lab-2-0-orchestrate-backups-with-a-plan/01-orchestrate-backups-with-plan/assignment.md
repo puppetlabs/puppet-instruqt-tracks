@@ -39,13 +39,12 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
-- title: Practice Lab Help
+- title: Lab Help
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 - title: Bug Zapper
   type: website
-  hostname: guac
-  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform
+  url: https://docs.google.com/forms/d/e/1FAIpQLScOPFhV7wpUQAOsjxd5tA7kEEfPVyFQ_AcKGV7AKwt5_UmF0g/viewform?embedded=true
 difficulty: basic
 timelimit: 3600
 ---
