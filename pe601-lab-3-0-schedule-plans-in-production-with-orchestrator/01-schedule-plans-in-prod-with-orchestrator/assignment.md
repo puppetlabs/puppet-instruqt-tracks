@@ -5,7 +5,15 @@ type: challenge
 title: Schedule Plans in Production with Orchestrator
 notes:
 - type: text
-  contents: PLACEHOLDER
+  contents: |-
+    In this lab, you will:
+    - Use the PE console to:
+        - Run Puppet Query Language (PQL) to identify development nodes.
+        - Test a Puppet plan against development nodes.
+    - Verify that backup directories have been created.
+    - Create a service account to secure running the backup plan in production.
+    - Use PQL and an access token to schedule a plan run for production with the Orchestrator API.
+    - Verify that backup directories were created on the production node.
 tabs:
 - title: PE Console
   type: service
@@ -35,6 +43,14 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
+- title: Bug Zapper
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform
+- title: Practice Lab Help
+  type: website
+  hostname: guac
+  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
 timelimit: 7200
 ---
@@ -154,3 +170,8 @@ Verify the backup directories have been created on the production node
 
 ---
 🎈 **Congratulations!** In this lab, you tested your Puppet plan to backup nginx log files on nodes in the development environment. Then you configured role-based access control (RBAC) for a service account user with permissions to run the plan on production agent nodes. Finally, you configured a scheduled job using the `schedule_plan` API endpoint to run the backup logs plan on your production Linux node and verified that it completed successfully.
+
+---
+**Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
+
+When you're ready to close the lab, click **Next**.

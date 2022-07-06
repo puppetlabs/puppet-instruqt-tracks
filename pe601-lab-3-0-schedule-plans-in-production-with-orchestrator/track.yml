@@ -2,8 +2,37 @@ slug: pe601-lab-3-0-schedule-plans-in-production-with-orchestrator
 id: xf2psuz45f9m
 type: track
 title: 'PE601 Lab 3.0: Schedule Plans in Production with Orchestrator'
-description: PLACEHOLDER
+description: |-
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+
+  ## What you'll learn
+  In this lab, you will:
+  - Use the PE console to:
+      - Run Puppet Query Language (PQL) to identify development nodes.
+      - Test a Puppet plan against development nodes.
+  - Verify that backup directories have been created.
+  - Create a service account to secure running the backup plan in production.
+  - Use PQL and an access token to schedule a plan run for production with the Orchestrator API.
+  - Verify that backup directories were created on the production node.
+
+  ## Prerequisites
+  None
+
+  ## Technical recommendations
+
+  For the best lab experience, use [Google Chrome](https://www.google.com/chrome/). Mozilla Firefox, Microsoft Edge, and Apple Safari are not suitable for this lab — if you must use one of these browsers, see the Lab Help Guide for workarounds.
+
+  ## Keep an eye on the clock
+  ![60 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/60min100.png)
+  The virtual learning environment will stay up for 120 minutes, however, this lab should only take about **60 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+
+  When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
 icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+level: intermediate
 tags:
 - pe601
 - BACKUP
@@ -13,4 +42,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "11070055746195663862"
+checksum: "13290259594573776009"

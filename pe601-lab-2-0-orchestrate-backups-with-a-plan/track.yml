@@ -3,7 +3,13 @@ id: ayg90swes9eh
 type: track
 title: 'PE601 Lab 2.0: Orchestrate backups with a Plan'
 description: |-
-  ## Introduction
+  # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
+
+  Please help us find any bugs that need to be zapped and share your feedback for improving this learning experience by clicking the **Bug Zapper** tab at the top of each challenge and completing the short survey.
+
+  We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
+
+  ## What you'll learn
   In this lab, you will further expand the NGINX backup task code so that it includes a Puppet plan.
 
   ## Prerequisites
@@ -19,6 +25,7 @@ description: |-
 
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
 icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
+level: intermediate
 tags:
 - pe601
 - BACKUP
@@ -28,4 +35,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "1449065886054101325"
+checksum: "16131333223569026637"

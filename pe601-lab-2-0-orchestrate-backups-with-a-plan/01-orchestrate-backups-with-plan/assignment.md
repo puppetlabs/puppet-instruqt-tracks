@@ -39,16 +39,23 @@ tabs:
   hostname: gitea
   path: /
   port: 3000
+- title: Practice Lab Help
+  type: website
+  url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
+- title: Bug Zapper
+  type: website
+  hostname: guac
+  url: https://docs.google.com/forms/d/e/1FAIpQLSc89N9XCQoDEkET-uVKqjZWGnqMw0IbzZeeuuCKcoQk5oXr0g/viewform
 difficulty: basic
 timelimit: 3600
 ---
 Create a plan in your module project
 ========
 
-1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.
-2. Enable VS Code autosave by clicking **File** > **Auto Save**.
-3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.
-4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.
+1. On the **Windows Workstation** tab, from the **Start** menu, open **Visual Studio Code**.<br><br>
+2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>
+3. Open the `C:\CODE` directory. Click **File** > **Open Folder**, navigate to the `C:\CODE` directory and click **Select Folder**.<br><br>
+4. In VS Code, open a terminal. Click **Terminal** > **New Terminal**.<br><br>
 5. In the terminal window, run the following command to clone the NGINX module:
     ```
     git clone git@gitea:puppet/nginx.git
@@ -61,13 +68,12 @@ Create a plan in your module project
    ```
    bolt plan new nginx::backup_all_logs --pp
    ```
-✔️ **Result:** Notice that a new **plans** folder appears in the VS Code explorer at the left.
+   ✔️ **Result:** Notice that a new **plans** folder appears in the VS Code explorer at the left.
 
 Update the placeholder code
 ========
 
-8. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.
-
+8. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.<br><br>
 9. Replace the placeholder code in **backup_all_logs.pp** with the plan code below. This plan looks for facts on the targets, and uses the fact's OS name to determine whether the OS is Windows or Linux. If the target is Windows, it applies the Windows values specified. Otherwise, if the target is Linux, it receives the default values. This is an example of how plans combine logic and tasks:
     ```
     # @summary A plan created with bolt plan new.
@@ -200,6 +206,7 @@ Update the placeholder code
     # Start nginx service
     systemctl start nginx
     ```
+
 Run the new backup plan against Windows and Linux nodes
 ========
 1. In the VS Code terminal, run the the new backup plan against both the Linux and Windows nodes:
@@ -226,18 +233,18 @@ Verify the NGINX service stopped and restarted on Windows
 
 ✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
 
-1. From the **Start** menu, open **Windows Powershell**.
+1. From the **Start** menu, open **Windows Powershell**.<br><br>
 2. In the Powershell terminal window, run the following command to locate the `nginx` backup folder:
     ```
     Get-ChildItem -Path C:\backups\
     ```
     ✔️ **Result:** In the output, notice the backup folder, `site_backup_<date-time>`. This verifies that a backup was made.<br><br>
     💡 **Tip:** To verify that the `access` and `error` logs have been backed up successfully, you can navigate to the timestamped backup folder to view the logs. <br><br>
-3. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer** interface.
-4. Click the square in the top right of the interface header to enlarge the Event Viewer to full size.
+3. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer** interface.<br><br>
+4. Click the square in the top right of the interface header to enlarge the Event Viewer to full size.<br><br>
 5. In the left-hand pane of the **Event Viewer**, navigate to **Windows Logs** > **Application**.
 
-✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. This verifies that the service was successfully stopped and restarted.
+    ✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. This verifies that the service was successfully stopped and restarted.
 
 Verify the NGINX service stopped and restarted on Linux
 ========
@@ -254,6 +261,7 @@ Verify the NGINX service stopped and restarted on Linux
     ```
 1. In the output, locate the lines with the value `ExecStartPre=`. These lines show `stop_time=` which indicates that the service successfully stopped and restarted.
 
+---
 🎈 **Congratulations!** You built a Puppet plan! If you want to, you can spend some time exploring this environment.
 To learn more about writing Puppet plans, visit [Puppet documentation](http://pup.pt/bolt-puppet-plans).
 ---
