@@ -75,6 +75,12 @@ Run tasks from the command line
 
 1. When you see the **Reconnect** button (after approximately 30 seconds), click it to reconnect to the **Windows Agent 1** node and complete the reboot. ![reconnect button](https://storage.googleapis.com/instruqt-images/reconnect-100.png)
 
+1. From the **Windows Start** menu, open a **PowerShell** window and run the following command to show when the Windows nodes was rebooted:
+    ```
+    Get-CimInstance -ClassName win32_operatingsystem | select csname, lastbootuptime
+    ```
+    💡 In the terminal output, under the **lastbootuptime** header, notice the time when the node was rebooted.
+
     ✔️ **Result:** Congratulations! You just ran a pre-built task that rebooted the Windows node.
 
     🔀 Switch to the **Primary Server** tab.<br><br>
