@@ -27,7 +27,7 @@ tabs:
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
-- title: Windows Agent
+- title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
@@ -78,7 +78,7 @@ Test a Puppet plan against development nodes using the console
 Verify the backup directories have been created on the development nodes
 ========
 
-1. 🔀 Switch to the **Windows Agent** tab, and click the **Windows Explorer** icon in the system tray. Click **This PC**, then double-click **Local Disk (C:)** > **backups**.<br><br>
+1. 🔀 Switch to the **Windows Agent 1** tab, and click the **Windows Explorer** icon in the system tray. Click **This PC**, then double-click **Local Disk (C:)** > **backups**.<br><br>
 2. Double-click the date-stamped directory and observe the nginx log files that have been backed up.<br><br>
 3. Switch to the **Linux Agent 2** tab, and run the following command:
     ```
@@ -153,14 +153,14 @@ Use PQL and an access token to schedule a plan run for production with the Orche
     EOF
     ```
 
-8. Switch to the **PE Console** and click the **Plans** link.<br><br>
+8. 🔀 Switch to the **PE Console** tab and click the **Plans** link.<br><br>
 9. Click the **Scheduled Plans** link to view your scheduled plan.<br><br>
 10. Wait 5 minutes until the scheduled plan runs and disappears from the scheduled plans list.
 
 Verify the backup directories have been created on the production node
 ========
 
-1. Switch to the **Linux Agent 1** tab, and run the following command:
+1. 🔀 Switch to the **Linux Agent 1** tab, and run the following command:
     ```
     cd /var/backups
     ```

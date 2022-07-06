@@ -19,25 +19,25 @@ tabs:
 - title: PE terminal
   type: terminal
   hostname: puppet
-- title: Workstation
+- title: Windows Workstation
   type: service
   hostname: guac
   path: /#/client/c/workstation?username=instruqt&password=Passw0rd!
   port: 8080
-- title: winagent1
+- title: Windows Agent 1
   type: service
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
-- title: gitea
+- title: Git Server
   type: service
   hostname: gitea
   path: /
   port: 3000
-- title: nixagent1
+- title: Linux Agent 1
   type: terminal
   hostname: nixagent1
-- title: nixagent2
+- title: Linux Agent 2
   type: terminal
   hostname: nixagent2
 - title: Lab Help
@@ -132,7 +132,7 @@ Run the new backup plan against Windows and Linux nodes
 
 Verify the Puppet service stopped and restarted on Windows
 ========
-🔀 Switch to the **Winagent1** tab.
+🔀 Switch to the **Windows Agent 1** tab.
 
 ✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
 
@@ -145,7 +145,7 @@ Verify the Puppet service stopped and restarted on Windows
 
 Verify the Puppet service stopped and restarted on Linux
 ========
-🔀  Switch to the **Nixagent1** tab.
+🔀  Switch to the **Linux Agent 1** tab.
 
 1. Verify that the Puppet service was stopped and started:
     ```

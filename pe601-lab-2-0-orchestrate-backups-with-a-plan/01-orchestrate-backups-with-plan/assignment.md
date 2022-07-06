@@ -247,7 +247,7 @@ Verify the NGINX service stopped and restarted on Windows
 
 Verify the NGINX service stopped and restarted on Linux
 ========
-🔀  Switch to the **Linux Agent 1** tab.
+🔀 Switch to the **Linux Agent 1** tab.
 
 1. Run `ls /var/backup` and notice the timestamped folder in the output.
     ```
