@@ -2,7 +2,7 @@
 slug: run-multiple-tasks-with-plan
 id: yxmghjbr7fps
 type: challenge
-title: Run Multiple Tasks with a Plan
+title: Run multiple tasks with a plan
 teaser: Add tasks to the Puppet plan to stop and start the Puppet agent
 notes:
 - type: text
@@ -68,15 +68,15 @@ Clone the NGINX module
 Update the plan to disable and re-enable the Puppet agent
 ========
 
-1. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to open the current version of the plan.<br><br>The plan must be updated to disable the Puppet agent before running the log backup and then re-enable it after the backup finishes. Doing this prevents the Puppet agent from restarting the NGINX server while the backup is running and ensures a consistent set of backup files.<br><br>
-1. Replace the code in **backup_all_logs.pp** with the plan code below. The two additional `run_task` function calls ensure that the Puppet agent is disabled before the log backup starts and is re-enabled after it finishes.
+1. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to open the current version of the plan.<br><br>The plan must be updated to disable the Puppet agent before running the log backup and then re-enable the agent after the backup finishes. This update prevents the Puppet agent from restarting the NGINX server while the backup is running and ensures a consistent set of backup files.<br><br>
+1. Replace the code in **backup_all_logs.pp** with the plan code below. The two additional `run_task` function calls ensure that the Puppet agent is disabled before the log backup starts and is re-enabled after the backup finishes.
     ```
     # This is the structure of a simple plan. To learn more about writing
-    # Puppet plans, see the documentation: http://pup.pt/bolt-puppet-plans
+    # Puppet plans, see the Bolt documentation: http://pup.pt/bolt-puppet-plans
     # The summary sets the description of the plan that will appear
     # in 'bolt plan show' output. Bolt uses puppet-strings to parse the
     # summary and parameters from the plan.
-    # @summary A plan created with bolt plan new.
+    # @summary A plan created by running the bolt plan new command.
     # @param targets The targets to run on.
     plan nginx::backup_all_logs (
       TargetSpec $targets
@@ -107,7 +107,7 @@ Run the new backup plan against Windows and Linux nodes
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-    ✔️ **Result:** Once the plan completes, you will see similar output to the following on the command line:
+    ✔️ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts
@@ -134,10 +134,10 @@ Verify the Puppet service stopped and restarted on Windows
 ========
 🔀 Switch to the **Windows Agent 1** tab.
 
-✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
+✏️ **Note:** If you've been disconnected from the Windows agent, click **Reconnect**.
 
 1. From the **Start** menu, open **Windows Powershell**.<br><br>
-1. In the Powershell terminal window, run the following command to show recent service activity on the node:
+1. In the PowerShell terminal window, run the following command to show recent service activity on the node:
     ```
     Get-WinEvent -FilterHashtable @{logname='System';id=7036} -MaxEvents 4
     ```
