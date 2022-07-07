@@ -176,7 +176,7 @@ Run the new Bolt task and push it to the Git server
 
 ----------
 
-🎈 **Congratulations!** You took a backup script written for NGINX in Bash and converted it into a Bolt task. You provided parameters via the command line and added defaults in the JSON metadata file for the new Bolt task. If you want to, you can spend some time exploring this environment.
+🎈 **Congratulations!** You took an NGINX log backup script written in Bash and converted it into a Bolt task. You provided parameters via the command line and added defaults to the new Bolt task's JSON metadata file. If you want to, you can spend some time exploring this environment.
 
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
