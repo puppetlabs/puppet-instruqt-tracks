@@ -3,7 +3,7 @@ slug: run-multiple-tasks-with-plan
 id: yxmghjbr7fps
 type: challenge
 title: Run multiple tasks with a plan
-teaser: Add tasks to the Puppet plan to stop and start the Puppet agent
+teaser: Add tasks to a Puppet plan to stop and start the Puppet agent.
 notes:
 - type: text
   contents: |-
