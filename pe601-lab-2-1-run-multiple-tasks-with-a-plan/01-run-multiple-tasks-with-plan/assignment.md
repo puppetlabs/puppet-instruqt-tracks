@@ -60,7 +60,7 @@ Clone the NGINX module
     ```
     git clone git@gitea:puppet/nginx.git
     ```
-1. Change directories into the NGINX module directory:
+1. Go to the NGINX module directory:
     ```
     cd .\nginx
     ```
@@ -68,7 +68,7 @@ Clone the NGINX module
 Update the plan to disable and re-enable the Puppet agent
 ========
 
-1. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to open the current version of the plan.<br><br>The plan must be updated to disable the Puppet agent before running the log backup and then re-enable the agent after the backup finishes. This update prevents the Puppet agent from restarting the NGINX server while the backup is running and ensures a consistent set of backup files.<br><br>
+1. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to open the current version of the plan.<br><br>The plan must be updated to disable the Puppet agent before running the log backup and then re-enable the agent after the backup finishes. This update prevents the Puppet agent from restarting the NGINX server while the backup is in progress and ensures a consistent set of backup files.<br><br>
 1. Replace the code in **backup_all_logs.pp** with the plan code below. The two additional `run_task` function calls ensure that the Puppet agent is disabled before the log backup starts and is re-enabled after the backup finishes.
     ```
     # This is the structure of a simple plan. To learn more about writing
@@ -136,7 +136,7 @@ Verify the Puppet service stopped and restarted on Windows
 
 ✏️ **Note:** If you've been disconnected from the Windows agent, click **Reconnect**.
 
-1. From the **Start** menu, open **Windows Powershell**.<br><br>
+1. From the **Start** menu, open **Windows PowerShell**.<br><br>
 1. In the PowerShell terminal window, run the following command to show recent service activity on the node:
     ```
     Get-WinEvent -FilterHashtable @{logname='System';id=7036} -MaxEvents 4
@@ -151,7 +151,7 @@ Verify the Puppet service stopped and restarted on Linux
     ```
     systemctl status puppet
     ```
-1. In the output, note the timestamp of the line that contains the text `Started Puppet agent`, and it should show the time when the plan restarted the service after the log file backup process completed.
+In the output, notice the timestamp on the line that contains the text `Started Puppet agent` — it should show the time when the plan restarted the service after the log file backup process completed.
 
 ---
 🎈 **Congratulations!** You enhanced your Puppet plan to create a consistent set of backup files! If you want to, you can spend some time exploring this environment.
