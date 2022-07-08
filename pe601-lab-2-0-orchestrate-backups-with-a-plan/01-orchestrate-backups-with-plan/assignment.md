@@ -98,7 +98,7 @@ Update the placeholder code
     }
     ```
 
-10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the existing code with the following metadata, which includes information about the task description, no-op settings, parameters, and implementations****:
+10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the existing code with the following metadata, which includes information about the task description, no-op settings, parameters, and implementations:
 
     ```
     {
