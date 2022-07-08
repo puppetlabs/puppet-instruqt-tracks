@@ -78,11 +78,11 @@ Use the console to test a Puppet plan against development nodes
 Verify the backup directories have been created on the development nodes
 ========
 
-1. 🔀 Switch to the **Windows Agent 1** tab, and click the **Windows Explorer** icon in the system tray. Click **This PC**, then double-click **Local Disk (C:)** > **backups**.<br><br>
+1. 🔀 Switch to the **Windows Agent 1** tab, and click the **Windows Explorer** icon in the system tray. Click **This PC**, then double-click **Local Disk (C:)** > **backup**.<br><br>
 2. Double-click the date-stamped directory and observe the nginx log files that have been backed up.<br><br>
 3. Switch to the **Linux Agent 2** tab, and run the following command:
     ```
-    cd /var/backups
+    cd /var/backup
     ```
 4. `cd` into the date-stamped directory and observe the nginx log files that have been backed up.
 
@@ -162,7 +162,7 @@ Verify the backup directories have been created on the production node
 
 1. 🔀 Switch to the **Linux Agent 1** tab, and run the following command:
     ```
-    cd /var/backups
+    cd /var/backup
     ```
 2. `cd` into the date-stamped directory and observe the nginx log files that have been backed up.
 
