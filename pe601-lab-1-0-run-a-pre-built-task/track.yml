@@ -1,8 +1,8 @@
 slug: pe601-lab-1-0-run-a-pre-built-task
 id: 0aujbjnxzslr
 type: track
-title: 'PE601 Lab 1.0: Run a Pre-Built Task'
-teaser: Run a Puppet Enterprise pre-built task from the command line and the Puppet
+title: 'PE601 Lab 1.0: Run Pre-Built Tasks'
+teaser: Run pre-built Puppet Enterprise tasks from the command line and the Puppet
   Enterprise console.
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
@@ -44,4 +44,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "6960545595292524474"
+checksum: "13124655504409760883"

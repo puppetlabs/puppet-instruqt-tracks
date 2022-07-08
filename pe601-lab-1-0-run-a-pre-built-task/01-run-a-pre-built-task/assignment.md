@@ -2,7 +2,7 @@
 slug: run-a-pre-built-task
 id: ajujjn3lbvm9
 type: challenge
-title: Run a pre-built task
+title: Run pre-built tasks
 teaser: Discover PE's pre-built tasks and get hands-on practice running tasks.
 notes:
 - type: text
