@@ -55,7 +55,7 @@ tabs:
   hostname: guac
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 2700
 ---
 Pull down NGINX code and create a Bolt task
 ========

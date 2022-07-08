@@ -2,7 +2,7 @@
 slug: schedule-plans-in-prod-with-orchestrator
 id: sf7hpmojacjx
 type: challenge
-title: Schedule Plans in Production with Orchestrator
+title: Schedule plans to run in production with Puppet orchestrator
 notes:
 - type: text
   contents: |-
@@ -50,12 +50,12 @@ tabs:
   type: website
   url: https://puppet-kmo.gitbook.io/instruqt-platform-help/
 difficulty: basic
-timelimit: 3600
+timelimit: 2700
 ---
 Use PQL to identify development nodes from the console
 ========
 
-1. On the **PE Console** tab, login with the username `admin` and password `puppetlabs`.<br><br>
+1. On the **PE Console** tab, log in with the username `admin` and password `puppetlabs`.<br><br>
 2. Click the **Nodes** page link.<br><br>
 3. Change the **Filter by** dropdown to **PQL query** and select the value **Nodes assigned to a specific environment (example: production)**.<br><br>
 4. Change the actual query text to read:
@@ -64,14 +64,14 @@ Use PQL to identify development nodes from the console
     ```
 5. Run the query and copy the results to a local text editor for use in the next section.
 
-Test a Puppet plan against development nodes using the console
+Use the console to test a Puppet plan against development nodes
 ========
 
 1. 🔀 Switch to the **PE Console** tab and click the **Plans** page link on the left hand navigation menu.<br><br>
-2. Click the blue **Run a plan** button in the top right corner of the Plans page.<br><br>
+2. Click the blue **Run a plan** button in the top right corner of the **Plans** page.<br><br>
 3. Click the **Code environment** dropdown and select **development**.<br><br>
-4.  Click the **Plan** dropdown and select **nginx::backup_all_logs**.<br><br>
-5. In the Parameter section, add agent node names gathered in the first section to the **Value** field of the **targets** parameter using a comma separator.<br><br>
+4. Click the **Plan** dropdown and select **nginx::backup_all_logs**.<br><br>
+5. In the **Parameter** section, add agent node names gathered in the first section to the **Value** field of the **targets** parameter using a comma separator.<br><br>
 6. Click the **Run job** button.<br><br>
 7. Observe that the plan completes successfully.
 
@@ -89,9 +89,9 @@ Verify the backup directories have been created on the development nodes
 Create a service account to secure running the backup plan in production
 ========
 
-1. 🔀 Switch back to the **PE Console** tab.<br><br>
-2. Click the **Access Control** link on the left hand navigation menu.<br><br>
-3. Click the **User Roles** tab and create a new role by entering the text `plan_automation_service` in the *name* field on the first empty row.<br><br>
+1. 🔀 Switch to the **PE Console** tab.<br><br>
+2. Click the **Access Control** link on the left navigation menu.<br><br>
+3. On the **User Roles** tab, create a role by entering the text `plan_automation_service` in the *name* field on the first empty row.<br><br>
 4. Click the **Add Role** button next to the role name you just entered.<br><br>
 5. Click the **plan_automation_service** row that now appears in the list.<br><br>
 6. Click the **Permissions** tab.<br><br>
@@ -110,7 +110,7 @@ Create a service account to secure running the backup plan in production
 15. Copy the link into a new browser tab, enter the password **puppetlabs**, and click **Reset password**.<br><br>
 16. Close the browser tab and click the **Close** link in the PE console.
 
-Use PQL and an access token to schedule a plan run for production with the Orchestrator API
+Use PQL and an access token to schedule a plan run for production with the orchestrator API
 ========
 
 1. 🔀 Switch to the **Primary Server** tab.<br><br>
@@ -118,7 +118,7 @@ Use PQL and an access token to schedule a plan run for production with the Orche
     ```
     puppet access login plan_automation_service_account -t /root/.puppetlabs/token.plan-svc-acct
     ```
-3. Create a variable to hold the authentication header needed to make the API call by by running the following in the termnial and copying and pasting your token value where specified:
+3. Create a variable to hold the authentication header needed to make the API call by running the following in the terminal and then copying and pasting your token value where specified:
     ```
     header="X-Authentication: $(cat /root/.puppetlabs/token.plan-svc-acct)"
     ```
@@ -133,12 +133,12 @@ Use PQL and an access token to schedule a plan run for production with the Orche
     node_list=$(puppet query 'nodes[certname] { catalog_environment = "production" and certname !~ "puppet." }' | jq 'map(.certname)  | join(",")')
     ```
 
-6. Create a date variable with a timestamp 5 minutes from now:
+6. Create a date variable with a timestamp of five minutes from now:
     ```
     run_date=$(date -d '5 minutes' +"%Y-%m-%dT%H:%M:%S%z")
     ```
 
-7. Run the following to schedule your plan run using curl and the variables you previously created:
+7. Run the following command to schedule your plan run using curl and the variables you created:
     ```
     curl -X POST -k -H "$header" https://localhost:8143/orchestrator/v1/command/schedule_plan \
     --data-binary @- << EOF
@@ -155,7 +155,7 @@ Use PQL and an access token to schedule a plan run for production with the Orche
 
 8. 🔀 Switch to the **PE Console** tab and click the **Plans** link.<br><br>
 9. Click the **Scheduled Plans** link to view your scheduled plan.<br><br>
-10. Wait 5 minutes until the scheduled plan runs and disappears from the scheduled plans list.
+10. Wait five minutes until the scheduled plan runs and disappears from the scheduled plans list.
 
 Verify the backup directories have been created on the production node
 ========
@@ -167,7 +167,7 @@ Verify the backup directories have been created on the production node
 2. `cd` into the date-stamped directory and observe the nginx log files that have been backed up.
 
 ---
-🎈 **Congratulations!** In this lab, you tested your Puppet plan to backup nginx log files on nodes in the development environment. Then you configured role-based access control (RBAC) for a service account user with permissions to run the plan on production agent nodes. Finally, you configured a scheduled job using the `schedule_plan` API endpoint to run the backup logs plan on your production Linux node and verified that it completed successfully.
+🎈 **Congratulations!** In this lab, you tested your Puppet plan to backup NGINX log files on nodes in the development environment. Then, you configured role-based access control (RBAC) for a service account user with permissions to run the plan on production agent nodes. Finally, you configured a scheduled job using the `schedule_plan` API endpoint to run the backup logs plan on your production Linux node and verified that it completed successfully.
 
 ---
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**

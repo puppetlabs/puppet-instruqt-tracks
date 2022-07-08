@@ -1,7 +1,7 @@
 slug: pe601-lab-2-0-orchestrate-backups-with-a-plan
 id: ayg90swes9eh
 type: track
-title: 'PE601 Lab 2.0: Orchestrate backups with a Plan'
+title: 'PE601 Lab 2.0: Orchestrate Backups With a Plan'
 description: |-
   # We're putting the finishing touches on this BETA Puppet Practice Lab — go ahead and take a peek!
 
@@ -10,7 +10,7 @@ description: |-
   We welcome your suggestions and value your feedback. If you have additional comments or suggestions after completing this BETA Puppet Practice Lab, please [reach out to us directly](mailto:education@puppet.com).
 
   ## What you'll learn
-  In this lab, you will further expand the NGINX backup task code so that it includes a Puppet plan.
+  In this lab, you will further expand the NGINX logs backup task code to include a Puppet plan.
 
   ## Prerequisites
   None
@@ -21,7 +21,7 @@ description: |-
 
   ## Keep an eye on the clock
   ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
-  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  The virtual learning environment will stay up for 45 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
 icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
@@ -35,4 +35,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "15779201185292736288"
+checksum: "7740985284390498396"

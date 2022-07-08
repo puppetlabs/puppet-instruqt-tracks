@@ -12,13 +12,6 @@ notes:
 
     In this lab, you will resolve this issue by adding tasks to the Puppet plan that will stop the Puppet agents during backups, and restart them after the backups complete.
 tabs:
-- title: PE Console
-  type: service
-  hostname: puppet
-  port: 443
-- title: PE terminal
-  type: terminal
-  hostname: puppet
 - title: Windows Workstation
   type: service
   hostname: guac
@@ -29,6 +22,13 @@ tabs:
   hostname: guac2
   path: /#/client/c/winagent1?username=instruqt&password=Passw0rd!
   port: 8080
+- title: PE Console
+  type: service
+  hostname: puppet
+  port: 443
+- title: PE terminal
+  type: terminal
+  hostname: puppet
 - title: Git Server
   type: service
   hostname: gitea

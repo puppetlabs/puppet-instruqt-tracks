@@ -48,7 +48,7 @@ tabs:
   hostname: guac
   url: https://docs.google.com/forms/d/e/1FAIpQLSdpF19OgzY7HXS2nlGeI6y7kcVjVBzH9V_UaOP64478lOXZsQ/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 2700
 ---
 Clone the NGINX module to your workstation
 ========

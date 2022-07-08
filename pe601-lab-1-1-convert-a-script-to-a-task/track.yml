@@ -30,7 +30,7 @@ description: |-
 
   ## Keep an eye on the clock
   ![30 minute lab](https://storage.googleapis.com/instruqt-images/Clocks%20for%20Track%20Duration/30min100.png)
-  The virtual learning environment will stay up for 60 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
+  The virtual learning environment will stay up for 45 minutes, however, this lab should only take about **30 minutes** to complete. When your learning environment expires, your work will not be saved. If you haven't completed the lab, you can simply restart it.
 
   When you're ready to begin, click **Start track**. When you've completed the lab, click **Stop** (shown at the top of this page after the lab starts).
 icon: https://storage.googleapis.com/instruqt-images/pe601-icon.png
@@ -44,4 +44,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "8698547246822475410"
+checksum: "13578867843776568229"

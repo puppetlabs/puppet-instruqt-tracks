@@ -46,7 +46,7 @@ tabs:
   type: website
   url: https://docs.google.com/forms/d/e/1FAIpQLScOPFhV7wpUQAOsjxd5tA7kEEfPVyFQ_AcKGV7AKwt5_UmF0g/viewform?embedded=true
 difficulty: basic
-timelimit: 3600
+timelimit: 2700
 ---
 Create a plan in your module project
 ========
@@ -73,7 +73,7 @@ Update the placeholder code
 ========
 
 8. In the VS Code explorer, open `backup_all_logs.pp` (**nginx** > **plans** > **backup_all_logs.pp**) to see the placeholder code that Bolt created.<br><br>
-9. Replace the placeholder code in **backup_all_logs.pp** with the plan code below. This plan looks for facts on the targets, and uses the fact's OS name to determine whether the OS is Windows or Linux. If the target is Windows, it applies the Windows values specified. Otherwise, if the target is Linux, it receives the default values. This is an example of how plans combine logic and tasks:
+9. Replace the placeholder code in **backup_all_logs.pp** with the plan code below. This plan looks for facts on the targets and uses the fact's OS name to determine whether the OS is Windows or Linux. If the target is Windows, the plan applies the Windows values specified. If the target is Linux, it receives the default values. This is an example of how plans combine logic and tasks:
     ```
     # @summary A plan created with bolt plan new.
     # @param targets The targets to run on.
@@ -98,7 +98,7 @@ Update the placeholder code
     }
     ```
 
-10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the existing code with the following metadata, which includes information about the task description, no-op settings, parameters, and implementations:
+10. Open `backup_logs.json` (**nginx** > **tasks** > **backup_logs.json**) and replace the existing code with the following metadata, which includes information about the task description, no-op settings, parameters, and implementations****:
 
     ```
     {
@@ -179,7 +179,7 @@ Update the placeholder code
       "private": true
     }
     ```
-14. Lastly, open `backup_linux_logs.sh` (**nginx** > **tasks** > **backup_linux_logs.sh**) and replace the existing code with the following Bash script which identifies source and target directories, pauses the NGINX service while the `backup_logs` task runs, and runs a diff to identify any changes since it last ran before restarting the NGINX service:
+14. Lastly, open `backup_linux_logs.sh` (**nginx** > **tasks** > **backup_linux_logs.sh**) and replace the existing code with the following Bash script, which identifies source and target directories, pauses the NGINX service while the `backup_logs` task runs, and runs a diff to identify any changes since it last ran before restarting the NGINX service:
     ```
     #!/bin/bash
     # Sites backup script
@@ -213,7 +213,7 @@ Run the new backup plan against Windows and Linux nodes
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-    ✔️ **Result:** Once the plan completes, you will see similar output to the following on the command line:
+    ✔️ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts
@@ -230,20 +230,20 @@ Verify the NGINX service stopped and restarted on Windows
 ========
 🔀 Switch to the **Windows Agent 1** tab.
 
-✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.
+✏️ **Note:** If you've been disconnected from the Windows agent, click **Reconnect**.
 
-1. From the **Start** menu, open **Windows Powershell**.<br><br>
-2. In the Powershell terminal window, run the following command to locate the `nginx` backup folder:
+1. From the **Start** menu, open **Windows PowerShell**.<br><br>
+2. In the PowerShell terminal window, run the following command to locate the `nginx` backup folder:
     ```
     Get-ChildItem -Path C:\backups\
     ```
     ✔️ **Result:** In the output, notice the backup folder, `site_backup_<date-time>`. This verifies that a backup was made.<br><br>
     💡 **Tip:** To verify that the `access` and `error` logs have been backed up successfully, you can navigate to the timestamped backup folder to view the logs. <br><br>
-3. To verify that the NGINX service stopped and started, run `eventvwr`. This command opens the **Event Viewer** interface.<br><br>
-4. Click the square in the top right of the interface header to enlarge the Event Viewer to full size.<br><br>
+3. To verify that the NGINX service stopped and started, run `eventvwr`, which opens the **Event Viewer** .<br><br>
+4. Click the square in the top right of the interface header to maximize the event viewer.<br><br>
 5. In the left-hand pane of the **Event Viewer**, navigate to **Windows Logs** > **Application**.
 
-    ✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. This verifies that the service was successfully stopped and restarted.
+    ✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. Clicking these lines reveals detailed information in the lower Event Viewer panel, which confirm that the service was successfully stopped and restarted.
 
 Verify the NGINX service stopped and restarted on Linux
 ========
