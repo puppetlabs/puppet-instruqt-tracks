@@ -15,7 +15,7 @@ description: |-
       - Run Puppet Query Language (PQL) to identify development nodes.
       - Test a Puppet plan against development nodes.
   - Verify that backup directories have been created.
-  - Create a service account to secure running the backup plan in production.
+  - Create a user account to secure running the backup plan in production.
   - Use PQL and an access token to schedule a plan run for production with the Orchestrator API.
   - Verify that backup directories were created on the production node.
 
@@ -42,4 +42,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "719103776204263926"
+checksum: "6423493603865530848"

@@ -82,7 +82,7 @@ Verify the backup directories have been created on the development nodes
 ✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.<br><br>
 1. In the system tray, click the **Windows Explorer** icon.
 1. Navigate to **This PC** > **Local Disk (C:)** > **backups**.
-2. Double-click the date-stamped directory and notice that the NGINX log files have been backed up.
+2. Double-click the date-stamped directory and notice that the NGINX log files (`access.log`, `error.log`) have been backed up.
 
 🔀 Switch to the **Linux Agent 2** tab.<br><br>
 1. Run the following command to change directories into the backups directory:
@@ -94,30 +94,40 @@ Verify the backup directories have been created on the development nodes
     ```
     cd <DATE-STAMPED DIRECTORY>
     ```
-4. Run `ls` to show the backup files contained in the directory.
+4. Run `ls` to show the backup files contained in the directory (`access.log`, `error.log`).
 
 Create a service account to secure running the backup plan in production
 ========
 🔀 Switch to the **PE Console** tab.<br><br>
+
 2. Click navigate to **Access Control**.
-3. On the **User Roles** tab, in the **name** field, create a role by entering the text `plan_automation_service` on the first empty row.
+3. Create a new role. On the **User roles** tab, in the **name** field, enter the following:
+    ```
+    plan_automation_service
+    ```
 4. Click **Add Role**.
-5. Click the **plan_automation_service** row that now appears in the list.
+5. Click the **plan_automation_service** link that now appears in the list.
 6. Click the **Permissions** tab.
 7. Add the following permissions to the role, clicking the **Add** button after each selection:
-   ```
-   Plans - Run Plans - nginx::backup_all_logs
-   Job Orchestrator - Start, stop, and view jobs
-   ```
+    - Plans > Run Plans > nginx::backup_all_logs
+    - Job Orchestrator > Start, stop, and view jobs<br><br>
 8. Click **Commit 2 changes**.
 9. Return to the **Access Control** page.
 10. Add a new user account:
-    - Full name: `plan_automation_service_account`
-    - Login: `plan_automation_service_account`.
-11. Click **Add local user** next to the new row.
-12. Click the **User roles** tab, then click the `plan_automation_service` link and add the `plan_automation_service_account` to the `plan_automation_service` role.
-13. Click **Commit 1 change**.
-14. Click the `plan_automation_service_account` link and then click **Generate password reset**.
+
+    Full name:
+    ```
+    plan_automation_service_account
+    ```
+    Login:
+    ```
+    plan_automation_service_account
+    ```
+11. Click **Add local user**.
+12. Click the **User roles** tab, then click the **plan_automation_service** link.
+12. From the list, choose **plan_automation_service_account** and then click **Add user**.
+13. Click **Commit 1 change** to add the new service account to the **plan_automation_service** role..
+14. Click the **plan_automation_service_account** link and then click **Generate password reset**.
 15. Copy the link into a new browser tab, enter the password **puppetlabs**, and click **Reset password**.
 16. Close the browser tab and then click the **Close** link in the PE console.
 
@@ -125,7 +135,8 @@ Use PQL and an access token to schedule a plan run for production with the orche
 ========
 
 🔀 Switch to the **Primary Server** tab.<br><br>
-2. Create an access token for your service account user credentials by running the command below. Enter the password **puppetlabs** when prompted:
+
+1. Create an access token for your service account user credentials by running the command below. Enter the password **puppetlabs** when prompted:
     ```
     puppet access login plan_automation_service_account -t /root/.puppetlabs/token.plan-svc-acct
     ```
@@ -160,25 +171,28 @@ Use PQL and an access token to schedule a plan run for production with the orche
     EOF
     ```
 
-    🔀 Switch to the **PE Console** tab.
-1. Navigate to the **Plans** page.<br><br>
-9. Click **Scheduled Plans** to view your scheduled plan.<br><br>
+🔀 Switch to the **PE Console** tab.<br><br>
+1. Navigate to the **Plans** page.
+9. Click **Scheduled Plans** to view your scheduled plan.
 ✔️ **Result:** In two minutes the scheduled plan runs and disappears from the scheduled plans list.
 
 Verify the backup directories have been created on the production node
 ========
 
-🔀 Switch to the **Linux Agent 1** tab.
-3. Run the following command to change directories into the backups directory:
+🔀 Switch to the **Linux Agent 1** tab.<br><br>
+
+1. Run the following command to change directories into the backups directory:
     ```
     cd /var/backup
     ```
-3. Run `ls` to show the date-stamped backup directory.
-4. Change directories into the date-stamped directory and observe the NGINX log files that have been backed up (replace the directory name between the `<>`):
+2. Run `ls` to show the date-stamped backup directory.
+3. Change directories into the date-stamped directory and observe the NGINX log files that have been backed up (replace the directory name between the `<>`):
     ```
     cd <DATE-STAMPED DIRECTORY>
     ```
-5. Run `ls` to show the backup files contained in the directory.
+5. Run `ls` to show the backup files (`access.log`, `error.log`) contained in the directory.
+
+
 
 ---
 🎈 **Congratulations!** In this lab, you tested your Puppet plan to backup NGINX log files on nodes in the development environment. Then, you configured role-based access control (RBAC) for a service account user with permissions to run the plan on production agent nodes. Finally, you configured a scheduled job using the `schedule_plan` API endpoint to run the backup logs plan on your production Linux node and verified that it completed successfully.
