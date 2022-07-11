@@ -169,6 +169,8 @@ Now, replace `<DATACENTER>` and `<ROLE>` in the script with the correct trusted 
 
 1. Install an agent by using the following installation script, passing in the corresponding role and data center for the last command. Run the following four commands one at a time:
 
+    💡 Make sure you are using the correct version of Windows PowerShell (version 5.1).<br><br>
+
     Command 1
     ```
     [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};

@@ -62,6 +62,7 @@ node 'linux-node.classroom.puppet.com' {
   notify { 'Hello Puppet!': }
 }
 ```
+    💡 Avoid special characters like quotes, backticks and slashes
 
 # Step 4: Save your changes
 Click the disk icon: 💾

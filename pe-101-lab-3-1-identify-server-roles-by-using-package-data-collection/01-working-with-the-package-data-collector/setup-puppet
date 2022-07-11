@@ -22,9 +22,11 @@ bolt command run 'Restart-Service puppet' --no-ssl-verify --user Administrator -
 
 bolt command run 'tzutil /s "Eastern Standard Time"' --no-ssl-verify --user Administrator --password Puppetlabs! --targets winrm://winagent
 
-sleep 10
+sleep 20
 
 /usr/local/bin/puppet agent -t
 
 sleep 20
+
+/usr/local/bin/puppet agent -t
 
