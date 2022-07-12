@@ -89,58 +89,60 @@ Make a breaking change to the Development one-time run group to show agent-speci
   🔀 Switch to the **PE Console** tab.
 
 1. Log into PE with username `admin` and password `puppetlabs`.
-2. Navigate to the **Node groups** page.
-3. Expand the **All Environments** group, expand the **Development environment** group, and click **Development one-time run exception**.
+2. Navigate to the **Node groups** page.![node groups page](https://storage.googleapis.com/instruqt-images/node-groups-page.png)
+3. Expand the **All Environments** group, expand the **Development environment** group, and click **Development one-time run exception**.![development one time exception](https://storage.googleapis.com/instruqt-images/development-one-time-exception.png)
 4. Make a breaking change to this group's rules. This will show you how runtime evaluation occurs during the Puppet run with an agent-specifed environment as a result of inheritance from the **Development** group. Add a new rule that has the following values, click **Add rule**, and commit your changes (click **Commit** at the bottom of the page):
 
-    |Fact                            |Operator    |Value      |
-    |--------------------------------|------------|-----------|
-    |`agent_specified_environment`   |     `= `   |`devapp`   |
+    |Fact                         |Operator    |Value      |
+    |-----------------------------|------------|-----------|
+    |`agent_specified_environment`|     `= `   |`devapp`   |
 
-    <br>
+    ![add rule button](https://storage.googleapis.com/instruqt-images/add-rule.png)
+    ![commit 1 change](https://storage.googleapis.com/instruqt-images/commit-1-change.png)
 6. Return to the **Node groups** page and click **Development environment**.
-
-7. On the **Classes** tab, click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.
+7. On the **Classes** tab, click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.![refresh link](https://storage.googleapis.com/instruqt-images/refresh-link.png)
 
     ✏️ **Note:** After the classes reload, notice the text near the **Refresh** link: "Class definitions updated: a few seconds ago".<br><br>
 
-8. In the upper-right corner, click **Run > Puppet**.
+8. In the upper-right corner, click **Run > Puppet**.![run puppet button](https://storage.googleapis.com/instruqt-images/run-puppet.png)
 
 9. On the **Run Puppet** page, select the following options:
 
       - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.
 
+    ![environment webapp](https://storage.googleapis.com/instruqt-images/environment-webapp.png)
+10. Click **Run job** and wait for jobs to complete.![run job button](https://storage.googleapis.com/instruqt-images/run-job.png)
 
-10. Click **Run job** and wait for jobs to complete.
-
-✅ **Result:** Notice that none of the jobs were successful. This is because the selection of an environment causes the nodes to "fall into" the **Development one-time run exception group** during the Puppet run. In this case, the rule that you introduced means that you can only apply the nonexistent **devapp** branch. In the next steps, you'll fix those rules.
+✅ **Result:** Notice that none of the jobs were successful:
+    ![job node status failed](https://storage.googleapis.com/instruqt-images/job-node-status-failed.png)
+    This is because the selection of an environment causes the nodes to "fall into" the **Development one-time run exception group** during the Puppet run. In this case, the rule that you introduced means that you can only apply the nonexistent **devapp** branch. In the next steps, you'll fix those rules.
 
 Fix the broken rule and then run Puppet against the development group, specifying the webapp branch
 ========
-1. In the PE console, navigate to the **Node groups** page.
-2. Expand the **All Environments** group; then, expand **Development environment** and click **Development one-time run exception**.
-3. Remove the `agent_specified_environment = devapp` rule by clicking **Remove** (shown to the right) and commit the change.
-4. Return to the **Node groups** page and click **Development environment**.
-5. In the upper-right corner, click **Run > Puppet**.
+1. In the PE console, navigate to the **Node groups** page.![node groups page](https://storage.googleapis.com/instruqt-images/node-groups-page.png)
+2. Expand the **All Environments** group; then, expand **Development environment** and click **Development one-time run exception**.![development one time exception](https://storage.googleapis.com/instruqt-images/development-one-time-exception.png)
+3. Remove the `agent_specified_environment = devapp` rule by clicking **Remove** (shown to the right) and commit the change.![remove link](https://storage.googleapis.com/instruqt-images/remove-link.png)
+4. Return to the **Node groups** page and click **Development environment**.![development environment link](https://storage.googleapis.com/instruqt-images/development-environment.png)
+5. In the upper-right corner, click **Run > Puppet**.![run puppet button](https://storage.googleapis.com/instruqt-images/run-puppet.png)
 6. You will be redirected to the **Run Puppet** page. Select the following options:
 
       - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.
+    ![environment webapp](https://storage.googleapis.com/instruqt-images/environment-webapp.png)
 
-
-
-7. Click **Run job** and wait for jobs to complete.
+7. Click **Run job** and wait for jobs to complete.![run job button](https://storage.googleapis.com/instruqt-images/run-job.png)
 
 ✅ **Result:** Your infrastructure includes three Linux nodes and a Windows node. When the run is complete, notice that you have log entries for all nodes except Nixagent3. Next, you will explore why that is.
 
 Investigate missing facts on new nodes
 ========
-1. Navigate to the **Nodes** page.
-2. From the **Filter by** list, select **PQL Query**.
+1. Navigate to the **Nodes** page.![nodes page](https://storage.googleapis.com/instruqt-images/nodes-page.png)
+2. From the **Filter by** list, select **PQL Query**.![filter by pql query](https://storage.googleapis.com/instruqt-images/filter-by-pql-query.png)
 3. From the **Common queries** list, select **Nodes with a specific fact and fact value**.
 4. Replace the query text with the following text, and then click **Submit query**:
     ```
     inventory[certname] { trusted.extensions.pp_environment = "development" }
     ```
+    ![submit query button](https://storage.googleapis.com/instruqt-images/submit-query.png)
 ✅ **Result:**  Notice that the nixagent3 node is missing from the results. Go to the **Status** page and then select and copy the full name of the nixagent3 node. This node isn't in the list because it's missing the pp_environment fact. You will fix this issue by pinning the node to the **Development environment** group.
 
 Pin the node with the missing fact to the Development environment group
