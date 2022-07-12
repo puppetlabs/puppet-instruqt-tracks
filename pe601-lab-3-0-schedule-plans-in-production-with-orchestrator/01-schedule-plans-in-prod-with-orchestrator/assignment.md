@@ -80,7 +80,7 @@ Verify the backup directories have been created on the development nodes
 
 🔀 Switch to the **Windows Agent 1** tab.<br><br>
 ✏️ **Note:** If you've been disconnected, click **Reconnect** to connect to the Windows agent.<br><br>
-1. In the system tray, click the **Windows Explorer** icon.
+1. In the system tray, click the **Windows Explorer** icon.![windows explorer icon](https://storage.googleapis.com/instruqt-images/windows-explorer-icon.png)<br>
 1. Navigate to **This PC** > **Local Disk (C:)** > **backups**.
 2. Double-click the date-stamped directory and notice that the NGINX log files (`access.log`, `error.log`) have been backed up.
 
