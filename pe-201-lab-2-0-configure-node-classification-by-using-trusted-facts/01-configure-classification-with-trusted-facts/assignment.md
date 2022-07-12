@@ -82,7 +82,8 @@ Create a local control repository and update site.pp in the webapp feature branc
 
 8. Log into the PE Console with username `admin` and password `puppetlabs`.
 
-9. Navigate to the **Nodes** page. For each node, click its link and examine the contents of the node's facts (retrieved by Facter) on the **Facts** tab. Then, find the trusted facts by searching for the word **trusted** and notice the value shown for each node's `pp_role` trusted fact:<br>
+9. Navigate to the **Nodes** page.![nodes page](https://storage.googleapis.com/instruqt-images/nodes-page.png)
+    For each node, click its link and examine the contents of the node's facts (retrieved by Facter) on the **Facts** tab. Then, find the trusted facts by searching for the word **trusted** and notice the value shown for each node's `pp_role` trusted fact:<br>
 
     | Node      | Value             |
     | --------  |------             |
@@ -92,7 +93,7 @@ Create a local control repository and update site.pp in the webapp feature branc
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
-10. In VS Code, open the `control-repo/manifests/site.pp` file. To classify your nodes by using the `pp_role` trusted fact, replace the content beneath `## Node Definitions ##` with the following code:
+10. In VS Code, open **site.pp** (**control-repo** > **manifests** > **site.pp**). To classify your nodes by using the `pp_role` trusted fact, replace the content beneath `## Node Definitions ##` with the following code:
 
     ```
     # control-repo/manifests/site.pp
@@ -113,9 +114,10 @@ Run Puppet using the webapp environment branch and inspect the reports
 ========
 🔀 <a name="run-puppet"> Switch to the **PE Console** tab.</a>
 
-1. Navigate to the **Node groups** page; then, expand the **All Environments** group (click the plus sign (**+**) beside the group name) and click **Development environment**.
+1. Navigate to the **Node groups** page.![node groups page](https://storage.googleapis.com/instruqt-images/node-groups-page.png)
+1. Expand the **All Environments** group (click the plus sign (**+**) beside the group name) and click **Development environment**.![all environments dev env](https://storage.googleapis.com/instruqt-images/all-environments-dev-env.png)
 
-2. Click the **Classes** tab, and then click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.
+2. Click the **Classes** tab, and then click **Refresh** (on the right-hand side of the page) to reload the classes you just pushed.![refresh link](https://storage.googleapis.com/instruqt-images/refresh-link.png)
 
 3. On the **Matching nodes** tab, ensure all your nodes are listed for this group:
 
@@ -123,18 +125,21 @@ Run Puppet using the webapp environment branch and inspect the reports
     - `nixagent2... svc.cluster.local`
     - `winagent... svc.cluster.local`
 
-4. In the upper-right corner, click **Run > Puppet**.
+4. In the upper-right corner, click **Run > Puppet**.![run puppet button](https://storage.googleapis.com/instruqt-images/run-puppet.png)
 
 5. You will be redirected to the **Run Puppet** page. Select the following options:
-    - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.
+    - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.![select an environment webapp](https://storage.googleapis.com/instruqt-images/environment-webapp.png)
     - **Schedule**: Accept the default settings.
     - **Run options**: Accept the default settings.
 
-6. In the lower-right corner, click **Run Job** to run Puppet on all the nodes shown. You will be redirected to the **Job details** page.
+6. In the lower-right corner, click **Run Job** to run Puppet on all the nodes shown.![run job button](https://storage.googleapis.com/instruqt-images/run-job.png)
 
-7. When the jobs finish running, click the **winagent** node's report link in the **Report** column.
+    You will be redirected to the **Job details** page.
 
-8. On the report page, click the **Log** tab to review the output contained in the error message: `Could not find class ::role::ecommerce`
+7. When the jobs finish running, click the **winagent** node's report link in the **Report** column.![report column](https://storage.googleapis.com/instruqt-images/report-column.png)
+
+8. On the report page, click the **Log** tab: ![log tab](https://storage.googleapis.com/instruqt-images/log-tab.png)
+    Review the output contained in the error message: `Could not find class ::role::ecommerce`
 
 ❔ **Question: Why did Puppet fail to compile the catalog?**
 The compiler tried to autoload the `role::ecommerce` class, but this class doesn't exist yet.

@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+while ! nc -z -w3 localhost 3000
+do
+  echo "Waiting for port 3000 to be reachable on localhost"
+done
+: ${CONTROL_REPO:="https://github.com/puppetlabs/kmo-601-control-repo.git"} # Location of the control repo to clone
+: ${RSA_KEY:="/etc/keys/id-control_repo.rsa"}                               # Set this to the location of the Gitea private key
+: ${META_REPO:="https://github.com/puppetlabs/kmo-601-nginx.git"}           # Set this to the repo containing module repo for each lab
+: ${BRANCH_PREFIX:="lab_2_1_start_"}                                            # Set this to the prefix for the current lab
+BRANCH_FILTER="meta/$BRANCH_PREFIX*"                                        # Don't set this; we rename the meta control repo to "meta"
+
+# Create an empty module on Gitea
+printf "Creating empty Gitea module repo with CURL\n"
+curl -XPOST -H "Content-Type: application/json" \
+    -u puppet:puppetlabs \
+    \-d '{"auto_init":false,"default_branch":"production","description":"Nginx Module","name":"nginx","private":false,"template":false,"trust_model":"default"}' \
+    http://gitea:3000/api/v1/user/repos
+
+# Save Gitea pub key to known hosts
+# - Suppresses "are you sure you want to add Gitea to known hosts?" dialogue
+ssh-keyscan gitea >> ~/.ssh/known_hosts
+
+# Add Gitea private key to all Git SSH commands
+git config --global core.sshCommand "ssh -i $RSA_KEY -F /dev/null"
+
+# Clone the meta control repo down to local
+printf "Cloning module repo to Gitea server\n"
+git clone $META_REPO module
+cd module
+
+# Repoint origin to control repo on Gitea
+printf "Gathering branches that match $BRANCH_FILTER\n"
+git remote remove origin
+git remote add origin git@gitea:puppet/nginx.git
+git remote add meta $META_REPO
+git fetch meta
+mapfile -t BRANCHES < <( git branch -r --list $BRANCH_FILTER )
+
+# Check out each matching branch and push to origin
+# For each branch found
+# - use name substitution to correct the branch name (e.g., "meta/pe_201_lab_3_1_production" -> "production")
+# - checkout that branch as a new local branch (e.g., git checkout -b meta/pe_201_lab_3_1_production production)
+# - push that branch to origin as a new branch (e.g., git push --set-upstream origin production)
+printf "Pushing ${#BRANCHES[@]} branches to Gitea server\n"
+for i in "${BRANCHES[@]}"
+do
+    git checkout -b ${i//meta\/$BRANCH_PREFIX/} $i
+    git push --set-upstream origin ${i//meta\/$BRANCH_PREFIX/}
+done
+
+# Clean up the local copy of the module repo
+cd ../
+rm -rf module
+printf "Successfully initialized Gitea module repository\n"
+
+printf "Creating empty control repo Gitea project"
+# Create an empty module on Gitea
+printf "Creating empty Gitea control repo with CURL\n"
+curl -XPOST -H "Content-Type: application/json" \
+    -u puppet:puppetlabs \
+    \-d '{"auto_init":false,"default_branch":"production","description":"Control-Repo","name":"control-repo","private":false,"template":false,"trust_model":"default"}' \
+    http://gitea:3000/api/v1/user/repos
+
+# Now repeat to get a control-repo cloned into Gitea
+git clone $CONTROL_REPO control_repo
+cd control_repo
+git remote remove origin
+git remote add origin git@gitea:puppet/control-repo.git
+git remote add meta $CONTROL_REPO
+git fetch meta
+mapfile -t BRANCHES < <( git branch -r --list $BRANCH_FILTER )
+
+printf "Pushing ${#BRANCHES[@]} branches to Gitea server\n"
+for i in "${BRANCHES[@]}"
+do
+    git checkout -b ${i//meta\/$BRANCH_PREFIX/} $i
+    git push --set-upstream origin ${i//meta\/$BRANCH_PREFIX/}
+done
+
+# Clean up the local copy of the control repo
+cd ../
+rm -rf control_repo
+printf "Successfully initialized Gitea control_repo repository\n"
+
+sleep 25
+# Creating extra branches in control_repo in Gitea via REST API
+# Creating main branch
+curl -v -X POST -H 'Content-Type: application/json' \
+-u puppet:puppetlabs \
+-d '{"new_branch_name": "main", "old_branch_name": "production"}' \
+'http://gitea:3000/api/v1/repos/puppet/control-repo/branches'
+# Creating development branch
+curl -v -X POST -H 'Content-Type: application/json' \
+-u puppet:puppetlabs \
+-d '{"new_branch_name": "development", "old_branch_name": "production"}' \
+'http://gitea:3000/api/v1/repos/puppet/control-repo/branches'
+
+# Creating extra branches in module repo in Gitea via REST API
+# Creating main branch
+curl -v -X POST -H 'Content-Type: application/json' \
+-u puppet:puppetlabs \
+-d '{"new_branch_name": "main", "old_branch_name": "production"}' \
+'http://gitea:3000/api/v1/repos/puppet/nginx/branches'
+# Creating development branch
+curl -v -X POST -H 'Content-Type: application/json' \
+-u puppet:puppetlabs \
+-d '{"new_branch_name": "development", "old_branch_name": "production"}' \
+'http://gitea:3000/api/v1/repos/puppet/nginx/branches'
+
+exit 0

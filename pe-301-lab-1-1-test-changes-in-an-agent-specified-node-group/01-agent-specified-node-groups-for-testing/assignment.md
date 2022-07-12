@@ -148,13 +148,13 @@ Investigate missing facts on new nodes
 Pin the node with the missing fact to the Development environment group
 ========
 1. Navigate to the **Node Groups** page and click **Development environment**.
-2. In the **Certname** field, paste the name of the node you just copied, click **Pin node**, and commit the change.
-3. Kick off another Puppet run for the **Development** group, specifying the `webapp` branch environment. In the upper-right corner, click **Run > Puppet** with the following options:
+2. In the **Certname** field, paste the name of the node you just copied, click **Pin node**, and commit the change.![pin node button](https://storage.googleapis.com/instruqt-images/pin-node.png)
+3. Kick off another Puppet run for the **Development** group, specifying the `webapp` branch environment. In the upper-right corner, click **Run > Puppet** and then enter the following options:
 
       - **Environment**: Click **Select an environment for nodes to run in** and choose **webapp** from the list.
+    ![environment webapp](https://storage.googleapis.com/instruqt-images/environment-webapp.png)
 
-
-4. Click **Run job** and wait for jobs to complete.
+4. Click **Run job** and wait for jobs to complete.![run job button](https://storage.googleapis.com/instruqt-images/run-job.png)
 
 ✅ **Result:** When the run finishes, notice that you have a log and a successful run for the new node that was pinned to the **Development** node group.
 

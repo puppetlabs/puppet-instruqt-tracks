@@ -95,7 +95,7 @@ Create a dedicated code deployment user
      - In the **Full name** field, enter `Code Deployer`.
      - In the **Login** field, enter `deployer`.
 4. Click the **Code Deployer** user, and then click the **Generate password reset** link in the upper-right corner.
-5. Copy the generated link into a new browser tab. In the **NEW PASSWORD** field, enter the password `puppetlabs`, and then click **Reset password**.
+5. Copy the generated link, open a new tab in your local browser (outside of the lab environment) and paste the link. In the **NEW PASSWORD** field, enter the password `puppetlabs`, and then click **Reset password**.
 6. Close the browser tab. On the **PE Console** tab, close the **Password Reset Link** window.
 7. Navigate to **Access Control** > **User roles** tab, and then click the **Code Deployers** role.
 8. From the **User name** list, select **Code Deployer** and click **Add User**; then, commit the changes (click **Commit** in the bottom-right corner).

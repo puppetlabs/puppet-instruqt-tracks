@@ -1,17 +1,1 @@
-# Ping the various agents to get data into the nginx logs
-
-for ($i = 1 ; $i -le 10 ; $i++) {
-    Invoke-Webrequest -UseBasicParsing http://nixagent1
-    Invoke-WebRequest -UseBasicParsing http://nixagent2
-    Invoke-WebRequest -UseBasicParsing http://winagent1
-    Try
-    {
-        Invoke-WebRequest -UseBasicParsing http://nixagent1/login.htm
-        Invoke-WebRequest -UseBasicParsing http://nixagent2/login.htm
-        Invoke-WebRequest -UseBasicParsing http://winagent1/login.htm
-    }
-    Catch
-    {
-        Write-Host "Invoked 404 requests against nixagent1, nixagent2, winagent1"
-    }
-}
+# Not used
