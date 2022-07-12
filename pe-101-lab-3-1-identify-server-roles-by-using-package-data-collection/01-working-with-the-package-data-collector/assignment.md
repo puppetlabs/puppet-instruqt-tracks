@@ -42,9 +42,6 @@ tabs:
 - title: Lab Help Guide
   type: website
   url: https://puppet-kmo.gitbook.io/practice-lab-help/
-- title: nixagent1
-  type: terminal
-  hostname: nixagent1
 difficulty: basic
 timelimit: 1500
 ---
