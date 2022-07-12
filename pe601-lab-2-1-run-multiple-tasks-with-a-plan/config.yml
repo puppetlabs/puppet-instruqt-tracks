@@ -13,13 +13,13 @@ containers:
   - 8080
   memory: 2048
 virtualmachines:
-- name: workstation
-  image: kmo-instruqt/workstation-pe601
-  machine_type: n1-highcpu-4
 - name: puppet
   image: kmo-instruqt/puppet-pe601
   shell: /bin/bash
   machine_type: n1-highcpu-16
+- name: workstation
+  image: kmo-instruqt/workstation-pe601
+  machine_type: n1-highcpu-4
 - name: nixagent1
   image: kmo-instruqt/nixagent1-pe601
   shell: /bin/bash
