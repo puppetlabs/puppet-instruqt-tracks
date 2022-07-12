@@ -155,11 +155,12 @@ Create the role::<ROLE NAME> classes
     cd site-modules\role
     ```
 
-2. Run the following PDK command to create the `role::ecommerce` class. This command creates the `site-modules\role\manifests\ecommerce.pp` manifest file.
+2. Run the following PDK command to create the `role::ecommerce` class. This command creates the **ecommerce.pp** file ( at **site-modules** > **role** > **manifests** > **ecommerce.pp**).
     ```
     pdk new class role::ecommerce
     ```
     💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.<br><br>
+    In the VS Code explorer, notice that the **ecommerce.pp** file now exists:![ecommerce.pp file](https://storage.googleapis.com/instruqt-images/role-manifests-ecommerce.png)
 
 4. Modify the new `ecommerce.pp` file to include placeholder code for your new role, as in this example:
     ```
