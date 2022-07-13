@@ -9,7 +9,7 @@ description: |-
 
   There are often dependencies between resources. Consider service and package resources: A service doesn't exist until a package is installed. Resource dependencies can cause Puppet to fail on the first run and then converge on the subsequent run, which is not ideal. You can control the order in which Puppet manages resources by specifying resource relationships.
 
-  In this lab you will:
+  In this lab, you will:
    - Run an acceptance test on a module by applying it to a test node using Bolt, and then run commands locally to verify that it works as expected.
    - Develop the module to use resource relationships, which enables the Puppet agent to apply changes and converge in a single run.
 
@@ -37,4 +37,4 @@ developers:
 private: true
 published: true
 show_timer: true
-checksum: "9215282115443649485"
+checksum: "433027132903665485"

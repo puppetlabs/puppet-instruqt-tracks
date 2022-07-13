@@ -24,11 +24,13 @@ You learned how to:
 1. Manually trigger a Puppet run and interpret the output.
 1. Write code in the server's `site.pp` manifest to classify a node and specify its desired state.
 
-Want to try it out in your own environment? Visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/).
+To try these steps out in your own environment, visit the companion [Job Aid](https://puppet-kmo.gitbook.io/lab-aids/-MZKPjwKRKKFuXxxy7ge/).
 
-Want to learn more about Puppet Enterprise? Check out these resources:
+To learn more about certificate autosigning, take the [PE101 Lab 2.1: Configure Agent Certificate Autosigning](https://play.instruqt.com/puppet/invite/o0auiwrwy7v0) lab or read the [Puppet documenation for autosigning certificate requests](https://puppet.com/docs/puppet/6/ssl_autosign.html).
+
+To learn more about Puppet Enterprise, check out these resources:
 - [Puppet Enterprise Docs](https://puppet.com/docs/pe/latest)
-- [Puppet Compass](https://learn.puppet.com/)
+- [Puppet Education](https://learn.puppet.com/)
 - [Puppet Community Slack](https://slack.puppet.com/)
 
 Have ideas for improvement? Submit a pull request on [Github](https://github.com/puppetlabs/puppet-instruqt-tracks/tree/main/trigger-a-puppet-agent-run) or reach out to us directly at <a href="mailto:education@puppet.com">education@puppet.com</a>.

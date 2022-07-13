@@ -137,7 +137,7 @@ Enhance unit tests to expose the failure point
         # ./spec/classes/nginx_spec.rb:10:in `block (4 levels) in <top (required)>'
     ```
 
-3. In VS Code Explorer, navigate to the **init.pp** file (in **manifests** > **init.pp**). Replace the code with the following code, which fixes the bug by adding a resource relationship between the service and the package:
+3. In VS Code Explorer, navigate to the **init.pp** file (**manifests** > **init.pp**). Replace the code with the following code, which fixes the bug by adding a resource relationship between the service and the package:
     ```
     # @summary A short summary of the purpose of this class
     #

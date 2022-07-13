@@ -108,7 +108,7 @@ Use PDK to create a module
     ```
     - When prompted whether you consent to the collection of anonymous PDK usage information, choose either option.
     - For questions 1-3 (Q 1/4, Q 2/4, and so on), press **Enter** to accept the default settings.
-    - For question 4, leave only **RedHat** selected. Use the up/down arrows to move between selections and use the spacebar to clear the other selected options; then, press **Enter**.
+    - For question 4, leave only **RedHat** selected. Use the up/down arrows to move between selections and use the space bar to clear the other selected options; then, press **Enter**.
     - At the **Metadata will be generated...** prompt, press **Enter**.<br><br>
 1. In the VS Code file browser, click the newly created **nginx** module folder to expand its contents.
 8. Click the **metadata.json** file to open it. Notice the correct Linux distributions (distros) are listed under "operatingsystem_support":
@@ -221,4 +221,4 @@ Use data gathered by the puppet resource command to fix the test
 ---
 
 🎈 **Congratulations!**
-You wrote your first module and a set of meaningful unit tests to go along with the functionality you introduced. You also used the `puppet resource` command to explore an existing environment to gain insight into your current environment and learned how to use PDK to easily generate templates.
+You wrote your first module and a set of meaningful unit tests to go along with the functionality you introduced. You also used the `puppet resource` command to explore an existing environment to gain insight into your current environment and learned how to use PDK to easily generate templates, eliminating the need for you to write boilerplate code.
