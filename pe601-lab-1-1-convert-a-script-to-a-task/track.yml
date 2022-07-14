@@ -18,7 +18,7 @@ description: |-
    - Check out NGINX code from source control.
    - Use Puppet Development Kit (PDK) to create a Bolt task.
    - Add a pre-written Bash script to the Bolt tasks folder. The Bolt task will back up the NGINX logs to a target that you specify.
-   - Use a metadata JSON file to describe the parameters in the backup script.
+   - Use a metadata JSON file to describe the task, formalize its data types, and encapsulate the parameters passed to the script.
    - Run acceptance tests against a development node.
 
   ## Prerequisites
@@ -44,4 +44,4 @@ developers:
 private: true
 published: false
 show_timer: true
-checksum: "13578867843776568229"
+checksum: "6361851852895798811"

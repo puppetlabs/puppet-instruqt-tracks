@@ -3,7 +3,8 @@ slug: convert-a-script-to-a-task
 id: 15gorgy0lbfm
 type: challenge
 title: Convert a script into a task
-teaser: Convert a Bash script into a Bolt task.
+teaser: Convert a Bash script into a Bolt task and encapsulate the task parameters
+  by adding them to a metadata file.
 notes:
 - type: text
   contents: |-
@@ -82,7 +83,7 @@ Pull down NGINX code and create a Bolt task
 Edit the Bolt task and JSON file
 ========
 
-1. In VS Code, open `backup_logs.sh` (**File** > **Open File...** > **CODE** > **nginx** > **tasks** > **backup_logs.sh**). Replace the contents of this backup script with the following script, which copies logs from `/var/log/nginx` to a target subdirectory under `/var/backup`, using the current timestamp as the directory name:
+1. In VS Code, open `backup_logs.sh` (**File** > **Open File...** > **CODE** > **nginx** > **tasks** > **backup_logs.sh**). Replace the contents of this backup script with the following script, which copies logs from `/var/log/nginx` to a target subdirectory under `/var/backup` using the current timestamp as the directory name:
 
     ```
     #!/bin/bash
@@ -103,7 +104,7 @@ Edit the Bolt task and JSON file
     # Diff to verify (diff returns a non-zero exit code if it finds any differences
     diff --recursive $source_dir $target_dir_bkp
     ```
-3. In the same directory location, open the `backup_logs.json` metadata file. Replace the contents of the file with the following JSON code, which includes a description of the Bolt task, no-op settings, and parameters:
+3. In the same directory, open the `backup_logs.json` metadata file. Replace the contents of the file with the following JSON metadata, which includes a description of the Bolt task, no-op settings, and parameters:
 
     ```
     {
@@ -176,7 +177,7 @@ Run the new Bolt task and push it to the Git server
 
 ----------
 
-🎈 **Congratulations!** You took an NGINX log backup script written in Bash and converted it into a Bolt task. You provided parameters via the command line and added defaults to the new Bolt task's JSON metadata file. If you want to, you can spend some time exploring this environment.
+🎈 **Congratulations!** You took an NGINX log backup script written in Bash and converted it into a Bolt task. You provided parameters via the command line and added defaults to the new Bolt task's JSON metadata file, encapsulating the task parameters. By doing so, you formalized the parameters and data types, making the task more secure, flexible, and easier to maintain. If you want to, you can spend some time exploring this environment.
 
 **Find any bugs or have feedback? Click the **Bug Zapper** tab near the top of the page and let us know!**
 
