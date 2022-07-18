@@ -206,9 +206,13 @@ Create the role::<ROLE NAME> classes
 
     🔀 Switch to the **Windows Agent** tab.<br><br>
 
-9. In the VS Code terminal, from the `control-repo\site-modules\role` directory, run `pdk new class role::cmsweb`. Then, run `pdk new class role::cmsloadbalancer`.
+9. In the VS Code terminal, from the `control-repo\site-modules\role` directory, run `pdk new class role::cmsweb`.  Then, run `pdk new class role::cmsloadbalancer`.
 
-10. Add the following code to the `cmsweb.pp` file:
+    In the VS Code explorer, notice the new files (located in the **manifests** and **spec** > **classes** directories):
+    ![cmsweb file location](https://storage.googleapis.com/instruqt-images/manifests-cmbsweb-cmsloadbalancer.png)
+    ![cmsweb_spec & cmsloadbalancer file location](https://storage.googleapis.com/instruqt-images/classes-cmsloadbalancer-cmsweb.png)
+
+10. Add the following code to `cmsweb.pp` (**site-modules** > **role** > **manifests** > **cmsweb.pp**):
 
     ```
     # @summary A short summary of the purpose of this class
@@ -223,7 +227,7 @@ Create the role::<ROLE NAME> classes
     }
     ```
 
-11. Add the following code to the `cmsloadbalancer.pp` file:
+11. Add the following code to `cmsloadbalancer.pp` (**site-modules** > **role** > **manifests** > **cmsloadbalancer.pp**):
 
     ```
     # @summary A short summary of the purpose of this class
