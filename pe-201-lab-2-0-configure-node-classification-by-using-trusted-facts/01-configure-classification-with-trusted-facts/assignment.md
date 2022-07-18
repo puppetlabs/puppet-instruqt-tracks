@@ -50,7 +50,7 @@ timelimit: 2400
 ---
 Create a local control repository and update site.pp in the webapp feature branch
 ========
-1. Click the **Windows Agent** tab to go to the **Windows Agent** node. Then, click the **Start** menu and open **Visual Studio Code**.
+1. On the **Windows Agent** tab, click the **Start** menu and open **Visual Studio Code**.
 
 2. Enable VS Code autosave by clicking **File** > **Auto Save**.<br><br>✏️ **Note:** This step isn’t required, but by enabling Auto Save, you don't need to remember to save your changes as you work, ensuring your edits won't be lost.<br><br>
 
@@ -64,7 +64,7 @@ Create a local control repository and update site.pp in the webapp feature branc
     git clone git@gitea:puppet/control-repo.git
     ```
 
-6. Configure a git username and email by running the following command:
+6. Configure a Git username and email by running the following command:
 
     ```
     git config --global user.email "noreply@puppet.com"
@@ -107,7 +107,7 @@ Create a local control repository and update site.pp in the webapp feature branc
     ```
     git add .
     git commit -m "Add pp_role to site.pp"
-    git push -u origin webapp
+    git push origin webapp
     ```
 
 Run Puppet using the webapp environment branch and inspect the reports
@@ -129,14 +129,13 @@ Run Puppet using the webapp environment branch and inspect the reports
 
 5. You will be redirected to the **Run Puppet** page. Select the following options:
     - **Environment**: Click **Select an environment for nodes to run in:** and choose **webapp** from the list.![select an environment webapp](https://storage.googleapis.com/instruqt-images/environment-webapp.png)
-    - **Schedule**: Accept the default settings.
-    - **Run options**: Accept the default settings.
+    - Leave the other options as-is.<br><br>
 
 6. In the lower-right corner, click **Run Job** to run Puppet on all the nodes shown.![run job button](https://storage.googleapis.com/instruqt-images/run-job.png)
 
     You will be redirected to the **Job details** page.
 
-7. When the jobs finish running, click the **winagent** node's report link in the **Report** column.![report column](https://storage.googleapis.com/instruqt-images/report-column.png)
+7. When the jobs finish running, click the **winagent** node's report link in the **Report** column.
 
 8. On the report page, click the **Log** tab: ![log tab](https://storage.googleapis.com/instruqt-images/log-tab.png)
     Review the output contained in the error message: `Could not find class ::role::ecommerce`
@@ -160,7 +159,7 @@ Create the role::<ROLE NAME> classes
     pdk new class role::ecommerce
     ```
     💡 **Tip:** When prompted whether or not you consent to anonymous PDK usage information, choose whichever option you prefer.<br><br>
-    In the VS Code explorer, notice that the **ecommerce.pp** file now exists:![ecommerce.pp file](https://storage.googleapis.com/instruqt-images/role-manifests-ecommerce.png)
+    In the VS Code explorer, in the **site-modules** directory, notice that the **ecommerce.pp** file now exists:![ecommerce.pp file](https://storage.googleapis.com/instruqt-images/role-manifests-ecommerce.png)
 
 4. Modify the new `ecommerce.pp` file to include placeholder code for your new role, as in this example:
     ```

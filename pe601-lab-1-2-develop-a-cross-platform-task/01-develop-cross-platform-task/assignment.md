@@ -176,7 +176,7 @@ The task currently has defaults for only the Linux node written into the main me
 
     🔀 Switch to the **Windows Agent 1** tab.<br><br>
 
-1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disc (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
+1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disk (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
 
     ✔️ **Result:** Great work! Your Windows task ran successfully. Now it's time to run the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults in the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories on the command line.
 

@@ -100,7 +100,7 @@ Include a base profile in your roles
     ```
     git add .
     git commit -m "Add base profile to roles"
-    git push
+    git push origin webapp
     ```
 
 Trigger a Puppet run against your environment branch
@@ -146,7 +146,7 @@ Create a base profile
     #   include profile::base
     class profile::base {
       class { 'motd':
-          content => "Hello! You are in ${trusted['extensions']['pp_datacenter']}.\n"
+        content => "Hello! You are in ${trusted['extensions']['pp_datacenter']}.\n"
       }
     }
     ```
@@ -158,8 +158,8 @@ Create a base profile
 4. Commit and push your code to your feature branch.
     ```
     git add .
-    git commit -m "Add base profile to roles"
-    git push
+    git commit -m "Create base profile class"
+    git push origin webapp
     ```
     ✅ **Result:** Your code will be automatically deployed to the primary server.<br><br>
     🔀 Switch to the **PE Console** tab.<br><br>

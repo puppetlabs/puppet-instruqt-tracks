@@ -197,7 +197,7 @@ Add the Apache and IIS profiles to the role files
     ```
     git add .
     git commit -m "Change profiles for role features"
-    git push -u origin webapp
+    git push origin webapp
     ```
 
 In the PE console, run Puppet in no-op mode and inspect the reports
@@ -234,7 +234,7 @@ In the PE console, run Puppet in no-op mode and inspect the reports
     ```
     git add .
     git commit -m "Add Puppet Forge module dependencies"
-    git push
+    git push origin webapp
     ```
 
     🔀 Switch to the **PE Console** tab.<br><br>
@@ -259,7 +259,7 @@ In the PE console, run Puppet in no-op mode and inspect the reports
     ```
     git add .
     git commit -m "Change puppetfile to fix dependencies"
-    git push
+    git push origin webapp
     ```
     🔀 Switch to the **PE Console** tab.<br><br>
 
