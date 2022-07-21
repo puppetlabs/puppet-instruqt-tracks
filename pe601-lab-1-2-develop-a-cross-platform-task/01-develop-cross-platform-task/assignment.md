@@ -162,7 +162,7 @@ Extend the NGINX task
     ```
     pdk validate
     ```
-    ✔️ **Result:** Nice job! The required task script and metadata files were created, the **backup_linux_logs.sh** file was renamed to match the implementation records in the **backup_logs.json** metadata file, and a syntax check ran successfully using PDK. Now it's time to run the tasks against the Windows and Linux nodes.
+    ✅ **Result:** Nice job! The required task script and metadata files were created, the **backup_linux_logs.sh** file was renamed to match the implementation records in the **backup_logs.json** metadata file, and a syntax check ran successfully using PDK. Now it's time to run the tasks against the Windows and Linux nodes.
 
 Run tasks against the Windows and Linux nodes
 ========
@@ -178,7 +178,7 @@ The task currently has defaults for only the Linux node written into the main me
 
 1. Use **File Explorer** to navigate to the **site_backup_< TIMESTAMP >** directory (**Local Disk (C:)** > **temp** > **site_backup_< TIMESTAMP >**). In this directory, you'll see a successful backup of the `access` and `error` logs.
 
-    ✔️ **Result:** Great work! Your Windows task ran successfully. Now it's time to run the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults in the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories on the command line.
+    ✅ **Result:** Great work! Your Windows task ran successfully. Now it's time to run the Linux task. Remember that for the Linux nodes, the source and target directories have been set as defaults in the **backup_logs.json** metadata file, so you don't need to supply values for the source and target directories on the command line.
 
     🔀 Switch to the **Windows Workstation** tab.<br><br>
 
@@ -191,7 +191,7 @@ The task currently has defaults for only the Linux node written into the main me
 1. Change to the target directory by running `cd /var/backup` and list the directory contents by running `ls`.<br><br>
 2. Locate and open the timestamped directory and then run `cat access.log` or `cat error.log`.
 
-    ✔️ **Result:** You verified that the logs were backed up, so you know that your Linux task ran successfully.
+    ✅ **Result:** You verified that the logs were backed up, so you know that your Linux task ran successfully.
 ---
 🎈 **Congratulations!** You extended the `nginx::backup_logs` task functionality to include NGINX installations on the Windows platform. If you want to, you can spend some time exploring this environment.
 

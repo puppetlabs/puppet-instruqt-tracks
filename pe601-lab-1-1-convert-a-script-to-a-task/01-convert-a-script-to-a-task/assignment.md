@@ -78,7 +78,7 @@ Pull down NGINX code and create a Bolt task
     ```
     ✏️ **Note:** When prompted whether you consent to PDK collecting anonymous usage information, choose whichever option you prefer. This information is not stored after the lab expires.
 
-    ✔️ **Result:** You created two files needed to set up the initial Bolt task: `backup_logs.sh` and `backup_logs.json`. ![cli output that shows files added](https://storage.googleapis.com/instruqt-images/files-added.png)
+    ✅ **Result:** You created two files needed to set up the initial Bolt task: `backup_logs.sh` and `backup_logs.json`. ![cli output that shows files added](https://storage.googleapis.com/instruqt-images/files-added.png)
 
 Edit the Bolt task and JSON file
 ========
@@ -123,7 +123,7 @@ Edit the Bolt task and JSON file
     bolt task run nginx::backup_logs --targets nixagent1
     ```
 
-✔️ **Result:** In the command line output, notice that the task ran successfully against nixagent1: `Successful on 1 target: nixagent1`
+✅ **Result:** In the command line output, notice that the task ran successfully against nixagent1: `Successful on 1 target: nixagent1`
 
 Modify the Bolt task to accept Bolt-supplied parameters
 ========
@@ -154,7 +154,7 @@ Modify the Bolt task to accept Bolt-supplied parameters
       }
     }
     ```
-✔️ **Result:** The files were updated to accept new parameters.
+✅ **Result:** The files were updated to accept new parameters.
 
 Run the new Bolt task and push it to the Git server
 ========
@@ -163,7 +163,7 @@ Run the new Bolt task and push it to the Git server
     ```
     bolt task run nginx::backup_logs --targets nixagent2
     ```
-    ✔️ **Result:** Notice the command line output which shows that the task ran successfully against nixagent2:
+    ✅ **Result:** Notice the command line output which shows that the task ran successfully against nixagent2:
     `Successful on 1 target: nixagent2`<br><br>
 
 2. Because the Bolt task run was successful, you can now commit your new Bolt task to the Git repo and push it to the Git server:
@@ -173,7 +173,7 @@ Run the new Bolt task and push it to the Git server
     git push
     ```
 
-    ✔️ **Result:** The output that follows the `git push` command indicates that the Bolt task to back up logs was pushed to the Git server: ![git push output](https://storage.googleapis.com/instruqt-images/git-push-output.png)
+    ✅ **Result:** The output that follows the `git push` command indicates that the Bolt task to back up logs was pushed to the Git server: ![git push output](https://storage.googleapis.com/instruqt-images/git-push-output.png)
 
 ----------
 

@@ -81,7 +81,7 @@ Run tasks from the command line
     ```
     💡 In the terminal output, under the **lastbootuptime** header, notice the time when the node was rebooted.
 
-    ✔️ **Result:** Congratulations! You just ran a pre-built task that rebooted the Windows node.
+    ✅ **Result:** Congratulations! You just ran a pre-built task that rebooted the Windows node.
 
     🔀 Switch to the **Primary Server** tab.<br><br>
 1. Now let's run another task — this time, to return facts about the Windows node. Remember to replace `<winagent>` with the name of the Windows node you used earlier:
@@ -90,7 +90,7 @@ Run tasks from the command line
     ```
 1. Scroll through the output and observe the returned facts from your Windows node, including IP address, OS, kernel, and uptime. Note that the uptime was reset by the reboot.
 
-    ✔️ **Result:** Congratulations! You ran two tasks from the command line: one to reboot the Windows node and one to return facts about the Windows node. Continue below to learn how to run a task from the PE console.
+    ✅ **Result:** Congratulations! You ran two tasks from the command line: one to reboot the Windows node and one to return facts about the Windows node. Continue below to learn how to run a task from the PE console.
 
 Run tasks from the PE console
 ========
@@ -111,7 +111,7 @@ In this section, you'll run a task to stop and restart the time service on a Win
 8. In the **Select targets** section, from the **Select a target type** list, select **Node group**.<br><br>
 1. In the **Choose a node group** field, select **Development environment (development)** and then click **Select**. Do not run the task yet.
 
-    ✔️ **Result:** The name of your Windows node populates in the space below. This shows you the Windows node that's in the development environment node group.
+    ✅ **Result:** The name of your Windows node populates in the space below. This shows you the Windows node that's in the development environment node group.
 
     🔀 Switch to the **Windows Agent 1** tab.<br><br>
 

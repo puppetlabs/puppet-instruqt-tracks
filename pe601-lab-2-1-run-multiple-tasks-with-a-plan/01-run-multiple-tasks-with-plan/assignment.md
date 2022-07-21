@@ -107,7 +107,7 @@ Run the new backup plan against Windows and Linux nodes
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-    ✔️ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
+    ✅ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts

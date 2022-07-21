@@ -73,7 +73,7 @@ Use the console to test a Puppet plan against development nodes
 4. Click into the **Plan** field, scroll down and choose **nginx::backup_all_logs**.
 5. In the **Plan parameters** section, for the **targets = Value** field, paste the agent node names you copied earlier, using a comma separator between node names.
 6. Click **Run job**.
-✔️ **Result:** The page automatically refreshes to show that the plan completes successfully.
+✅ **Result:** The page automatically refreshes to show that the plan completes successfully.
 
 Verify the backup directories have been created on the development nodes
 ========
@@ -174,7 +174,7 @@ Use PQL and an access token to schedule a plan run for production with the orche
 🔀 Switch to the **PE Console** tab.<br><br>
 1. Navigate to the **Plans** page.
 9. Click **Scheduled Plans** to view your scheduled plan.
-✔️ **Result:** In two minutes the scheduled plan runs and disappears from the scheduled plans list.
+✅ **Result:** In two minutes the scheduled plan runs and disappears from the scheduled plans list.
 
 Verify the backup directories have been created on the production node
 ========
