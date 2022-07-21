@@ -67,7 +67,7 @@ Create a plan in your module project
    ```
    bolt plan new nginx::backup_all_logs --pp
    ```
-   ✔️ **Result:** Notice that a new **plans** folder appears in the VS Code explorer at the left.
+   ✅ **Result:** Notice that a new **plans** folder appears in the VS Code explorer at the left.
 
 Update the placeholder code
 ========
@@ -213,7 +213,7 @@ Run the new backup plan against Windows and Linux nodes
     bolt plan run nginx::backup_all_logs --targets nixagent1,winagent1
     ```
 
-    ✔️ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
+    ✅ **Result:** When the plan finishes, you'll see output similar to the following on the command line:
     ```
     Starting: plan nginx::backup_all_logs
     Starting: plan facts
@@ -237,13 +237,13 @@ Verify the NGINX service stopped and restarted on Windows
     ```
     Get-ChildItem -Path C:\backups\
     ```
-    ✔️ **Result:** In the output, notice the backup folder, `site_backup_<date-time>`. This verifies that a backup was made.<br><br>
+    ✅ **Result:** In the output, notice the backup folder, `site_backup_<date-time>`. This verifies that a backup was made.<br><br>
     💡 **Tip:** To verify that the `access` and `error` logs have been backed up successfully, you can navigate to the timestamped backup folder to view the logs. <br><br>
 3. To verify that the NGINX service stopped and started, run `eventvwr`, which opens the **Event Viewer** .<br><br>
 4. Click the square in the top right of the interface header to maximize the event viewer.<br><br>
 5. In the left-hand pane of the **Event Viewer**, navigate to **Windows Logs** > **Application**.
 
-    ✔️ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. Clicking these lines reveals detailed information in the lower Event Viewer panel, which confirm that the service was successfully stopped and restarted.
+    ✅ **Result:** In the **Source** column, locate the entries with the value `nssm`. These lines show the start and stop times for the NGINX service. Clicking these lines reveals detailed information in the lower Event Viewer panel, which confirm that the service was successfully stopped and restarted.
 
 Verify the NGINX service stopped and restarted on Linux
 ========
